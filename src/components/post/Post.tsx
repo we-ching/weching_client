@@ -30,18 +30,19 @@ const Body = () => {
         onReady={(editor: any) => {
           // You can store the "editor" and use when it is needed.
           console.log('Editor is ready to use!', editor);
+          editor.focus();
         }}
         onChange={(event: any, editor: any) => {
           const data = editor.getData();
           setBody(data);
           console.log({ event, editor, data });
         }}
-        onBlur={(event: any, editor: any) => {
-          console.log('Blur.', editor);
-        }}
-        onFocus={(event: any, editor: any) => {
-          console.log('Focus.', editor);
-        }}
+        // onBlur={(event: any, editor: any) => {
+        //   console.log('Blur.', editor);
+        // }}
+        // onFocus={(event: any, editor: any) => {
+        //   console.log('Focus.', editor);
+        // }}
       />
       <button onClick={submitHandler}>올리기</button>
     </>
