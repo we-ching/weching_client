@@ -4,6 +4,28 @@
       "id": 1,
       "title": "json-server",
       "body": "typicode"
+    },
+    {
+      "contents": "내용",
+      "id": 2
+    },
+    {
+      "contents": "내용",
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "contents": "<p>sdsafda</p>",
+      "id": 6
+    },
+    {
+      "contents": "<p>dsafadfdsfaf</p>",
+      "id": 7
     }
   ],
   "comments": [
