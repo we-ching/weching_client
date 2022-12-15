@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import google from '../../assets/images/google.png';
-import e from 'express';
 
 export const LoginForm = () => {
-  const [nickname, setNicname] = useState<string>('');
-  const [birth, setBirth] = useState<string>('');
+  const nicknameRef = useRef<HTMLInputElement>(null);
+  const birthRef = useRef<HTMLInputElement>(null);
+  const [isError, setIsError] = useState<Boolean>(false);
 
-  const [isError, setIsError] = useState<Boolean>(true);
-  const onChangeNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNicname(e.target.value);
-  };
-
-  const onChangeBirth = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBirth(e.target.value);
-  };
-
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    useEffect(() => {});
+    try {
+      const result = await axios.post(`post/api/users`);
+      const userData = {
+        nickname: nicknameRef.current?.value,
+        birth: birthRef.current?.value,
+      };
+      if (result.data.err) {
+        setIsError(true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -32,25 +34,32 @@ export const LoginForm = () => {
           {isError && (
             <InputBox>
               <NicknameInput
+                ref={nicknameRef}
                 type="text"
                 name="닉네임"
-                value={nickname}
-                onChange={onChangeNickname}
                 placeholder="닉네임"
               />
               <BirthInput
+                ref={birthRef}
                 type="text"
                 name="생년월일"
-                value={birth}
-                onChange={onChangeBirth}
                 placeholder="생년월일"
               />
             </InputBox>
           )}
-          <SubmitBtnCon>
-            <GoogleImage />
-            <SubmitBtn>Google 계정으로 함께하기</SubmitBtn>
-          </SubmitBtnCon>
+          {isError && (
+            <SubmitBtnCon>
+              <SubmitBtn>
+                {isError && '위칭 멤버로 바로 시작해보세요!'}
+              </SubmitBtn>
+            </SubmitBtnCon>
+          )}
+          {!isError ? (
+            <SubmitBtnCon>
+              <GoogleImage />
+              <SubmitBtn>구글 로그인으로 함께하기</SubmitBtn>
+            </SubmitBtnCon>
+          ) : null}
         </Form>
       </FormCon>
     </Container>
