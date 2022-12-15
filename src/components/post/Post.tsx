@@ -40,7 +40,6 @@ export const Post = () => {
   };
   return (
     <>
-      <Title type="text" name="title" placeholder="제목" />
       <Body />
       <button onClick={submitHandler}>칭찬해줘잉</button>
     </>
