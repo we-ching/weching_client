@@ -4,6 +4,6 @@
   "plugins": ["prettier"],
 
   "rules": {
-    "prettier/prettier": "warning"
+    "prettier/prettier": 1
   }
 }
