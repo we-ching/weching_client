@@ -6,10 +6,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-// - [ ] 게시하기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
+// - [ ] 올리기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
+// - [ ] 올리기 버튼 클릭 시 body 값이 없다면 게시 불가능하게 하기
+
 // 올린 게시물의 내용이 redux를 통해 전역적으로 관리되야하는 상태가 맞는건가요?
 
-const Body = () => {
+export const Post = () => {
   const [body, setBody] = useState({
     contents: '',
   });
@@ -48,11 +50,3 @@ const Body = () => {
     </>
   );
 };
-
-export const Post = () => {
-  return <Body />;
-};
-
-const Title = styled.input`
-  width: 370px;
-`;
