@@ -3,25 +3,25 @@ import React, { useEffect, useState } from "react";
 
 // components
 // import Navbar from '';
-// import EditUser from './EditUser/EditUser';
+import EditUser from './EditUser/EditUser';
 
 // styles
-import { Background, Wrapper, ItemBox, MyPageContainer } from './style';
+import * as S from './style';
 
 function MyPage() {
     return (
-    <Background>
-      <Wrapper>
-        <MyPageContainer>
-          {/* <EditUser /> */}
-          <ItemBox>내가 쓴 글</ItemBox>
-          <ItemBox>내가 쓴 칭찬</ItemBox>
-          <ItemBox>북마크</ItemBox>
-          <ItemBox>회원탈퇴</ItemBox>
-        </MyPageContainer>
+    <S.Background>
+      <S.Wrapper>
+        <S.MyPageContainer>
+          <EditUser />
+          <S.ItemBox>내가 쓴 글</S.ItemBox>
+          <S.ItemBox>내가 쓴 칭찬</S.ItemBox>
+          <S.ItemBox>북마크</S.ItemBox>
+          <S.ItemBox>회원탈퇴</S.ItemBox>
+        </S.MyPageContainer>
         {/* <Navbar /> */}
-      </Wrapper>
-    </Background>
+      </S.Wrapper>
+    </S.Background>
     );
 }
 

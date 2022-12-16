@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Background = styled.div`
+export const Background = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -14,21 +14,25 @@ const Background = styled.div`
   align-item: center;
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 430px;
   height: 932px;
 
   background-color: #F0F0F0;
 `;
 
-const MyPageContainer = styled.div`
+export const MyPageContainer = styled.div`
+  margin: 88px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 `;
 
-const ItemBox = styled.div`
+export const ItemBox = styled.div`
+  margin: 10px 0;
+
   position: relative;
   width: 372px;
   height: 60px;
@@ -47,5 +51,3 @@ const ItemBox = styled.div`
 
   cursor: pointer;
 `;
-
-export { Background, Wrapper, ItemBox, MyPageContainer };
