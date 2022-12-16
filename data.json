@@ -6,32 +6,12 @@
       "body": "typicode"
     },
     {
-      "contents": "내용",
+      "post": "<p>dddd</p>",
       "id": 2
     },
     {
-      "contents": "내용",
+      "post": "<p>123</p>",
       "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "contents": "<p>sdsafda</p>",
-      "id": 6
-    },
-    {
-      "contents": "<p>dsafadfdsfaf</p>",
-      "id": 7
-    },
-    {
-      "contents": {
-        "contents": ""
-      },
-      "id": 8
     }
   ],
   "comments": [
