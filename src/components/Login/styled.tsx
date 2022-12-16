@@ -24,7 +24,7 @@ export const Form = styled.form``;
 export const InputBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-bottom: 40px;
 `;
 export const NicknameInput = styled.input`
   height: 40px;

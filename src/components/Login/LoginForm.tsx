@@ -6,20 +6,16 @@ import * as s from './styled';
 
 export const LoginForm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const birthRef = useRef<HTMLInputElement>(null);
-  const [isError, setIsError] = useState<Boolean>(false);
-
-  const userData = {
-    nickname: nicknameRef.current?.value,
-    birth: birthRef.current?.value,
-  };
+  const [isError, setIsError] = useState<Boolean>(true);
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`post/api/users`);
+      const userData = { nickname: nicknameRef.current?.value };
+      const res = await axios.get(`post/api/users`);
       if (res.data.email) {
         const email = res.data.email;
+
         await axios.post(`post/api/register`, {
           method: 'POST',
           headers: {
@@ -51,12 +47,8 @@ export const LoginForm = () => {
                 type="text"
                 name="닉네임"
                 placeholder="닉네임"
-              />
-              <s.BirthInput
-                ref={birthRef}
-                type="text"
-                name="생년월일"
-                placeholder="생년월일"
+                minLength={2}
+                maxLength={12}
               />
             </s.InputBox>
           )}
