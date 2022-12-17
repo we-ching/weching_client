@@ -24,7 +24,9 @@ const theme = createTheme({
 });
 
 function EditUser() {
-  const [changedPassword, setChangedPassword] = useState('');
+  const [inputData, setInputData] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -38,16 +40,23 @@ function EditUser() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     try {
-      
-    } catch {
+      if (checkPassword !== newPassword) {
+        alert('새로운 비밀번호가 일치하지 않습니다.');
+      }
+
+      handleModal();
+      alert('회원 정보가 수정되었습니다.');
+    } catch (err) {
 
     }
   };
   
   return (
     <div>
-      <S.ItemBox onClick={handleModal}>회원정보 수정</S.ItemBox>
-        <Modal style={{
+      <S.ItemBox onClick={handleModal}>
+        <p>회원정보 수정</p>
+      </S.ItemBox>
+      <Modal style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -71,16 +80,33 @@ function EditUser() {
                   onChange={handleOnChange}
                 />
               </S.EditTitle>
-              <S.EditTitle className="changedPassowrd">
+              <S.EditTitle className="currentPassword">
+                <p>현재 비밀번호.
+                  <span style={{ fontSize: '0.75rem', color: 'red' }}>
+                    *필수
+                  </span>
+                </p>
+                <input
+                  id="currentPassowrd"
+                  type="password"
+                  placeholder="현재 비밀번호"
+                  name="currentPassword"
+                  value={currentPassword || ''}
+                  onChange={e => {
+                    setCurrentPassword(e.target.value);
+                  }}
+                />
+              </S.EditTitle>
+              <S.EditTitle className="newPassowrd">
                 <p>새 비밀번호</p>
                 <input
-                  id="changedPassowrd"
+                  id="newPassowrd"
                   type="password"
                   placeholder="새로운 비밀번호"
-                  name="changedPassowrd"
-                  value={changedPassword}
+                  name="newPassowrd"
+                  value={newPassword}
                   onChange={e => {
-                    setChangedPassword(e.target.value);
+                    setNewPassword(e.target.value);
                   }}
                 />
               </S.EditTitle>
@@ -96,7 +122,7 @@ function EditUser() {
                     setCheckPassword(e.target.value);
                   }}
                 />
-                {changedPassword !== checkPassword && (
+                {newPassword !== checkPassword && (
                   <p
                     className="changedPasswordChecked"
                     style={{

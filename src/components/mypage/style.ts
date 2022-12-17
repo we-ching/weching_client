@@ -50,4 +50,8 @@ export const ItemBox = styled.div`
   color: #444444;
 
   cursor: pointer;
+
+  > p {
+    margin-left: 17px;
+  }
 `;

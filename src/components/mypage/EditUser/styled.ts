@@ -26,6 +26,10 @@ export const ItemBox = styled.div`
   color: #444444;
 
   cursor: pointer;
+
+  > p {
+    margin-left: 17px;
+  }
 `;
 
 export const ModalStyle = styled.div`
@@ -43,6 +47,8 @@ export const ModalStyle = styled.div`
 `;
 
 export const Title = styled.div`
+  margin: 20px 0 0 20px;
+
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -61,6 +67,8 @@ export const Form = styled.form`
 `;
 
 export const EditTitle = styled.h3`
+  margin: 10px auto;
+
   display: flex;
   flex-direction: column;
 `;

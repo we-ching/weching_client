@@ -14,10 +14,10 @@ function MyPage() {
       <S.Wrapper>
         <S.MyPageContainer>
           <EditUser />
-          <S.ItemBox>내가 쓴 글</S.ItemBox>
-          <S.ItemBox>내가 쓴 칭찬</S.ItemBox>
-          <S.ItemBox>북마크</S.ItemBox>
-          <S.ItemBox>회원탈퇴</S.ItemBox>
+          <S.ItemBox><p>내가 쓴 글</p></S.ItemBox>
+          <S.ItemBox><p>내가 쓴 칭찬</p></S.ItemBox>
+          <S.ItemBox><p>북마크</p></S.ItemBox>
+          <S.ItemBox><p>회원탈퇴</p></S.ItemBox>
         </S.MyPageContainer>
         {/* <Navbar /> */}
       </S.Wrapper>
