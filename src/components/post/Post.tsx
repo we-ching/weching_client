@@ -10,7 +10,7 @@ import { Tip } from './Tip';
 
 // - [ ] 올리기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
 // - [x] 올리기 버튼 클릭 시 body 값이 없다면 버튼비활성화
-// - [] 글쓰기 팁
+// - [x] 글쓰기 팁
 
 export const Post: FC = () => {
   const [body, setBody] = useState<string>('');
@@ -41,6 +41,7 @@ export const Post: FC = () => {
   return (
     <>
       <Tip />
+      <h1>새 글 쓰기</h1>
       <CKEditor
         editor={ClassicEditor}
         config={{
