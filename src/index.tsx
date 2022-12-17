@@ -7,13 +7,17 @@ import reportWebVitals from './reportWebVitals';
 // if (process.env.NODE_ENV === 'development') {
 //   worker.start();
 // }
+import { store } from './store/config';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
+=======
+    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
+    "@reduxjs/toolkit": "^1.9.1",
+>>>>>>> feature-FE-post
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -16,6 +21,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+<<<<<<< HEAD
     "@types/react-slick": "^0.23.10",
     "prettier": "2.7.1",
     "react": "^18.2.0",
@@ -26,6 +32,16 @@
     "sass": "^1.56.2",
     "slick-carousel": "^1.8.1",
     "swiper": "6.8.4",
+=======
+    "@types/react-redux": "^7.1.24",
+    "@types/styled-components": "^5.1.26",
+    "axios": "^1.2.1",
+    "json-server": "^0.17.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-scripts": "5.0.1",
+>>>>>>> feature-FE-post
     "styled-components": "^5.3.6",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
@@ -55,7 +71,11 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@types/styled-components": "^5.1.26",
+=======
+    "@ckeditor/ckeditor5-react": "^5.0.3",
+>>>>>>> feature-FE-post
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "eslint": "^8.29.0",
