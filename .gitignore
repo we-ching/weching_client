@@ -162,4 +162,6 @@ dist
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/dotenv,node,yarn
-App.tsx
+# msw
+mocks/
+mockServiceWorker.js
