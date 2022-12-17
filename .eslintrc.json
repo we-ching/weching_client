@@ -5,5 +5,13 @@
 
   "rules": {
     "prettier/prettier": 1
-  }
+  },
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "requireConfigFile": false
+  },
+  "parser": "@babel/eslint-parser"
 }
