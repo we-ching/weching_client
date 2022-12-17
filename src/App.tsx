@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       {/* <Post /> */}
-      <Reply />
+      {/* <Reply /> */}
     </div>
   );
 }
