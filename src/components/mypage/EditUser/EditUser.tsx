@@ -1,5 +1,5 @@
 // dependencies
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -16,7 +16,7 @@ interface FormData {
 
 const theme = createTheme({
   palette: {
-    neutral: {
+    primary: {
       main: '#59B1FC',
       contrastText: '#fff',
     },
@@ -32,10 +32,9 @@ function EditUser() {
 
   const handleModal = () => {
     setOpen(!open);
-  }
+  };
 
-  const handleOnChange = () => {
-  }
+  const handleOnChange = () => {};
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -46,26 +45,25 @@ function EditUser() {
 
       handleModal();
       alert('회원 정보가 수정되었습니다.');
-    } catch (err) {
-
-    }
+    } catch (err) {}
   };
-  
+
   return (
     <div>
       <S.ItemBox onClick={handleModal}>
         <p>회원정보 수정</p>
       </S.ItemBox>
-      <Modal style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
+      <Modal
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
         open={open}
         onClose={handleModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
->
+      >
         <S.ModalStyle>
           <S.Title id="userInfoEdit-title">회원정보 수정</S.Title>
           <div id="userInfoEdit-description">
@@ -81,7 +79,8 @@ function EditUser() {
                 />
               </S.EditTitle>
               <S.EditTitle className="currentPassword">
-                <p>현재 비밀번호.
+                <p>
+                  현재 비밀번호.
                   <span style={{ fontSize: '0.75rem', color: 'red' }}>
                     *필수
                   </span>
@@ -92,7 +91,7 @@ function EditUser() {
                   placeholder="현재 비밀번호"
                   name="currentPassword"
                   value={currentPassword || ''}
-                  onChange={e => {
+                  onChange={(e) => {
                     setCurrentPassword(e.target.value);
                   }}
                 />
@@ -105,7 +104,7 @@ function EditUser() {
                   placeholder="새로운 비밀번호"
                   name="newPassowrd"
                   value={newPassword}
-                  onChange={e => {
+                  onChange={(e) => {
                     setNewPassword(e.target.value);
                   }}
                 />
@@ -118,7 +117,7 @@ function EditUser() {
                   placeholder="새로운 비밀번호 확인"
                   name="checkPassowrd"
                   value={checkPassword || ''}
-                  onChange={e => {
+                  onChange={(e) => {
                     setCheckPassword(e.target.value);
                   }}
                 />
@@ -131,7 +130,7 @@ function EditUser() {
                       marginTop: '0.5rem',
                     }}
                   >
-                  새로운 비밀번호가 일치하지 않습니다.
+                    새로운 비밀번호가 일치하지 않습니다.
                   </p>
                 )}
               </S.EditTitle>
@@ -140,7 +139,7 @@ function EditUser() {
                   <Button
                     type="submit"
                     variant="contained"
-                    color="neutral"
+                    color="primary"
                     sx={{ mr: 1 }}
                   >
                     변경하기
@@ -150,7 +149,7 @@ function EditUser() {
                   <Button
                     type="button"
                     variant="outlined"
-                    color="neutral"
+                    color="primary"
                     onClick={handleModal}
                   >
                     닫기
