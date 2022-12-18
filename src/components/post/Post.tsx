@@ -19,13 +19,13 @@ export const Post: FC = () => {
   const submitHandler = async () => {
     await axios
       .post(
-        `http://localhost:4000/posts`,
+        `/api/post`,
         {
-          post: body,
+          content: body,
         },
         {
           headers: {
-            Authorization: 'token',
+            Authorization: 'myoken',
           },
         }
       )
