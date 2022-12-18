@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /*
 - [] placeholder 순한맛 주의 내용
@@ -13,12 +13,13 @@ post 시 어떤 게시물에 답글을 달았는지 알아야히기 떄문에 �
 */
 
 export const Reply = () => {
+  const [post, setPost] = useState('');
   const getPost = async () => {
     await axios
-      .get(`http://localhost:4000/posts`)
-      .then((response) => {
-        console.log(response.data[1].post);
-        return response.data[1].post;
+      .get(`/api/review`)
+      .then((res) => {
+        console.log(res.data.content);
+        setPost(res.data.content);
       })
       .catch((error) => {
         console.log(error);
@@ -27,10 +28,11 @@ export const Reply = () => {
   useEffect(() => {
     getPost();
   }, []);
+
   return (
     <>
       <h1>답글 작성</h1>
-      <div>게시물</div>
+      <div>{post}</div>
     </>
   );
 };
