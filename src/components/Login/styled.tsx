@@ -17,6 +17,7 @@ export const FormCon = styled.div`
   width: 340px;
   padding: 20px;
   border-radius: 20px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 `;
 
 export const Form = styled.form``;
