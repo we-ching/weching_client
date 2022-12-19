@@ -1,8 +1,8 @@
-import * as s from '../styled';
+import * as s from './styled';
 
 import Present from '../../../assets/images/Rectangle-1.png';
 
-function Advice() {
+export const Advice = () => {
   return (
     <div>
       <s.Advice>
@@ -12,6 +12,4 @@ function Advice() {
       </s.Advice>
     </div>
   );
-}
-
-export default Advice;
+};

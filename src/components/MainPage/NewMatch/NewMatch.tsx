@@ -1,4 +1,4 @@
-import * as s from '../styled';
+import * as s from './styled';
 
 import Letter from '../../../assets/images/mail.png';
 
@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Carousel = () => {
+export const Carousel = () => {
   const settings = {
     arrows: true,
     dots: true,
@@ -26,7 +26,7 @@ const Carousel = () => {
   );
 };
 
-function NewMatch() {
+export const NewMatch = () => {
   return (
     <div>
       <s.NewMatchTitle>
@@ -37,6 +37,4 @@ function NewMatch() {
       <Carousel />
     </div>
   );
-}
-
-export default NewMatch;
+};

@@ -1,6 +1,6 @@
-import * as S from '../styled';
+import * as S from './styled';
 
-function Alarm() {
+export const Alarm = () => {
   return (
     <S.Container>
       <S.Message>
@@ -31,6 +31,4 @@ function Alarm() {
       </S.Message>
     </S.Container>
   );
-}
-
-export default Alarm;
+};

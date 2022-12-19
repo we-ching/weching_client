@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import * as S from './styled';
 
-import NewMatch from './NewMatch/NewMatch';
-import Advice from './Advice/Advice';
-import Ranking from './Ranking/Ranking';
+import { NewMatch } from './NewMatch/NewMatch';
+import { Advice } from './Advice/Advice';
+import { Ranking } from './Ranking/Ranking';
 
-export default function MainPage() {
+export const MainPage = () => {
   return (
     <S.Container>
       <S.UpperNav />
@@ -15,4 +14,4 @@ export default function MainPage() {
       <S.LowerNav />
     </S.Container>
   );
-}
+};
