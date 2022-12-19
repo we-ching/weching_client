@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div className="App"></div>
+      <div className="App">
+        <Reply />
+      </div>
     </>
   );
 }
