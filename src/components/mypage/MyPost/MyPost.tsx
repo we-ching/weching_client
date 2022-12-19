@@ -1,60 +1,58 @@
-import React, { useEffect } from 'react';
-import * as s from './styled';
+import React, { useState, useEffect } from 'react';
+import * as S from './styled';
 import axios from 'axios';
 
-/**
- * 내가 쓴 글 조회
- */
+interface Post {
+  id: number;
+  user_id: number;
+  content: string;
+  status: number;
+}
+interface Reviews {
+  id: number;
+  content: string;
+  grade: null;
+  status: number;
+}
+interface Posts {
+  post: Post;
+  reviews: Reviews[];
+}
+interface isReviewType {
+  isReview: boolean;
+}
 
 export const MyPost = () => {
-  const token = 'token';
+  const [posts, setPosts] = useState<Posts[]>([]);
+  const [isReview, setIsReview] = useState<boolean>(false);
+  const token = 'aedfewlkw123';
+  const myPostGet = async () => {
+    const res = await axios.get(`/api/post`, {
+      headers: {
+        authorization: `bearer ${token}`,
+      },
+    });
+    const postList = res.data;
+    setPosts(() => [...posts, ...postList]);
+  };
   useEffect(() => {
-    const myPostGet = async () => {
-      const res = await axios.get(`get/api/posts`, {
-        headers: {
-          authorization: token,
-        },
-      });
-    };
+    myPostGet();
   }, []);
-
   return (
-    <s.Container>
-      <s.PostCon>
-        <s.Title>내가 쓴 글</s.Title>
-        <s.Post>
-          <s.PostContent>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
-            dolorem animi eos fugiat, sed sit iure, fugit ipsa nihil in aut
-            aspernatur assumenda nulla harum delectus sunt error quam
-            voluptatibus.
-          </s.PostContent>
-        </s.Post>
-        <s.Post>
-          <s.PostContent>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
-            dolorem animi eos fugiat, sed sit iure, fugit ipsa nihil in aut
-            aspernatur assumenda nulla harum delectus sunt error quam
-            voluptatibus.
-          </s.PostContent>
-        </s.Post>
-        <s.Post>
-          <s.PostContent>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
-            dolorem animi eos fugiat, sed sit iure, fugit ipsa nihil in aut
-            aspernatur assumenda nulla harum delectus sunt error quam
-            voluptatibus.
-          </s.PostContent>
-        </s.Post>
-        <s.Post>
-          <s.PostContent>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum
-            dolorem animi eos fugiat, sed sit iure, fugit ipsa nihil in aut
-            aspernatur assumenda nulla harum delectus sunt error quam
-            voluptatibus.
-          </s.PostContent>
-        </s.Post>
-      </s.PostCon>
-    </s.Container>
+    <S.Container>
+      <S.PostCon>
+        <S.Title>내가 쓴 글</S.Title>
+        {posts.map((post) => {
+          console.log(post);
+          post['reviews'].length !== 0 ? setIsReview(true) : setIsReview(false);
+          console.log(isReview);
+          return (
+            <S.Post>
+              <S.PostContent>{post['post']['content']}</S.PostContent>
+            </S.Post>
+          );
+        })}
+      </S.PostCon>
+    </S.Container>
   );
 };
