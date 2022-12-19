@@ -1,17 +1,29 @@
 {
-  "posts": [
+  "post": [
     {
       "id": 1,
       "title": "json-server",
       "body": "typicode"
     },
     {
-      "post": "<p>asdf</p>",
+      "post": "<p>2번게시물</p>",
       "id": 2
     },
     {
-      "post": "<p>sdafda</p>",
+      "post": "<p>3번게시물</p>",
       "id": 3
+    },
+    {
+      "post": "<p>4번게시물</p>",
+      "id": 4
+    },
+    {
+      "post": "<p>5번 게시물</p>",
+      "id": 5
+    },
+    {
+      "post": "<p>6번 게시물</p>",
+      "id": 6
     }
   ],
   "comments": [
