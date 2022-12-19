@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import './reset.css';
 
 const customMediaQuery = (maxWidth: number) => 
     `@media (max-width: ${maxWidth}px)`;
