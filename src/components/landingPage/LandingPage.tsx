@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './reset.css';
 import imgOne from '../../assets/images/Rectanglethumb.png';
 import googleImg from '../../assets/images/googleLogo.png';
 import arrowRight from '../../assets/images/slide swipe main page.png';
