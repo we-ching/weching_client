@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+interface postProps {
+  post: string;
+}
+
+const ParseHtml: React.FC<postProps> = ({ post }) => (
+  <article dangerouslySetInnerHTML={{ __html: post }} />
+);
 
 export const RandomPost = () => {
   const [post, setPost] = useState('');
@@ -17,5 +25,5 @@ export const RandomPost = () => {
   useEffect(() => {
     getPost();
   }, []);
-  return <div>{post}</div>;
+  return <ParseHtml post={post} />;
 };

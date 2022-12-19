@@ -50,8 +50,6 @@ export const Post: FC = () => {
         }}
         data=""
         onReady={(editor: any) => {
-          // You can store the "editor" and use when it is needed.
-          console.log('Editor is ready to use!', editor);
           editor.focus();
         }}
         onChange={(event: any, editor: any) => {

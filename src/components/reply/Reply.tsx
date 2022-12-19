@@ -20,6 +20,8 @@ TODO: 최초 랜더링 시 api 받아오는 로직 =>
         메인페이지에서 넘어온 param을 받아어 id를 url에 params로 보내주면 해당 id를 가진 게시글 랜더링되는 로직으로 변경
 */
 
+
+
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
 
