@@ -6,9 +6,9 @@ import React, { useEffect, useState } from "react";
 import EditUser from './EditUser/EditUser';
 
 // styles
-import * as S from './style';
+import * as S from './styled';
 
-function MyPage() {
+export function MyPage() {
     return (
     <S.Background>
       <S.Wrapper>
@@ -24,5 +24,3 @@ function MyPage() {
     </S.Background>
     );
 }
-
-export default MyPage;
