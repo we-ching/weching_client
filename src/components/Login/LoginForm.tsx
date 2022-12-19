@@ -5,7 +5,7 @@ import * as S from './styled';
 
 export const LoginForm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(true);
+  const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(false);
   const [token, setToken] = useState<string>('');
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +17,12 @@ export const LoginForm = () => {
       token ? setToken(jwtToken) : null;
       if (res.data.email) {
         const email = res.data.emailId;
-
+        /**
+         * todo: 회원가입 후 재 로그인해야 토큰 받을 수 있음.
+         * 서버에서 리디렉션을 로그인주소로 보내주면 될 듯 함
+         * 동일한 닉네임일경우
+         * 중복 검사버튼
+         */
         await axios.post(`/api/guest`, {
           method: 'POST',
           headers: {
@@ -64,5 +69,3 @@ export const LoginForm = () => {
     </S.Container>
   );
 };
-
-export default LoginForm;
