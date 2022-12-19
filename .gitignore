@@ -163,5 +163,3 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/dotenv,node,yarn
 # msw
-mocks/
-mockServiceWorker.js

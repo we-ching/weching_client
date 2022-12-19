@@ -4,8 +4,8 @@ import './CKEditor.css';
 import axios from 'axios';
 import { useState, FC } from 'react';
 import { useDispatch } from 'react-redux';
-import Board from './Board';
-import postSlice from '../../postSlice';
+import { Board } from './Board';
+import { postSlice } from '../../postSlice';
 import { Tip } from './Tip';
 
 // - [x] 올리기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
