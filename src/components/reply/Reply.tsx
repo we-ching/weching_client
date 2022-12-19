@@ -4,6 +4,7 @@ import './CKEditor.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { RandomPost } from './RandomPost';
+import { useNavigate } from 'react-router-dom';
 
 /*
 - [x] placeholder 순한맛 주의 내용
@@ -20,11 +21,9 @@ TODO: 최초 랜더링 시 api 받아오는 로직 =>
         메인페이지에서 넘어온 param을 받아어 id를 url에 params로 보내주면 해당 id를 가진 게시글 랜더링되는 로직으로 변경
 */
 
-
-
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
-
+  const navigate = useNavigate();
   const submitHandler = async () => {
     await axios
       .patch(
@@ -40,6 +39,7 @@ export const Reply = () => {
       )
       .then(() => {
         alert('글쓴이에게 칭찬을 보냈어요!');
+        navigate('/home');
       })
       .catch((error) => {
         console.log(error);

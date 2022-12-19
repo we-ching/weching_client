@@ -1,17 +1,36 @@
-import React from 'react';
+import { FC } from 'react';
 import './App.css';
-import { Reply } from './components/reply/Reply';
 import GlobalStyle from './GlobalStyle';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-function App() {
+import { MainPage } from './components/MainPage';
+import { Reply } from './components/reply/Reply';
+import { MyPage } from './components/mypage/index';
+import { LandingPage } from './components/landingPage/LandingPage';
+import { Post } from './components/post/Post';
+import { Alarm } from './components/MainPage/Alarm/alarm';
+import { LoginForm } from './components/Login/LoginForm';
+import { NotFound } from './components/NotFound';
+
+const App: FC = () => {
   return (
     <>
       <GlobalStyle />
       <div className="App">
-        <Reply />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/myPage" element={<MyPage />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/post" element={<Post />} />
+          <Route path="/reply" element={<Reply />} />
+          <Route path="/alarm" element={<Alarm />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </>
   );
-}
+};
 
 export default App;

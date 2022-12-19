@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { Board } from './Board';
 import { postSlice } from '../../postSlice';
 import { Tip } from './Tip';
+import { useNavigate } from 'react-router-dom';
 
 // - [x] 올리기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
 // - [x] 올리기 버튼 클릭 시 body 값이 없다면 버튼비활성화
@@ -15,6 +16,7 @@ import { Tip } from './Tip';
 export const Post: FC = () => {
   const [body, setBody] = useState<string>('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitHandler = async () => {
     await axios
@@ -32,6 +34,7 @@ export const Post: FC = () => {
       .then(() => {
         dispatch(postSlice.actions.savePost(body));
         alert('글 작성 완료');
+        navigate('/home');
       })
       .catch((error) => {
         console.log(error);
