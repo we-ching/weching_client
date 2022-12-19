@@ -23,7 +23,7 @@ const theme = createTheme({
   },
 });
 
-function EditUser() {
+export function EditUser() {
   const [inputData, setInputData] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -164,4 +164,3 @@ function EditUser() {
   );
 }
 
-export default EditUser;

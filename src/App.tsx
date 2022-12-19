@@ -9,9 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div className="App">
-        <MainPage />
-      </div>
+      <div className="App"></div>
     </>
   );
 }
