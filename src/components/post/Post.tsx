@@ -59,12 +59,6 @@ export const Post: FC = () => {
           console.log({ event, editor, data });
           setBody(data);
         }}
-        // onBlur={(event: any, editor: any) => {
-        //   console.log('Blur.', editor);
-        // }}
-        // onFocus={(event: any, editor: any) => {
-        //   console.log('Focus.', editor);
-        // }}
       />
 
       <button onClick={submitHandler} disabled={body ? false : true}>

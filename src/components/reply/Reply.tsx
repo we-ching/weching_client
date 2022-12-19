@@ -2,7 +2,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CKEditor.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { RandomPost } from './RandomPost';
 
 /*
@@ -19,7 +19,6 @@ TODO: 랜덤으로 매칭된 게시물 및 버튼은 재랜더링 할필요없�
 TODO: 최초 랜더링 시 api 받아오는 로직 => 
         메인페이지에서 넘어온 param을 받아어 id를 url에 params로 보내주면 해당 id를 가진 게시글 랜더링되는 로직으로 변경
 */
-const Header = () => <h1>답글 작성</h1>;
 
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
@@ -47,7 +46,6 @@ export const Reply = () => {
 
   return (
     <>
-      <Header />
       <RandomPost />
       <CKEditor
         editor={ClassicEditor}
