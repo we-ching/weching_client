@@ -1,48 +1,50 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
-import * as s from './styled';
+import * as S from './styled';
 
 export const LoginForm = () => {
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const [isError, setIsError] = useState<Boolean>(true);
+  const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(false);
+  const [token, setToken] = useState<string>('');
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const userData = { nickname: nicknameRef.current?.value };
-      const res = await axios.get(`post/api/users`);
+      const res = await axios.get(`/auth/google/login`);
+      const jwtToken = res.data.accessToken;
+      token ? setToken(jwtToken) : null;
       if (res.data.email) {
-        const email = res.data.email;
-
-        await axios.post(`post/api/register`, {
+        const email = res.data.emailId;
+        /**
+         * todo: 회원가입 후 재 로그인해야 토큰 받을 수 있음.
+         * 서버에서 리디렉션을 로그인주소로 보내주면 될 듯 함
+         * 동일한 닉네임일경우
+         * 중복 검사버튼
+         */
+        await axios.post(`/api/guest`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ ...userData, email }),
         });
-        /**
-         * 등록된 회원이라면?
-         * 서버에서 리디렉션 해주는지.
-         * 회원의 닉네임을 받아서 로그인 됐음을 표시해줘야 함
-         */
       }
     } catch (err) {
-      console.log(err);
+      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
 
   return (
-    <s.Container>
-      <s.FormCon>
-        <s.LoginTitle>환영합니다!</s.LoginTitle>
-        <s.Form onSubmit={submitHandler}>
-          {!isError}
-          {isError && (
-            <s.InputBox>
-              <s.NicknameInput
+    <S.Container>
+      <S.FormCon>
+        <S.LoginTitle>환영합니다!</S.LoginTitle>
+        <S.Form onSubmit={submitHandler}>
+          {!isRegisteredUser}
+          {isRegisteredUser === false ? (
+            <S.InputBox>
+              <S.NicknameInput
                 ref={nicknameRef}
                 type="text"
                 name="닉네임"
@@ -50,25 +52,20 @@ export const LoginForm = () => {
                 minLength={2}
                 maxLength={12}
               />
-            </s.InputBox>
-          )}
-          {isError && (
-            <s.SubmitBtnCon>
-              <s.SubmitBtn>
-                {isError && '위칭 멤버로 바로 시작해보세요!'}
-              </s.SubmitBtn>
-            </s.SubmitBtnCon>
-          )}
-          {!isError ? (
-            <s.SubmitBtnCon>
-              <s.GoogleImage />
-              <s.SubmitBtn>구글 로그인으로 함께하기</s.SubmitBtn>
-            </s.SubmitBtnCon>
+            </S.InputBox>
           ) : null}
-        </s.Form>
-      </s.FormCon>
-    </s.Container>
+          {isRegisteredUser === false ? (
+            <S.SubmitBtnCon>
+              <S.SubmitBtn>위칭 멤버로 바로 시작해보세요!</S.SubmitBtn>
+            </S.SubmitBtnCon>
+          ) : (
+            <S.SubmitBtnCon>
+              <S.GoogleImage />
+              <S.SubmitBtn>구글 로그인으로 함께하기</S.SubmitBtn>
+            </S.SubmitBtnCon>
+          )}
+        </S.Form>
+      </S.FormCon>
+    </S.Container>
   );
 };
-
-export default LoginForm;
