@@ -56,7 +56,7 @@ export const NewMatchTitleCount: any = styled.p`
 
 export const NewMatchTextBox: any = styled.div`
   margin: 0 auto;
-  padding: 30px;
+  padding: 15px;
   font-size: 14px;
   width: 370px !important;
   height: 270px;
@@ -78,7 +78,7 @@ export const NewMatchTextContent: any = styled.div`
   transition-property: transform;
 `;
 
-export const TodayQuotes: any = styled.div`
+export const Advice: any = styled.div`
   margin: 15px auto;
   padding: 10px 15px;
   width: 370px;
@@ -89,15 +89,14 @@ export const TodayQuotes: any = styled.div`
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
 `;
 
-export const TodayQuotesTitle: any = styled.div`
+export const AdviceTitle: any = styled.div`
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
   padding: 5px 0;
-  height: 26px;
 
   font-size: 18px;
 `;
 
-export const TodayQuotesContent: any = styled.div`
+export const AdviceContent: any = styled.div`
   padding: 30px 0;
 
   font-size: 14px;
@@ -146,4 +145,37 @@ export const Image: any = styled.img`
     width: 33px;
     margin: 0 5px 0 0;
   }
+`;
+
+export const Message: any = styled.div`
+  width: 370px;
+  height: 100px;
+  margin: 0 auto 24px;
+  border-radius: 10px;
+
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
+
+  &:first-child {
+    margin-top: 28px;
+  }
+`;
+
+export const MessageTitle: any = styled.div`
+  width: 343px;
+  height: 26px;
+  margin: auto;
+  padding: 7px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+`;
+
+export const MessageContent: any = styled.div`
+  width: 343px;
+  height: 52px;
+  margin: auto;
+
+  font-size: 14px;
 `;
