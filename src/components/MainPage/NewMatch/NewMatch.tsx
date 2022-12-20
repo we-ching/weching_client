@@ -6,6 +6,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { Link } from 'react-router-dom';
+
 export const Carousel = () => {
   const settings = {
     arrows: true,
@@ -19,8 +21,12 @@ export const Carousel = () => {
   return (
     <s.NewMatchTextBox>
       <Slider {...settings}>
-        <s.NewMatchTextContent>안녕하세용</s.NewMatchTextContent>
-        <s.NewMatchTextContent>반갑슴둥</s.NewMatchTextContent>
+        <Link to="/reply">
+          <s.NewMatchTextContent>안녕하세용</s.NewMatchTextContent>
+        </Link>
+        <Link to="/reply">
+          <s.NewMatchTextContent>방구뿡</s.NewMatchTextContent>
+        </Link>
       </Slider>
     </s.NewMatchTextBox>
   );
