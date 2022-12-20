@@ -1,5 +1,6 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -7,12 +8,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // styles
 import * as S from './styled';
-
-interface FormData {
-  currentPassword: string;
-  password: string;
-  passwordConfirm: string;
-}
 
 const theme = createTheme({
   palette: {
@@ -24,28 +19,61 @@ const theme = createTheme({
 });
 
 export function EditUser() {
-  const [inputData, setInputData] = useState('');
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [checkPassword, setCheckPassword] = useState('');
-  const [open, setOpen] = useState(false);
+  const token = '';
+
+  const [newNickname, setNewNickname] = useState<string>('');
+  const [checkNickname, setCheckNickname] = useState<string>('');
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleModal = () => {
     setOpen(!open);
   };
 
-  const handleOnChange = () => {};
+  const nicknameOverlap = async (e: any) => {
+    e.preventDefault();
 
-  const handleSubmit = (e: any) => {
+    try {
+      const res = await axios.post(`api/user/checkName`, {
+        method: 'POST',
+        headers: {
+          authorization: `bearer ${token}`,
+        },
+        body: JSON.stringify({ newNickname })
+      })
+
+      if (res.status == 200) {
+        alert(res.data.message);
+      } else if (res.status == 400) {
+        alert(res.data.message);
+      };
+      
+      } catch (err) {
+      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  }
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      if (checkPassword !== newPassword) {
-        alert('새로운 비밀번호가 일치하지 않습니다.');
+      if (newNickname !== checkNickname) {
+        alert('새로운 닉네임과 일치하지 않습니다.')
+        return;
       }
+
+      await axios.patch(`/api/user`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `bearer ${token}`,
+        },
+        body: JSON.stringify({ newNickname })
+      })
 
       handleModal();
       alert('회원 정보가 수정되었습니다.');
-    } catch (err) {}
+    } catch (err) {
+      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
   };
 
   return (
@@ -68,69 +96,59 @@ export function EditUser() {
           <S.Title id="userInfoEdit-title">회원정보 수정</S.Title>
           <div id="userInfoEdit-description">
             <S.Form onSubmit={handleSubmit}>
-              <S.EditTitle className="nickname">
-                <p>닉네임</p>
-                <input
-                  id="nickname"
-                  type="text"
-                  placeholder=""
-                  name="nickname"
-                  onChange={handleOnChange}
-                />
-              </S.EditTitle>
-              <S.EditTitle className="currentPassword">
-                <p>
-                  현재 비밀번호.
-                  <span style={{ fontSize: '0.75rem', color: 'red' }}>
-                    *필수
+              <S.EditTitle className="newNickname">
+                <p>새 닉네임
+                  <span style={{ marginLeft: '10px', fontSize: '0.75rem', color: 'red' }}>
+                    * 필수
                   </span>
                 </p>
                 <input
-                  id="currentPassowrd"
-                  type="password"
-                  placeholder="현재 비밀번호"
-                  name="currentPassword"
-                  value={currentPassword || ''}
-                  onChange={(e) => {
-                    setCurrentPassword(e.target.value);
-                  }}
-                />
-              </S.EditTitle>
-              <S.EditTitle className="newPassowrd">
-                <p>새 비밀번호</p>
-                <input
-                  id="newPassowrd"
-                  type="password"
-                  placeholder="새로운 비밀번호"
+                  id="newNickname"
+                  type="text"
+                  placeholder="새로운 닉네임"
                   name="newPassowrd"
-                  value={newPassword}
+                  value={newNickname}
+                  minLength={2}
+                  maxLength={12}
                   onChange={(e) => {
-                    setNewPassword(e.target.value);
+                    setNewNickname(e.target.value);
                   }}
                 />
               </S.EditTitle>
+              <div className='overlapCheckbBtn'>
+                <ThemeProvider theme={theme}>
+                  <Button
+                    type="button"
+                    variant="outlined"
+                    color="primary"
+                    onClick={nicknameOverlap}
+                  >
+                    중복 확인
+                  </Button>
+                </ThemeProvider>
+              </div>
               <S.EditTitle>
-                <p>비밀번호 확인</p>
+                <p>닉네임 확인</p>
                 <input
-                  id="checkPassowrd"
-                  type="password"
-                  placeholder="새로운 비밀번호 확인"
-                  name="checkPassowrd"
-                  value={checkPassword || ''}
+                  id="checkNickname"
+                  type="text"
+                  placeholder="새로운 닉네임 확인"
+                  name="checkNickname"
+                  value={checkNickname || ''}
                   onChange={(e) => {
-                    setCheckPassword(e.target.value);
+                    setCheckNickname(e.target.value);
                   }}
                 />
-                {newPassword !== checkPassword && (
+                {newNickname !== checkNickname && (
                   <p
-                    className="changedPasswordChecked"
+                    className="changedNicknameChecked"
                     style={{
                       fontSize: '0.75rem',
                       color: 'red',
                       marginTop: '0.5rem',
                     }}
                   >
-                    새로운 비밀번호가 일치하지 않습니다.
+                    새로운 닉네임이 일치하지 않습니다.
                   </p>
                 )}
               </S.EditTitle>
@@ -163,4 +181,3 @@ export function EditUser() {
     </div>
   );
 }
-

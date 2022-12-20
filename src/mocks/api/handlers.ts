@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { getRandomPost, testData } from './data/testData';
+import { getRandomPost, testData, testOverlap } from './data/testData';
 
 const handlers = [
   rest.get('/post/api/users', (req, res, ctx) => {
@@ -16,6 +16,9 @@ const handlers = [
   }),
   rest.patch('/api/review/write/:id', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
+  }),
+  rest.post('/api/user/checkName', (req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(testOverlap));
   }),
 ];
 

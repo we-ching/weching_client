@@ -35,7 +35,7 @@ export const ItemBox = styled.div`
 export const ModalStyle = styled.div`
   position: absolute;
   width: 350px;
-  height: 600px;
+  height: 350px;
 
   background-color: #FFFFFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -47,7 +47,7 @@ export const ModalStyle = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 20px 0 0 20px;
+  margin: 20px 0 20px 20px;
 
   font-style: normal;
   font-weight: bold;
