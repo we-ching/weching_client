@@ -35,8 +35,11 @@ export const NavMenuBox = styled.div`
     border: 0;
 
     &:nth-child(3) {
-        padding-bottom: 20px;
-        display: inline;
-        
+        display: inline-block;
+        svg {
+            padding-bottom: 20px;
+
+        }
     }
+    
 `;

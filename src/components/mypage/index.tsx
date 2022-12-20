@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 // components
 // import Navbar from '';
-import { EditUser } from './EditUser/EditUser';
+import {EditUser} from './EditUser/EditUser';
 
 // styles
 import * as S from './styled';

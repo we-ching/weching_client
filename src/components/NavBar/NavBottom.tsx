@@ -1,13 +1,23 @@
-import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import * as S from './styled';
 import { SummitContainer } from './SummitContainer';
-import React from 'react';
+import {useState} from 'react';
 
 import { IconHome, IconBookmark, IconPlus, IconUser, IconVertical } from './Mark';
+
+const clickColor = '#8C5C32';
+const nonClickColor = '#BFA78A';
+
 
 export const NavBottom = () => {
     // const currentURL = useLocation();
     const navigate = useNavigate();
+
+    const [activeHome, setActiveHome] = useState(false);
+    const [activeBook, setActiveBook] = useState(false);
+    const [activePlus, setActivePlus] = useState(false);
+    const [activeUser, setActiveUser] = useState(false);
+    const [activeVerti, setActiveVerti] = useState(false);
 
     return (
         <SummitContainer>
@@ -15,41 +25,76 @@ export const NavBottom = () => {
                 <S.NavMenuBox
                     onClick={()=> {
                         navigate('/home');
-                    }}
-                    // isSelected={currentURL === 'home'}
+                        setActiveHome(true);
+                        setActiveBook(false);
+                        setActivePlus(false);
+                        setActiveUser(false);
+                        setActiveVerti(false);
+                    }}                   
                     >
-                <IconHome color="#BFA78A"/>
+                <IconHome  
+                    fill={activeHome ? clickColor : nonClickColor}
+                    stroke={activeHome ? clickColor : nonClickColor}
+                    />
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
                         navigate('/page2');
+                        setActiveHome(false);
+                        setActiveBook(true);
+                        setActivePlus(false);
+                        setActiveUser(false);
+                        setActiveVerti(false);
                     }}
-                    // isSelected={currentURL === 'home'}
                 >
-                <IconBookmark color="#BFA78A"/>
+                <IconBookmark 
+                    fill={activeBook ? clickColor : nonClickColor}
+                    stroke={activeBook ? clickColor : nonClickColor}
+                    />
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
-                        navigate('/page3');
+                        navigate('/post');
+                        setActiveHome(false);
+                        setActiveBook(false);
+                        setActivePlus(true);
+                        setActiveUser(false);
+                        setActiveVerti(false);
                     }}
-                    // isSelected={currentURL === 'home'}
                 >
-                 <IconPlus color="#BFA78A"/>
+                 <IconPlus 
+                    fill={activePlus ? clickColor : nonClickColor}
+                    stroke={activePlus ? clickColor : nonClickColor}
+                 />
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
-                        navigate('/page4');
+                        navigate('/MyPage');
+                        setActiveHome(false);
+                        setActiveBook(false);
+                        setActivePlus(false);
+                        setActiveUser(true);
+                        setActiveVerti(false);
                     }}
-                    // isSelected={currentURL === 'home'}
                 >
-               <IconUser color="#BFA78A"/>
+               <IconUser 
+                    fill={activeUser ? clickColor : nonClickColor}
+                    stroke={activeUser ? clickColor : nonClickColor}
+                />
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
                         navigate('/page5');
+                        setActiveHome(false);
+                        setActiveBook(false);
+                        setActivePlus(false);
+                        setActiveUser(false);
+                        setActiveVerti(true);
                     }}
-                    // isSelected={currentURL === 'home'}
-                ><IconVertical color="#BFA78A"/>
+                ><IconVertical 
+                    fill={activeVerti ? clickColor : nonClickColor}
+                    stroke={activeVerti ? clickColor : nonClickColor}
+                />
                 </S.NavMenuBox>
             </S.NavBottomContainer>
         </SummitContainer>

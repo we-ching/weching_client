@@ -12,6 +12,7 @@ import { Post } from './components/post/Post';
 import { Alarm } from './components/MainPage/Alarm/alarm';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
+import { NavBottom } from './components/NavBar';
 
 const App: FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: FC = () => {
           <Route path="/alarm" element={<Alarm />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <NavBottom />
       </div>
     </>
   );
