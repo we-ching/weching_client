@@ -30,7 +30,7 @@ export function SignOut() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await axios.delete(`/api/user`, {
+      const res = await axios.delete(`/api/user`, {
         method: 'DELETE',
         headers: {
           authorization: `bearer ${token}`,
@@ -38,7 +38,7 @@ export function SignOut() {
       })
 
       handleModal();
-      alert('회원 탈퇴가 되었습니다.');
+      alert(res.data.message);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }

@@ -9,3 +9,7 @@ export const getRandomPost = {
 export const testOverlap = {
   "message": " 오승하 is available"
 }
+
+export const testSignOut = {
+  "message": '정상적으로 탈퇴되셨습니다.'
+}

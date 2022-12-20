@@ -44,7 +44,7 @@ export function EditUser() {
       if (res.status == 200) {
         alert(res.data.message);
       } else if (res.status == 400) {
-        alert(res.data.message);
+        alert(res.data.content);
       };
       
       } catch (err) {
