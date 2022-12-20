@@ -1,15 +1,15 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import * as S from './styled';
-import { SummitContainer } from './SummitContainer';
+import { SummitContainer } from '../SummitContainer';
 import {useState} from 'react';
 
-import { IconHome, IconBookmark, IconPlus, IconUser, IconVertical } from './Mark';
+import { IconHome, IconBookmark, IconPlus, IconUser, IconVertical, IconAlarm } from '../Mark';
 
 const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 
-export const NavBottom = () => {
+export const Nav = () => {
     // const currentURL = useLocation();
     const navigate = useNavigate();
 
@@ -18,11 +18,31 @@ export const NavBottom = () => {
     const [activePlus, setActivePlus] = useState(false);
     const [activeUser, setActiveUser] = useState(false);
     const [activeVerti, setActiveVerti] = useState(false);
-
-    if (window.location.pathname === '/') return null;
+    const [activeAlarm, setActiveAlarm] = useState(false);
 
     return (
         <SummitContainer>
+            <S.HeaderContainer>
+                <S.HeaderMenuBox>
+                    <IconAlarm /> 
+                </S.HeaderMenuBox>
+                <S.HeaderMenuBox
+                    onClick={()=> {
+                        navigate('/alarm');
+                        setActiveHome(false);
+                        setActiveBook(false);
+                        setActivePlus(false);
+                        setActiveUser(false);
+                        setActiveVerti(false);
+                        setActiveAlarm(true);
+                    }} 
+                >
+                    <IconAlarm 
+                        fill={activeAlarm ? clickColor : nonClickColor}
+                        stroke={activeAlarm ? clickColor : nonClickColor}
+                    />
+                </S.HeaderMenuBox>
+            </S.HeaderContainer>
             <S.NavBottomContainer>
                 <S.NavMenuBox
                     onClick={()=> {
@@ -32,6 +52,7 @@ export const NavBottom = () => {
                         setActivePlus(false);
                         setActiveUser(false);
                         setActiveVerti(false);
+                        setActiveAlarm(false);
                     }}                   
                     >
                 <IconHome  
@@ -47,6 +68,7 @@ export const NavBottom = () => {
                         setActivePlus(false);
                         setActiveUser(false);
                         setActiveVerti(false);
+                        setActiveAlarm(false);
                     }}
                 >
                 <IconBookmark 
@@ -62,6 +84,7 @@ export const NavBottom = () => {
                         setActivePlus(true);
                         setActiveUser(false);
                         setActiveVerti(false);
+                        setActiveAlarm(false);
                     }}
                 >
                 <S.PlusWrap>
@@ -79,6 +102,7 @@ export const NavBottom = () => {
                         setActivePlus(false);
                         setActiveUser(true);
                         setActiveVerti(false);
+                        setActiveAlarm(false);
                     }}
                 >
                <IconUser 
@@ -94,6 +118,7 @@ export const NavBottom = () => {
                         setActivePlus(false);
                         setActiveUser(false);
                         setActiveVerti(true);
+                        setActiveAlarm(false);
                     }}
                 ><IconVertical 
                     fill={activeVerti ? clickColor : nonClickColor}

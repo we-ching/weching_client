@@ -1,5 +1,37 @@
 import styled from 'styled-components';
 
+
+export const HeaderContainer = styled.div`
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    min-width: 200px;
+    max-width: 1024px;
+    height: 75px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #F2F2F2;
+
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+`;
+
+export const HeaderMenuBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 0;
+    margin: 0 25px;
+`;
+
+
 export const NavBottomContainer = styled.div`
     position: fixed;
     bottom: 0;

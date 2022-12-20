@@ -1,3 +1,11 @@
-import { NavBottom } from './NavBottom';
+import { Nav } from './NavBottom/NavBottom';
 
-export { NavBottom }
+export const NavBar = () => {
+
+    if (window.location.pathname === '/') return null;
+    return (
+        <div>
+            <Nav/>
+        </div>
+    )
+}
