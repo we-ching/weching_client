@@ -13,11 +13,13 @@ export const NavBottom = () => {
     // const currentURL = useLocation();
     const navigate = useNavigate();
 
-    const [activeHome, setActiveHome] = useState(false);
+    const [activeHome, setActiveHome] = useState(true);
     const [activeBook, setActiveBook] = useState(false);
     const [activePlus, setActivePlus] = useState(false);
     const [activeUser, setActiveUser] = useState(false);
     const [activeVerti, setActiveVerti] = useState(false);
+
+    if (window.location.pathname === '/') return null;
 
     return (
         <SummitContainer>
@@ -62,10 +64,12 @@ export const NavBottom = () => {
                         setActiveVerti(false);
                     }}
                 >
+                <S.PlusWrap>
                  <IconPlus 
                     fill={activePlus ? clickColor : nonClickColor}
                     stroke={activePlus ? clickColor : nonClickColor}
                  />
+                 </S.PlusWrap>
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {

@@ -36,8 +36,8 @@ export const IconHome = ({fill}: IconProps) => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
     x="0px"
     y="0px"
-    width="50px"
-    height="50px"
+    width="37px"
+    height="37px"
     viewBox="199 199 50 50"
     enableBackground="new 796 796 200 200"
     xmlSpace="preserve"
@@ -53,8 +53,8 @@ export const IconHome = ({fill}: IconProps) => (
 
 export const IconPlus = ({width, height, fill, stroke, onClick}: IconProps) => (
 <svg
-    width="60px"
-    height="60px"
+    width="70px"
+    height="70px"
     viewBox="0 0 60 60"
     xmlns="http://www.w3.org/2000/svg"
     fill={fill}
@@ -84,9 +84,9 @@ export const IconUser = ({width, height, fill, stroke, onClick}: IconProps) => (
 
 export const IconVertical = ({width, height, fill, stroke, onClick}: IconProps) => (
     <svg
-    width="45px"
-    height="45px"
-    viewBox="0 0 45 45"
+    width="40px"
+    height="40px"
+    viewBox="0 0 50 50"
     xmlns="http://www.w3.org/2000/svg"
     fill={fill}
     stroke={stroke}

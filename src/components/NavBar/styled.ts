@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-
-
-
 export const NavBottomContainer = styled.div`
     position: fixed;
     bottom: 0;
@@ -21,7 +18,6 @@ export const NavBottomContainer = styled.div`
     border-radius: 40px 40px 0px 0px;
 `;
 
-// <{ isSelected: boolean }>
 export const NavMenuBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,13 +29,19 @@ export const NavMenuBox = styled.div`
     cursor: pointer;
     box-sizing: border-box;
     border: 0;
-
-    &:nth-child(3) {
-        display: inline-block;
-        svg {
-            padding-bottom: 20px;
-
-        }
-    }
-    
 `;
+
+export const PlusWrap = styled.div`
+    display:flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+        outline: 10px solid white;
+        border-radius: 100px;
+        box-sizing: content-box;
+        background-color: white;
+        filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.1));
+    }
+`
