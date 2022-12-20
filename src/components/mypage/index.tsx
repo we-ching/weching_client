@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 // components
 // import Navbar from '';
 import { EditUser } from './EditUser/EditUser';
+import { SignOut } from './Signout/Signout';
 
 // styles
 import * as S from './styled';
@@ -23,9 +24,7 @@ export function MyPage() {
           <S.ItemBox>
             <p>북마크</p>
           </S.ItemBox>
-          <S.ItemBox>
-            <p>회원탈퇴</p>
-          </S.ItemBox>
+          <SignOut />
         </S.MyPageContainer>
         {/* <Navbar /> */}
       </S.Wrapper>
