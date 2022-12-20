@@ -28,7 +28,9 @@ const App: FC = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
-          <Route path="/notice/*" element={<Notice />} />
+          <Route path="/notice/*" element={<Notice />}>
+            <Route path=":id" element={<NoticeDetail />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

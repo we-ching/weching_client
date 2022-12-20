@@ -31,6 +31,6 @@ export const getNoticeArr = [
 
 export const getNotice = {
   id: 1,
-  title: 'id를 통해 가져온 공지 제목',
+  title: 'id를 통해 가져온 공지 제목1',
   content: 'id 를 통해 가져온 공지 내용',
 };
