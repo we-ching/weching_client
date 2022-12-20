@@ -4,12 +4,7 @@ import axios from 'axios';
 import { useImmer } from 'use-immer';
 
 /*
-공지사항 받아오는 api 따로 줄지 
-
-알림에 들어갈 내용에 공지사항
-
--[] 받아온 공지사항 수 만큼 배열 돌면서 랜더링
-
+-[x] 받아온 공지사항 수 만큼 배열 돌면서 랜더링
 */
 
 interface noticesProps {
@@ -19,12 +14,10 @@ interface noticesProps {
 const NoticeList: React.FC<noticesProps> = ({ notices }) => {
   const noticeBlock = notices.map((notice) => {
     return (
-      <li key={notice.id}>
-        <S.Message>
-          <S.MessageTitle>{notice.title}</S.MessageTitle>
-          <S.MessageContent>{notice.content}</S.MessageContent>
-        </S.Message>
-      </li>
+      <S.Message key={notice.id}>
+        <S.MessageTitle>{notice.title}</S.MessageTitle>
+        <S.MessageContent>{notice.content}</S.MessageContent>
+      </S.Message>
     );
   });
   return <ul>{noticeBlock}</ul>;
