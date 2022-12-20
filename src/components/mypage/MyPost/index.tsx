@@ -1,3 +1,4 @@
 import { MyPost } from './MyPost';
+import { MyPostDetail } from './MyPostDetail';
 
-export { MyPost };
+export { MyPost, MyPostDetail };

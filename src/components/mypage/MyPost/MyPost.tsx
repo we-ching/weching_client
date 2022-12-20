@@ -1,49 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
+import { Posts } from './styled';
 import axios from 'axios';
-
-interface Post {
-  id: number;
-  user_id: number;
-  content: string;
-  status: number;
-}
-interface Reviews {
-  id: number;
-  content: string;
-  grade: null;
-  status: number;
-}
-interface Posts {
-  post: Post;
-  reviews: Reviews[];
-}
+import { getPosts } from '../../../myPostSlice';
+import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
   const [posts, setPosts] = useState<Posts[]>([]);
   const token = 'aedfewlkw123';
-  const myPostGet = async () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const myPostAllGet = async () => {
     const res = await axios.get(`/api/post`, {
       headers: {
         authorization: `bearer ${token}`,
       },
     });
     const postList = res.data;
-    console.log(postList);
     setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
-    myPostGet();
+    myPostAllGet();
   }, []);
+
   return (
     <S.Container>
       <S.PostCon>
         <S.Title>내가 쓴 글</S.Title>
-        {posts.map((post, i) => {
+        {posts.map((post) => {
           let isReview: boolean = false;
+          const postId = post['post']['id'];
           post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
           return (
-            <S.Post isReviews={isReview}>
+            <S.Post
+              key={postId}
+              isReviews={isReview}
+              posts={posts}
+              onClick={() => {
+                dispatch(getPosts(posts));
+                navigate(`/myPage/myPost/${postId}`);
+              }}
+            >
               <S.PostContent>{post['post']['content']}</S.PostContent>
             </S.Post>
           );

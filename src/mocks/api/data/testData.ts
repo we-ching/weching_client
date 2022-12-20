@@ -1,7 +1,7 @@
 export const testData = [
   {
     post: {
-      id: 26,
+      id: 1,
       user_id: 26,
       content: '강아지 산책 중',
       status: 0,

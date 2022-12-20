@@ -13,6 +13,7 @@ import { Post } from './components/post/Post';
 import { Alarm } from './components/MainPage/Alarm/';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
+import { MyPostDetail } from './components/mypage/MyPost/';
 
 const App: FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: FC = () => {
           <Route path="/home" element={<MainPage />} />
           <Route path="/myPage" element={<MyPage />} />
           <Route path="/myPage/myPost" element={<MyPost />} />
+          <Route path="/myPage/myPost/:postId" element={<MyPostDetail />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
