@@ -5,13 +5,14 @@ import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 import { MainPage } from './components/MainPage';
-import { Reply } from './components/reply/Reply';
-import { MyPage } from './components/mypage/index';
-import { LandingPage } from './components/landingPage/LandingPage';
-import { Post } from './components/post/Post';
-import { Alarm } from './components/MainPage/Alarm/alarm';
-import { LoginForm } from './components/Login/LoginForm';
+import { Reply } from './components/reply';
+import { MyPage } from './components/mypage';
+import { LandingPage } from './components/landingPage';
+import { Post } from './components/post';
+import { Alarm } from './components/MainPage/Alarm';
+import { LoginForm } from './components/Login';
 import { NotFound } from './components/NotFound';
+import { Notice } from './components/notice';
 
 const App: FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: FC = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
+          <Route path="/notice" element={<Notice />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
