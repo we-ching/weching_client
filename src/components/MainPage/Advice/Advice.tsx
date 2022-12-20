@@ -10,8 +10,10 @@ export const Advice = () => {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      const res: any = await axios.get(`/api/advice`);
-      setAdvice(`\"${res.data.message}\"`);
+      const res: any = await axios.get(`/api/main`);
+
+      setAdvice(`\"${res.data.advice.message}\"
+      \-${res.data.advice.author}, ${res.data.advice.authorrofile}\-`);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
