@@ -13,6 +13,7 @@ import { Alarm } from './components/MainPage/Alarm';
 import { LoginForm } from './components/Login';
 import { NotFound } from './components/NotFound';
 import { Notice } from './components/notice';
+import { NoticeDetail } from './components/notice/NoticeDetail';
 
 const App: FC = () => {
   return (
@@ -27,7 +28,7 @@ const App: FC = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
-          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/*" element={<Notice />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -15,7 +15,6 @@ export const RandomPost = () => {
     await axios
       .get(`/api/review/:id`)
       .then((res) => {
-        console.log(res.data.content);
         setPost(res.data.content);
       })
       .catch((error) => {

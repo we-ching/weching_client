@@ -1,5 +1,10 @@
 import { rest } from 'msw';
-import { getRandomPost, testData, getNoticeArr } from './data/testData';
+import {
+  getNotice,
+  getRandomPost,
+  testData,
+  getNoticeArr,
+} from './data/testData';
 
 const handlers = [
   rest.get('/post/api/users', (req, res, ctx) => {
@@ -19,6 +24,9 @@ const handlers = [
   }),
   rest.get('/api/notice', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(getNoticeArr));
+  }),
+  rest.get('/api/notice/:id', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(getNotice));
   }),
 ];
 
