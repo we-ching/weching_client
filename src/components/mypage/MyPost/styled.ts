@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface reviewProp {
+  isReviews: boolean;
+}
+
 export const flexCenter = `
   display: flex;
   justify-content: center;
@@ -32,7 +36,7 @@ export const PostCon = styled.div`
   border-radius: 10px;
 `;
 
-export const Post = styled.div`
+export const Post = styled.div<reviewProp>`
   width: 80%;
   min-height: 100px;
   padding: 20px;
@@ -45,6 +49,7 @@ export const Post = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
+  border: 2px solid ${({ isReviews }) => (isReviews ? 'limegreen' : 'gray')};
 `;
 
 export const PostContent = styled.p`

@@ -18,13 +18,9 @@ interface Posts {
   post: Post;
   reviews: Reviews[];
 }
-interface isReviewType {
-  isReview: boolean;
-}
 
 export const MyPost = () => {
   const [posts, setPosts] = useState<Posts[]>([]);
-  const [isReview, setIsReview] = useState<boolean>(false);
   const token = 'aedfewlkw123';
   const myPostGet = async () => {
     const res = await axios.get(`/api/post`, {
@@ -33,6 +29,7 @@ export const MyPost = () => {
       },
     });
     const postList = res.data;
+    console.log(postList);
     setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
@@ -42,12 +39,11 @@ export const MyPost = () => {
     <S.Container>
       <S.PostCon>
         <S.Title>내가 쓴 글</S.Title>
-        {posts.map((post) => {
-          console.log(post);
-          post['reviews'].length !== 0 ? setIsReview(true) : setIsReview(false);
-          console.log(isReview);
+        {posts.map((post, i) => {
+          let isReview: boolean = false;
+          post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
           return (
-            <S.Post>
+            <S.Post isReviews={isReview}>
               <S.PostContent>{post['post']['content']}</S.PostContent>
             </S.Post>
           );
