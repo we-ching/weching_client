@@ -33,7 +33,7 @@ export const Reply = () => {
         },
         {
           headers: {
-            Authorization: 'mytoken',
+            Authorization: `Bearer mytoken`,
           },
         }
       )

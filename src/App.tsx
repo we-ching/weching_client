@@ -16,9 +16,10 @@ import { Notice } from './components/notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
 import axios from 'axios';
 
-const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
+const baseURL = 'http://34.64.156.157';
 axios.defaults.baseURL = baseURL;
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (

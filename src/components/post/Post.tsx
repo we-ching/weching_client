@@ -27,7 +27,9 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: 'myoken',
+            Authorization: `Bearer mytoken`,
+            // credentials: 'include',
+            // withCredentials: true,
           },
         }
       )

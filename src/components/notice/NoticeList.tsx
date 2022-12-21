@@ -1,6 +1,7 @@
 import * as S from './styled';
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 interface noticesProps {
   notices: any[];
 }
