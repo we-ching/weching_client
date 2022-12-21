@@ -11,9 +11,9 @@ const handlers = [
   rest.get('/api/post', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(testData));
   }),
-  // rest.get('/api/review/:id', (req, res, ctx) => {
-  //   return res(ctx.status(200), ctx.json(getRandomPost));
-  // }),
+  // // rest.get('/api/review/:id', (req, res, ctx) => {
+  // //   return res(ctx.status(200), ctx.json(getRandomPost));
+  // // }),
   rest.patch('/api/review/write/:id', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
   }),

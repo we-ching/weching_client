@@ -7,23 +7,29 @@ import { getPosts } from '../../../myPostSlice';
 import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
+  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const [posts, setPosts] = useState<Posts[]>([]);
   const token = 'aedfewlkw123';
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
-    const res = await axios.get(`/api/post`, {
-      headers: {
-        authorization: `bearer ${token}`,
-      },
-    });
+    console.log('gag');
+    const res = await axios.get(`/api/post`);
+    // , {
+    //   headers: {
+    //     // authorization: `Bearer ${token}`,
+    //     // Origin: `http://localhost:3000`,
+    //   },
+    // });
     const postList = res.data;
     setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
     myPostAllGet();
   }, []);
-
+  {
+    console.log(posts);
+  }
   return (
     <S.Container>
       <S.PostCon>
