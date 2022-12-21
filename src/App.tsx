@@ -12,6 +12,7 @@ import { Post } from './components/post/Post';
 import { Alarm } from './components/MainPage/Alarm/alarm';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
+import { ViewMore } from './components/ViewMore';
 
 const App: FC = () => {
   return (
@@ -26,6 +27,7 @@ const App: FC = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
+          <Route path="/viewMore" element={<ViewMore />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
