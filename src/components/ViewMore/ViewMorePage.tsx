@@ -1,53 +1,54 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Router, Route } from 'react-router-dom';
+import { Recruit } from './StaticPageRecruit';
 import * as S from './styled';
 
 
 export const ViewMore = () => {
     const navigate = useNavigate();
 
-
     return (
+
         <S.BackGround>
             <S.MenuContainer>
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
-                        }}
+                        navigate('/home');
+                    }}
                 >
                     공지사항
                 </S.MenuBox>
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
-                        }}
+                        navigate('/home');
+                    }}
                 >
                     랭킹
                 </S.MenuBox>
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
-                        }}
+                        navigate('/home');
+                    }}
                 >
                     FAQs
                 </S.MenuBox>
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
-                        }}
+                        navigate('/home');
+                    }}
                 >
                     친구 초대
                 </S.MenuBox>
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
-                        }}
+                        navigate('/viewMore/Recruit');
+                    }}
                 >
                     채용
                 </S.MenuBox>            
                 <S.MenuBox
                     onClick={()=> {
-                            navigate('/home');
+                            navigate('/viewMore/About');
                         }}
                 >
                     서비스 정보

@@ -16,26 +16,31 @@ export const BackGround = styled.body`
     
     ${media.mobile} {
         
-    }
-    `;
+}
+`;
     
-    export const MenuContainer = styled.ul`
+export const ContentContainer = styled.div`
     padding-top: 70px;
     display: flex;
     gap: 20px 0px;
     flex-direction: column;
     align-items: center;
     
-    `;
+`;
 
-export const MenuBox = styled.li`
+export const TitleBox = styled.h3`
+    font-size: 23px;
+    font-weight: bold;
+`;
+
+export const MenuBox = styled.div`
     position: relative;
     width: 372px;
-    height: 60px;
+    height: auto;
     display: flex;
     
     align-items: center;
-    padding-left: 20px;
+    padding: 15px;
     background: #ffffff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -46,4 +51,6 @@ export const MenuBox = styled.li`
     font-size: 18px;
     line-height: 26px;
     color: #444444;
+    box-sizing: border-box;
+
 `;

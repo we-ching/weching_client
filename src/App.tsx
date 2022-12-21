@@ -13,6 +13,8 @@ import { Alarm } from './components/MainPage/Alarm/alarm';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
 import { ViewMore } from './components/ViewMore';
+import { Recruit } from './components/ViewMore/StaticPageRecruit';
+import { About } from './components/ViewMore/StaticPageAbout';
 
 const App: FC = () => {
   return (
@@ -28,6 +30,8 @@ const App: FC = () => {
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
           <Route path="/viewMore" element={<ViewMore />} />
+          <Route path='/viewMore/Recruit' element={<Recruit/>}/>
+          <Route path='/viewMore/About' element={<About/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
