@@ -14,6 +14,11 @@ import { LoginForm } from './components/Login';
 import { NotFound } from './components/NotFound';
 import { Notice } from './components/notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
+import axios from 'axios';
+
+const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
+axios.defaults.baseURL = baseURL;
+axios.defaults.withCredentials = true;
 
 const App: FC = () => {
   return (

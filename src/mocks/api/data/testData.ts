@@ -27,6 +27,26 @@ export const getNoticeArr = [
     title: '공지 제목4',
     content: '공지 내용',
   },
+  {
+    id: 5,
+    title: '공지 제목',
+    content: '공지 내용',
+  },
+  {
+    id: 6,
+    title: '공지 제목2',
+    content: '공지 내용',
+  },
+  {
+    id: 7,
+    title: '공지 제목3',
+    content: '공지 내용',
+  },
+  {
+    id: 8,
+    title: '공지 제목4',
+    content: '공지 내용',
+  },
 ];
 
 export const getNotice = {
