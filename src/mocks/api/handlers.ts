@@ -17,12 +17,18 @@ const handlers = [
   rest.patch('/api/review/write/:id', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
   }),
-  rest.get('/api/advice', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(advice));
-  }),
-  rest.get('/api/main', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(main));
-  }),
+  rest.get(
+    'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/api/advice',
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(advice));
+    }
+  ),
+  rest.get(
+    'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/api/main',
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(main));
+    }
+  ),
 ];
 
 export default handlers;

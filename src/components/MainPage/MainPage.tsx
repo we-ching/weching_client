@@ -1,6 +1,6 @@
 import * as S from './styled';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';
@@ -8,26 +8,32 @@ import { Ranking } from './Ranking/Ranking';
 
 export const MainPage: any = () => {
   const [nickname, setNickName] = useState('');
-  const [matchPost, setMatchPost] = useState([]);
+  const [matchPost, setMatchPost] = useState<any>([]);
 
-  const submitHandler = async (e: any) => {
-    e.preventDefault();
+  const submitHandler = async () => {
+    // e.preventDefault();
     try {
-      const res: any = await axios.get(`/api/main`);
+      const res: any = await axios.get(
+        `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/api/main`
+      );
 
       setNickName(res.data.user.nickname);
-      setMatchPost(res.data.todoReview);
+      setMatchPost([...matchPost, ...res.data.todoReview]);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
+
+  useEffect(() => {
+    submitHandler();
+  }, []);
   console.log(matchPost);
 
   return (
     <S.Container>
       <S.UpperNav />
-      <S.UserInfo onClick={submitHandler}>{nickname}님 반가워요!</S.UserInfo>
-      <NewMatch props={matchPost}></NewMatch>
+      <S.UserInfo>{nickname}님 반가워요!</S.UserInfo>
+      <NewMatch props={matchPost} />
       <Advice />
       <Ranking />
       <S.LowerNav />
