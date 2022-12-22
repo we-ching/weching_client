@@ -28,7 +28,7 @@ export const MainPage: any = () => {
   return (
     <S.Container>
       <S.UpperNav />
-      <S.UserInfo>{nickname}님 반가워요!</S.UserInfo>
+      <S.UserNick>{nickname}님 반가워요!</S.UserNick>
       <NewMatch props={matchPost} />
       <Advice />
       <Ranking />
