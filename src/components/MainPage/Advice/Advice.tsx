@@ -10,9 +10,7 @@ export const Advice = () => {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      const res: any = await axios.get(
-        `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/api/main`
-      );
+      const res: any = await axios.get(`/api/main`);
 
       setAdvice(`\"${res.data.advice.message}\"
       \-${res.data.advice.author}, ${res.data.advice.authorrofile}\-`);

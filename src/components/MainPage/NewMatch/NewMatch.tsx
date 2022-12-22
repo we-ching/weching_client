@@ -19,25 +19,27 @@ export const NewMatch = (props: any) => {
     draggable: true,
   };
 
+  const arr = props.props;
+  console.log(arr);
+
   return (
     <>
       <s.NewMatchTitle>
         <s.Image src={Letter} />
         <p>새 글 매칭</p>
-        <s.NewMatchTitleCount>+{props.props.length}</s.NewMatchTitleCount>
+        <s.NewMatchTitleCount>+{arr.length}</s.NewMatchTitleCount>
       </s.NewMatchTitle>
       <s.NewMatchTextBox>
         <Slider {...settings}>
-          <Link to="/reply">
-            <s.NewMatchTextContent>
-              {props.props[0].content}
-            </s.NewMatchTextContent>
-          </Link>
-          <Link to="/reply">
-            <s.NewMatchTextContent>
-              {props.props[1].content}
-            </s.NewMatchTextContent>
-          </Link>
+          {arr.map((item: any) => {
+            return (
+              <Link to="/reply">
+                <s.NewMatchTextContent key={item.id}>
+                  {item.content}
+                </s.NewMatchTextContent>
+              </Link>
+            );
+          })}
         </Slider>
       </s.NewMatchTextBox>
     </>

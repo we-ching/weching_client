@@ -13,9 +13,7 @@ export const MainPage: any = () => {
   const submitHandler = async () => {
     // e.preventDefault();
     try {
-      const res: any = await axios.get(
-        `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/api/main`
-      );
+      const res: any = await axios.get(`/api/main`);
 
       setNickName(res.data.user.nickname);
       setMatchPost([...matchPost, ...res.data.todoReview]);
@@ -27,8 +25,6 @@ export const MainPage: any = () => {
   useEffect(() => {
     submitHandler();
   }, []);
-  console.log(matchPost);
-
   return (
     <S.Container>
       <S.UpperNav />
