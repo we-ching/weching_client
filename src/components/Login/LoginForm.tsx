@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import * as S from './styled';
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
+  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const nicknameRef = useRef<HTMLInputElement>(null);
-  const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(false);
+  const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(true);
   const [token, setToken] = useState<string>('');
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -14,7 +17,7 @@ export const LoginForm = () => {
       const userData = { nickname: nicknameRef.current?.value };
       const res = await axios.get(`/auth/google/login`);
       const jwtToken = res.data.accessToken;
-      token ? setToken(jwtToken) : null;
+      jwtToken ? setToken(jwtToken) : null;
       if (res.data.email) {
         const email = res.data.emailId;
         /**
@@ -23,13 +26,18 @@ export const LoginForm = () => {
          * 동일한 닉네임일경우
          * 중복 검사버튼
          */
-        await axios.post(`/api/guest`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ...userData, email }),
-        });
+        await axios
+          .post(`/api/guest`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Origin: 'http://localhost:3000',
+            },
+            body: JSON.stringify({ ...userData, email }),
+          })
+          .then(() => {
+            navigate(`/home`);
+          });
       }
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
