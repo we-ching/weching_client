@@ -10,7 +10,11 @@ export const Advice = () => {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     try {
-      const res: any = await axios.get(`/api/main`);
+      const res: any = await axios.get(`/api/main`, {
+        headers: {
+          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzExMDc2LCJleHAiOjE2NzE3MTQ2NzZ9.Pom6wGrLCmoPbTU9EcXgCItWSwt6hxlaa40Rlq35G20`,
+        },
+      });
 
       setAdvice(`\"${res.data.advice.message}\"
       \-${res.data.advice.author}, ${res.data.advice.authorrofile}\-`);

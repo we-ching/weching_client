@@ -11,7 +11,7 @@ import { MyPage } from './components/mypage';
 import { MyPost } from './components/mypage/MyPost';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { Post } from './components/post/Post';
-import { Alarm } from './components/MainPage/Alarm/';
+import { Alarm } from './components/MainPage/Alarm/alarm';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
 import { NavBar } from './components/NavBar';
@@ -22,10 +22,10 @@ import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
 
-// const baseURL = 'http://34.64.156.157';
-// axios.defaults.baseURL = baseURL;
+const baseURL = 'http://34.64.156.157';
+axios.defaults.baseURL = baseURL;
 // // axios.defaults.withCredentials = true;
-// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (
