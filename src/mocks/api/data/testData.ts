@@ -50,3 +50,14 @@ export const main = {
       '만약 당신이 누군가의 인격을 시험해 보고 싶다면, 그에게 권력을 줘 보라.',
   },
 };
+export const testNickname = {
+  nickname: '테스트 닉네임',
+}
+
+export const testOverlap = {
+  "message": " 오승하 is available"
+}
+
+export const testSignOut = {
+  "message": '정상적으로 탈퇴되셨습니다.'
+}

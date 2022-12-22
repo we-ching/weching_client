@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { advice, getRandomPost, testData, main } from './data/testData';
+import { advice, testData, main, testNickname, testOverlap, testSignOut } from './data/testData';
 
 const handlers = [
   rest.get('/post/api/users', (req, res, ctx) => {
@@ -12,7 +12,7 @@ const handlers = [
     return res(ctx.status(200), ctx.json(req));
   }),
   rest.get('/api/review/:id', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(getRandomPost));
+    return res(ctx.status(200), ctx.json(testNickname));
   }),
   rest.patch('/api/review/write/:id', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
@@ -21,7 +21,16 @@ const handlers = [
     return res(ctx.status(200), ctx.json(advice));
   }),
   rest.get('/api/main', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(main));
+    return res(ctx.status(200), ctx.json(main))
+  }),
+  rest.get('/api/user', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(testOverlap));
+  }),
+  rest.post('/api/user/checkName', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(testOverlap));
+  }),
+  rest.delete('/api/user', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(testSignOut));
   }),
 ];
 
