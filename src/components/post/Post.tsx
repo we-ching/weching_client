@@ -13,6 +13,13 @@ import { useNavigate } from 'react-router-dom';
 // - [x] 올리기 버튼 클릭 시 body 값이 없다면 버튼비활성화
 // - [x] 글쓰기 팁
 
+/*
+{
+accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzE2NzgxNDh9.R3CFINwndR3dac6aKfo5z3pH3WrJEfE_vQjTIFlCiGc",
+refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzI4ODQxNDh9.Ru8ySF0YlN55FMEIEnnjGoK-3bkejmh1yNeELbb6xMM"
+}
+*/
+
 export const Post: FC = () => {
   const [body, setBody] = useState<string>('');
   const dispatch = useDispatch();
@@ -27,7 +34,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer mytoken`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzE2NzgxNDh9.R3CFINwndR3dac6aKfo5z3pH3WrJEfE_vQjTIFlCiGc`,
             // credentials: 'include',
             // withCredentials: true,
           },
