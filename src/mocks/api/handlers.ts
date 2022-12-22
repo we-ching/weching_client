@@ -40,7 +40,7 @@ const handlers = [
     return res(ctx.status(200), ctx.json(main));
   }),
   rest.get('/api/user', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(testOverlap));
+    return res(ctx.status(200), ctx.json(testNickname));
   }),
   rest.post('/api/user/checkName', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(testOverlap));

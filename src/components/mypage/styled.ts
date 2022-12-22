@@ -7,7 +7,6 @@ export const Background = styled.div`
   background-color: white;
   height: 100vh;
   width: 100vw;
-  z-index: -100;
 
   display: flex;
   justify-content: center;
