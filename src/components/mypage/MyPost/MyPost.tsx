@@ -1,53 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
+import { Posts } from './styled';
 import axios from 'axios';
-
-interface Post {
-  id: number;
-  user_id: number;
-  content: string;
-  status: number;
-}
-interface Reviews {
-  id: number;
-  content: string;
-  grade: null;
-  status: number;
-}
-interface Posts {
-  post: Post;
-  reviews: Reviews[];
-}
-interface isReviewType {
-  isReview: boolean;
-}
+import { getPosts } from '../../../myPostSlice';
+import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
+  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const [posts, setPosts] = useState<Posts[]>([]);
-  const [isReview, setIsReview] = useState<boolean>(false);
   const token = 'aedfewlkw123';
-  const myPostGet = async () => {
-    const res = await axios.get(`/api/post`, {
-      headers: {
-        authorization: `bearer ${token}`,
-      },
-    });
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const myPostAllGet = async () => {
+    console.log('gag');
+    const res = await axios.get(`/api/post`);
+    // , {
+    //   headers: {
+    //     // authorization: `Bearer ${token}`,
+    //     // Origin: `http://localhost:3000`,
+    //   },
+    // });
     const postList = res.data;
     setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
-    myPostGet();
+    myPostAllGet();
   }, []);
+  {
+    console.log(posts);
+  }
   return (
     <S.Container>
       <S.PostCon>
         <S.Title>내가 쓴 글</S.Title>
         {posts.map((post) => {
-          console.log(post);
-          post['reviews'].length !== 0 ? setIsReview(true) : setIsReview(false);
-          console.log(isReview);
+          let isReview: boolean = false;
+          const postId = post['post']['id'];
+          post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
           return (
-            <S.Post>
+            <S.Post
+              key={postId}
+              isReviews={isReview}
+              posts={posts}
+              onClick={() => {
+                dispatch(getPosts(posts));
+                navigate(`/myPage/myPost/${postId}`);
+              }}
+            >
               <S.PostContent>{post['post']['content']}</S.PostContent>
             </S.Post>
           );

@@ -17,6 +17,7 @@ import { NavBar } from './components/NavBar';
 import { ViewMore } from './components/ViewMore';
 import { Recruit } from './components/ViewMore/StaticPageRecruit';
 import { About } from './components/ViewMore/StaticPageAbout';
+import { MyPostDetail } from './components/mypage/MyPost/';
 import axios from 'axios';
 
 // const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
@@ -31,15 +32,16 @@ const App: FC = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<MainPage />} />
-          <Route path="/myPage" element={<MyPage />} />
+          <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage/mypost" element={<MyPost />} />
+          <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
-          <Route path="/viewMore" element={<ViewMore />} />
-          <Route path="/viewMore/Recruit" element={<Recruit />} />
-          <Route path="/viewMore/About" element={<About />} />
+          <Route path="/viewmore" element={<ViewMore />} />
+          <Route path="/viewmore/recruit" element={<Recruit />} />
+          <Route path="/viewmore/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <NavBar />
