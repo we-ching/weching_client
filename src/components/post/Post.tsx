@@ -34,7 +34,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc4NzkzLCJleHAiOjE2NzE2ODIzOTN9.Rvh51uw7vprln7GvFHDQAzARaHBQLHfHFB4-Q-vjKgs`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjk0MjUxLCJleHAiOjE2NzE2OTc4NTF9.WCCfZQhzbZIk7B50aI7CDMU7MjlpIQ9Kar5l8p0F5cg`,
             // credentials: 'include',
             // withCredentials: true,
           },
