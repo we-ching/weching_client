@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-`;
-
 export const ItemBox = styled.div`
   margin: 10px 0;
 
@@ -27,6 +21,10 @@ export const ItemBox = styled.div`
 
   cursor: pointer;
 
+  :hover {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
   > p {
     margin-left: 17px;
   }
@@ -35,7 +33,7 @@ export const ItemBox = styled.div`
 export const ModalStyle = styled.div`
   position: absolute;
   width: 350px;
-  height: 200px;
+  height: 300px;
 
   background-color: #FFFFFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -47,7 +45,7 @@ export const ModalStyle = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 20px 0 20px 20px;
+  margin: 20px 0 15px 20px;
 
   font-style: normal;
   font-weight: bold;
@@ -62,11 +60,23 @@ export const Form = styled.form`
   align-items: center;
 
   input {
-    width: 240px;
+    width: 200px;
   }
 `;
 
 export const SignOutTitle = styled.h3`
+  margin: 10px auto;
+
+  display: flex;
+  flex-direction: column;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+`;
+
+export const EditTitle = styled.h3`
   margin: 10px auto;
 
   display: flex;

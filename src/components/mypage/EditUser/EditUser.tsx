@@ -22,14 +22,13 @@ export function EditUser() {
   const token = '';
 
   const [newNickname, setNewNickname] = useState<string>('');
-  const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
 
   const handleModal = () => {
     setOpen(!open);
   };
 
-  const nicknameOverlap = async (e: any) => {
+  const nicknameOverlap = async (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
 
     try {
@@ -52,13 +51,9 @@ export function EditUser() {
     }
   }
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (newNickname !== checkNickname) {
-        alert('새로운 닉네임과 일치하지 않습니다.')
-        return;
-      }
 
       await axios.patch(`/api/user`, {
         method: 'PATCH',
@@ -93,19 +88,25 @@ export function EditUser() {
         aria-describedby="modal-modal-description"
       >
         <S.ModalStyle>
-          <S.Title id="userInfoEdit-title">회원정보 수정</S.Title>
+          <S.Wrapper>
+            <S.Title id="userInfoEdit-title">회원정보 수정</S.Title>
+            <S.closeButton
+              onClick={handleModal}
+            >
+              X
+            </S.closeButton>
+          </S.Wrapper>
           <div id="userInfoEdit-description">
             <S.Form onSubmit={handleSubmit}>
               <S.EditTitle className="newNickname">
-                <p>새 닉네임
-                  <span style={{ marginLeft: '10px', fontSize: '0.75rem', color: 'red' }}>
-                    * 필수
-                  </span>
+                <p style={{ marginBottom: '10px' }}
+                >
+                  새 닉네임
                 </p>
                 <input
                   id="newNickname"
                   type="text"
-                  placeholder="새로운 닉네임"
+                  placeholder=" * 2자 이상, 12자 이하"
                   name="newPassowrd"
                   value={newNickname}
                   minLength={2}
@@ -115,44 +116,7 @@ export function EditUser() {
                   }}
                 />
               </S.EditTitle>
-              <div className='overlapCheckbBtn'>
-                <ThemeProvider theme={theme}>
-                  <Button
-                    type="button"
-                    variant="outlined"
-                    color="primary"
-                    onClick={nicknameOverlap}
-                  >
-                    중복 확인
-                  </Button>
-                </ThemeProvider>
-              </div>
-              <S.EditTitle>
-                <p>닉네임 확인</p>
-                <input
-                  id="checkNickname"
-                  type="text"
-                  placeholder="새로운 닉네임 확인"
-                  name="checkNickname"
-                  value={checkNickname || ''}
-                  onChange={(e) => {
-                    setCheckNickname(e.target.value);
-                  }}
-                />
-                {newNickname !== checkNickname && (
-                  <p
-                    className="changedNicknameChecked"
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'red',
-                      marginTop: '0.5rem',
-                    }}
-                  >
-                    새로운 닉네임이 일치하지 않습니다.
-                  </p>
-                )}
-              </S.EditTitle>
-              <div className="editBtn">
+              <S.Buttons>
                 <ThemeProvider theme={theme}>
                   <Button
                     type="submit"
@@ -168,12 +132,12 @@ export function EditUser() {
                     type="button"
                     variant="outlined"
                     color="primary"
-                    onClick={handleModal}
+                    onClick={nicknameOverlap}
                   >
-                    닫기
+                    중복 확인
                   </Button>
                 </ThemeProvider>
-              </div>
+              </S.Buttons>
             </S.Form>
           </div>
         </S.ModalStyle>

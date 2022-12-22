@@ -21,15 +21,40 @@ const theme = createTheme({
 export function SignOut() {
   const token = '';
 
+  let input = '닉네임';
+  const [nickname, setNickName] = useState<string>('');
+  const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
 
   const handleModal = () => {
     setOpen(!open);
-  };
+  }
 
-  const handleSubmit = async (e: any) => {
+  const nicknameCheck = async () => {
+    try {
+      const res = await axios.get(`/api/user`, {
+        method: 'GET',
+        headers: {
+          authorization: `bearer ${token}`,
+        },
+      })
+      input = res.data.nickname;
+    } catch (err) {
+        alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
+  useEffect(() => {
+    nicknameCheck();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      if (input !== checkNickname) {
+        alert('닉네임이 일치하지 않습니다.')
+        return;
+      }
+
       const res = await axios.delete(`/api/user`, {
         method: 'DELETE',
         headers: {
@@ -64,6 +89,35 @@ export function SignOut() {
           <S.Title id="signOut-title">회원 탈퇴</S.Title>
           <div id="signOut-description">
             <S.Form onSubmit={handleSubmit}>
+              <S.SignOutTitle className="signOutCheck">
+                <p>탈퇴시 닉네임을 입력해주세요.</p>
+              </S.SignOutTitle>
+
+              <S.EditTitle>
+                <input
+                  id="checkNickname"
+                  type="text"
+                  placeholder={input}
+                  name="checkNickname"
+                  value={checkNickname || ''}
+                  onChange={(e) => {
+                    setCheckNickname(e.target.value);
+                  }}
+                />
+                {input !== checkNickname && (
+                  <p
+                    className="NicknameChecked"
+                    style={{
+                      fontSize: '0.75rem',
+                      color: 'red',
+                      marginTop: '0.5rem',
+                    }}
+                  >
+                    닉네임이 일치하지 않습니다.
+                  </p>
+                )}
+              </S.EditTitle>
+
               <S.SignOutTitle className="newNickname">
                 <p>정말 탈퇴하시겠습니까?</p>
               </S.SignOutTitle>
@@ -86,7 +140,7 @@ export function SignOut() {
                     color="primary"
                     onClick={handleModal}
                   >
-                    닫기
+                    취소
                   </Button>
                 </ThemeProvider>
               </div>

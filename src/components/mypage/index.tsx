@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 // components
 // import Navbar from '';
+import { UserInfo } from './UserInfo/UserInfo';
 import { EditUser } from './EditUser/EditUser';
 import { SignOut } from './Signout/Signout';
 
@@ -14,6 +15,7 @@ export function MyPage() {
     <S.Background>
       <S.Wrapper>
         <S.MyPageContainer>
+          <UserInfo />
           <EditUser />
           <S.ItemBox>
             <p>내가 쓴 글</p>
