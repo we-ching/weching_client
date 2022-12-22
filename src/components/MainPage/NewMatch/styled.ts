@@ -28,7 +28,7 @@ export const NewMatchTextBox: any = styled.div`
   margin: 0 auto;
   padding: 15px;
   font-size: 14px;
-  width: 370px !important;
+  width: 340px !important;
   height: 270px;
   border-radius: 10px;
   background-color: white;

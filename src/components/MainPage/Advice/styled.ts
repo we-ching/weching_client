@@ -13,16 +13,20 @@ export const Advice: any = styled.div`
 
 export const AdviceTitle: any = styled.div`
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
-  padding: 5px 0;
+  padding: 10px 0;
 
   font-size: 18px;
 `;
 
 export const AdviceContent: any = styled.div`
+  width: 300px;
+
+  margin: 0 auto;
   padding: 30px 0;
 
   font-size: 14px;
   text-align: center;
+  line-height: 20px;
 `;
 
 export const Image: any = styled.img`

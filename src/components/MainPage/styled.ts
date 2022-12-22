@@ -15,6 +15,14 @@ export const Container: any = styled.div`
   }
 `;
 
+export const UserInfo: any = styled.div`
+  width: 370px;
+  margin: 20px auto 0;
+
+  font-size: 30px;
+  color: #444444;
+`;
+
 export const UpperNav: any = styled.div`
   width: 428px;
   height: 70px;

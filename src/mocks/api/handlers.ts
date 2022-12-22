@@ -1,5 +1,5 @@
 import { rest } from 'msw';
-import { getRandomPost, testData } from './data/testData';
+import { advice, getRandomPost, testData, main } from './data/testData';
 
 const handlers = [
   rest.get('/post/api/users', (req, res, ctx) => {
@@ -16,6 +16,12 @@ const handlers = [
   }),
   rest.patch('/api/review/write/:id', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
+  }),
+  rest.get('/api/advice', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(advice));
+  }),
+  rest.get('/api/main', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(main));
   }),
 ];
 

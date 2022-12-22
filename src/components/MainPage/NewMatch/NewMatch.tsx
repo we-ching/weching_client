@@ -6,7 +6,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export const Carousel = () => {
+import { Link } from 'react-router-dom';
+
+export const NewMatch = (props: any) => {
   const settings = {
     arrows: true,
     dots: true,
@@ -16,25 +18,30 @@ export const Carousel = () => {
     slidesToScroll: 1,
     draggable: true,
   };
-  return (
-    <s.NewMatchTextBox>
-      <Slider {...settings}>
-        <s.NewMatchTextContent>안녕하세용</s.NewMatchTextContent>
-        <s.NewMatchTextContent>반갑슴둥</s.NewMatchTextContent>
-      </Slider>
-    </s.NewMatchTextBox>
-  );
-};
 
-export const NewMatch = () => {
+  const arr = props.props;
+  console.log(arr);
+
   return (
-    <div>
+    <>
       <s.NewMatchTitle>
         <s.Image src={Letter} />
         <p>새 글 매칭</p>
-        <s.NewMatchTitleCount>+3</s.NewMatchTitleCount>
+        <s.NewMatchTitleCount>+{arr.length}</s.NewMatchTitleCount>
       </s.NewMatchTitle>
-      <Carousel />
-    </div>
+      <s.NewMatchTextBox>
+        <Slider {...settings}>
+          {arr.map((item: any) => {
+            return (
+              <Link to="/reply">
+                <s.NewMatchTextContent key={item.id}>
+                  {item.content}
+                </s.NewMatchTextContent>
+              </Link>
+            );
+          })}
+        </Slider>
+      </s.NewMatchTextBox>
+    </>
   );
 };
