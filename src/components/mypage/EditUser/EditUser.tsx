@@ -12,7 +12,7 @@ import * as S from './styled';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#59B1FC',
+      main: '#BFA78A',
       contrastText: '#fff',
     },
   },

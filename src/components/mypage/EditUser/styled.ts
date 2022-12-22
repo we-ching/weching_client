@@ -83,14 +83,14 @@ export const EditTitle = styled.h3`
 `;
 
 export const Buttons = styled.div`
+  margin: 5px 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  margin: 5px 10px;
 `;
 
 export const closeButton = styled.div`
+  margin: 20px 20px 10px 0;
   width: 20px;
   height: 20px;
   display: flex;
@@ -104,5 +104,8 @@ export const closeButton = styled.div`
   background-color: #C90000;
   border-radius: 50px;
 
-  margin: 20px 20px 10px 0;
+  :hover {
+    background: #fa4848;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
 `;
