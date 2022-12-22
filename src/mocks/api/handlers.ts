@@ -6,6 +6,9 @@ import {
   testNickname,
   testOverlap,
   testSignOut,
+  getNotice,
+  getRandomPost,
+  getNoticeArr,
 } from './data/testData';
 
 const handlers = [
@@ -44,6 +47,12 @@ const handlers = [
   }),
   rest.delete('/api/user', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(testSignOut));
+  }),
+  rest.get('/api/notice', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(getNoticeArr));
+  }),
+  rest.get('/api/notice/:id', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(getNotice));
   }),
 ];
 

@@ -115,3 +115,51 @@ export const testData = [
     ],
   },
 ];
+export const getNoticeArr = [
+  {
+    id: 1,
+    title: '공지 제목',
+    content: '공지 내용',
+  },
+  {
+    id: 2,
+    title: '공지 제목2',
+    content: '공지 내용',
+  },
+  {
+    id: 3,
+    title: '공지 제목3',
+    content: '공지 내용',
+  },
+  {
+    id: 4,
+    title: '공지 제목4',
+    content: '공지 내용',
+  },
+  {
+    id: 5,
+    title: '공지 제목',
+    content: '공지 내용',
+  },
+  {
+    id: 6,
+    title: '공지 제목2',
+    content: '공지 내용',
+  },
+  {
+    id: 7,
+    title: '공지 제목3',
+    content: '공지 내용',
+  },
+  {
+    id: 8,
+    title: '공지 제목4',
+    content: '공지 내용',
+  },
+];
+
+export const getNotice = {
+  id: 1,
+  title: 'id를 통해 가져온 공지 제목1',
+  content: 'id 를 통해 가져온 공지 내용',
+};

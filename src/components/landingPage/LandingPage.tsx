@@ -6,29 +6,32 @@ import arrowRight from '../../assets/images/slide swipe main page.png';
 import arrowDown from '../../assets/images/slide scroll down btn.png';
 import * as S from './styled';
 
-
 export const LandingPage = () => {
+  // const navigate = useNavigate();
 
-    // const navigate = useNavigate();
+  const btnClickHandler = (e: any) => {
+    e.preventDefault();
+    // navigate('./LandingPage');
+  };
 
-    const btnClickHandler = (e: any) => {
-            e.preventDefault();
-            // navigate('./LandingPage');
-    }
-
-    return (
-        <S.LandingPageContainer>
-           <S.TitleContents>오늘도 당신의 가치는 빛났습니다!</S.TitleContents>
-            <S.ImgOne><img src={imgOne} alt="당신을 위한 엄지척"/> </S.ImgOne>
-            <S.SubContents>익명의 공간에서 소식을 나누고 기쁨을 나눕니다.</S.SubContents>
-            <S.LoginBlock onClick={btnClickHandler}>
-                    <img src={googleImg} alt="google_logo"/>Google 계정으로 함께하기
-            </S.LoginBlock>
-            <S.FoggyUnder></S.FoggyUnder>
-            <S.ForeEffect>
-                <img src={arrowRight} alt="오른쪽으로 밀면 메인페이지"/>
-                <img src={arrowDown} alt="아래로 밀어 더 많은 내용을 볼 수 있어요"/>
-            </S.ForeEffect>
-        </S.LandingPageContainer>
-    )
-}
+  return (
+    <S.LandingPageContainer>
+      <S.TitleContents>오늘도 당신의 가치는 빛났습니다!</S.TitleContents>
+      <S.ImgOne>
+        <img src={imgOne} alt="당신을 위한 엄지척" />{' '}
+      </S.ImgOne>
+      <S.SubContents>
+        익명의 공간에서 소식을 나누고 기쁨을 나눕니다.
+      </S.SubContents>
+      <S.LoginBlock onClick={btnClickHandler}>
+        <img src={googleImg} alt="google_logo" />
+        Google 계정으로 함께하기
+      </S.LoginBlock>
+      <S.FoggyUnder></S.FoggyUnder>
+      <S.ForeEffect>
+        <img src={arrowRight} alt="오른쪽으로 밀면 메인페이지" />
+        <img src={arrowDown} alt="아래로 밀어 더 많은 내용을 볼 수 있어요" />
+      </S.ForeEffect>
+    </S.LandingPageContainer>
+  );
+};

@@ -3,6 +3,7 @@ import './App.css';
 import GlobalStyle from './GlobalStyle';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import axios from 'axios';
 
 import { MainPage } from './components/MainPage';
 import { Reply } from './components/reply/Reply';
@@ -18,11 +19,13 @@ import { ViewMore } from './components/ViewMore';
 import { Recruit } from './components/ViewMore/StaticPageRecruit';
 import { About } from './components/ViewMore/StaticPageAbout';
 import { MyPostDetail } from './components/mypage/MyPost/';
-import axios from 'axios';
+import { Notice } from './components/notice/Notice';
+import { NoticeDetail } from './components/notice/NoticeDetail';
 
-// const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
-// axios.defaults.baseURL = baseURL;
+const baseURL = 'http://34.64.156.157';
+axios.defaults.baseURL = baseURL;
 // axios.defaults.withCredentials = true;
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (
@@ -42,6 +45,9 @@ const App: FC = () => {
           <Route path="/viewmore" element={<ViewMore />} />
           <Route path="/viewmore/recruit" element={<Recruit />} />
           <Route path="/viewmore/about" element={<About />} />
+          <Route path="/notice/*" element={<Notice />}>
+            <Route path=":id" element={<NoticeDetail />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
         <NavBar />
