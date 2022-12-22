@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import { MainPage } from './components/MainPage';
 import { Reply } from './components/reply/Reply';
-import { MyPage } from './components/mypage/index';
+import { MyPage } from './components/mypage';
 import { MyPost } from './components/mypage/MyPost';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { Post } from './components/post/Post';
@@ -22,10 +22,10 @@ import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
 
-const baseURL = 'http://34.64.156.157';
-axios.defaults.baseURL = baseURL;
-// axios.defaults.withCredentials = true;
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+// const baseURL = 'http://34.64.156.157';
+// axios.defaults.baseURL = baseURL;
+// // axios.defaults.withCredentials = true;
+// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (

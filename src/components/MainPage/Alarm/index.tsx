@@ -1,3 +1,3 @@
-import { Alarm } from './Alarm';
+import { Alarm } from './alarm';
 
 export { Alarm };
