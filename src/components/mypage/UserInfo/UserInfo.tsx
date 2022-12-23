@@ -5,7 +5,7 @@ import axios from 'axios';
 // styles
 import * as S from './styled';
 
-interface UserInfo {
+interface UserInfoType {
   id: number,
   email: string,
   nickname: string,
@@ -32,7 +32,7 @@ const initialState = {
 export function UserInfo() {
   const token = '';
 
-  const [userInfo, setUserInfo] = useState<UserInfo>(initialState);
+  const [userInfo, setUserInfo] = useState<UserInfoType>(initialState);
 
   const nicknameInfo = async () => {
     try {
@@ -42,9 +42,9 @@ export function UserInfo() {
           authorization: `bearer ${token}`,
         },
       })
-      setUserInfo(() => ({ ...userInfo, ...res.data }));
+      setUserInfo( res.data );
     } catch (err) {
-        alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+        alert(`예기지 못한 에러가 발생했습니다.\nERROR: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`);
     }
   };
   useEffect(() => {

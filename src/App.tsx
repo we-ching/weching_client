@@ -22,7 +22,8 @@ import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
 
-const baseURL = 'http://34.64.156.157';
+// const baseURL = 'http://34.64.156.157';
+const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
 axios.defaults.baseURL = baseURL;
 // axios.defaults.withCredentials = true;
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';

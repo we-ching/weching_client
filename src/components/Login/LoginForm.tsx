@@ -16,6 +16,7 @@ export const LoginForm = () => {
     try {
       const userData = { nickname: nicknameRef.current?.value };
       const res = await axios.get(`/auth/google/login`);
+      console.log(res);
       const jwtToken = res.data.accessToken;
       jwtToken ? setToken(jwtToken) : null;
       if (res.data.email) {
