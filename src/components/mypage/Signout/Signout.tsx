@@ -38,7 +38,7 @@ export function SignOut() {
           authorization: `bearer ${token}`,
         },
       })
-      input = res.data.nickname;
+      setNickName(res.data.nickname);
     } catch (err) {
         alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
@@ -50,7 +50,7 @@ export function SignOut() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (input !== checkNickname) {
+      if (nickname !== checkNickname) {
         alert('닉네임이 일치하지 않습니다.')
         return;
       }
@@ -97,14 +97,14 @@ export function SignOut() {
                 <input
                   id="checkNickname"
                   type="text"
-                  placeholder={input}
+                  placeholder={nickname}
                   name="checkNickname"
                   value={checkNickname || ''}
                   onChange={(e) => {
                     setCheckNickname(e.target.value);
                   }}
                 />
-                {input !== checkNickname && (
+                {nickname !== checkNickname && (
                   <p
                     className="NicknameChecked"
                     style={{
