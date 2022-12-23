@@ -82,9 +82,70 @@ export const PostContent = styled.p`
 `;
 
 export const Review = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 80%;
   min-height: 100px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 `;
+
+const ReviewButtonStyle = styled.button`
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  bottom: 1rem;
+  margin: 10px;
+  background: none;
+  border: 2px solid limegreen;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+export const ReviewButtonBox = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ReviewReportBtn = styled(ReviewButtonStyle)``;
+export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
+  width: 60px;
+  margin-left: auto;
+`;
+
+export const RP_Form = styled.form`
+  display: inline-block;
+  padding-left: 20px;
+`;
+export const RP_FiledSet = styled.fieldset`
+  display: inline-block;
+  direction: rtl;
+  border: 0;
+`;
+export const RP_Label = styled.label`
+  font-size: 1rem;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+  &:hover {
+    text-shadow: 0 0 0 red;
+  }
+  &:hover ~ label {
+    text-shadow: 0 0 0 red;
+  }
+`;
+export const RP_Input = styled.input`
+  &[type='radio'] {
+    display: none;
+  }
+  &[type='radio']:checked ~ label {
+    text-shadow: 0 0 0 red;
+  }
+`;
+export const RP_SubmitBtn = styled(ReviewButtonStyle)``;

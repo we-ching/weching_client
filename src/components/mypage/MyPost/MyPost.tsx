@@ -9,18 +9,15 @@ import { useAppDispatch } from '../../../store/config';
 export const MyPost = () => {
   const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const [posts, setPosts] = useState<Posts[]>([]);
-  const token = 'aedfewlkw123';
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
-    console.log('gag');
-    const res = await axios.get(`/api/post`);
-    // , {
-    //   headers: {
-    //     // authorization: `Bearer ${token}`,
-    //     // Origin: `http://localhost:3000`,
-    //   },
-    // });
+    const res = await axios.get(`/api/post`, {
+      headers: {
+        authorization:
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzgwNDc4LCJleHAiOjE2NzE4NjMyNzh9.8vF4uOooGHg5UkQCC7JeVZYhhzCsiVTatGagwUf8E6U',
+      },
+    });
     const postList = res.data;
     setPosts(() => [...posts, ...postList]);
   };

@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import * as S from './styled';
 import { useAppSelector } from '../../../store/config';
+import { ReviewStartPoint } from './StarPointBtn';
 
 export const MyPostDetail = () => {
   const postId = useParams().postId;
@@ -18,7 +19,16 @@ export const MyPostDetail = () => {
         </S.Post>
         {post.reviews.length !== 0
           ? post.reviews.map((e: any) => {
-              return <S.Review key={e.id}>{e.content}</S.Review>;
+              return (
+                <S.Review key={e.id}>
+                  {e.content}
+                  <S.ReviewButtonBox>
+                    <ReviewStartPoint></ReviewStartPoint>
+                    <S.ReviewBookmarkBtn>북마크</S.ReviewBookmarkBtn>
+                    <S.ReviewReportBtn>신고</S.ReviewReportBtn>
+                  </S.ReviewButtonBox>
+                </S.Review>
+              );
             })
           : null}
       </S.PostCon>
