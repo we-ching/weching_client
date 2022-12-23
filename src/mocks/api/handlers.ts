@@ -3,7 +3,7 @@ import {
   advice,
   testData,
   main,
-  testNickname,
+  UserInfo,
   testOverlap,
   testSignOut,
   getNotice,
@@ -21,9 +21,9 @@ const handlers = [
   rest.post('/api/post', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(req));
   }),
-  rest.get('/api/review/:id', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(testNickname));
-  }),
+  // rest.get('/api/review/:id', (req, res, ctx) => {
+  //   return res(ctx.status(200), ctx.json(testNickname));
+  // }),
   rest.get('/api/post', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(testData));
   }),
@@ -40,7 +40,7 @@ const handlers = [
     return res(ctx.status(200), ctx.json(main));
   }),
   rest.get('/api/user', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(testNickname));
+    return res(ctx.status(200), ctx.json(UserInfo));
   }),
   rest.post('/api/user/checkName', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(testOverlap));

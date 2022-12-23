@@ -22,10 +22,10 @@ import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { NoticeDetail } from './components/notice/NoticeDetail';
 
-// const baseURL = 'http://34.64.156.157';
-// axios.defaults.baseURL = baseURL;
-// // axios.defaults.withCredentials = true;
-// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+const baseURL = 'http://34.64.156.157';
+axios.defaults.baseURL = baseURL;
+// axios.defaults.withCredentials = true;
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (
