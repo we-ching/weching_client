@@ -46,8 +46,16 @@ export const main = {
       '만약 당신이 누군가의 인격을 시험해 보고 싶다면, 그에게 권력을 줘 보라.',
   },
 };
-export const testNickname = {
-  nickname: '테스트 닉네임',
+export const UserInfo = {
+  id: 21,
+  email: "yeek0620@gmail.com",
+  nickname: "엘리스",
+  point: "10,000",
+  status: 0,
+  grade: 0,
+  avg: null,
+  post_count: "2",
+  review_count: "5"
 };
 
 export const testOverlap = {
