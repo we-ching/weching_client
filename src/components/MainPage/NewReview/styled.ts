@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewMatchTitle: any = styled.div`
+export const NewReviewTitle: any = styled.div`
   margin: 25px auto 0;
   width: 370px;
 
@@ -11,7 +11,7 @@ export const NewMatchTitle: any = styled.div`
   font-weight: 700;
 `;
 
-export const NewMatchTitleCount: any = styled.p`
+export const NewReviewTitleCount: any = styled.p`
   width: 27px;
   height: 19px;
   border-radius: 10px;
@@ -24,7 +24,7 @@ export const NewMatchTitleCount: any = styled.p`
   font-size: 13px;
 `;
 
-export const NewMatchTextBox: any = styled.div`
+export const NewReviewTextBox: any = styled.div`
   margin: 0 auto;
   padding: 15px;
   font-size: 14px;
@@ -38,7 +38,7 @@ export const NewMatchTextBox: any = styled.div`
   overflow: hidden;
 `;
 
-export const NewMatchTextContent: any = styled.div`
+export const NewReviewTextContent: any = styled.div`
   padding: 15px;
   font-size: 14px;
   width: 310px;

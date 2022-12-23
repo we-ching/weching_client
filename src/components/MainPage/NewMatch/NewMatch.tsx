@@ -1,4 +1,4 @@
-import * as s from './styled';
+import * as S from './styled';
 
 import Letter from '../../../assets/images/mail.png';
 
@@ -20,28 +20,30 @@ export const NewMatch = (props: any) => {
   };
 
   const arr = props.props;
-  console.log(arr);
+  // console.log(arr);
 
   return (
     <>
-      <s.NewMatchTitle>
-        <s.Image src={Letter} />
+      <S.NewMatchTitle>
+        <S.Image src={Letter} />
         <p>새 글 매칭</p>
-        <s.NewMatchTitleCount>+{arr.length}</s.NewMatchTitleCount>
-      </s.NewMatchTitle>
-      <s.NewMatchTextBox>
+        <S.NewMatchTitleCount>+{arr.length}</S.NewMatchTitleCount>
+      </S.NewMatchTitle>
+      <S.NewMatchTextBox>
         <Slider {...settings}>
           {arr.map((item: any) => {
+            const itemId = item.id;
+            const itemContent = item.content;
             return (
-              <Link to="/reply">
-                <s.NewMatchTextContent key={item.id}>
-                  {item.content}
-                </s.NewMatchTextContent>
+              <Link to={`/reply/${itemId}`}>
+                <S.NewMatchTextContent key={itemId}>
+                  {itemContent}
+                </S.NewMatchTextContent>
               </Link>
             );
           })}
         </Slider>
-      </s.NewMatchTextBox>
+      </S.NewMatchTextBox>
     </>
   );
 };

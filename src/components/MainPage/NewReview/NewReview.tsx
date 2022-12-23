@@ -1,4 +1,4 @@
-import * as s from './styled';
+import * as S from './styled';
 
 import Letter from '../../../assets/images/mail.png';
 
@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
 
-export const NewMatch = (props: any) => {
+export const NewReview = (props: any) => {
   const settings = {
     arrows: true,
     dots: true,
@@ -24,24 +24,24 @@ export const NewMatch = (props: any) => {
 
   return (
     <>
-      <s.NewMatchTitle>
-        <s.Image src={Letter} />
-        <p>새 글 매칭</p>
-        <s.NewMatchTitleCount>+{arr.length}</s.NewMatchTitleCount>
-      </s.NewMatchTitle>
-      <s.NewMatchTextBox>
+      <S.NewReviewTitle>
+        <S.Image src={Letter} />
+        <p>나에게 온 칭찬</p>
+        <S.NewReviewTitleCount>+{arr.length}</S.NewReviewTitleCount>
+      </S.NewReviewTitle>
+      <S.NewReviewTextBox>
         <Slider {...settings}>
           {arr.map((item: any) => {
             return (
-              <Link to="/reply">
-                <s.NewMatchTextContent key={item.id}>
+              <Link to="/mypage">
+                <S.NewReviewTextContent key={item.id}>
                   {item.content}
-                </s.NewMatchTextContent>
+                </S.NewReviewTextContent>
               </Link>
             );
           })}
         </Slider>
-      </s.NewMatchTextBox>
+      </S.NewReviewTextBox>
     </>
   );
 };

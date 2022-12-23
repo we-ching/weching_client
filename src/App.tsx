@@ -41,6 +41,7 @@ const App: FC = () => {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
+          <Route path="/reply/:itemId" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
           <Route path="/viewmore" element={<ViewMore />} />
           <Route path="/viewmore/recruit" element={<Recruit />} />

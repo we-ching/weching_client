@@ -1,4 +1,4 @@
-import * as s from './styled';
+import * as S from './styled';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -12,7 +12,7 @@ export const Advice = () => {
     try {
       const res: any = await axios.get(`/api/main`, {
         headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzExMDc2LCJleHAiOjE2NzE3MTQ2NzZ9.Pom6wGrLCmoPbTU9EcXgCItWSwt6hxlaa40Rlq35G20`,
+          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzY0MjgxLCJleHAiOjE2NzE4NDcwODF9.NMQyUuN9dPQGxpBxM5AEEV0jMnpe4cn8rXbJ4xdVY4c`,
         },
       });
 
@@ -25,11 +25,11 @@ export const Advice = () => {
 
   return (
     <div>
-      <s.Advice>
-        <s.AdviceTitle>한 줄 명언</s.AdviceTitle>
-        <s.Image src={Present} onClick={submitHandler} />
-        <s.AdviceContent>{advice}</s.AdviceContent>
-      </s.Advice>
+      <S.Advice>
+        <S.AdviceTitle>한 줄 명언</S.AdviceTitle>
+        <S.Image src={Present} onClick={submitHandler} />
+        <S.AdviceContent>{advice}</S.AdviceContent>
+      </S.Advice>
     </div>
   );
 };
