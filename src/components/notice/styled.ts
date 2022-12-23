@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container: any = styled.div`
-  width: 430px;
-  height: 932px;
+  width: 100vw;
+  min-width: 200px;
+  max-width: 1024px;
   margin: auto;
   background-color: #f0f0f0;
   color: #444444;
@@ -18,6 +19,7 @@ export const Container: any = styled.div`
 export const Message: any = styled.li`
   width: 370px;
   height: 100px;
+
   margin: 0 auto 24px;
   border-radius: 10px;
 

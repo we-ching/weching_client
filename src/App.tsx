@@ -50,7 +50,7 @@ const App: FC = () => {
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {/* <NavBar /> */}
+        <NavBar />
       </div>
     </>
   );
