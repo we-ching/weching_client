@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
 
-export const NewMatch = (props: any) => {
+export const NewReview = (props: any) => {
   const settings = {
     arrows: true,
     dots: true,
@@ -20,30 +20,28 @@ export const NewMatch = (props: any) => {
   };
 
   const arr = props.props;
-  // console.log(arr);
+  console.log(arr);
 
   return (
     <>
-      <S.NewMatchTitle>
+      <S.NewReviewTitle>
         <S.Image src={Letter} />
-        <p>새 글 매칭</p>
-        <S.NewMatchTitleCount>+{arr.length}</S.NewMatchTitleCount>
-      </S.NewMatchTitle>
-      <S.NewMatchTextBox>
+        <p>나에게 온 칭찬</p>
+        <S.NewReviewTitleCount>+{arr.length}</S.NewReviewTitleCount>
+      </S.NewReviewTitle>
+      <S.NewReviewTextBox>
         <Slider {...settings}>
           {arr.map((item: any) => {
-            const itemId = item.id;
-            const itemContent = item.content;
             return (
-              <Link to={`/reply/${itemId}`}>
-                <S.NewMatchTextContent key={itemId}>
-                  {itemContent}
-                </S.NewMatchTextContent>
+              <Link to="/mypage">
+                <S.NewReviewTextContent key={item.id}>
+                  {item.content}
+                </S.NewReviewTextContent>
               </Link>
             );
           })}
         </Slider>
-      </S.NewMatchTextBox>
+      </S.NewReviewTextBox>
     </>
   );
 };

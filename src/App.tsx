@@ -11,7 +11,7 @@ import { MyPage } from './components/mypage';
 import { MyPost } from './components/mypage/MyPost';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { Post } from './components/post/Post';
-import { Alarm } from './components/MainPage/Alarm';
+import { Alarm } from './components/MainPage/Alarm/alarm';
 import { LoginForm } from './components/Login/LoginForm';
 import { NotFound } from './components/NotFound';
 import { NavBar } from './components/NavBar';
@@ -41,6 +41,7 @@ const App: FC = () => {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/post" element={<Post />} />
           <Route path="/reply" element={<Reply />} />
+          <Route path="/reply/:itemId" element={<Reply />} />
           <Route path="/alarm" element={<Alarm />} />
           <Route path="/viewmore" element={<ViewMore />} />
           <Route path="/viewmore/recruit" element={<Recruit />} />

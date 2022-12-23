@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container: any = styled.div`
   width: 430px;
   height: 932px;
-  margin: auto;
+  margin: 85px auto;
   background-color: #f0f0f0;
   color: #444444;
 
@@ -15,7 +15,7 @@ export const Container: any = styled.div`
   }
 `;
 
-export const UserInfo: any = styled.div`
+export const UserNick: any = styled.div`
   width: 370px;
   margin: 20px auto 0;
 
