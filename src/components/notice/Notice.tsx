@@ -5,10 +5,15 @@ import { useImmer } from 'use-immer';
 import { NoticeList } from './NoticeList';
 import { PageNumber } from './PageNumber';
 
+interface NoticeProps {
+  id: string;
+  title: string;
+  content: string;
+}
 interface NoticeInfo {
   totalPage: number;
   currPage: string;
-  notice: [];
+  notice: NoticeProps[];
 }
 
 export const Notice = () => {
