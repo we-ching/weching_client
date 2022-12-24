@@ -47,11 +47,13 @@ export const CardBox = styled.div`
   border-radius: 1rem;
   position: relative;
   transition: .2s;
+  filter: blur(1px);
 
   &:hover {
     transform: translateY(-1rem);
     background-color: white;
     height: 60vw;
+    filter: none;
   }
   &:hover ~ & {
     transform: translateY(5rem);
