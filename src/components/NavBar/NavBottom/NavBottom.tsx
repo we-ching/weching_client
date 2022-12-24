@@ -62,7 +62,7 @@ export const Nav = () => {
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
-                        navigate('/page2');
+                        navigate('/bookmark');
                         setActiveHome(false);
                         setActiveBook(true);
                         setActivePlus(false);
