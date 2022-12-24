@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import * as S from './styled';
 
 interface pageNumberProps {
   totalPage: number;
@@ -10,16 +11,16 @@ export const PageNumber = ({
   changePage,
 }: pageNumberProps): JSX.Element => {
   return (
-    <nav>
+    <S.PageNumberNav>
       {Array(totalPage)
         .fill(0)
         .map((_, i) => {
           return (
-            <button key={i + 1} onClick={() => changePage(i + 1)}>
+            <S.pageNumberBtn key={i + 1} onClick={() => changePage(i + 1)}>
               {i + 1}
-            </button>
+            </S.pageNumberBtn>
           );
         })}
-    </nav>
+    </S.PageNumberNav>
   );
 };
