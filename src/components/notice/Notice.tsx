@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useImmer } from 'use-immer';
 import { NoticeList } from './NoticeList';
-import { useNavigate } from 'react-router-dom';
 import { PageNumber } from './PageNumber';
 
 interface NoticeInfo {
@@ -19,7 +18,7 @@ export const Notice = () => {
     notice: [],
   });
   const [page, setPage] = useState<number>(1);
-  const navigate = useNavigate();
+
   const fetchNotice = async () => {
     await axios.get(`/api/notice?page=${page}`).then((res) => {
       setNoticesInfo(res.data);
@@ -28,13 +27,9 @@ export const Notice = () => {
   useEffect(() => {
     fetchNotice();
   }, [page]);
-  const clickHandler = () => {
-    navigate(-1);
-  };
 
   return (
     <>
-      <button onClick={clickHandler}>뒤로가기</button>
       <S.Container>
         <nav>
           <NoticeList notices={noticeInfo.notice}></NoticeList>
