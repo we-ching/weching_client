@@ -48,7 +48,7 @@ export const Ranking = () => {
 
   const [rankInfo, setRankInfo] = useState<any>(initialState);
 
-  const RankingInfo = async () => {
+  const rankingInfo = async () => {
     try {
       const res = await axios.get(`/api/main`, {
         method: 'GET',
@@ -56,13 +56,13 @@ export const Ranking = () => {
           authorization: `bearer ${token}`,
         },
       })
-      setRankInfo( res.data );
+      setRankInfo(res.data);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
   useEffect(() => {
-    Ranking();
+    rankingInfo();
   }, []);
 
   return (
@@ -71,7 +71,7 @@ export const Ranking = () => {
         <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
         <S.Image src={Crown} />
         <S.RankingUserCenter>
-          {rankInfo.map((rank:RankingInfoType, idx: number) => {
+          {/* {rankInfo.map((rank:RankingInfoType, idx: number) => {
             if ( idx%3 === 0 ) {
               rank.rank
             } else if ( idx%3 === 1) {
@@ -79,10 +79,11 @@ export const Ranking = () => {
             } else if ( idx%3 === 2) {
               rank.rank
             }
-          })}등
+          })} */}
+          1등
         </S.RankingUserCenter>
         <S.RankingUserLeft>
-          {rankInfo.map((rank:RankingInfoType, idx: number) => {
+          {/* {rankInfo.map((rank:RankingInfoType, idx: number) => {
             if ( idx%3 === 0 ) {
               rank.rank
             } else if ( idx%3 === 1) {
@@ -90,10 +91,11 @@ export const Ranking = () => {
             } else if ( idx%3 === 2) {
               rank.rank
             }
-          })}등
+          })} */}
+          2등
         </S.RankingUserLeft>
         <S.RankingUserRight>
-          {rankInfo.map((rank:RankingInfoType, idx: number) => {
+          {/* {rankInfo.map((rank:RankingInfoType, idx: number) => {
             if ( idx%3 === 0 ) {
               rank.rank
             } else if ( idx%3 === 1) {
@@ -101,7 +103,8 @@ export const Ranking = () => {
             } else if ( idx%3 === 2) {
               rank.rank
             }
-          })}등
+          })} */}
+          3등
         </S.RankingUserRight>
         <S.RankingUserLeft>4등 - 엘리스</S.RankingUserLeft>
         <S.RankingUserRight>5등 - 칭구리</S.RankingUserRight>

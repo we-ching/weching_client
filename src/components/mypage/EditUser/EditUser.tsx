@@ -35,7 +35,7 @@ export function EditUser() {
       const res = await axios.post(`api/user/checkName`, {
         method: 'POST',
         headers: {
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`,
+          authorization: `bearer ${token}`,
         },
         body: JSON.stringify({ newNickname })
       })
@@ -59,7 +59,7 @@ export function EditUser() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`,
+          authorization: `bearer ${token}`,
         },
         body: JSON.stringify({ newNickname })
       })
