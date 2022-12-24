@@ -58,7 +58,7 @@ export function SignOut() {
       const res = await axios.delete(`/api/user`, {
         method: 'DELETE',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`,
         },
       })
 
