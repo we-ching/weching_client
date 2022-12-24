@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   width: 430px;
   height: 932px;
 
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
 `;
 
 export const MyPageContainer = styled.div`
@@ -37,8 +37,8 @@ export const ItemBox = styled.div`
   height: 60px;
   display: flex;
   align-items: center;
-  
-  background-color: #FFFFFF;
+
+  background-color: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 

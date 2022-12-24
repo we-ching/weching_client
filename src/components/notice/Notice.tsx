@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useImmer } from 'use-immer';
 import { NoticeList } from './NoticeList';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PageNumber } from './PageNumber';
 
-type NoticeInfo = {
+interface NoticeInfo {
   totalPage: number;
   currPage: string;
   notice: [];
-};
+}
 
 export const Notice = () => {
   const [noticeInfo, setNoticesInfo] = useImmer<NoticeInfo>({
@@ -31,15 +31,16 @@ export const Notice = () => {
   const clickHandler = () => {
     navigate(-1);
   };
-  console.log(noticeInfo);
+
   return (
-    <div>
+    <>
       <button onClick={clickHandler}>뒤로가기</button>
       <S.Container>
-        <Outlet />
-        <NoticeList notices={noticeInfo.notice} />
+        <nav>
+          <NoticeList notices={noticeInfo.notice}></NoticeList>
+        </nav>
         <PageNumber totalPage={noticeInfo.totalPage} changePage={setPage} />
       </S.Container>
-    </div>
+    </>
   );
 };

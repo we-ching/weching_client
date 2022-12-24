@@ -1,21 +1,34 @@
 import * as S from './styled';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-interface noticesProps {
-  notices: any[];
+interface NoticesProps {
+  id: string;
+  title: string;
+  content: string;
 }
 
-export const NoticeList: React.FC<noticesProps> = ({ notices }) => {
+interface NoticeListProps {
+  notices: NoticesProps[];
+}
+
+interface NoticeProps {
+  notice: NoticesProps;
+}
+
+const Notice: React.FC<NoticeProps> = ({ notice }) => {
+  const [isOpen, setisOpen] = useState(false);
+  return (
+    <S.Message onClick={() => setisOpen(!isOpen)}>
+      <S.MessageTitle>{notice.title}</S.MessageTitle>
+      <S.MessageContent>{isOpen && notice.content}</S.MessageContent>
+    </S.Message>
+  );
+};
+
+export const NoticeList: React.FC<NoticeListProps> = ({ notices }) => {
   const noticeBlock = notices.map((notice) => {
-    return (
-      <S.Message key={notice.id}>
-        <Link to={`/notice/${notice.id}`}>
-          <S.MessageTitle>{notice.title}</S.MessageTitle>
-          <S.MessageContent>{notice.content}</S.MessageContent>
-        </Link>
-      </S.Message>
-    );
+    return <Notice key={notice.id} notice={notice} />;
   });
   return <ul>{noticeBlock}</ul>;
 };
