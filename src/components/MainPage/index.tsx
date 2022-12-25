@@ -20,7 +20,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGd
     try {
       const res: any = await axios.get(`/api/main`, {
         headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzY0MjgxLCJleHAiOjE2NzE4NDcwODF9.NMQyUuN9dPQGxpBxM5AEEV0jMnpe4cn8rXbJ4xdVY4c`,
+          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTQyMzMxLCJleHAiOjE2NzIwMjUxMzF9.SnT2r8nVQZPm8oQxCfDGsMNDU7DNhErTFDGi2r6JFVQ`,
         },
       });
 

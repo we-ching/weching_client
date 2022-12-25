@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
-import { Posts } from './styled';
 import axios from 'axios';
 import { getPosts } from '../../../myPostSlice';
 import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
   const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
-  const [posts, setPosts] = useState<Posts[]>([]);
+  const [posts, setPosts] = useState<S.Posts[]>([]);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
     const res = await axios.get(`/api/post`, {
       headers: {
         authorization:
-          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzgwNDc4LCJleHAiOjE2NzE4NjMyNzh9.8vF4uOooGHg5UkQCC7JeVZYhhzCsiVTatGagwUf8E6U',
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTQyMzMxLCJleHAiOjE2NzIwMjUxMzF9.SnT2r8nVQZPm8oQxCfDGsMNDU7DNhErTFDGi2r6JFVQ',
       },
     });
     const postList = res.data;

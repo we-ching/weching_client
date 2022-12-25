@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export interface Post {
   id: number;
@@ -23,8 +23,28 @@ export interface reviewProp {
   posts?: Posts[];
 }
 
+export interface reviewId {
+  id: number;
+}
+
+export interface isError {
+  isError: boolean;
+  name: string;
+  id: string;
+  cols: number;
+  rows: number;
+  maxLength: number;
+  placeholder: string;
+}
+
 export const flexCenter = `
   display: flex;
+  justify-content: center;
+  align-items: center;
+  `;
+export const flexColumCenter = `
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   `;
@@ -80,7 +100,9 @@ export const PostContent = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
-
+/** Review
+ * 별점, 북마크, 신고
+ */
 export const Review = styled.div`
   position: relative;
   display: flex;
@@ -92,7 +114,7 @@ export const Review = styled.div`
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
-const ReviewButtonStyle = styled.button`
+export const ReviewButtonStyle = styled.button`
   display: inline-block;
   width: 50px;
   height: 30px;
@@ -114,7 +136,11 @@ export const ReviewButtonBox = styled.div`
   height: 100%;
 `;
 
-export const ReviewReportBtn = styled(ReviewButtonStyle)``;
+export const ReviewReportBtn = styled(ReviewButtonStyle)`
+  & button {
+    display: none;
+  }
+`;
 export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
   width: 60px;
   margin-left: auto;
@@ -149,3 +175,65 @@ export const RP_Input = styled.input`
   }
 `;
 export const RP_SubmitBtn = styled(ReviewButtonStyle)``;
+/** modal
+ * 사용처 : 리뷰 신고버튼,
+ */
+export const M_Container = styled.div`
+  position: fixed;
+  ${flexCenter}
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+`;
+export const M_Background = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
+export const M_ModalBox = styled.div`
+  ${flexCenter}
+  width: 220px;
+  height: 200px;
+  padding: 2rem;
+  text-align: center;
+  z-index: 6;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+`;
+export const M_Modal = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+export const M_Form = styled.form`
+  width: 100%;
+  height: 100%;
+`;
+export const M_Fieldset = styled.fieldset`
+  ${flexColumCenter}
+  width: 100%;
+  height: 100%;
+`;
+export const M_Legend = styled.legend`
+  font-size: 1.5rem;
+`;
+export const M_Textarea = styled.textarea<isError>`
+  margin-top: auto;
+
+  border: 1.5px solid ${({ isError }) => (isError ? 'red' : 'unset')};
+`;
+export const M_TextLabel = styled.label`
+  width: 100%;
+  height: 1rem;
+  padding: 5px;
+  font-size: 0.8rem;
+  color: red;
+  line-height: 1rem;
+`;
+export const M_Button = styled.button`
+  display: inline-block;
+  margin-top: auto;
+`;
