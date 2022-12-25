@@ -13,7 +13,7 @@ export const RandomPost = () => {
   const [post, setPost] = useState('');
   const getPost = async () => {
     await axios
-      .get(`/api/review/:id`)
+      .get(`/api/review/id`)
       .then((res) => {
         setPost(res.data.content);
       })

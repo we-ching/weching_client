@@ -7,18 +7,16 @@ import { RandomPost } from './RandomPost';
 import { useNavigate } from 'react-router-dom';
 
 /*
-- [x] placeholder 순한맛 주의 내용
-- [x] 리뷰 Tip → 1줄 (DB에서 계속 다른 내용을 쏴줌) << 우선 플레이스홀더로 구현
-- [] 기한 : 1달
-- [x] 등록 버튼 → 모달창 → “등록하시면 수정이 불가합니다”
 
 랜덤으로 매칭된 게시물을 가져와서 보여주고
 답글 달아서 post 해주기
 post 시 어떤 게시물에 답글을 달았는지 알아야히기 떄문에 정보 같이 보내주기
 
+TODO: 랜덤 칭찬 Tip 보여주기
 TODO: 랜덤으로 매칭된 게시물 및 버튼은 재랜더링 할필요없으므로 재랜더링 막아주기
 TODO: 최초 랜더링 시 api 받아오는 로직 => 
-        메인페이지에서 넘어온 param을 받아어 id를 url에 params로 보내주면 해당 id를 가진 게시글 랜더링되는 로직으로 변경
+
+메인페이지에서 넘어온 param을 받아어 id를 url에 params로 보내주면 해당 id를 가진 게시글 랜더링되는 로직으로 변경
 */
 
 export const Reply = () => {
