@@ -48,7 +48,7 @@ const App: FC = () => {
           <Route path="/notice" element={<Notice />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <NavBar />
+        {/* <NavBar /> */}
       </div>
     </>
   );

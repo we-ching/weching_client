@@ -13,9 +13,8 @@ import * as S from './styled';
 /*
 {
 TODO: 글 이어서 작성하기 기능 구현
-  1) 세션스토리지에 저장 => 새로고침하거나 세션이 만료되면 삭제 => 글 올리기 버튼 클릭 시 삭제, 
-      TODO:로그아웃시 삭제?
-  2) 로컬스토리지에 저장 => 새로고침해도 사라지지 않지만 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
+  1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
+  2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
 
 accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc4NzkzLCJleHAiOjE2NzE2ODIzOTN9.Rvh51uw7vprln7GvFHDQAzARaHBQLHfHFB4-Q-vjKgs",
 refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzI4ODQxNDh9.Ru8ySF0YlN55FMEIEnnjGoK-3bkejmh1yNeELbb6xMM"
@@ -65,7 +64,7 @@ export const Post: FC = () => {
   return (
     <S.Main>
       <Tip />
-      <h1>새 글 쓰기</h1>
+      <h1>✉️ 새 글 쓰기</h1>
       <CKEditor
         editor={ClassicEditor}
         config={{
@@ -86,9 +85,9 @@ export const Post: FC = () => {
         }}
       />
 
-      <button onClick={submitHandler} disabled={body ? false : true}>
+      <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
         올리기
-      </button>
+      </S.PostBtn>
       <Board />
     </S.Main>
   );
