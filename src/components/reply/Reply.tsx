@@ -4,7 +4,8 @@ import './CKEditor.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { RandomPost } from './RandomPost';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import * as S from './styled';
 
 /*
 
@@ -22,10 +23,12 @@ TODO: 최초 랜더링 시 api 받아오는 로직 =>
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
   const navigate = useNavigate();
+  const params = useParams();
+  const id = params.id;
   const submitHandler = async () => {
     await axios
       .patch(
-        `/api/review/write/50`,
+        `/api/review/write/${id}`,
         {
           content: body,
         },
@@ -45,7 +48,7 @@ export const Reply = () => {
   };
 
   return (
-    <>
+    <S.Main>
       <RandomPost />
       <CKEditor
         editor={ClassicEditor}
@@ -64,9 +67,9 @@ export const Reply = () => {
           setBody(data);
         }}
       />
-      <button onClick={submitHandler} disabled={body ? false : true}>
+      <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
         칭찬해주기
-      </button>
-    </>
+      </S.PostBtn>
+    </S.Main>
   );
 };

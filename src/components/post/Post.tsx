@@ -64,7 +64,7 @@ export const Post: FC = () => {
   return (
     <S.Main>
       <Tip />
-      <S.Title>✉️ 새 글 쓰기</S.Title>
+      <h1>✉️ 새 글 쓰기</h1>
       <CKEditor
         editor={ClassicEditor}
         config={{

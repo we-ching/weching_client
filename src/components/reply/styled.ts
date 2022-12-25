@@ -12,7 +12,7 @@ export const PostBtn = styled.button`
   box-shadow: 1px 1px 3px 1px #dadce0;
   color: white;
   background: ${(props) => (props.disabled ? '#B79D7F' : '#ffccbc')};
-  width: 4rem;
+  width: 5rem;
   height: 2rem;
   border: none;
   border-radius: 10px;
