@@ -11,9 +11,29 @@ import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
 import { NavBar } from '../NavBar/index';
 
+interface Advice {
+  author: string;
+  authorrofile: string;
+  message: string;
+}
+
+const initialState = {
+  author: '',
+  authorrofile: '',
+  message: '',
+};
+
 export const MainPage: any = () => {
   const dispatch = useAppDispatch();
   const [nickname, setNickName] = useState<string>('');
+  const [matchPost, setMatchPost] = useState<any>([]);
+  const [posts, setPosts] = useState<Posts[]>([]);
+  const [advice, setAdvice] = useState<Advice>(initialState);
+
+  /*
+https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
+*/
+
   const mainRequest = async () => {
     try {
       await axios
@@ -24,7 +44,7 @@ export const MainPage: any = () => {
         })
         .then((res) => {
           dispatch(insertUser(res.data));
-          // console.log(res.data);
+
           setNickName(res.data.user.nickName);
         });
       await axios
@@ -37,7 +57,7 @@ export const MainPage: any = () => {
           dispatch(insertSub(res.data));
         });
     } catch (err) {
-      alert(`1. 메인에서 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
 
@@ -49,8 +69,8 @@ export const MainPage: any = () => {
     <S.Container>
       <NavBar />
       <S.UserNick>{nickname}님 반가워요!</S.UserNick>
-      <NewMatch />
-      <GoToPost />
+      {/* <NewMatch /> */}
+      {/* <GoToPost /> */}
       <Advice />
       <Ranking />
     </S.Container>
