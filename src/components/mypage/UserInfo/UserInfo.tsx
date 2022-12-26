@@ -7,26 +7,24 @@ import * as S from './styled';
 
 interface UserInfoType {
   id: number,
-  email: string,
-  nickname: string,
-  point: string,
+  nickName: string,
+  point: null | number,
   status: number,
-  grade: number,
+  grade: null | number,
   avg: null | number,
-  post_count: string,
-  review_count: string,
+  postCount: null | number,
+  reviewCount: null | number,
 };
 
 const initialState = {
   id: 21,
-  email: "yeek0620@gmail.com",
-  nickname: "엘리스",
-  point: "10,000",
+  nickName: "엘리스",
+  point: 10000,
   status: 0,
   grade: 0,
-  avg: null,
-  post_count: "2",
-  review_count: "5"
+  avg: 0.2,
+  postCount: 2,
+  reviewCount: 5
 };
 
 export function UserInfo() {
@@ -44,7 +42,7 @@ export function UserInfo() {
       })
       setUserInfo( res.data );
     } catch (err) {
-        alert(`예기지 못한 에러가 발생했습니다.\nERROR: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`);
+        alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
   useEffect(() => {
@@ -55,11 +53,21 @@ export function UserInfo() {
     <div>
       <S.Container>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <S.NicknameItemBox>{userInfo.nickname}</S.NicknameItemBox>
-          <S.PointBox>P {userInfo.point}</S.PointBox>
+          <S.NicknameItemBox>{userInfo.nickName}</S.NicknameItemBox>
+          <div className='pointBoxs'>
+            <S.PointBox>포인트 {userInfo.point}</S.PointBox>
+            <S.RankPointBox>랭킹 포인트 {userInfo.point}</S.RankPointBox>
+          </div>
         </div>
         <S.Line></S.Line>
-        <S.contentItemBox>작성글 : {userInfo.post_count}</S.contentItemBox>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <S.contentItemBox>
+            <div className='itemBoxTitle'>작성 글 </div>: {userInfo.postCount}
+          </S.contentItemBox>
+          <S.contentItemBox>
+            <div className='itemBoxTitle'>작성 리뷰수 </div>: {userInfo.reviewCount}
+          </S.contentItemBox>
+        </div>
       </S.Container>
     </div>
   );

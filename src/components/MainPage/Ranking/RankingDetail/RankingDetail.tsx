@@ -1,6 +1,5 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // styles
@@ -38,9 +37,8 @@ const initialState: RankingInfoType[] = [
   },
 ]
 
-export const Ranking = () => {
+export function RankingDetail() {
   const token = '';
-  const navigate = useNavigate();
 
   const [rankInfo, setRankInfo] = useState<RankingInfoType[]>(initialState);
 
@@ -63,28 +61,25 @@ export const Ranking = () => {
   }, []);
 
   return (
-    <div>
-      <S.Ranking>
-        <div className='container'>
-          <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
-          <S.RankingDetailButton onClick={() => navigate('/home/ranking')}>
-            <p>더보기</p>
-          </S.RankingDetailButton>
-        </div>
-        {
-          Array.isArray(rankInfo) && rankInfo.length > 0 ? 
-          rankInfo.slice(0,5).map((item: RankingInfoType)=>
-            <S.RankingUser rank={item.rank}>
-              <div className='rank'>
-                <S.Image className='rankImg' src={`/rank/ranking${item.rank}.png`} alt=''/>
-                <div className='rankContent'>
-                  {item.rank}등 - {item.nickname} RP-{item.grade};
-                </div>
-              </div>
-            </S.RankingUser>
-          ) : null 
-        }
-      </S.Ranking>
-    </div>
+    <S.Background>
+      <S.Wrapper>
+        <S.RankingContainer>
+          <S.Ranking>
+            <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
+            {
+              Array.isArray(rankInfo) && rankInfo.length > 0 ? 
+              rankInfo.map((item: RankingInfoType)=>
+                <S.RankingUser rank={item.rank}>
+                  <div className='rankContent'>
+                    {item.rank}등 - {item.nickname} RP-{item.grade}
+                  </div>
+                </S.RankingUser>
+              ) : null 
+            }
+          </S.Ranking>
+        </S.RankingContainer>
+      </S.Wrapper>
+    </S.Background>
   );
-};
+}
+

@@ -12,7 +12,7 @@ import * as S from './styled';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#BFA78A',
+      main: '#8C5C32',
       contrastText: '#fff',
     },
   },
@@ -21,8 +21,9 @@ const theme = createTheme({
 export function EditUser() {
   const token = '';
 
-  const [newNickname, setNewNickname] = useState<string>('');
+  const [nickName, setNewNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+  const [nameState, setNameState] = useState<boolean>(false);
 
   const handleModal = () => {
     setOpen(!open);
@@ -32,18 +33,19 @@ export function EditUser() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`api/user/checkName`, {
-        method: 'POST',
+      const res = await axios.post(`api/main/checkName`, 
+       { nickName },  
+      {
         headers: {
           authorization: `bearer ${token}`,
         },
-        body: JSON.stringify({ newNickname })
       })
 
       if (res.status == 200) {
-        alert(res.data.message);
+        alert('중복 검사가 되셨습니다.');
+        setNameState(true);
       } else if (res.status == 400) {
-        alert(res.data.content);
+        alert('중복 검사를 해주세요');
       };
       
       } catch (err) {
@@ -53,15 +55,19 @@ export function EditUser() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!nameState){
+      alert('중복 확인 해주세요');
+      return;
+    }
+
     try {
 
-      await axios.patch(`/api/user`, {
-        method: 'PATCH',
+      await axios.patch(`/api/user`, 
+      { nickName, nameState },
+      {
         headers: {
-          'Content-Type': 'application/json',
           authorization: `bearer ${token}`,
         },
-        body: JSON.stringify({ newNickname })
       })
 
       handleModal();
@@ -98,21 +104,22 @@ export function EditUser() {
           </S.Wrapper>
           <div id="userInfoEdit-description">
             <S.Form onSubmit={handleSubmit}>
-              <S.EditTitle className="newNickname">
+              <S.EditTitle className="Nickname">
                 <p style={{ marginBottom: '10px' }}
                 >
                   새 닉네임
                 </p>
                 <input
-                  id="newNickname"
+                  id="Nickname"
                   type="text"
                   placeholder=" * 2자 이상, 12자 이하"
-                  name="newPassowrd"
-                  value={newNickname}
+                  name="Nickname"
+                  value={nickName}
                   minLength={2}
                   maxLength={12}
                   onChange={(e) => {
                     setNewNickname(e.target.value);
+                    nameState && setNameState(false);
                   }}
                 />
               </S.EditTitle>

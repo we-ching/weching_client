@@ -9,56 +9,73 @@ export const Ranking = styled.div`
   border-radius: 10px;
 
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+  }
 `;
 
 export const RankingTitle = styled.div`
-  border-bottom: 1px solid rgba(68, 68, 68, 0.5);
-  padding: 5px 0;
+  padding: 5px 0 10px 0;
   font-size: 18px;
+  font-weight: 500;
 `;
 
-export const RankingUserCenter = styled.div`
-  padding: 15px;
-  font-size: 18px;
+export const RankingDetailButton = styled.div`
+  margin-top: 5px;
+
+  width: 60px;
+  height: 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  font-style: normal;
+  fontweight: 700;
+  font-size: 13px;
+  color: #FFFFFF;
+  background-color: #8C5C32;
+  border-radius: 10px;
+
+  :hover {
+    background: #BFA78A;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export const RankingUser = styled.div<{rank: number}>`
+  padding: 15px;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 400; 
+  display: flex;
+  justify-content: ${props => props.rank === 1 ? 'center' :
+   props.rank % 2 === 0 ? 'flex-start' : 'flex-end'};
 
   &:first-child {
     font-weight: bold;
   }
-`;
 
-export const RankingUserLeft = styled.div`
-  padding: 15px;
-  font-size: 18px;
-  display: flex;
-  justify-content: flex-start;
-
-  &:first-child {
-    font-weight: bold;
-  }
-`;
-
-export const RankingUserRight = styled.div`
-  padding: 15px;
-  font-size: 18px;
-  display: flex;
-  justify-content: flex-end;
-
-  &:first-child {
-    font-weight: bold;
+  .rank {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
 export const Image = styled.img`
   margin: 0 auto;
   padding: 10px 0;
-  width: 118px;
 
   display: block;
 
   &:first-child {
-    width: 33px;
+    width: 100px;
     margin: 0 5px 0 0;
   }
 `;
