@@ -71,7 +71,7 @@ export const Post: FC = () => {
         config={{
           placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
           toolbar: {
-            items: ['bold', 'italic', 'insertTable', 'link'],
+            items: ['bold', 'italic', 'link'],
           },
         }}
         data={savedBody}
