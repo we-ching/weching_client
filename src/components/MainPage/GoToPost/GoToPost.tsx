@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
 
-export const NewReview = (props: any) => {
+export const GoToPost = (props: any) => {
   const settings = {
     arrows: true,
     dots: true,
@@ -19,29 +19,33 @@ export const NewReview = (props: any) => {
     draggable: true,
   };
 
+  // const arr = [props.props[0], props.props[1], props.props[2]];
   const arr = props.props;
+  arr.splice(3);
   console.log(arr);
 
   return (
     <>
-      <S.NewReviewTitle>
+      <S.GoToTitle>
         <S.Image src={Letter} />
         <p>나에게 온 칭찬</p>
-        <S.NewReviewTitleCount>+{arr.length}</S.NewReviewTitleCount>
-      </S.NewReviewTitle>
-      <S.NewReviewTextBox>
+        <S.GoToTitleCount>+{arr.length}</S.GoToTitleCount>
+      </S.GoToTitle>
+      <S.GoToTextBox>
         <Slider {...settings}>
           {arr.map((item: any) => {
+            const itemId = item.id;
+            const itemContent = item.content;
             return (
-              <Link to="/mypage">
-                <S.NewReviewTextContent key={item.id}>
-                  {item.content}
-                </S.NewReviewTextContent>
+              <Link to={`/mypage/mypost/${itemId}`}>
+                <S.GoToTextContent key={itemId}>
+                  {itemContent}
+                </S.GoToTextContent>
               </Link>
             );
           })}
         </Slider>
-      </S.NewReviewTextBox>
+      </S.GoToTextBox>
     </>
   );
 };

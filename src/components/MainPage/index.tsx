@@ -1,62 +1,67 @@
 import * as S from './styled';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { insertMain } from '../../mainSlice';
+import { useAppDispatch } from '../../store/config';
+import { Posts } from '../mypage/MyPost/styled';
 
 import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
-import { NewReview } from './NewReview/NewReview';
+import { GoToPost } from './GoToPost/GoToPost';
+import { NavBar } from '../NavBar/index';
+
+interface Advice {
+  author: string;
+  authorrofile: string;
+  message: string;
+}
+
+const initialState = {
+  author: '',
+  authorrofile: '',
+  message: '',
+};
 
 export const MainPage: any = () => {
-  const [nickname, setNickName] = useState('');
+  const dispatch = useAppDispatch();
+  const [nickname, setNickName] = useState<string>('');
   const [matchPost, setMatchPost] = useState<any>([]);
-  const [rcvReview, setrcvReview] = useState<any>({});
-  const [token, setToken] = useState<string>('');
+  const [posts, setPosts] = useState<Posts[]>([]);
+  const [advice, setAdvice] = useState<Advice>(initialState);
 
   /*
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzgwNDEzLCJleHAiOjE2NzE4NjMyMTN9.RGEwgN1FO-lGSHCnbRcJEFksNXD80kLr9fH8aD2ysHY     */
+https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
+*/
 
   const mainRequest = async () => {
     try {
-      const res: any = await axios.get(`/api/main`, {
-        headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzY0MjgxLCJleHAiOjE2NzE4NDcwODF9.NMQyUuN9dPQGxpBxM5AEEV0jMnpe4cn8rXbJ4xdVY4c`,
-        },
-      });
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
+          },
+        })
+        .then((res) => {
+          dispatch(insertMain(res.data));
 
-      console.log(res.data.headers);
-      setNickName(res.data.user.nickname);
-      setMatchPost([...matchPost, ...res.data.todoReview]);
-      setrcvReview({ ...rcvReview, ...res.data });
+          setNickName(res.data.user.nickName);
+        });
     } catch (err) {
       alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
-    }
-  };
-  console.log(rcvReview);
-  const isLogined = async () => {
-    try {
-      const res = await axios.get(`/auth/google/login`, {
-        headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzY0MjgxLCJleHAiOjE2NzE4NDcwODF9.NMQyUuN9dPQGxpBxM5AEEV0jMnpe4cn8rXbJ4xdVY4c`,
-        },
-      });
-      let jwtToken = res.data.accessToken;
-      jwtToken = '';
-      jwtToken ? setToken(jwtToken) : null;
-    } catch (err) {
-      alert(`2.예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
   };
 
   useEffect(() => {
     mainRequest();
-    isLogined();
   }, []);
+
   return (
     <S.Container>
-      <S.UserNick>{token ? nickname : '방문자'}님 반가워요!</S.UserNick>
-      <NewMatch props={matchPost} />
-      {/* <NewReview props={rcvReview} /> */}
+      <NavBar />
+      <S.UserNick>{nickname}님 반가워요!</S.UserNick>
+      <NewMatch />
+      <GoToPost />
       <Advice />
       <Ranking />
     </S.Container>
