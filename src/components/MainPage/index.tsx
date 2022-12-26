@@ -50,8 +50,6 @@ export const MainPage: any = () => {
     <S.Container>
       <NavBar />
       <S.UserNick>{nickname}님 반가워요!</S.UserNick>
-      {/* <NewMatch /> */}
-      {/* <GoToPost /> */}
       <Advice />
       <Ranking />
     </S.Container>
