@@ -11,15 +11,18 @@ import * as S from './styled';
 //   "bookmark": true
 // },
 
-interface BookmarkContent {
+export interface BookmarkContentType {
   id: number,
   user_id: number,
   post_id: number,
   content: string,
+  status: number,
+  is_done: number,
+  month: object,
   bookmark: boolean,
 }
 
-export const Card = (article:BookmarkContent):any => {
+export const Card = (article:BookmarkContentType):any => {
   const {id, user_id, post_id, content, bookmark} = article;
   return (
     <S.CardBox>

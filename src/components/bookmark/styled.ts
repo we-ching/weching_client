@@ -17,6 +17,13 @@ export const Container = styled.div`
   ::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
+
+  button {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -46,13 +53,14 @@ export const CardBox = styled.div`
   background-color: #d6d6d6;
   border-radius: 1rem;
   position: relative;
-  transition: .2s;
+  transition: .3s;
   filter: blur(1px);
 
   &:hover {
     transform: translateY(-1rem);
     background-color: white;
-    height: 60vw;
+    min-height: 50vh;
+    height: auto;
     filter: none;
   }
   &:hover ~ & {
