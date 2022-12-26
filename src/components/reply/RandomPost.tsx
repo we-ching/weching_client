@@ -15,13 +15,13 @@ const ParseHtml: React.FC<postProps> = ({ post }) => (
 
 export const RandomPost = () => {
   const [post, setPost] = useState('');
-  // const params = useParams();
-  const id = 64;
+  const params = useParams();
+  const id = Number(params.id);
   const getPost = async () => {
     await axios
       .get(`/api/review`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTYwMzQxLCJleHAiOjE2NzIwNDMxNDF9.yN7JoY1OhV6A3T0nWyWUv3o52KbwxFKy_TDxxsSWiU8`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
         },
       })
       .then((res: any) => {

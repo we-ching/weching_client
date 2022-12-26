@@ -35,7 +35,7 @@ export const Reply = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTY4NDk1LCJleHAiOjE2NzIwNTEyOTV9.Dxwd2XDAy6Ftp_yAcRyhMLqnLALEs-FEPUbqOsDiw88`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
           },
         }
       )
@@ -44,7 +44,10 @@ export const Reply = () => {
         navigate('/home');
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response.status === 400) {
+          return alert('이미 칭찬한 게시글 입니다❗️'); // 홈에서 막는게 나을듯
+        }
+        navigate('/home');
       });
   };
 
@@ -56,7 +59,7 @@ export const Reply = () => {
         config={{
           placeholder:
             '욕설, 비방, 비꼬는 글을 작성하시면 관리자에 의해 이용을 제한될 수 있습니다.',
-          toolbar: ['bold', 'italic', 'numberedList', 'bulletedList'],
+          toolbar: ['bold', 'italic'],
         }}
         data=""
         onReady={(editor: any) => {

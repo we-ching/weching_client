@@ -16,9 +16,6 @@ import './CKEditor.css';
 TODO: 글 이어서 작성하기 기능 구현
   1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
   2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-
-accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc4NzkzLCJleHAiOjE2NzE2ODIzOTN9.Rvh51uw7vprln7GvFHDQAzARaHBQLHfHFB4-Q-vjKgs",
-refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzI4ODQxNDh9.Ru8ySF0YlN55FMEIEnnjGoK-3bkejmh1yNeELbb6xMM"
 }
 */
 
@@ -37,7 +34,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzgwODMxLCJleHAiOjE2NzE4NjM2MzF9.HJG9D1vc9xFG7B3FfOM8jcBUnX7xeDYHjHQ0rAVBj0A`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
             // credentials: 'include',
             // withCredentials: true,
           },
@@ -50,6 +47,9 @@ export const Post: FC = () => {
         navigate('/home');
       })
       .catch((error) => {
+        if (error.response.status === 400) {
+          return alert('글을 작성할 수 있는 포인트가 부족합니다❗️');
+        }
         console.log(error);
       });
   };
@@ -71,7 +71,7 @@ export const Post: FC = () => {
         config={{
           placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
           toolbar: {
-            items: ['bold', 'italic', 'insertTable', 'link', 'emoji'],
+            items: ['bold', 'italic', 'insertTable', 'link'],
           },
         }}
         data={savedBody}

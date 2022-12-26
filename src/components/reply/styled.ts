@@ -11,7 +11,7 @@ export const Main = styled.main`
 export const PostBtn = styled.button`
   box-shadow: 1px 1px 3px 1px #dadce0;
   color: white;
-  background: ${(props) => (props.disabled ? '#B79D7F' : '#ffccbc')};
+  background: ${(props) => (props.disabled ? '#bdb9b7' : '#B79D7F')};
   width: 5rem;
   height: 2rem;
   border: none;

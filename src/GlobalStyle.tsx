@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     body {
       line-height: 1;
       background-color: #f0f0f0;
+      padding: 75px 0 100px 0;
     }
     ol, ul {
       list-style: none;
