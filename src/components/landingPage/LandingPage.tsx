@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgOne from '../../assets/images/Rectanglethumb.png';
 import googleImg from '../../assets/images/googleLogo.png';
@@ -6,13 +6,54 @@ import arrowRight from '../../assets/images/slide swipe main page.png';
 import arrowDown from '../../assets/images/slide scroll down btn.png';
 import * as S from './styled';
 
+import axios from 'axios';
+import { insertUser, insertSub } from '../../mainSlice';
+import { useAppDispatch } from '../../store/config';
+import { useAppSelector } from '../../store/config';
+
 export const LandingPage = () => {
+  const dispatch = useAppDispatch();
   // const navigate = useNavigate();
 
   const btnClickHandler = (e: any) => {
     e.preventDefault();
     // navigate('./LandingPage');
   };
+
+  // const mainRequest = async () => {
+  //   try {
+  //     await axios
+  //       .get(`/api/main/user`, {
+  //         headers: {
+  //           authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
+  //         },
+  //       })
+  //       .then((res) => {
+  //         dispatch(insertUser(res.data));
+  //       });
+  //     await axios
+  //       .get(`/api/main`, {
+  //         headers: {
+  //           authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
+  //         },
+  //       })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //         dispatch(insertSub(res.data));
+  //       });
+  //   } catch (err) {
+  //     alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   mainRequest();
+  // }, []);
+
+  // const advice: any = useAppSelector((state) => {
+  //   return state.mainInfo.subInfo;
+  // });
+  // console.log(advice.advice.author);
 
   return (
     <S.LandingPageContainer>

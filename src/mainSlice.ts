@@ -1,17 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  mainInfo: {},
+  userInfo: {},
+  subInfo: {},
 };
 
 export const mainSlice = createSlice({
   name: 'mainInfo',
   initialState,
   reducers: {
-    insertMain: (state: any, action) => {
-      state.mainInfo = { ...state.mainInfo, ...action.payload };
+    insertUser: (state: any, action) => {
+      state.userInfo = { ...state.userInfo, ...action.payload };
+    },
+    insertSub: (state: any, action) => {
+      state.subInfo = { ...state.subInfo, ...action.payload };
     },
   },
 });
 
-export const { insertMain } = mainSlice.actions;
+export const { insertUser, insertSub } = mainSlice.actions;
