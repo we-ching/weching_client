@@ -17,3 +17,8 @@ export const PostBtn = styled.button`
   border: none;
   border-radius: 10px;
 `;
+
+export const Post = styled.article`
+  background: white;
+  width: 20rem;
+`;

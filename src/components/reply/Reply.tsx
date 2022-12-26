@@ -28,13 +28,14 @@ export const Reply = () => {
   const submitHandler = async () => {
     await axios
       .patch(
-        `/api/review/write/${id}`,
+        `/api/review`,
         {
+          postId: id,
           content: body,
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzE2NzgxNDh9.R3CFINwndR3dac6aKfo5z3pH3WrJEfE_vQjTIFlCiGc`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTY4NDk1LCJleHAiOjE2NzIwNTEyOTV9.Dxwd2XDAy6Ftp_yAcRyhMLqnLALEs-FEPUbqOsDiw88`,
           },
         }
       )

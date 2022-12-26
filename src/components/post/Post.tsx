@@ -1,6 +1,3 @@
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CKEditor.css';
 import axios from 'axios';
 import { useState, FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -9,6 +6,10 @@ import { postSlice } from '../../postSlice';
 import { Tip } from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import './CKEditor.css';
 
 /*
 {
@@ -69,7 +70,9 @@ export const Post: FC = () => {
         editor={ClassicEditor}
         config={{
           placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
-          toolbar: ['bold', 'italic', 'numberedList', 'bulletedList'],
+          toolbar: {
+            items: ['bold', 'italic', 'insertTable', 'link', 'emoji'],
+          },
         }}
         data={savedBody}
         onReady={(editor: any) => {
