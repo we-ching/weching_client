@@ -46,10 +46,10 @@ export const CardBox = styled.div`
   box-shadow: 5px 5px 1rem rgb(0 0 0 / 0.2);
   
   padding: 15px;
-  background: #d6d6d6;
-  border: 4px;
+  background: hsl(${props => props.color}, 30%, 90%);
+  border: 3px;
   border-style: solid;
-  border-color: ${props => props.color};
+  border-color: white;
   border-radius: 1rem;
   position: relative;
   transition: .3s;
@@ -57,7 +57,8 @@ export const CardBox = styled.div`
 
   &:hover {
     transform: translateY(-1rem);
-    background-color: white;
+    // background-color: white;
+    background: hsl(${props => props.color}, 55%, 90%);
     min-height: 50vh;
     height: auto;
     filter: none;

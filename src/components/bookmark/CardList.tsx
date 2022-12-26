@@ -9,10 +9,8 @@ interface Props {
 export const CardList = (props: Props) => {
     
     const randomColor = (props: any) => {
-        let color_r = Math.floor(Math.random() * 255);
-        let color_g = Math.floor(Math.random() * 255);
-        let color_b = props || 300;
-        return `rgba(${color_r},${color_g},${color_b},.3)`;
+        let color_r = Math.floor(Math.random() * 360 - props);
+        return `${color_r}`;
     }
     const { datas } = props;
     return (
