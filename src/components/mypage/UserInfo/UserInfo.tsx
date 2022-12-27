@@ -37,7 +37,7 @@ export function UserInfo() {
       const res = await axios.get(`/api/user`, {
         method: 'GET',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
         },
       })
       setUserInfo( res.data );

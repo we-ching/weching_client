@@ -41,8 +41,36 @@ export const Ranking = styled.div`
 export const RankingTitle = styled.div`
   padding: 5px 0 10px 0;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+`;
+
+export const RankingSubtitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFF;
+  background-color: rgb(54, 48, 74, 0.9);
+
+  .rankNum {
+    text-align: center;
+    width: 50px;
+    border-right: 1px solid #FFF;
+  }
+  .rankName {
+    text-align: center;
+    width: 140px;
+    border-right: 1px solid #FFF;
+  }
+  .rankPoint {
+    text-align: center;
+    width: 70px;
+  }
 `;
 
 export const RankingUser = styled.div<{rank: number}>`
@@ -51,11 +79,30 @@ export const RankingUser = styled.div<{rank: number}>`
   justify-content: center;
   align-items: center;
 
-  padding: 15px;
+  padding: 20px 0;
   font-style: normal;
-  font-size: 18px;
-  font-weight: 400; 
-  display: flex;
-  justify-content: ${props => props.rank === 1 ? 'center' :
-   props.rank % 2 === 0 ? 'flex-start' : 'flex-end'};
+  font-size: 16px;
+  font-weight: 400;
+  background-color: ${props => props.rank % 2 === 0 ? 'rgb(20, 20, 31, 0.1)' : '#FFF'};
+
+  :hover {
+    transform: translateY(2px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .rankContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .rankNum {
+    text-align: center;
+    width: 50px;
+  }
+  .rankName {
+    width: 140px;
+  }
+  .rankPoint {
+    width: 70px;
+  }
 `;

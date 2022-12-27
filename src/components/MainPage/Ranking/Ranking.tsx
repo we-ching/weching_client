@@ -47,9 +47,8 @@ export const Ranking = () => {
   const rankingInfo = async () => {
     try { 
       const {ranking}: {ranking: RankingInfoType[]} = await axios.get(`/api/main`, {
-        method: 'GET',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
         },
       }).then(res=> res.data)
       setRankInfo(ranking);
@@ -78,7 +77,7 @@ export const Ranking = () => {
               <div className='rank'>
                 <S.Image className='rankImg' src={`/rank/ranking${item.rank}.png`} alt=''/>
                 <div className='rankContent'>
-                  {item.rank}등 - {item.nickname} RP-{item.grade};
+                  {item.rank}등 - {item.nickname} RP-{item.grade}
                 </div>
               </div>
             </S.RankingUser>

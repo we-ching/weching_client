@@ -35,7 +35,7 @@ export function SignOut() {
       const res = await axios.get(`/api/user`, {
         method: 'GET',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
         },
       })
       setNickName(res.data.nickname);
@@ -58,7 +58,7 @@ export function SignOut() {
       const res = await axios.delete(`/api/user`, {
         method: 'DELETE',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
         },
       })
 

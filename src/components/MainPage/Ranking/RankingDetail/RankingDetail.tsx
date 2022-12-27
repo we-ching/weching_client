@@ -13,41 +13,16 @@ interface RankingInfoType {
   avg: number,
 }
 
-const initialState: RankingInfoType[] = [
-  {
-    "rank": 1,
-    "user_id": 20,
-    "nickname": "테스트1",
-    "grade": 99,
-    "avg": 4.95
-  },
-  {
-    "rank": 2,
-    "user_id": 30,
-    "nickname": "테스트2",
-    "grade": 90,
-    "avg": 4.80
-  },
-  {
-    "rank": 3,
-    "user_id": 40,
-    "nickname": "테스트3",
-    "grade": 85,
-    "avg": 4.11
-  },
-]
-
 export function RankingDetail() {
   const token = '';
 
-  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>(initialState);
+  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>([]);
 
   const rankingInfo = async () => {
     try { 
       const {ranking}: {ranking: RankingInfoType[]} = await axios.get(`/api/main`, {
-        method: 'GET',
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
         },
       }).then(res=> res.data)
       setRankInfo(ranking);
@@ -66,12 +41,19 @@ export function RankingDetail() {
         <S.RankingContainer>
           <S.Ranking>
             <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
+            <S.RankingSubtitle>
+              <div className='rankNum'>순위</div>
+              <div className='rankName'>닉네임</div>
+              <div className='rankPoint'>RP</div>
+            </S.RankingSubtitle>
             {
               Array.isArray(rankInfo) && rankInfo.length > 0 ? 
               rankInfo.map((item: RankingInfoType)=>
                 <S.RankingUser rank={item.rank}>
                   <div className='rankContent'>
-                    {item.rank}등 - {item.nickname} RP-{item.grade}
+                    <div className='rankNum'>{item.rank}</div>
+                    <div className='rankName'>{item.nickname}</div>
+                    <div className='rankPoint'>{item.grade}</div>
                   </div>
                 </S.RankingUser>
               ) : null 

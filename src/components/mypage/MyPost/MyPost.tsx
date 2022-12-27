@@ -22,7 +22,7 @@ export const MyPost = () => {
     //   },
     // });
     const postList = res.data;
-    setPosts(() => [...posts, ...postList]);
+    setPosts(() => [posts, postList]);
   };
   useEffect(() => {
     myPostAllGet();
