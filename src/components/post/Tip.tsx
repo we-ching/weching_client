@@ -8,7 +8,7 @@ const Tip = () => {
 
   return (
     <>
-      <h3>tip</h3>
+      <h3>💡 글쓰기 tip</h3>
       <div>{dataList[getRandomIdx(dataList.length)]}</div>
     </>
   );

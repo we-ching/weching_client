@@ -10,7 +10,6 @@ import * as S from './styled';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CKEditor.css';
-import { configureStore } from '@reduxjs/toolkit';
 
 /*
 {
@@ -35,7 +34,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTI4NDI2LCJleHAiOjE2NzIyMTEyMjZ9.P9MfYDCnIkYs767h-Fjt3QB4hTHycXbtzwYosfJZEgw`,
             // credentials: 'include',
             // withCredentials: true,
           },
@@ -66,32 +65,34 @@ export const Post: FC = () => {
   return (
     <S.Main>
       <Tip />
-      <h1>✉️ 새 글 쓰기</h1>
-      <CKEditor
-        editor={ClassicEditor}
-        config={{
-          placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
-          toolbar: {
-            items: ['bold', 'italic', 'link'],
-          },
-          width: '300px',
-        }}
-        data={savedBody}
-        onReady={(editor: any) => {
-          editor.focus();
-        }}
-        onChange={(event: any, editor: any) => {
-          const data = editor.getData();
-          console.log({ event, editor, data });
-          setBody(data);
-        }}
-        onBlur={() => {
-          sessionStorage.setItem('myText', body);
-        }}
-      />
-      <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
-        올리기
-      </S.PostBtn>
+      <S.Wrraper>
+        <S.Title>✉️ 새 글 쓰기</S.Title>
+        <CKEditor
+          editor={ClassicEditor}
+          config={{
+            placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
+            toolbar: {
+              items: ['bold', 'italic', 'link'],
+            },
+            width: '300px',
+          }}
+          data={savedBody}
+          onReady={(editor: any) => {
+            editor.focus();
+          }}
+          onChange={(event: any, editor: any) => {
+            const data = editor.getData();
+            console.log({ event, editor, data });
+            setBody(data);
+          }}
+          onBlur={() => {
+            sessionStorage.setItem('myText', body);
+          }}
+        />
+        <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
+          올리기
+        </S.PostBtn>
+      </S.Wrraper>
       <Board />
     </S.Main>
   );
