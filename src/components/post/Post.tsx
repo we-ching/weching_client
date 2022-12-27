@@ -42,7 +42,7 @@ export const Post: FC = () => {
       )
       .then(() => {
         dispatch(postSlice.actions.savePost(body));
-        alert('글 작성 완료');
+        alert('글 작성 완료(포인트가 3점 소모되었습니다.)');
         sessionStorage.removeItem('myText');
         navigate('/home');
       })

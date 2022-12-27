@@ -38,7 +38,7 @@ export const Reply = () => {
         }
       )
       .then(() => {
-        alert('글쓴이에게 칭찬을 보냈어요!');
+        alert('글쓴이에게 칭찬을 보냈어요! (포인트 5점 적립되었습니다.)');
         navigate('/home');
       })
       .catch((error) => {
