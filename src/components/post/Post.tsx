@@ -1,26 +1,26 @@
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CKEditor.css';
 import axios from 'axios';
-import { useState, FC } from 'react';
+import { useState, FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Board } from './Board';
 import { postSlice } from '../../postSlice';
 import { Tip } from './Tip';
 import { useNavigate } from 'react-router-dom';
+import * as S from './styled';
 
-// - [x] 올리기 버튼을 통해 token header(누가쓴 글인지 확인해야 하므로), body 서버로 전송
-// - [x] 올리기 버튼 클릭 시 body 값이 없다면 버튼비활성화
-// - [x] 글쓰기 팁
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import './CKEditor.css';
 
 /*
 {
-accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc4NzkzLCJleHAiOjE2NzE2ODIzOTN9.Rvh51uw7vprln7GvFHDQAzARaHBQLHfHFB4-Q-vjKgs",
-refreshToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNjc0NTQ4LCJleHAiOjE2NzI4ODQxNDh9.Ru8ySF0YlN55FMEIEnnjGoK-3bkejmh1yNeELbb6xMM"
+TODO: 글 이어서 작성하기 기능 구현
+  1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
+  2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
 }
 */
 
 export const Post: FC = () => {
+  const [savedBody, setSavedBody] = useState<string | null>('');
   const [body, setBody] = useState<string>('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
             // credentials: 'include',
             // withCredentials: true,
           },
@@ -43,24 +43,38 @@ export const Post: FC = () => {
       .then(() => {
         dispatch(postSlice.actions.savePost(body));
         alert('글 작성 완료');
+        sessionStorage.removeItem('myText');
         navigate('/home');
       })
       .catch((error) => {
+        if (error.response.status === 400) {
+          return alert('글을 작성할 수 있는 포인트가 부족합니다❗️');
+        }
         console.log(error);
       });
   };
 
+  useEffect(() => {
+    if (
+      sessionStorage.getItem('myText') &&
+      window.confirm('글을 이어서 작성하시겠습니까?')
+    )
+      return setSavedBody(sessionStorage.getItem('myText'));
+  }, []);
+
   return (
-    <>
+    <S.Main>
       <Tip />
-      <h1>새 글 쓰기</h1>
+      <h1>✉️ 새 글 쓰기</h1>
       <CKEditor
         editor={ClassicEditor}
         config={{
           placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
-          toolbar: ['bold', 'italic', 'numberedList', 'bulletedList'],
+          toolbar: {
+            items: ['bold', 'italic', 'link'],
+          },
         }}
-        data=""
+        data={savedBody}
         onReady={(editor: any) => {
           editor.focus();
         }}
@@ -69,12 +83,15 @@ export const Post: FC = () => {
           console.log({ event, editor, data });
           setBody(data);
         }}
+        onBlur={() => {
+          sessionStorage.setItem('myText', body);
+        }}
       />
 
-      <button onClick={submitHandler} disabled={body ? false : true}>
+      <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
         올리기
-      </button>
+      </S.PostBtn>
       <Board />
-    </>
+    </S.Main>
   );
 };
