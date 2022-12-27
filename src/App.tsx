@@ -52,7 +52,7 @@ const App: FC = () => {
           <Route path="/bookmark" element={<Bookmark />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {/* <NavBar /> */}
+        <NavBar />
       </div>
     </>
   );

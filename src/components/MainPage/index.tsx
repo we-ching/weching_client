@@ -29,7 +29,6 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
         })
         .then((res) => {
           dispatch(insertUser(res.data));
-
           setNickName(res.data.user.nickName);
         });
       await axios
