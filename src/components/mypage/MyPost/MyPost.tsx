@@ -14,11 +14,11 @@ export const MyPost = () => {
     const res = await axios.get(`/api/post/list`, {
       headers: {
         authorization:
-          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E',
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTA5ODg5LCJleHAiOjE2NzIxOTI2ODl9.YlFfTVxFFUsLZHibogJtJ99uKaZtmUtTBsSL2-boem0',
       },
     });
     const postList = res.data;
-    setPosts(() => [posts, postList]);
+    setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
     myPostAllGet();

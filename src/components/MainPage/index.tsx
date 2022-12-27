@@ -1,7 +1,7 @@
 import * as S from './styled';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { insertUser, insertSub } from '../../mainSlice';
+import { insertUser, insertSub, insertAlarm } from '../../mainSlice';
 import { useAppDispatch } from '../../store/config';
 import { Posts } from '../mypage/MyPost/styled';
 
@@ -10,6 +10,7 @@ import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
 import { NavBar } from '../NavBar/index';
+import { Alarm } from './Alarm/alarm';
 
 export const MainPage: any = () => {
   const dispatch = useAppDispatch();
@@ -23,17 +24,26 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
       await axios
         .get(`/api/main/user`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTA5ODg5LCJleHAiOjE2NzIxOTI2ODl9.YlFfTVxFFUsLZHibogJtJ99uKaZtmUtTBsSL2-boem0`,
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTU3MTYzLCJleHAiOjE2NzIyMzk5NjN9.-qCXfQbghbi3ph-zM2dxY80cTMFfUB3MssnLrjlkOpY`,
           },
         })
         .then((res) => {
           dispatch(insertUser(res.data));
           setNickName(res.data.user.nickName);
+
+          const arr = res.data.posts;
+          console.log(arr);
+          const Array = arr.filter((item: any) => {
+            return item.post.isChecked == 1;
+          });
+          Array.length != 0
+            ? dispatch(insertAlarm(Array.length))
+            : console.log(123);
         });
       await axios
         .get(`/api/main`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTA5ODg5LCJleHAiOjE2NzIxOTI2ODl9.YlFfTVxFFUsLZHibogJtJ99uKaZtmUtTBsSL2-boem0`,
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTU3MTYzLCJleHAiOjE2NzIyMzk5NjN9.-qCXfQbghbi3ph-zM2dxY80cTMFfUB3MssnLrjlkOpY`,
           },
         })
         .then((res) => {
@@ -50,7 +60,6 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
 
   return (
     <S.Container>
-      <NavBar />
       <S.UserNick>{nickname}님 반가워요!</S.UserNick>
       <NewMatch />
       <GoToPost />

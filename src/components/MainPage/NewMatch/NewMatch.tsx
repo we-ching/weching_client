@@ -29,13 +29,12 @@ export const NewMatch = () => {
     post;
   }, []);
 
-  const arr = post.posts;
-
+  const arr = post.todoReview;
   return (
     <>
       <S.NewMatchTitle>
         <S.Image src={Letter} />
-        <p>새 글 매칭</p>
+        <p>새롭게 매칭된 글</p>
         <S.NewMatchTitleCount>+{arr && arr.length}</S.NewMatchTitleCount>
       </S.NewMatchTitle>
       <S.NewMatchTextBox>
@@ -43,9 +42,9 @@ export const NewMatch = () => {
           {arr &&
             arr.map((item: any) => {
               return (
-                <Link to={`/reply/${item.post.id}`}>
-                  <S.NewMatchTextContent key={item.post.id}>
-                    {item.post.content}
+                <Link to={`/reply/${item.id}`}>
+                  <S.NewMatchTextContent key={item.id}>
+                    {item.content}
                   </S.NewMatchTextContent>
                 </Link>
               );

@@ -75,3 +75,21 @@ export const PlusWrap = styled.div`
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.1));
   }
 `;
+
+export const NoDot = styled.div`
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  background-color: none;
+`;
+
+export const RedDot = styled.div`
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  background-color: red;
+`;

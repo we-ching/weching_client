@@ -29,7 +29,7 @@ const initialState = {
 
 export function UserInfo() {
   const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTA5ODg5LCJleHAiOjE2NzIxOTI2ODl9.YlFfTVxFFUsLZHibogJtJ99uKaZtmUtTBsSL2-boem0';
 
   const [userInfo, setUserInfo] = useState<UserInfoType>(initialState);
 

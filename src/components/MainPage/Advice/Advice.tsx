@@ -12,16 +12,18 @@ export const Advice = () => {
   useEffect(() => {
     advice;
   }, []);
+
   return (
     <div>
       <S.Advice>
         <S.AdviceTitle>한 줄 명언 </S.AdviceTitle>
         <S.Image src={Present} />
         <S.AdviceTitle>
-          {`
+          {advice &&
+            `
           ${advice.advice && advice.advice.author} (${
-            advice.advice && advice.advice.authorprofile
-          })`}
+              advice.advice && advice.advice.authorprofile
+            })`}
         </S.AdviceTitle>
         <S.AdviceContent>
           {advice.advice && advice.advice.message}

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container: any = styled.div`
-  width: 430px;
+  width: 100%;
+  max-width: 1024px;
   height: 932px;
-  margin: 85px auto;
+  margin: 0 auto;
   background-color: #f0f0f0;
   color: #444444;
 
