@@ -12,7 +12,7 @@ import * as S from './styled';
 const theme = createTheme({
     palette: {
       primary: {
-        main: '#BFA78A',
+        main: '#8C5C32',
         contrastText: '#fff',
       },
     },
@@ -22,7 +22,7 @@ export function SignOut() {
   const token = '';
 
   let input = '닉네임';
-  const [nickname, setNickName] = useState<string>('');
+  const [nickName, setNickName] = useState<string>('');
   const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
 
@@ -50,7 +50,7 @@ export function SignOut() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (nickname !== checkNickname) {
+      if (nickName !== checkNickname) {
         alert('닉네임이 일치하지 않습니다.')
         return;
       }
@@ -58,7 +58,7 @@ export function SignOut() {
       const res = await axios.delete(`/api/user`, {
         method: 'DELETE',
         headers: {
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJlbWFpbCI6InllZWswNjIwQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzkzMjIyLCJleHAiOjE2NzE4NzYwMjJ9.EK8PLB47Yo738Kmc7xSJiLREBj5egO2lGdZsvEhXuFE`,
+          authorization: `bearer ${token}`,
         },
       })
 
@@ -97,14 +97,14 @@ export function SignOut() {
                 <input
                   id="checkNickname"
                   type="text"
-                  placeholder={nickname}
+                  placeholder={nickName}
                   name="checkNickname"
                   value={checkNickname || ''}
                   onChange={(e) => {
                     setCheckNickname(e.target.value);
                   }}
                 />
-                {nickname !== checkNickname && (
+                {(nickName !== checkNickname) && (
                   <p
                     className="NicknameChecked"
                     style={{
@@ -118,7 +118,7 @@ export function SignOut() {
                 )}
               </S.EditTitle>
 
-              <S.SignOutTitle className="newNickname">
+              <S.SignOutTitle className="Nickname">
                 <p>정말 탈퇴하시겠습니까?</p>
               </S.SignOutTitle>
               

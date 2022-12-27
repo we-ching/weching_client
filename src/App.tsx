@@ -21,6 +21,7 @@ import { About } from './components/ViewMore/StaticPageAbout';
 import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { Bookmark } from './components/bookmark/';
+import { RankingDetail } from './components/MainPage/Ranking/RankingDetail/RankingDetail';
 
 const baseURL = 'http://34.64.156.157';
 axios.defaults.baseURL = baseURL;
@@ -35,6 +36,7 @@ const App: FC = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<MainPage />} />
+          <Route path="/home/ranking" element={<RankingDetail />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/mypage/mypost" element={<MyPost />} />
           <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
@@ -46,9 +48,6 @@ const App: FC = () => {
           <Route path="/viewmore" element={<ViewMore />} />
           <Route path="/viewmore/recruit" element={<Recruit />} />
           <Route path="/viewmore/about" element={<About />} />
-          <Route path="/notice/*" element={<Notice />}>
-            <Route path=":id" element={<NoticeDetail />} />
-          </Route>
           <Route path="/bookmark" element={<Bookmark />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

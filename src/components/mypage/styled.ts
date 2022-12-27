@@ -15,7 +15,7 @@ export const Background = styled.div`
 
 export const Wrapper = styled.div`
   width: 430px;
-  height: 932px;
+  height: 100vh;
 
   background-color: #f0f0f0;
 `;
