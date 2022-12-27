@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const PostBtn = styled.button`
@@ -25,6 +26,7 @@ export const Wrraper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 80%;
+  gap: 1rem;
 `;
 
 export const Title = styled.h1`

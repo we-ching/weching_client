@@ -1,6 +1,5 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CKEditor.css';
 import axios from 'axios';
 import { useState } from 'react';
 import { RandomPost } from './RandomPost';
@@ -51,27 +50,30 @@ export const Reply = () => {
 
   return (
     <S.Main>
-      <RandomPost />
-      <CKEditor
-        editor={ClassicEditor}
-        config={{
-          placeholder:
-            '욕설, 비방, 비꼬는 글을 작성하시면 관리자에 의해 이용을 제한될 수 있습니다.',
-          toolbar: ['bold', 'italic', 'link'],
-        }}
-        data=""
-        onReady={(editor: any) => {
-          editor.focus();
-        }}
-        onChange={(event: any, editor: any) => {
-          const data = editor.getData();
-          console.log({ event, editor, data });
-          setBody(data);
-        }}
-      />
-      <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
-        칭찬해주기
-      </S.PostBtn>
+      <S.Wrraper>
+        <S.Title>💌 칭찬해주기</S.Title>
+        <RandomPost />
+        <CKEditor
+          editor={ClassicEditor}
+          config={{
+            placeholder:
+              '욕설, 비방, 비꼬는 글을 작성하시면 관리자에 의해 이용을 제한될 수 있습니다.',
+            toolbar: ['bold', 'italic', 'link'],
+          }}
+          data=""
+          onReady={(editor: any) => {
+            editor.focus();
+          }}
+          onChange={(event: any, editor: any) => {
+            const data = editor.getData();
+            console.log({ event, editor, data });
+            setBody(data);
+          }}
+        />
+        <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
+          칭찬해주기
+        </S.PostBtn>
+      </S.Wrraper>
     </S.Main>
   );
 };
