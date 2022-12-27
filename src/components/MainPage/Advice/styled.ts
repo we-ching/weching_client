@@ -47,3 +47,15 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
+
+interface Advice {
+  author: string;
+  authorrofile: string;
+  message: string;
+}
+
+const initialState = {
+  author: '',
+  authorrofile: '',
+  message: '',
+};
