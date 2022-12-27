@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserInfo } from './UserInfo/UserInfo';
 import { EditUser } from './EditUser/EditUser';
 import { SignOut } from './Signout/Signout';
+import { Jandi } from './Jandi/Jandi';
 
 // styles
 import * as S from './styled';
@@ -17,6 +18,7 @@ export function MyPage() {
       <S.Wrapper>
         <S.MyPageContainer>
           <UserInfo />
+          <Jandi />
           <EditUser />
           <S.ItemBox onClick={() => navigate('/mypage/mypost')}>
             <p>내가 쓴 글</p>

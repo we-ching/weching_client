@@ -37,7 +37,7 @@ export function EditUser() {
        { nickName },  
       {
         headers: {
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
+          authorization: `bearer ${token}`,
         },
       })
 
@@ -66,7 +66,7 @@ export function EditUser() {
       { nickName, nameState },
       {
         headers: {
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
+          authorization: `bearer ${token}`,
         },
       })
 

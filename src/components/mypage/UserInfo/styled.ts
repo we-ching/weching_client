@@ -42,8 +42,10 @@ export const PointBox = styled.div`
   width: 85px;
   height: 17px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  
+  align-items: center;
+
   font-style: normal;
   font-weight: 700;
   font-size: 13px;
@@ -58,7 +60,9 @@ export const RankPointBox = styled.div`
   width: 120px;
   height: 17px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   
   font-style: normal;
   font-weight: 700;

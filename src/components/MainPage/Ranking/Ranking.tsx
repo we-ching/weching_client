@@ -39,18 +39,14 @@ const initialState: RankingInfoType[] = [
 ]
 
 export const Ranking = () => {
-  const token = '';
   const navigate = useNavigate();
 
   const [rankInfo, setRankInfo] = useState<RankingInfoType[]>(initialState);
 
   const rankingInfo = async () => {
     try { 
-      const {ranking}: {ranking: RankingInfoType[]} = await axios.get(`/api/main`, {
-        headers: {
-          authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTAwNzg5LCJleHAiOjE2NzIxODM1ODl9.mOunPXKvPruVCXVkKbE1hnC_PU6Krd1HZmw5ZnStq3w`,
-        },
-      }).then(res=> res.data)
+      const {ranking}: {ranking: RankingInfoType[]} = await axios.get(`/api/main`,
+      ).then(res=> res.data)
       setRankInfo(ranking);
 
     } catch (err) {
