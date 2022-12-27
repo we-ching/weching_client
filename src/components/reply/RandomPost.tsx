@@ -19,16 +19,15 @@ export const RandomPost = () => {
   const id = Number(params.id);
   const getPost = async () => {
     await axios
-      .get(`/api/review`, {
+      .get(`/api/post/${id}`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTI4NDI2LCJleHAiOjE2NzIyMTEyMjZ9.P9MfYDCnIkYs767h-Fjt3QB4hTHycXbtzwYosfJZEgw`,
         },
       })
       .then((res: any) => {
         console.log(res);
-        res = res.data.find((post: any) => post.id === id);
-        console.log(res);
-        setPost(res.content);
+        const { content } = res.data.post;
+        setPost(content);
       })
       .catch((error) => {
         console.log(error);

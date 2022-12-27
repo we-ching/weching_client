@@ -10,6 +10,7 @@ import * as S from './styled';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CKEditor.css';
+import { configureStore } from '@reduxjs/toolkit';
 
 /*
 {
@@ -73,6 +74,7 @@ export const Post: FC = () => {
           toolbar: {
             items: ['bold', 'italic', 'link'],
           },
+          width: '300px',
         }}
         data={savedBody}
         onReady={(editor: any) => {
@@ -87,7 +89,6 @@ export const Post: FC = () => {
           sessionStorage.setItem('myText', body);
         }}
       />
-
       <S.PostBtn onClick={submitHandler} disabled={body ? false : true}>
         올리기
       </S.PostBtn>
