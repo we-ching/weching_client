@@ -1,20 +1,23 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
+position: absolute;
+top: 0;
+left: 0;
+background-color: white;
+height: 100vh;
+width: 100vw;
 
-  display: flex;
-  justify-content: center;
-  align-item: center;
+display: flex;
+justify-content: center;
+align-item: center;
 `;
 
 export const Wrapper = styled.div`
-  height: 932px;
+width: 430px;
+height: 100vh;
 
-  background-color: #F0F0F0;
+background-color: #f0f0f0;
 `;
 
 export const RankingContainer = styled.div`
@@ -41,7 +44,6 @@ export const RankingTitle = styled.div`
   padding: 5px 0 15px 10px;
   font-size: 18px;
   font-weight: bold;
-  border-bottom: 1px solid rgba(68, 68, 68, 0.5);
 `;
 
 export const RankingSubtitle = styled.div`

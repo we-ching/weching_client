@@ -20,12 +20,21 @@ export const Wrapper = styled.div`
   background-color: #f0f0f0;
 `;
 
-export const AdminTitleContainer = styled.div`
+export const reportPageContainer = styled.div`
+  margin: 88px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const reportTitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
   width: 372px;
-  height: 100px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,13 +47,9 @@ export const AdminTitleContainer = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
-  .adminTitle {
-    display: flex;
-    flex-direction: row;
-  }
 `;
 
-export const AdminTitle = styled.div`
+export const reportTitle = styled.div`
   margin: 0 0 0 17px;
 
   font-style: normal;
@@ -54,49 +59,12 @@ export const AdminTitle = styled.div`
   color: #FFF;
 `;
 
-export const AdminNum = styled.div`
-  margin: 0 0 0 10px;
-
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 36px;
-  color: #FFF;
-`;
-
-export const Line = styled.div`
-  margin: 6px 0 6px 17px;
-
-  width: 339px;
-  height: 0px;
-  border: 1px solid #FFF;
-`;
-
-export const AdminContent = styled.div`
-  margin: 0 0 0 17px;
-
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 26px;
-  color: #FFF;
-`;
-
-export const AdminPageContainer = styled.div`
-  margin: 88px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
   width: 372px;
-  height: 60px;
+  height: 100px;
   display: flex;
   align-items: center;
 
@@ -116,7 +84,15 @@ export const ItemBox = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
-  > p {
+  .reportInfo {
+    margin-left: 17px;
+    display: flex;
+    flex-direction: row;
+  }
+  .content {
+    margin-left: 17px;
+  }
+  .none {
     margin-left: 17px;
   }
 `;

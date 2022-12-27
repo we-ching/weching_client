@@ -12,7 +12,7 @@ export const Bookmark = () => {
         try {
             const result = await axios.get(`/api/review/bookmark`, {
                 headers: {
-                    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI2LCJlbWFpbCI6Inlvb25zMTAwNDU3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM4NzcxLCJleHAiOjE2NzIxMjE1NzF9.ebVKU839fzrTHgcptdRjkrWZRmJjV1Kgh8NZi6jXOIc'
+                    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTIxMDI1LCJleHAiOjE2NzIyMDM4MjV9.tUlbd1u6OPI0eK8c2YbKFaCKwdjolzJqx3pIdMwAm1c'
                 }
             });
             setDatas([...datas, ...result.data]);

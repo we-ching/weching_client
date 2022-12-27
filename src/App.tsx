@@ -22,6 +22,8 @@ import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
 import { Bookmark } from './components/bookmark/';
 import { RankingDetail } from './components/MainPage/Ranking/RankingDetail/RankingDetail';
+import { Admin } from './components/admin/admin';
+import { AdminReport } from './components/admin/adminReport/adminReport';
 
 const baseURL = 'http://34.64.156.157';
 axios.defaults.baseURL = baseURL;
@@ -49,6 +51,8 @@ const App: FC = () => {
           <Route path="/viewmore/recruit" element={<Recruit />} />
           <Route path="/viewmore/about" element={<About />} />
           <Route path="/bookmark" element={<Bookmark />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/report" element={<AdminReport />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {<NavBar />}

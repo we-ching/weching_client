@@ -28,15 +28,13 @@ const initialState = {
 };
 
 export function UserInfo() {
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6IjEwMDR3aXBpQGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM1Mzc1LCJleHAiOjE2NzIxMTgxNzV9.WLz0i78ese3Wx4hFjnebzEeaoCMtQqECG2GGEuv066M';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTI5NTkwLCJleHAiOjE2NzIyMTIzOTB9.grDwEyPFSTNV_eLPojJI_c36v8DWglN14luTJDKeVO0';
 
   const [userInfo, setUserInfo] = useState<UserInfoType>(initialState);
 
   const nicknameInfo = async () => {
     try {
       const res = await axios.get(`/api/user`, {
-        method: 'GET',
         headers: {
           authorization: `bearer ${token}`,
         },
