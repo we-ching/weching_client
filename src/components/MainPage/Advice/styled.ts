@@ -18,9 +18,15 @@ export const AdviceTitle: any = styled.div`
   font-size: 18px;
 `;
 
-export const AdviceContent: any = styled.div`
-  width: 300px;
+export const AdviceAuthor: any = styled.div`
+  margin: 0 auto;
 
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+`;
+
+export const AdviceContent: any = styled.div`
   margin: 0 auto;
   padding: 30px 0;
 
@@ -41,3 +47,15 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
+
+interface Advice {
+  author: string;
+  authorrofile: string;
+  message: string;
+}
+
+const initialState = {
+  author: '',
+  authorrofile: '',
+  message: '',
+};

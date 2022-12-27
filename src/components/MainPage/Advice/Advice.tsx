@@ -1,34 +1,32 @@
 import * as S from './styled';
-import axios from 'axios';
-import { useState } from 'react';
+import { useAppSelector } from '../../../store/config';
 
 import Present from '../../../assets/images/Rectangle-1.png';
+import { useEffect } from 'react';
 
 export const Advice = () => {
-  const [advice, setAdvice] = useState('상자를 눌러보세요!');
+  const advice: any = useAppSelector((state) => {
+    return state.mainInfo.subInfo;
+  });
 
-  const submitHandler = async (e: any) => {
-    e.preventDefault();
-    try {
-      const res: any = await axios.get(`/api/main`, {
-        headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxNzY0MjgxLCJleHAiOjE2NzE4NDcwODF9.NMQyUuN9dPQGxpBxM5AEEV0jMnpe4cn8rXbJ4xdVY4c`,
-        },
-      });
-
-      setAdvice(`\"${res.data.advice.message}\"
-      \-${res.data.advice.author}, ${res.data.advice.authorrofile}\-`);
-    } catch (err) {
-      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
-    }
-  };
-
+  useEffect(() => {
+    advice;
+  }, []);
   return (
     <div>
       <S.Advice>
-        <S.AdviceTitle>한 줄 명언</S.AdviceTitle>
-        <S.Image src={Present} onClick={submitHandler} />
-        <S.AdviceContent>{advice}</S.AdviceContent>
+        <S.AdviceTitle>한 줄 명언 </S.AdviceTitle>
+        <S.Image src={Present} />
+        <S.AdviceTitle>
+          {`
+          ${advice.advice && advice.advice.author} (${
+            advice.advice && advice.advice.authorprofile
+          })`}
+        </S.AdviceTitle>
+        <S.AdviceContent>
+          {advice.advice && advice.advice.message}
+          {/* 이건 간단한 방식 */}
+        </S.AdviceContent>
       </S.Advice>
     </div>
   );

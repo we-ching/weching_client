@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
 
-export const NewMatch = () => {
+export const GoToPost = () => {
   const settings = {
     arrows: true,
     dots: true,
@@ -30,28 +30,29 @@ export const NewMatch = () => {
   }, []);
 
   const arr = post.posts;
+  console.log(arr);
 
   return (
     <>
-      <S.NewMatchTitle>
+      <S.GoToTitle>
         <S.Image src={Letter} />
-        <p>새 글 매칭</p>
-        <S.NewMatchTitleCount>+{arr && arr.length}</S.NewMatchTitleCount>
-      </S.NewMatchTitle>
-      <S.NewMatchTextBox>
+        <p>받은 리뷰함</p>
+        <S.GoToTitleCount>+{arr && arr.length}</S.GoToTitleCount>
+      </S.GoToTitle>
+      <S.GoToTextBox>
         <Slider {...settings}>
           {arr &&
             arr.map((item: any) => {
               return (
-                <Link to={`/reply/${item.post.id}`}>
-                  <S.NewMatchTextContent key={item.post.id}>
-                    {item.post.content}
-                  </S.NewMatchTextContent>
+                <Link to={`/reply/${item.reviews.id}`}>
+                  <S.GoToTextContent key={item.reviews.id}>
+                    {item.reviews.content}
+                  </S.GoToTextContent>
                 </Link>
               );
             })}
         </Slider>
-      </S.NewMatchTextBox>
+      </S.GoToTextBox>
     </>
   );
 };

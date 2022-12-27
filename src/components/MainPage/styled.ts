@@ -50,3 +50,15 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
+
+export interface Advice {
+  author: string;
+  authorrofile: string;
+  message: string;
+}
+
+export const initialState = {
+  author: '',
+  authorrofile: '',
+  message: '',
+};

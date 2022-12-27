@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { postSlice } from '../postSlice';
 import { myPostSlice } from '../myPostSlice';
+import { mainSlice } from '../mainSlice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
   reducer: {
     [postSlice.name]: postSlice.reducer,
     [myPostSlice.name]: myPostSlice.reducer,
+    [mainSlice.name]: mainSlice.reducer,
   },
 });
 

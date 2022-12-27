@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewReviewTitle: any = styled.div`
+export const GoToTitle: any = styled.div`
   margin: 25px auto 0;
   width: 370px;
 
@@ -11,7 +11,7 @@ export const NewReviewTitle: any = styled.div`
   font-weight: 700;
 `;
 
-export const NewReviewTitleCount: any = styled.p`
+export const GoToTitleCount: any = styled.p`
   width: 27px;
   height: 19px;
   border-radius: 10px;
@@ -24,7 +24,7 @@ export const NewReviewTitleCount: any = styled.p`
   font-size: 13px;
 `;
 
-export const NewReviewTextBox: any = styled.div`
+export const GoToTextBox: any = styled.div`
   margin: 0 auto;
   padding: 15px;
   font-size: 14px;
@@ -38,7 +38,7 @@ export const NewReviewTextBox: any = styled.div`
   overflow: hidden;
 `;
 
-export const NewReviewTextContent: any = styled.div`
+export const GoToTextContent: any = styled.div`
   padding: 15px;
   font-size: 14px;
   width: 310px;
