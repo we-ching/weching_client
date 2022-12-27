@@ -2,23 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import axios from 'axios';
-import { getPosts } from '../../../myPostSlice';
-import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
   const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const [posts, setPosts] = useState<S.Posts[]>([]);
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
     const res = await axios.get(`/api/post/list`, {
       headers: {
         authorization:
-          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E',
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTE1ODY0LCJleHAiOjE2NzIxOTg2NjR9.WGVlfmuSEEGVrUm2DoW4pwyH42rndAZziDuziu4Cs-w',
       },
     });
     const postList = res.data;
-    setPosts(() => [posts, postList]);
+    setPosts(() => [...posts, ...postList]);
   };
   useEffect(() => {
     myPostAllGet();
@@ -40,7 +37,6 @@ export const MyPost = () => {
               isReviews={isReview}
               posts={posts}
               onClick={() => {
-                // dispatch(getPosts(posts));
                 navigate(`/mypage/mypost/${postId}`);
               }}
             >

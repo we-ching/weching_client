@@ -14,6 +14,7 @@ export const ReviewReportBtn: React.FC<S.reviewId> = ({ id }) => {
     dispatch(isClicked(true));
     dispatch(clickedReview(id));
   };
+
   return (
     <>
       <S.ReviewButtonStyle onClick={onClickHandler}>신고</S.ReviewButtonStyle>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as S from './styled';
-import { useAppSelector } from '../../../store/config';
 import { ReviewStartPoint } from './StarPoint';
 import { ReviewReportBtn } from './Report';
 import { ReviewBookmarkBtn } from './Bookmark';
@@ -10,13 +9,10 @@ import axios from 'axios';
 export const MyPostDetail = () => {
   const [post, setPost] = useState<any>({});
   const postId = useParams().postId;
-  // const posts = useAppSelector((state) => {
-  //   return state.myPost.myPosts;
-  // });
   const detailPage = async () => {
     const res = await axios.get(`/api/post/${postId}`, {
       headers: {
-        authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E`,
+        authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTE1ODY0LCJleHAiOjE2NzIxOTg2NjR9.WGVlfmuSEEGVrUm2DoW4pwyH42rndAZziDuziu4Cs-w`,
       },
     });
 
@@ -26,8 +22,6 @@ export const MyPostDetail = () => {
   useEffect(() => {
     detailPage();
   }, []);
-  // const post: any = posts.find((item: any) => item.post.id === Number(postId));
-  // console.log(post);
   return (
     <S.Container>
       <S.PostCon>

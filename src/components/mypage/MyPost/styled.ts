@@ -197,7 +197,7 @@ export const RP_Input = styled.input`
     text-shadow: 0 0 0 red;
   }
 `;
-export const RP_SubmitBtn = styled(ReviewButtonStyle)``;
+export const RP_SubmitBtn: any = styled(ReviewButtonStyle)``;
 /** modal
  * 사용처 : 리뷰 신고버튼,
  */
