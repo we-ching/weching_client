@@ -4,12 +4,16 @@ import axios from 'axios';
 import { isClicked } from '../../../myPostSlice';
 import { useAppDispatch, useAppSelector } from '../../../store/config';
 
-export const Modal: React.FC<S.reviewId> = ({ id }) => {
+export const Modal: React.FC<S.reviewId> = () => {
   const [isError, setIsError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const isClick = useAppSelector((state) => {
     return state.myPost.isClicked;
   });
+  const clickedReview = useAppSelector((state) => {
+    return state.myPost.clickedReview;
+  });
+  console.log(clickedReview);
   const reportHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.currentTarget;
@@ -23,17 +27,18 @@ export const Modal: React.FC<S.reviewId> = ({ id }) => {
     try {
       await axios
         .post(
-          `/api/report/${id}`,
+          `/api/report/${clickedReview}`,
           { type, content: reviewContent },
           {
             headers: {
-              authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTQyMzMxLCJleHAiOjE2NzIwMjUxMzF9.SnT2r8nVQZPm8oQxCfDGsMNDU7DNhErTFDGi2r6JFVQ`,
+              authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E`,
             },
           }
         )
-        .then(() => {
+        .then((res) => {
           alert('해당 신고가 접수되었어요.');
           dispatch(isClicked(false));
+          console.log(res.data);
         });
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);

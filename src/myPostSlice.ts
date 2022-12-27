@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   myPosts: [],
   isClicked: false,
+  clickedReview: 0,
 };
 
 export const myPostSlice = createSlice({
@@ -15,7 +16,10 @@ export const myPostSlice = createSlice({
     isClicked: (state: any, action) => {
       state.isClicked = action.payload;
     },
+    clickedReview: (state: any, action) => {
+      state.clickedReview = action.payload;
+    },
   },
 });
 
-export const { getPosts, isClicked } = myPostSlice.actions;
+export const { getPosts, isClicked, clickedReview } = myPostSlice.actions;

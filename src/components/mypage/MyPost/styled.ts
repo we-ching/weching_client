@@ -2,14 +2,15 @@ import styled, { css } from 'styled-components';
 
 export interface Post {
   id: number;
-  user_id: number;
+  userId: number;
   content: string;
   status: number;
+  isChecked: number;
 }
 export interface Reviews {
   id: number;
   content: string;
-  grade: null;
+  grade?: null;
   status: number;
 }
 export interface Posts {
@@ -24,7 +25,9 @@ export interface reviewProp {
 }
 
 export interface reviewId {
-  id: number;
+  id?: any;
+  isReported?: number;
+  idx?: number;
 }
 
 export interface isError {
@@ -35,6 +38,10 @@ export interface isError {
   rows: number;
   maxLength: number;
   placeholder: string;
+}
+export interface reprotBtn {
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  name?: any;
 }
 
 export const flexCenter = `
@@ -103,7 +110,7 @@ export const PostContent = styled.p`
 /** Review
  * 별점, 북마크, 신고
  */
-export const Review = styled.div`
+export const Review = styled.div<reviewId>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -112,9 +119,25 @@ export const Review = styled.div`
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+  ${({ isReported }) =>
+    isReported === 1
+      ? css`
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-inedx: 3;
+            background-color: rgba(255, 255, 255, 0.8);
+          }
+        `
+      : null}
 `;
 
-export const ReviewButtonStyle = styled.button`
+export const ReviewButtonStyle = styled.button<reprotBtn>`
   display: inline-block;
   width: 50px;
   height: 30px;

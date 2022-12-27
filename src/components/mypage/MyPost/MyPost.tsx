@@ -11,10 +11,10 @@ export const MyPost = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
-    const res = await axios.get(`/api/post`, {
+    const res = await axios.get(`/api/post/list`, {
       headers: {
         authorization:
-          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcxOTQyMzMxLCJleHAiOjE2NzIwMjUxMzF9.SnT2r8nVQZPm8oQxCfDGsMNDU7DNhErTFDGi2r6JFVQ',
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E',
       },
     });
     const postList = res.data;
@@ -32,7 +32,7 @@ export const MyPost = () => {
         <S.Title>내가 쓴 글</S.Title>
         {posts.map((post) => {
           let isReview: boolean = false;
-          const postId = post['post']['id'];
+          const postId = post.post.id;
           post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
           return (
             <S.Post
@@ -40,11 +40,11 @@ export const MyPost = () => {
               isReviews={isReview}
               posts={posts}
               onClick={() => {
-                dispatch(getPosts(posts));
-                navigate(`/myPage/myPost/${postId}`);
+                // dispatch(getPosts(posts));
+                navigate(`/mypage/mypost/${postId}`);
               }}
             >
-              <S.PostContent>{post['post']['content']}</S.PostContent>
+              <S.PostContent>{post.post.content}</S.PostContent>
             </S.Post>
           );
         })}
