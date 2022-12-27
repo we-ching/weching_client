@@ -20,7 +20,6 @@ import { Recruit } from './components/ViewMore/StaticPageRecruit';
 import { About } from './components/ViewMore/StaticPageAbout';
 import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
-import { NoticeDetail } from './components/notice/NoticeDetail';
 import { Bookmark } from './components/bookmark/';
 
 // const baseURL = 'http://34.64.156.157';
