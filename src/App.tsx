@@ -20,6 +20,8 @@ import { Recruit } from './components/ViewMore/StaticPageRecruit';
 import { About } from './components/ViewMore/StaticPageAbout';
 import { MyPostDetail } from './components/mypage/MyPost/';
 import { Notice } from './components/notice/Notice';
+import { NoticeDetail } from './components/notice/NoticeDetail';
+import { Bookmark } from './components/bookmark/';
 
 // const baseURL = 'http://34.64.156.157';
 // axios.defaults.baseURL = baseURL;
@@ -45,7 +47,10 @@ const App: FC = () => {
           <Route path="/viewmore" element={<ViewMore />} />
           <Route path="/viewmore/recruit" element={<Recruit />} />
           <Route path="/viewmore/about" element={<About />} />
-          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/*" element={<Notice />}>
+            <Route path=":id" element={<NoticeDetail />} />
+          </Route>
+          <Route path="/bookmark" element={<Bookmark />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* <NavBar /> */}
