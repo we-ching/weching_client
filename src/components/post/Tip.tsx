@@ -1,4 +1,5 @@
-export const Tip = () => {
+import React from 'react';
+const Tip = () => {
   const dataList: string[] = ['a', 'b', 'c', 'd', 'e'];
 
   const getRandomIdx = (length: number): number => {
@@ -12,3 +13,5 @@ export const Tip = () => {
     </>
   );
 };
+
+export default React.memo(Tip);

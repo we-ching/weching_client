@@ -3,7 +3,7 @@ import { useState, FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Board } from './Board';
 import { postSlice } from '../../postSlice';
-import { Tip } from './Tip';
+import Tip from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 
