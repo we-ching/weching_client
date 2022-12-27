@@ -18,7 +18,6 @@ export const MainPage: any = () => {
   /*
 https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
 */
-
   const mainRequest = async () => {
     try {
       await axios
