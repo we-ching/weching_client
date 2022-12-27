@@ -31,7 +31,6 @@ export const LoginForm = () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              Origin: 'http://localhost:3000',
             },
             body: JSON.stringify({ ...userData, email }),
           })
