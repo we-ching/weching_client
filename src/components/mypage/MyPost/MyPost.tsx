@@ -11,7 +11,7 @@ export const MyPost = () => {
     const res = await axios.get(`/api/post/list`, {
       headers: {
         authorization:
-          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTE1ODY0LCJleHAiOjE2NzIxOTg2NjR9.WGVlfmuSEEGVrUm2DoW4pwyH42rndAZziDuziu4Cs-w',
+          'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo',
       },
     });
     const postList = res.data;
@@ -30,7 +30,7 @@ export const MyPost = () => {
         {posts.map((post) => {
           let isReview: boolean = false;
           const postId = post.post.id;
-          post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
+          post.post.isChecked !== 0 ? (isReview = true) : (isReview = false);
           return (
             <S.Post
               key={postId}
@@ -41,6 +41,16 @@ export const MyPost = () => {
               }}
             >
               <S.PostContent>{post.post.content}</S.PostContent>
+              <S.ReviewCountBtnBox>
+                {post.reviews.length !== 0 &&
+                  post.reviews.map((review, idx) => {
+                    return (
+                      <S.ReviewCountBtn key={idx}>
+                        칭찬 {idx + 1}
+                      </S.ReviewCountBtn>
+                    );
+                  })}
+              </S.ReviewCountBtnBox>
             </S.Post>
           );
         })}

@@ -21,7 +21,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
           { ...star },
           {
             headers: {
-              authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTE1ODY0LCJleHAiOjE2NzIxOTg2NjR9.WGVlfmuSEEGVrUm2DoW4pwyH42rndAZziDuziu4Cs-w`,
+              authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
             },
           }
         )
@@ -47,7 +47,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
         <S.RP_Input type="radio" name="rating" value="1" id={id + `5`} />
         <S.RP_Label htmlFor={id + `5`}>⭐</S.RP_Label>
       </S.RP_FiledSet>
-      <S.RP_SubmitBtn>점수</S.RP_SubmitBtn>
+      <S.RP_SubmitBtn>별점</S.RP_SubmitBtn>
     </S.RP_Form>
   );
 };

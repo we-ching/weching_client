@@ -1,4 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+import reportBtn from '../../../assets/images/alert.png';
+import bookBtn from '../../../assets/images/book.png';
 
 export interface Post {
   id: number;
@@ -44,6 +46,11 @@ export interface reprotBtn {
   name?: any;
 }
 
+export interface bool {
+  onClick?: (e: any) => any;
+  clicked?: any;
+}
+
 export const flexCenter = `
   display: flex;
   justify-content: center;
@@ -58,15 +65,14 @@ export const flexColumCenter = `
 
 export const Container = styled.div`
   ${flexCenter}
-  width: 100vw;
-  height: 100vh;
-  background: rgba(217, 217, 217, 0.5);
-  backdrop-filter: blur(15px);
+  width: 90vw;
+  height: auto;
+  margin: 0 auto;
   overflow: auto;
 `;
 
 export const Title = styled.p`
-  font-size: 2rem;
+  font-size: 24px;
   font-weight: 400;
 `;
 
@@ -83,9 +89,11 @@ export const PostCon = styled.div`
 `;
 
 export const Post = styled.div<reviewProp>`
+  position: relative;
   width: 80%;
   min-height: 100px;
   padding: 20px;
+  z-index: 3;
   text-overflow: ellipsis;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -96,6 +104,18 @@ export const Post = styled.div<reviewProp>`
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
   border: 2px solid ${({ isReviews }) => (isReviews ? 'limegreen' : 'gray')};
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    z-index: 1;
+    bottom: -15px;
+    border: 2px solid gray;
+    background: none;
+    transform: rotate(-45deg);
+  }
 `;
 
 export const PostContent = styled.p`
@@ -159,16 +179,76 @@ export const ReviewButtonBox = styled.div`
   height: 100%;
 `;
 
-export const ReviewReportBtn = styled(ReviewButtonStyle)`
-  & button {
-    display: none;
-  }
-`;
-export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
-  width: 60px;
-  margin-left: auto;
+export const ReviewCountBtnBox = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
+export const shinyBtn = keyframes`
+  0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { transform: scale(50) rotate(45deg); opacity: 0; }
+`;
+
+export const ReviewCountBtn = styled.button`
+  position: relative;
+  display: inline-block;
+  font-size: 8px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  &:not(:first-of-type) {
+    margin-left: 10px;
+  }
+  background: linear-gradient(0deg, #bfa78a 0%, #bfa78a 100%);
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #fff;
+    animation: ${shinyBtn} 3s ease-in-out infinite;
+  }
+`;
+
+export const ReviewReportBtn = styled.button``;
+
+export const ReviewReportBtnImage = styled(ReviewButtonStyle)`
+  background-image: url(${reportBtn});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 50px;
+  height: 30px;
+`;
+
+export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
+  background-image: url(${bookBtn});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  width: 50px;
+  height: 30px;
+  margin-left: auto;
+`;
+/* Review Animation */
+
+/* Ranking Point */
 export const RP_Form = styled.form`
   display: inline-block;
   padding-left: 20px;
@@ -197,7 +277,9 @@ export const RP_Input = styled.input`
     text-shadow: 0 0 0 red;
   }
 `;
-export const RP_SubmitBtn: any = styled(ReviewButtonStyle)``;
+export const RP_SubmitBtn = styled(ReviewButtonStyle)`
+  border: 2px solid #bfa78a;
+`;
 /** modal
  * 사용처 : 리뷰 신고버튼,
  */
@@ -260,3 +342,10 @@ export const M_Button = styled.button`
   display: inline-block;
   margin-top: auto;
 `;
+
+/* media query */
+// @media (min-width: 1024px) {
+// 	width: 60vw;
+//   margin: 0 auto;
+
+// }

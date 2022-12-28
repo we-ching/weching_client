@@ -19,6 +19,7 @@ export const Modal: React.FC<S.reviewId> = () => {
     const target = e.currentTarget;
     const reviewContent = target.content.value;
     const reportBtn = target.querySelector('button');
+    reportBtn?.setAttribute('disabled', 'disabled');
     const type = 'review';
 
     if (reviewContent.length === 0) {
@@ -26,7 +27,6 @@ export const Modal: React.FC<S.reviewId> = () => {
       return;
     }
     setIsError(false);
-    reportBtn?.setAttribute('disabled', 'disabled');
     try {
       await axios
         .post(
