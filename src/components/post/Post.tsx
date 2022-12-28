@@ -13,6 +13,8 @@ TODO: 글 이어서 작성하기 기능 구현
   2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
 */
 
+// max값  내용 : 10개
+
 export const Post: FC = () => {
   const [savedBody, setSavedBody] = useState<string | null>('');
   const [body, setBody] = useState<string>('');
