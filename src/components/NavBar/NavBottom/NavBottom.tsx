@@ -17,6 +17,13 @@ const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 export const Nav = () => {
+  const alarmInfo: any = useAppSelector((state) => {
+    return state.mainInfo.alarm;
+  });
+  const user: any = useAppSelector((state) => {
+    return state.mainInfo.userInfo;
+  });
+
   // const currentURL = useLocation();
   const navigate = useNavigate();
 
@@ -45,7 +52,14 @@ export const Nav = () => {
             setActiveVerti(false);
             setActiveAlarm(true);
           }}
-        ></S.HeaderMenuBox>
+        >
+          <S.UserNick>{user.user && user.user.nickName}님 반가워요!</S.UserNick>
+          <IconAlarm
+            fill={activeAlarm ? clickColor : nonClickColor}
+            stroke={activeAlarm ? clickColor : nonClickColor}
+          />
+          {alarmInfo == 0 ? <S.NoDot /> : <S.RedDot />}
+        </S.HeaderMenuBox>
       </S.HeaderContainer>
       <S.NavBottomContainer>
         <S.NavMenuBox

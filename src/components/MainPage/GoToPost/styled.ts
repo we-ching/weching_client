@@ -17,19 +17,6 @@ export const GoToTitle: any = styled.div`
   }
 `;
 
-export const GoToTitleCount: any = styled.p`
-  width: 27px;
-  height: 19px;
-  border-radius: 10px;
-  background-color: red;
-  margin-left: 8px;
-
-  line-height: 19px;
-  text-align: center;
-  color: white;
-  font-size: 13px;
-`;
-
 export const GoToTextBox: any = styled.div`
   margin: auto;
   padding: 15px;
@@ -71,6 +58,12 @@ export const GoToTextContent: any = styled.div`
   }
 `;
 
+export const StyledSlider = styled(Slider)`
+  .slick-slider {
+    margin: auto;
+  }
+`;
+
 export const Image: any = styled.img`
   margin: 0 auto;
   padding: 10px 0;
@@ -81,10 +74,5 @@ export const Image: any = styled.img`
   &:first-child {
     width: 33px;
     margin: 0 5px 0 0;
-  }
-`;
-export const StyledSlider = styled(Slider)`
-  .slick-slider {
-    margin: auto;
   }
 `;

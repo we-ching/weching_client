@@ -9,6 +9,8 @@ export const Container: any = styled.div`
 
   overflow-y: scroll;
   overflow-x: hidden;
+  ::-webkit-scrollbar {
+    display: none;
 `;
 
 export const Message: any = styled.div`

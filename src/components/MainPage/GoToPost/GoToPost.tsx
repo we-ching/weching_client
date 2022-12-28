@@ -23,6 +23,7 @@ function SampleNextArrow(props: any) {
         right: '-15px',
         width: '30px',
         height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
       src={Rarrow}
@@ -42,6 +43,7 @@ function SamplePrevArrow(props: any) {
         left: '-15px',
         width: '30px',
         height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
       src={Larrow}
@@ -86,10 +88,15 @@ export const GoToPost = () => {
   }, []);
 
   const arr = post.posts;
+
+  // console.log(arr);
   return (
     <>
       <S.GoToTextBox>
-        <S.GoToTitle>칭찬을 확인해보세요❤</S.GoToTitle>
+        <S.GoToTitle>
+          <S.Image src={Letter} />
+          칭찬을 확인해보세요
+        </S.GoToTitle>
         <S.StyledSlider {...settings}>
           {arr &&
             arr.map((item: any) => {

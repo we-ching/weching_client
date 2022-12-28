@@ -1,7 +1,6 @@
 import * as S from './styled';
-import { AdviceTitle } from '../Advice/styled';
 
-import Letter from '../../../assets/images/mail.png';
+import Edit from '../../../assets/images/edit.png';
 import Larrow from '../../../assets/images/left-arrow.png';
 import Rarrow from '../../../assets/images/right-arrow.png';
 
@@ -24,6 +23,7 @@ function SampleNextArrow(props: any) {
         right: '-15px',
         width: '30px',
         height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
       src={Rarrow}
@@ -43,6 +43,7 @@ function SamplePrevArrow(props: any) {
         left: '-15px',
         width: '30px',
         height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
       src={Larrow}
@@ -53,6 +54,7 @@ function SamplePrevArrow(props: any) {
 export const NewMatch = () => {
   const settings = {
     arrows: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -64,13 +66,8 @@ export const NewMatch = () => {
       {
         breakpoint: 600,
         settings: {
-          arrows: true,
-          speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
-          swipe: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
         },
       },
     ],
@@ -87,7 +84,10 @@ export const NewMatch = () => {
   return (
     <>
       <S.NewMatchTextBox>
-        <S.NewMatchTitle>칭찬을 기다리고 있어요❤</S.NewMatchTitle>
+        <S.NewMatchTitle>
+          <S.Image src={Edit} />
+          칭찬을 기다리고 있어요
+        </S.NewMatchTitle>
         <S.StyledSlider {...settings}>
           {arr &&
             arr.map((item: any) => {

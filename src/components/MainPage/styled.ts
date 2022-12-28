@@ -25,16 +25,6 @@ export const GridLayout = styled.div`
   }
 `;
 
-export const UserNick: any = styled.div`
-  margin: 20px 25px 0 0;
-  position: fixed;
-  color: #929292;
-  top: 0px;
-  right: 0px;
-  z-index: 100;
-  font-size: 24px;
-`;
-
 export const Image: any = styled.img`
   margin: 0 auto;
   padding: 10px 0;

@@ -19,7 +19,7 @@ export const NewMatchTitle: any = styled.div`
 `;
 
 export const NewMatchTextBox: any = styled.div`
-  margin: auto;
+  margin: 20px auto;
   padding: 15px;
   font-size: 14px;
   width: auto;

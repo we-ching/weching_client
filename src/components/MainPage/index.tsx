@@ -11,7 +11,6 @@ import { GoToPost } from './GoToPost/GoToPost';
 
 export const MainPage: any = () => {
   const dispatch = useAppDispatch();
-  const [nickname, setNickName] = useState<string>('');
 
   /*
 https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
@@ -26,7 +25,6 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
         })
         .then((res) => {
           dispatch(insertUser(res.data));
-          setNickName(res.data.user.nickName);
 
           const arr = res.data.posts;
           const Array = arr.filter((item: any) => {
@@ -57,7 +55,6 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
   return (
     <S.Container>
       <S.GridLayout>
-        <S.UserNick>{nickname}님 반가워요!</S.UserNick>
         <NewMatch />
         <GoToPost />
         <Advice />
