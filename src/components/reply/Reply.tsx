@@ -17,6 +17,7 @@ export const Reply = () => {
   const params = useParams();
   const id = params.id;
   const submitHandler = async () => {
+    setBody('');
     await axios
       .patch(
         `/api/review`,

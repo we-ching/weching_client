@@ -19,6 +19,7 @@ export const Post: FC = () => {
   const navigate = useNavigate();
 
   const submitHandler = async () => {
+    setBody('');
     await axios
       .post(
         `/api/post`,
@@ -66,7 +67,6 @@ export const Post: FC = () => {
             toolbar: {
               items: ['bold', 'italic', 'link'],
             },
-            width: '300px',
           }}
           data={savedBody}
           onReady={(editor: any) => {
