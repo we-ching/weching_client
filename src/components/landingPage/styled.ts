@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-
 export const LandingPageContainer = styled.body`
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: auto;
-background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
 `;
 
 export const TitleContents = styled.h6`
@@ -37,7 +36,7 @@ export const SubContents = styled.div`
   text-align: center;
   color: #444444;
 
-  img:first-child{
+  img:first-child {
     padding-top: 200px;
     width: 300px;
     height: auto;
@@ -50,11 +49,10 @@ export const ImgOne = styled.div`
 
   margin: 0 auto;
 
-  img:first-child{
+  img:first-child {
     width: 100%;
     height: 100%;
   }
-  
 `;
 
 export const LoginBlock = styled.button`
@@ -63,7 +61,7 @@ export const LoginBlock = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  z-index: 99;
   width: 320px;
   height: 60px;
   border-radius: 10px;

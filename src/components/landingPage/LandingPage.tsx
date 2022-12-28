@@ -72,16 +72,25 @@ export const LandingPage = () => {
         Google 계정으로 함께하기
       </S.LoginBlock>
       <S.SubContents>
-      <img src={img1} alt="말풍선 사진" />
+        <img src={img1} alt="말풍선 사진" />
         <h6>신개념 칭찬 커뮤니티!</h6>
-        <p>새로운 글을 작성하면, <br/>무작위 대상에게 글이 전달됩니다!</p>
-        <br/>
-        <p>물론 당신도 똑같은 시스템에 의해 <br/>익명의 작성자가 쓴 글이 전달됩니다!</p>
+        <p>
+          새로운 글을 작성하면, <br />
+          무작위 대상에게 글이 전달됩니다!
+        </p>
+        <br />
+        <p>
+          물론 당신도 똑같은 시스템에 의해 <br />
+          익명의 작성자가 쓴 글이 전달됩니다!
+        </p>
       </S.SubContents>
       <S.SubContents>
-      <img src={Rectangle} alt="왕관 사진" />
+        <img src={Rectangle} alt="왕관 사진" />
         <h6>칭찬왕에 도전해보세요!</h6>
-        <p>다른 유저들과 칭찬을 나누고, <br/>랭킹 1위에도 도전해보세요!</p>
+        <p>
+          다른 유저들과 칭찬을 나누고, <br />
+          랭킹 1위에도 도전해보세요!
+        </p>
       </S.SubContents>
       <S.SubContents>
         <img src={thing} alt="명언을 표현한 그래픽 사진" />
@@ -89,22 +98,22 @@ export const LandingPage = () => {
         <p>당신의 칭찬에 영감을 드려요!</p>
       </S.SubContents>
       <S.SubContents>
-      <img src={presen} alt="선물 구매 사진" />
+        <img src={presen} alt="선물 구매 사진" />
         <h6>포인트 상점 오픈 예정!</h6>
         <p>활동을 통해 모은 포인트로 기프티콘을 구매해보세요!</p>
       </S.SubContents>
-      <S.ImgOne/>
+      <S.ImgOne />
       <S.TitleContents>우리 모두의 칭찬 타임!</S.TitleContents>
       <S.SubContents>
         <p>지금 함께 하세요!</p>
       </S.SubContents>
-      <S.ImgOne/>
+      <S.ImgOne />
       <S.FoggyUnder></S.FoggyUnder>
       <S.ForeEffect>
         <div>
-        <p/>
+          <p />
         </div>
-      </S.ForeEffect>  
+      </S.ForeEffect>
     </S.LandingPageContainer>
   );
 };
