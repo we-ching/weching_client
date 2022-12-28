@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import axios from 'axios';
-import { getPosts } from '../../../myPostSlice';
-import { useAppDispatch } from '../../../store/config';
 
 export const MyPost = () => {
   const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
   const [posts, setPosts] = useState<S.Posts[]>([]);
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const myPostAllGet = async () => {
     const res = await axios.get(`/api/post/list`, {
@@ -33,18 +30,27 @@ export const MyPost = () => {
         {posts.map((post) => {
           let isReview: boolean = false;
           const postId = post.post.id;
-          post['reviews'].length !== 0 ? (isReview = true) : (isReview = false);
+          post.post.isChecked !== 0 ? (isReview = true) : (isReview = false);
           return (
             <S.Post
               key={postId}
               isReviews={isReview}
               posts={posts}
               onClick={() => {
-                // dispatch(getPosts(posts));
                 navigate(`/mypage/mypost/${postId}`);
               }}
             >
               <S.PostContent>{post.post.content}</S.PostContent>
+              <S.ReviewCountBtnBox>
+                {post.reviews.length !== 0 &&
+                  post.reviews.map((review, idx) => {
+                    return (
+                      <S.ReviewCountBtn key={idx}>
+                        칭찬 {idx + 1}
+                      </S.ReviewCountBtn>
+                    );
+                  })}
+              </S.ReviewCountBtnBox>
             </S.Post>
           );
         })}

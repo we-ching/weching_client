@@ -18,7 +18,10 @@ export const Modal: React.FC<S.reviewId> = () => {
     e.preventDefault();
     const target = e.currentTarget;
     const reviewContent = target.content.value;
+    const reportBtn = target.querySelector('button');
+    reportBtn?.setAttribute('disabled', 'disabled');
     const type = 'review';
+
     if (reviewContent.length === 0) {
       setIsError(true);
       return;
@@ -40,8 +43,8 @@ export const Modal: React.FC<S.reviewId> = () => {
           dispatch(isClicked(false));
           console.log(res.data);
         });
-    } catch (err) {
-      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    } catch (err: any) {
+      alert(err.response.data.message);
     }
   };
 

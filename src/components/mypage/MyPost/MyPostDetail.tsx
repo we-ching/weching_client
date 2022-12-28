@@ -1,22 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as S from './styled';
-import { useAppSelector } from '../../../store/config';
 import { ReviewStartPoint } from './StarPoint';
 import { ReviewReportBtn } from './Report';
 import { ReviewBookmarkBtn } from './Bookmark';
 import axios from 'axios';
 
 export const MyPostDetail = () => {
+  const reviewIdx = ['첫', '두', '세'];
+  const [isClicked, setIsClicked] = useState<boolean>(false);
   const [post, setPost] = useState<any>({});
   const postId = useParams().postId;
-  // const posts = useAppSelector((state) => {
-  //   return state.myPost.myPosts;
-  // });
+  const onClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+
+    setIsClicked(true);
+    console.log(isClicked);
+  };
   const detailPage = async () => {
     const res = await axios.get(`/api/post/${postId}`, {
       headers: {
-        authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTA5ODg5LCJleHAiOjE2NzIxOTI2ODl9.YlFfTVxFFUsLZHibogJtJ99uKaZtmUtTBsSL2-boem0`,
+        authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
       },
     });
 
@@ -26,8 +30,6 @@ export const MyPostDetail = () => {
   useEffect(() => {
     detailPage();
   }, []);
-  // const post: any = posts.find((item: any) => item.post.id === Number(postId));
-  // console.log(post);
   return (
     <S.Container>
       <S.PostCon>
@@ -36,12 +38,12 @@ export const MyPostDetail = () => {
           <S.PostContent>{post.post && post.post.content}</S.PostContent>
         </S.Post>
         {post.reviews && post.reviews.length !== 0
-          ? post.reviews.map((e: any) => {
+          ? post.reviews.map((e: any, idx: number) => {
               console.log(post);
               return (
-                <S.Review key={e.id} isReported={e.status}>
-                  {e.content}
+                <S.Review key={e.id} isReported={e.status} id="review">
                   {e.id}
+                  {e.content}
                   <S.ReviewButtonBox>
                     <ReviewStartPoint id={e.id}></ReviewStartPoint>
                     <ReviewBookmarkBtn id={e.id}></ReviewBookmarkBtn>
