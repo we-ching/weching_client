@@ -28,8 +28,8 @@ export const Ranking = styled.div`
 
 export const RankingTitle = styled.div`
   padding: 5px 0 10px 0;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
 `;
 
 export const RankingDetailButton = styled.div`
@@ -42,9 +42,9 @@ export const RankingDetailButton = styled.div`
   align-items: center;
 
   font-style: normal;
-  fontweight: 600;
+  font-weight: 550;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #FFF;
   background-color: #8C5C32;
   border-radius: 10px;
 

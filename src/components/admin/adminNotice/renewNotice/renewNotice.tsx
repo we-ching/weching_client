@@ -54,7 +54,7 @@ export function RenewNotice() {
       //   return state.notice.noticeID;
       // });
 
-      const res = await axios.delete(`/api/notice/{{id}}`, {
+      const res = await axios.delete(`/api/notice/id`, {
       })
       handleModal;
       alert(res.data.message);

@@ -63,7 +63,7 @@ export const Ranking = () => {
         <div className='container'>
           <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
           <S.RankingDetailButton onClick={() => navigate('/home/ranking')}>
-            <p>더보기</p>
+            더보기
           </S.RankingDetailButton>
         </div>
         {
@@ -73,7 +73,7 @@ export const Ranking = () => {
               <div className='rank'>
                 <S.Image className='rankImg' src={`/rank/ranking${item.rank}.png`} alt=''/>
                 <div className='rankContent'>
-                  {item.rank}등 - {item.nickname} RP-{item.grade}
+                  <strong>{item.rank}등</strong> - {item.nickname} &ensp;<strong>RP</strong> - {item.grade}
                 </div>
               </div>
             </S.RankingUser>
