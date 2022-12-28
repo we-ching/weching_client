@@ -1,31 +1,20 @@
 import styled from "styled-components";
 
-const customMediaQuery = (maxWidth: number) => 
-    `@media (max-width: ${maxWidth}px)`;
-const media = {
-    mobile: customMediaQuery(1024),
-    };
-
-export const BackGround = styled.body`
+export const BackGround = styled.div`
     position: relative;
     width: 100vw;
     max-width: 1024px;
-    height: 100vh;
+    height: auto;
     margin: 0 auto;
     background: #F0F0F0;
-    
-    ${media.mobile} {
-        
-}
 `;
     
 export const ContentContainer = styled.div`
-    padding-top: 70px;
+    padding-top: 10px;
     display: flex;
     gap: 20px 0px;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center; 
 `;
 
 export const TitleBox = styled.h3`
@@ -38,9 +27,9 @@ export const MenuBox = styled.div`
     width: 372px;
     height: 60px;
     display: flex;
-    
-    align-items: center;
-    padding-left: 20px;
+    overflow:hidden;
+    align-items: flex-start;
+    padding: 17px 0 17px 20px;
     background: #ffffff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -49,10 +38,11 @@ export const MenuBox = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 26px;
+    text-overflow: clip;
     color: #444444;
     box-sizing: border-box;
 
     &:hover {
-        border: 2px solid #444444;
+        height: auto;
     }
 `;

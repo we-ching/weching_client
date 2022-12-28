@@ -1,26 +1,17 @@
 import styled from "styled-components";
 
-const customMediaQuery = (maxWidth: number) => 
-    `@media (max-width: ${maxWidth}px)`;
-const media = {
-    mobile: customMediaQuery(1024),
-    };
-
-export const BackGround = styled.body`
+export const BackGround = styled.div`
     position: relative;
     width: 100vw;
     max-width: 1024px;
-    height: 100vh;
+    height: auto;
     margin: 0 auto;
     background: #F0F0F0;
-    
-    ${media.mobile} {
-        
-}
+
 `;
     
 export const ContentContainer = styled.div`
-    padding-top: 70px;
+    padding-top: 30px;
     display: flex;
     gap: 20px 0px;
     flex-direction: column;

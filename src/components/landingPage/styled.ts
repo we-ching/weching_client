@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LandingPageContainer = styled.body`
+export const LandingPageContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -10,7 +10,6 @@ export const LandingPageContainer = styled.body`
 `;
 
 export const TitleContents = styled.h6`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -25,7 +24,6 @@ export const TitleContents = styled.h6`
 `;
 
 export const SubContents = styled.div`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -133,9 +131,8 @@ p {
   100% { transform: translateY(15px); opacity: 0;}
 }
 }
-
+transition: opacity .5s;
 &:active {
-  transition: .3s;
   opacity: 0;
 }
 `;
