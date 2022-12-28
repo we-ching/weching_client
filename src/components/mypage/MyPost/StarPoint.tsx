@@ -47,7 +47,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
         <S.RP_Input type="radio" name="rating" value="1" id={id + `5`} />
         <S.RP_Label htmlFor={id + `5`}>⭐</S.RP_Label>
       </S.RP_FiledSet>
-      <S.RP_SubmitBtn>별점</S.RP_SubmitBtn>
+      <S.RP_SubmitBtn></S.RP_SubmitBtn>
     </S.RP_Form>
   );
 };

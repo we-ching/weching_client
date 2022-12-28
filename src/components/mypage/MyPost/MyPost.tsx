@@ -42,9 +42,9 @@ export const MyPost = () => {
             >
               <S.PostContent>
                 {post.post ? (
-                  <div
+                  <S.DangerHTML
                     dangerouslySetInnerHTML={{ __html: post.post.content }}
-                  ></div>
+                  ></S.DangerHTML>
                 ) : null}
               </S.PostContent>
               <S.ReviewCountBtnBox>
