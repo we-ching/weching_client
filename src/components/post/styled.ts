@@ -48,4 +48,8 @@ export const Title = styled.h1`
 export const Tip = styled.header`
   text-align: center;
   font-size: 18px;
+
+  > div {
+    margin-top: 1rem;
+  }
 `;
