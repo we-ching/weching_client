@@ -13,10 +13,11 @@ import { useAppSelector } from '../../store/config';
 
 export const LandingPage = () => {
   const dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const btnClickHandler = (e: any) => {
     e.preventDefault();
+    navigate(`/home`);
     // navigate('./LandingPage');
   };
 
