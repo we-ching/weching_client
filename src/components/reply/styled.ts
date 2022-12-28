@@ -8,7 +8,6 @@ export const Main = styled.main`
 
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 500px;
-    width: 20rem;
     background-color: #f4fff1;
     width: 80vw;
   }
@@ -46,5 +45,5 @@ export const Wrraper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 150%;
+  font-size: 24px;
 `;
