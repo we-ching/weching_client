@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: 'SeoulHangangM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
   * {
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,9 +26,11 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       border: 0;
       font-size: 100%;
-      // font: inherit;
+      font-family: 'SeoulHangangM';
+      color: #444444;
       vertical-align: baseline;
     }
+    
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
     footer, header, hgroup, menu, nav, section {
@@ -30,6 +39,8 @@ const GlobalStyle = createGlobalStyle`
     body {
       line-height: 1;
       background-color: #f0f0f0;
+      width: 100vw;
+      height: auto;
       padding: 75px 0 100px 0;
     }
     ol, ul {

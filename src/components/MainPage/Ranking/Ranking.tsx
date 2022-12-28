@@ -58,7 +58,7 @@ export const Ranking = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <S.Ranking>
         <div className='container'>
           <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
@@ -80,6 +80,6 @@ export const Ranking = () => {
           ) : null 
         }
       </S.Ranking>
-    </div>
+    </>
   );
 };

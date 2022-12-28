@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const NewMatchTitle: any = styled.div`
-  margin: 25px auto 0;
+  margin: 10px auto 0;
   width: 370px;
 
   display: flex;
@@ -9,6 +9,12 @@ export const NewMatchTitle: any = styled.div`
 
   font-size: 18px;
   font-weight: 700;
+
+  @media (min-width: 1024px) {
+    grid-area: title;
+    margin: 0;
+    padding-top: 15px;
+  }
 `;
 
 export const NewMatchTitleCount: any = styled.p`
@@ -28,7 +34,7 @@ export const NewMatchTextBox: any = styled.div`
   margin: 0 auto;
   padding: 15px;
   font-size: 14px;
-  width: 340px !important;
+  width: auto;
   height: 270px;
   border-radius: 10px;
   background-color: white;
@@ -36,6 +42,12 @@ export const NewMatchTextBox: any = styled.div`
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
 
   overflow: hidden;
+
+  @media (min-width: 1024px) {
+    width: auto;
+    grid-area: newmatch;
+    margin: 0;
+  }
 `;
 
 export const NewMatchTextContent: any = styled.div`

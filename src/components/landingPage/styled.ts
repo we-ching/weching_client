@@ -1,26 +1,17 @@
 import styled from 'styled-components';
 
-const customMediaQuery = (maxWidth: number) =>
-  `@media (max-width: ${maxWidth}px)`;
-const media = {
-  mobile: customMediaQuery(1024),
-};
 
 export const LandingPageContainer = styled.body`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2000px;
-
-  background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
-
-  ${media.mobile} {
-  }
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: auto;
+background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
 `;
 
 export const TitleContents = styled.h6`
-  font-family: 'Noto Sans KR';
+  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -31,21 +22,26 @@ export const TitleContents = styled.h6`
   text-align: center;
 
   color: #444444;
-  padding-top: 150px;
+  padding-top: 80px;
 `;
 
 export const SubContents = styled.div`
-  font-family: 'Noto Sans KR';
+  // font-family: 'Noto Sans KR';
   font-style: normal;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 18px;
   line-height: 35px;
-
-  display: flex;
+  padding-top: 10px;
+  padding-bottom: 30px;
   justify-content: center;
   text-align: center;
-
   color: #444444;
+
+  img:first-child{
+    padding-top: 200px;
+    width: 300px;
+    height: auto;
+  }
 `;
 
 export const ImgOne = styled.div`
@@ -54,10 +50,11 @@ export const ImgOne = styled.div`
 
   margin: 0 auto;
 
-  img {
+  img:first-child{
     width: 100%;
     height: 100%;
   }
+  
 `;
 
 export const LoginBlock = styled.button`
@@ -94,32 +91,53 @@ export const FoggyUnder = styled.div`
   height: 150px;
   background: linear-gradient(
     180deg,
-    rgba(221, 221, 221, 0.0744444) 41.15%,
+    rgba(221, 221, 221, 0) 41.15%,
     rgba(217, 217, 217, 0) 53.12%,
     rgba(255, 255, 255, 0.67) 100%
   );
 `;
 
-export const ForeEffect = styled.span`
-  width: 100vw;
+export const ForeEffect = styled.div`
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  width :100vw;
   height: 100vh;
-
-  img {
-    &: first-child {
-      position: fixed;
-      display: flex;
-      top: 45vh;
-      display: flex;
-      right: 0px;
-    }
-    &: last-child {
-      position: fixed;
-      display: flex;
-
-      margin: 0 auto;
-      bottom: 2vh;
-      left: 0;
-      right: 0;
-    }
+  transition: .3s;
+  opacity: .7;
+  rotate: 180deg;
+div {
+    margin: 50vh auto;
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 3px solid #fff;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
   }
+p {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: #fff;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+}
+
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0;}
+}
+}
+
+&:active {
+  transition: .3s;
+  opacity: 0;
+}
 `;

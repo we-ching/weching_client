@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Container: any = styled.div`
-  width: 430px;
-  height: 932px;
-  margin: 85px auto;
-  background-color: #f0f0f0;
+  width: 90vw;
+  height: auto;
+  margin: 0 auto;
   color: #444444;
 
   overflow-y: scroll;
@@ -14,35 +13,47 @@ export const Container: any = styled.div`
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
 `;
+export const GridLayout = styled.div`
+  top: 60px;
+  @media (min-width: 1024px) {
+    width: 60vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 30px 1fr 30px 1fr auto;
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "title title title title title"
+      "newmatch newmatch newmatch newmatch newmatch"
+      "title2 title2 title2 title2 title2"
+      "newReview newReview newReview newReview newReview"
+      "advice advice ranking ranking ranking";
+    }
+`;
 
 export const UserNick: any = styled.div`
   width: 370px;
-  margin: 20px auto 0;
+  
+  font-size: 22px;
+  color: #929292;
 
-  font-size: 30px;
-  color: #444444;
-`;
-
-export const UpperNav: any = styled.div`
-  width: 428px;
-  height: 70px;
-
-  background-color: white;
-  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
-`;
-
-export const LowerNav: any = styled.div`
-  width: 428px;
-  height: 88px;
-
-  box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 0.1);
+  @media (min-width: 1024px) {
+    margin: 20px auto 0;
+    position: fixed;
+    color: #929292;
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+    font-size: 16px;
+    width: 230px;
+  }
 `;
 
 export const Image: any = styled.img`
   margin: 0 auto;
   padding: 10px 0;
   width: 118px;
-
   display: block;
 
   &:first-child {

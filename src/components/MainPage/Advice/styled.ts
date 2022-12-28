@@ -1,14 +1,30 @@
 import styled from 'styled-components';
 
+export const Grid: any = styled.div`
+  @media (min-width: 1024px) {
+    grid-area: advice;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+`
+
 export const Advice: any = styled.div`
   margin: 15px auto;
   padding: 10px 15px;
-  width: 370px;
+  width: auto;
   box-sizing: border-box;
   border-radius: 10px;
   background-color: white;
 
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
+
+  @media (min-width: 1024px) {
+    grid-area: advice;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
 `;
 
 export const AdviceTitle: any = styled.div`

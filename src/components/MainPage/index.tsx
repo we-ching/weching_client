@@ -9,7 +9,6 @@ import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
-import { NavBar } from '../NavBar/index';
 
 export const MainPage: any = () => {
   const dispatch = useAppDispatch();
@@ -50,12 +49,13 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
 
   return (
     <S.Container>
-      <NavBar />
+      <S.GridLayout>
       <S.UserNick>{nickname}님 반가워요!</S.UserNick>
       <NewMatch />
       <GoToPost />
       <Advice />
       <Ranking />
+      </S.GridLayout>
     </S.Container>
   );
 };

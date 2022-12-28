@@ -13,7 +13,8 @@ export const Advice = () => {
     advice;
   }, []);
   return (
-    <div>
+    <>
+      <S.Grid>
       <S.Advice>
         <S.AdviceTitle>한 줄 명언 </S.AdviceTitle>
         <S.Image src={Present} />
@@ -28,6 +29,7 @@ export const Advice = () => {
           {/* 이건 간단한 방식 */}
         </S.AdviceContent>
       </S.Advice>
-    </div>
+      </S.Grid>
+    </>
   );
 };
