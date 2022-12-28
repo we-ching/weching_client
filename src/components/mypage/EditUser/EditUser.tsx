@@ -19,7 +19,7 @@ const theme = createTheme({
 });
 
 export function EditUser() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTI5NTkwLCJleHAiOjE2NzIyMTIzOTB9.grDwEyPFSTNV_eLPojJI_c36v8DWglN14luTJDKeVO0';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTg3ODM3LCJleHAiOjE2NzIyNzA2Mzd9.-r8PnIZOmg3O0BFLoTGM9aW6Ew-0qLqqAvi42oAOqIM';
 
   const [nickName, setNewNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);

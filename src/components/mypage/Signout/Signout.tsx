@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Mui
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -19,9 +20,8 @@ const theme = createTheme({
   });
 
 export function SignOut() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTI5NTkwLCJleHAiOjE2NzIyMTIzOTB9.grDwEyPFSTNV_eLPojJI_c36v8DWglN14luTJDKeVO0';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTg3ODM3LCJleHAiOjE2NzIyNzA2Mzd9.-r8PnIZOmg3O0BFLoTGM9aW6Ew-0qLqqAvi42oAOqIM';
 
-  let input = '닉네임';
   const [nickName, setNickName] = useState<string>('');
   const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
@@ -33,7 +33,6 @@ export function SignOut() {
   const nicknameCheck = async () => {
     try {
       const res = await axios.get(`/api/user`, {
-        method: 'GET',
         headers: {
           authorization: `bearer ${token}`,
         },
@@ -56,7 +55,6 @@ export function SignOut() {
       }
 
       const res = await axios.delete(`/api/user`, {
-        method: 'DELETE',
         headers: {
           authorization: `bearer ${token}`,
         },

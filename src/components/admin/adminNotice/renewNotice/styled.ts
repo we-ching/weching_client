@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   background-color: #f0f0f0;
 `;
 
-export const reportPageContainer = styled.div`
+export const renewNotice = styled.div`
   margin: 18px;
 
   display: flex;
@@ -28,7 +28,7 @@ export const reportPageContainer = styled.div`
   align-items: center;
 `;
 
-export const reportTitleContainer = styled.div`
+export const TitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
@@ -48,7 +48,7 @@ export const reportTitleContainer = styled.div`
   }
 `;
 
-export const reportTitle = styled.div`
+export const Title = styled.div`
   margin: 0 0 0 17px;
 
   font-style: normal;
@@ -83,23 +83,23 @@ export const ItemBox = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
-  .reportInfo {
-    margin-left: 17px;
+  .boxs {
+    margin: 0 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  .textBoxs {
+  .titleBoxs {
     display: flex;
     flex-direction: row;
   }
-  .type {
-    padding: 0 0 12px 0;
-    font-weight: bold;
-  }
-  .typeId {
-    font-weight: bold;
+  .contentBoxs {
+    display: flex;
+    flex-direction: row;
   }
   .content {
     margin-left: 17px;
-    font-weight: bold;
   }
   .none {
     margin-left: 17px;
@@ -113,4 +113,68 @@ export const Line = styled.div`
   width: 339px;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
+`;
+
+export const delBtn = styled.div`
+  width: 60px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  color: #FFF;
+  background-color: #C90000;
+  border-radius: 10px;
+`;
+
+export const ModalStyle = styled.div`
+  position: absolute;
+  width: 350px;
+  height: 160px;
+
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  font-size: 18px;
+  line-height: 26px;
+  color: #444444;
+`;
+
+export const ModalTitle = styled.div`
+  margin: 20px 0 15px 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: #444444;
+`;
+
+export const delContent = styled.h3`
+  margin: 10px auto;
+
+  display: flex;
+  justify-content: center;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 26px;
+`;
+
+export const Form = styled.form`
+  margin: 0 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    width: 200px;
+  }
 `;

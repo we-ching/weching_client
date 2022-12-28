@@ -19,7 +19,7 @@ export function Admin() {
             <S.Line></S.Line>
             <S.AdminContent>하나의 칭찬은 누군가의 삶의 동력이다</S.AdminContent>
           </S.AdminTitleContainer>
-          <S.ItemBox onClick={() => navigate('')}>
+          <S.ItemBox onClick={() => navigate('/admin/notice')}>
             <p>공지사항 관리</p>
           </S.ItemBox>
           <S.ItemBox onClick={() => navigate('/admin/report')}>

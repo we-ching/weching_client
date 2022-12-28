@@ -30,7 +30,7 @@ export const AdminTitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  background-color: rgb(54, 48, 74, 0.9);
+  background-color: #BFA78A;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 

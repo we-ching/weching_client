@@ -17,9 +17,9 @@ export function AdminReport() {
 
   const report = async () => {
     try { 
-      const {reportType}: {reportType: ReportInfoType[]} = await axios.get(`/api/report?page=1`,
+      const {report}: {report: ReportInfoType[]} = await axios.get(`/api/report?page=1`,
       ).then(res=> res.data)
-      setReportInfo(reportType);
+      setReportInfo(report);
 
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
@@ -41,10 +41,17 @@ export function AdminReport() {
               reportInfo.map((item: ReportInfoType)=>
                 <S.ItemBox>
                   <div className='reportInfo'>
-                    <div className='type'>신고 타입: {item.type}</div>
-                    <div className='typeId'>신고 게시물 ID: {item.type_id}</div>
+                    <div className='textBoxs'>
+                      <div className='type'>종류: </div>&ensp;{item.type}
+                    </div>
+                    <div className='textBoxs'>
+                      <div className='typeId'>게시물 ID: </div>&ensp;{item.type_id}
+                    </div>
                   </div>
-                  <div className='content'>신고 내용: {item.content}</div>
+                  <S.Line></S.Line>
+                  <div className='textBoxs'>
+                    <div className='content'>신고 내용: </div>&ensp;{item.content}
+                  </div>
                 </S.ItemBox>
               )
               : <S.ItemBox>

@@ -23,6 +23,9 @@ import { Notice } from './components/notice/Notice';
 import { Bookmark } from './components/bookmark/';
 import { RankingDetail } from './components/MainPage/Ranking/RankingDetail/RankingDetail';
 import { Admin } from './components/admin/admin';
+import { AdminNotice } from './components/admin/adminNotice/adminNotice';
+import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
+import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
 
 const baseURL = 'http://34.64.156.157';
@@ -52,6 +55,9 @@ const App: FC = () => {
           <Route path="/viewmore/about" element={<About />} />
           <Route path="/bookmark" element={<Bookmark />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/notice" element={<AdminNotice />} />
+          <Route path="/admin/notice/new" element={<NewNotice />} />
+          <Route path="/admin/notice/renew" element={<RenewNotice />} />
           <Route path="/admin/report" element={<AdminReport />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

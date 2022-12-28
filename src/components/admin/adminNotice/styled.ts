@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   background-color: #f0f0f0;
 `;
 
-export const reportPageContainer = styled.div`
+export const adminNoticePage = styled.div`
   margin: 18px;
 
   display: flex;
@@ -28,7 +28,7 @@ export const reportPageContainer = styled.div`
   align-items: center;
 `;
 
-export const reportTitleContainer = styled.div`
+export const adminNoticeTitle = styled.div`
   margin: 10px 0;
 
   position: relative;
@@ -46,33 +46,32 @@ export const reportTitleContainer = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
-`;
+  .noticeTitle {
+    margin: 0 0 0 17px;
 
-export const reportTitle = styled.div`
-  margin: 0 0 0 17px;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
-  color: #FFF;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+    color: #FFF;
+  }
 `;
 
 export const ItemBox = styled.div`
   margin: 10px 0;
-  padding: 15px 0;
 
   position: relative;
   width: 372px;
+  height: 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 
   background-color: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
   font-style: normal;
+  font-weight: bold;
   font-size: 18px;
   line-height: 26px;
   color: #444444;
@@ -83,34 +82,7 @@ export const ItemBox = styled.div`
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
-  .reportInfo {
+  > p {
     margin-left: 17px;
   }
-  .textBoxs {
-    display: flex;
-    flex-direction: row;
-  }
-  .type {
-    padding: 0 0 12px 0;
-    font-weight: bold;
-  }
-  .typeId {
-    font-weight: bold;
-  }
-  .content {
-    margin-left: 17px;
-    font-weight: bold;
-  }
-  .none {
-    margin-left: 17px;
-    font-weight: bold;
-  }
-`;
-
-export const Line = styled.div`
-  margin: 12px 0 12px 17px;
-
-  width: 339px;
-  height: 0px;
-  border: 1px solid rgba(68, 68, 68, 0.5);
 `;

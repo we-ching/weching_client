@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 10px 0;
+  padding: 5px 0 20px 0;
 
   position: relative;
   width: 372px;
-  height: 300px;
   display: flex;
   flex-direction: column;
   
@@ -16,6 +16,17 @@ export const Container = styled.div`
   :hover {
     transform: translateY(2px);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  .jandiInfo {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .jandiNum {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
   }
 `;
 
@@ -36,4 +47,17 @@ export const Line = styled.div`
   width: 339px;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
+`;
+
+export const JandiBox = styled.div<{grade: string}>`
+  margin: 0 10px;
+
+  width: 20px;
+  height: ${props => Number(props.grade) * 10 }px;
+  background-color: rgb(167, 191, 79);
+`;
+
+export const JandiNum = styled.div`
+  margin: 0 10px;
+  width: 20px;
 `;
