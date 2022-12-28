@@ -15,10 +15,9 @@ export const HeaderContainer = styled.div`
   background-color: #f2f2f2;
 
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+`;
 
-  `;
-  
-  export const HeaderMenuBox = styled.div`
+export const HeaderMenuBox = styled.div`
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -28,10 +27,9 @@ export const HeaderContainer = styled.div`
   box-sizing: border-box;
   border: 0;
   margin: 0 25px;
+`;
 
-  `;
-  
-  export const NavBottomContainer = styled.div`
+export const NavBottomContainer = styled.div`
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -43,7 +41,7 @@ export const HeaderContainer = styled.div`
   background-color: #f2f2f2;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 40px 40px 0px 0px;
-  
+
   @media (min-width: 1024px) {
     top: 0;
     left: 0;
@@ -103,4 +101,3 @@ export const PlusWrap = styled.div`
     filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 0.1));
   }
 `;
-

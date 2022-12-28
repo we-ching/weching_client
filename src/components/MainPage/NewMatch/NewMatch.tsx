@@ -10,15 +10,54 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
 
+// interface newMatch {
+//   user: {};
+//   todoReview: {};
+//   posts: [];
+// }
+
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'black',
+        right: '-10px',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'black',
+        left: '-10px',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 export const NewMatch = () => {
   const settings = {
     arrows: true,
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   const post: any = useAppSelector((state) => {
@@ -28,14 +67,12 @@ export const NewMatch = () => {
   useEffect(() => {
     post;
   }, []);
-
-  const arr = post.posts;
-
+  const arr = post.todoReview;
   return (
     <>
       <S.NewMatchTitle>
         <S.Image src={Letter} />
-        <p>새 글 매칭</p>
+        <p>새롭게 매칭된 글</p>
         <S.NewMatchTitleCount>+{arr && arr.length}</S.NewMatchTitleCount>
       </S.NewMatchTitle>
       <S.NewMatchTextBox>
@@ -43,9 +80,9 @@ export const NewMatch = () => {
           {arr &&
             arr.map((item: any) => {
               return (
-                <Link to={`/reply/${item.post.id}`}>
-                  <S.NewMatchTextContent key={item.post.id}>
-                    {item.post.content}
+                <Link to={`/reply/${item.id}`}>
+                  <S.NewMatchTextContent key={item.id}>
+                    {item.content}
                   </S.NewMatchTextContent>
                 </Link>
               );

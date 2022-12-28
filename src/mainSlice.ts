@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userInfo: {},
   subInfo: {},
+  alarm: 0,
 };
 
 export const mainSlice = createSlice({
@@ -15,7 +16,10 @@ export const mainSlice = createSlice({
     insertSub: (state: any, action) => {
       state.subInfo = { ...state.subInfo, ...action.payload };
     },
+    insertAlarm: (state: any, action) => {
+      state.alarm = action.payload;
+    },
   },
 });
 
-export const { insertUser, insertSub } = mainSlice.actions;
+export const { insertUser, insertSub, insertAlarm } = mainSlice.actions;

@@ -10,15 +10,48 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
 
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'black',
+        right: '-10px',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'black',
+        left: '-10px',
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 export const GoToPost = () => {
   const settings = {
     arrows: true,
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   const post: any = useAppSelector((state) => {
@@ -30,13 +63,11 @@ export const GoToPost = () => {
   }, []);
 
   const arr = post.posts;
-  console.log(arr);
-
   return (
     <>
       <S.GoToTitle>
         <S.Image src={Letter} />
-        <p>받은 리뷰함</p>
+        <p>내가 작성한 글</p>
         <S.GoToTitleCount>+{arr && arr.length}</S.GoToTitleCount>
       </S.GoToTitle>
       <S.GoToTextBox>
@@ -44,10 +75,8 @@ export const GoToPost = () => {
           {arr &&
             arr.map((item: any) => {
               return (
-                <Link to={`/reply/${item.reviews.id}`}>
-                  <S.GoToTextContent key={item.reviews.id}>
-                    {item.reviews.content}
-                  </S.GoToTextContent>
+                <Link to={`/mypage/mypost/${item.post.id}`}>
+                  <S.GoToTextContent>{item.post.content}</S.GoToTextContent>
                 </Link>
               );
             })}

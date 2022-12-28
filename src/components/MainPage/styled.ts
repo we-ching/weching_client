@@ -8,10 +8,6 @@ export const Container: any = styled.div`
 
   overflow-y: scroll;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-  }
 `;
 export const GridLayout = styled.div`
   top: 60px;
@@ -24,17 +20,17 @@ export const GridLayout = styled.div`
     gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
-      "title title title title title"
-      "newmatch newmatch newmatch newmatch newmatch"
-      "title2 title2 title2 title2 title2"
-      "newReview newReview newReview newReview newReview"
-      "advice advice ranking ranking ranking";
-    }
+      'title title title title title'
+      'newmatch newmatch newmatch newmatch newmatch'
+      'title2 title2 title2 title2 title2'
+      'newReview newReview newReview newReview newReview'
+      'advice advice ranking ranking ranking';
+  }
 `;
 
 export const UserNick: any = styled.div`
   width: 370px;
-  
+
   font-size: 22px;
   color: #929292;
 
@@ -61,15 +57,3 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
-
-export interface Advice {
-  author: string;
-  authorrofile: string;
-  message: string;
-}
-
-export const initialState = {
-  author: '',
-  authorrofile: '',
-  message: '',
-};
