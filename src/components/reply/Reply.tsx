@@ -1,5 +1,6 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import axios from 'axios';
 import { useState } from 'react';
 import { RandomPost } from './RandomPost';
@@ -7,14 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
 
 /*
-
-랜덤으로 매칭된 게시물을 가져와서 보여주고
-답글 달아서 post 해주기
-post 시 어떤 게시물에 답글을 달았는지 알아야히기 떄문에 정보 같이 보내주기
-
-TODO: 랜덤 칭찬 Tip 보여주기
-TODO: 랜덤으로 매칭된 게시물 및 버튼은 재랜더링 할필요없으므로 재랜더링 막아주기
-
+TODO: 랜덤으로 매칭된 게시물 및 버튼은 리랜더링 할필요없으므로 리랜더링 막아주기
 */
 
 export const Reply = () => {

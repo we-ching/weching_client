@@ -1,28 +1,21 @@
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import axios from 'axios';
 import { useState, FC, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Board } from './Board';
-import { postSlice } from '../../postSlice';
 import Tip from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import './CKEditor.css';
-
 /*
-{
 TODO: 글 이어서 작성하기 기능 구현
   1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
   2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-}
 */
 
 export const Post: FC = () => {
   const [savedBody, setSavedBody] = useState<string | null>('');
   const [body, setBody] = useState<string>('');
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submitHandler = async () => {
@@ -41,7 +34,6 @@ export const Post: FC = () => {
         }
       )
       .then(() => {
-        dispatch(postSlice.actions.savePost(body));
         alert('글 작성 완료(포인트가 3점 소모되었습니다.)');
         sessionStorage.removeItem('myText');
         navigate('/home');
@@ -93,7 +85,6 @@ export const Post: FC = () => {
           올리기
         </S.PostBtn>
       </S.Wrraper>
-      <Board />
     </S.Main>
   );
 };

@@ -10,6 +10,7 @@ export const Main = styled.main`
     min-height: 500px;
     width: 20rem;
     background-color: #f4fff1;
+    width: 80vw;
   }
 
   .ck.ck-toolbar {
