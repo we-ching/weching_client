@@ -11,7 +11,7 @@ const ParseHtml: React.FC<postProps> = ({ post }) => (
   <S.Post dangerouslySetInnerHTML={{ __html: post }} />
 );
 
-export const RandomPost = () => {
+const RandomPost = () => {
   const [post, setPost] = useState('');
   const params = useParams();
   const id = Number(params.id);
@@ -36,3 +36,5 @@ export const RandomPost = () => {
   }, []);
   return <ParseHtml post={post} />;
 };
+
+export default React.memo(RandomPost);

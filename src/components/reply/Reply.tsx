@@ -3,7 +3,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import axios from 'axios';
 import { useState } from 'react';
-import { RandomPost } from './RandomPost';
+import RandomPost from './RandomPost';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
 
