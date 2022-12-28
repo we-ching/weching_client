@@ -5,9 +5,6 @@ export const Container: any = styled.div`
   height: auto;
   margin: 0 auto;
   color: #444444;
-
-  overflow-y: scroll;
-  overflow-x: hidden;
 `;
 export const GridLayout = styled.div`
   top: 60px;
@@ -29,21 +26,13 @@ export const GridLayout = styled.div`
 `;
 
 export const UserNick: any = styled.div`
-  width: 370px;
-
-  font-size: 22px;
+  margin: 20px 25px 0 0;
+  position: fixed;
   color: #929292;
-
-  @media (min-width: 1024px) {
-    margin: 20px auto 0;
-    position: fixed;
-    color: #929292;
-    top: 0px;
-    right: 0px;
-    z-index: 100;
-    font-size: 16px;
-    width: 230px;
-  }
+  top: 0px;
+  right: 0px;
+  z-index: 100;
+  font-size: 24px;
 `;
 
 export const Image: any = styled.img`

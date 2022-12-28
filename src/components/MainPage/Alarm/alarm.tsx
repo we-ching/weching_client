@@ -13,7 +13,6 @@ export const Alarm = () => {
   }, []);
 
   const arr = postAlarm.posts;
-  console.log(arr);
   const Array = arr.filter((item: any) => {
     return item.post.isChecked == 1;
   });

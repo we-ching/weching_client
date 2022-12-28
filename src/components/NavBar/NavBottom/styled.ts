@@ -18,6 +18,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderMenuBox = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;

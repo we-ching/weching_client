@@ -17,11 +17,6 @@ const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 export const Nav = () => {
-  const alarmInfo: any = useAppSelector((state) => {
-    return state.mainInfo.alarm;
-  });
-  console.log(alarmInfo);
-
   // const currentURL = useLocation();
   const navigate = useNavigate();
 
@@ -50,13 +45,7 @@ export const Nav = () => {
             setActiveVerti(false);
             setActiveAlarm(true);
           }}
-        >
-          <IconAlarm
-            fill={activeAlarm ? clickColor : nonClickColor}
-            stroke={activeAlarm ? clickColor : nonClickColor}
-          />
-          {alarmInfo == 0 ? <S.NoDot /> : <S.RedDot />}
-        </S.HeaderMenuBox>
+        ></S.HeaderMenuBox>
       </S.HeaderContainer>
       <S.NavBottomContainer>
         <S.NavMenuBox
