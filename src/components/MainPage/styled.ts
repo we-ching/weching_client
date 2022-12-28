@@ -10,10 +10,6 @@ export const Container: any = styled.div`
 
   overflow-y: scroll;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-  }
 `;
 
 export const UserNick: any = styled.div`
@@ -51,15 +47,3 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
-
-export interface Advice {
-  author: string;
-  authorrofile: string;
-  message: string;
-}
-
-export const initialState = {
-  author: '',
-  authorrofile: '',
-  message: '',
-};
