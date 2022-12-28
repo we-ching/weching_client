@@ -18,13 +18,16 @@ export const Modal: React.FC<S.reviewId> = () => {
     e.preventDefault();
     const target = e.currentTarget;
     const reviewContent = target.content.value;
+    const reportType = target.reportType.value;
     const reportBtn = target.querySelector('button');
-    reportBtn?.setAttribute('disabled', 'disabled');
-    const type = 'review';
 
+    const type = reportType;
+    console.log(reportType);
     if (reviewContent.length === 0) {
       setIsError(true);
       return;
+    } else {
+      reportBtn?.setAttribute('disabled', 'disabled');
     }
     setIsError(false);
     try {
@@ -58,11 +61,18 @@ export const Modal: React.FC<S.reviewId> = () => {
               <S.M_Form onSubmit={reportHandler}>
                 <S.M_Fieldset>
                   <S.M_Legend>신고</S.M_Legend>
+                  <S.M_SelectBox name="reportType">
+                    <option value="cussWord" defaultChecked>
+                      욕설
+                    </option>
+                    <option value="adv">광고</option>
+                    <option value="etc">기타</option>
+                  </S.M_SelectBox>
                   <S.M_Textarea
                     name="content"
                     id="3"
                     cols={25}
-                    rows={4}
+                    rows={5}
                     maxLength={100}
                     isError={isError}
                     placeholder="어떤 이유로 신고하는지 적어주세요. 최대 100자"

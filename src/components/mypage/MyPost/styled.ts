@@ -301,7 +301,7 @@ export const M_Background = styled.div`
 export const M_ModalBox = styled.div`
   ${flexCenter}
   width: 220px;
-  height: 200px;
+  height: 250px;
   padding: 2rem;
   text-align: center;
   z-index: 6;
@@ -323,11 +323,16 @@ export const M_Fieldset = styled.fieldset`
   height: 100%;
 `;
 export const M_Legend = styled.legend`
-  font-size: 1.5rem;
+  font-size: 24px;
+  margin-bottom: 1rem;
 `;
-export const M_Textarea = styled.textarea<isError>`
-  margin-top: auto;
 
+export const M_SelectBox = styled.select`
+  margin-right: auto;
+  margin-bottom: 1rem;
+`;
+
+export const M_Textarea = styled.textarea<isError>`
   border: 1.5px solid ${({ isError }) => (isError ? 'red' : 'unset')};
 `;
 export const M_TextLabel = styled.label`
@@ -340,7 +345,7 @@ export const M_TextLabel = styled.label`
 `;
 export const M_Button = styled.button`
   display: inline-block;
-  margin-top: auto;
+  margin-top: 2.5rem;
 `;
 
 /* media query */

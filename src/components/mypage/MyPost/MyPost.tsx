@@ -40,7 +40,13 @@ export const MyPost = () => {
                 navigate(`/mypage/mypost/${postId}`);
               }}
             >
-              <S.PostContent>{post.post.content}</S.PostContent>
+              <S.PostContent>
+                {post.post ? (
+                  <div
+                    dangerouslySetInnerHTML={{ __html: post.post.content }}
+                  ></div>
+                ) : null}
+              </S.PostContent>
               <S.ReviewCountBtnBox>
                 {post.reviews.length !== 0 &&
                   post.reviews.map((review, idx) => {

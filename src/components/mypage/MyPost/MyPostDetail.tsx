@@ -35,7 +35,13 @@ export const MyPostDetail = () => {
       <S.PostCon>
         <S.Title>내가 쓴 글</S.Title>
         <S.Post>
-          <S.PostContent>{post.post && post.post.content}</S.PostContent>
+          <S.PostContent>
+            {post.post ? (
+              <div
+                dangerouslySetInnerHTML={{ __html: post.post.content }}
+              ></div>
+            ) : null}
+          </S.PostContent>
         </S.Post>
         {post.reviews && post.reviews.length !== 0
           ? post.reviews.map((e: any, idx: number) => {
@@ -43,7 +49,11 @@ export const MyPostDetail = () => {
               return (
                 <S.Review key={e.id} isReported={e.status} id="review">
                   {e.id}
-                  {e.content}
+                  {e.content ? (
+                    <div
+                      dangerouslySetInnerHTML={{ __html: post.post.content }}
+                    ></div>
+                  ) : null}
                   <S.ReviewButtonBox>
                     <ReviewStartPoint id={e.id}></ReviewStartPoint>
                     <ReviewBookmarkBtn id={e.id}></ReviewBookmarkBtn>
