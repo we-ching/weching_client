@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   top: 0;
   left: 0;
-  background-color: white;
   height: 100vh;
   width: 100vw;
 
@@ -13,10 +12,11 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 430px;
+  // width: 430px;
+  width: 100vw;
   height: 100vh;
-
-  background-color: #f0f0f0;
+  min-width: 200px;
+  max-width: 1024px;
 `;
 
 export const reportPageContainer = styled.div`
@@ -32,7 +32,8 @@ export const reportTitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -63,7 +64,8 @@ export const ItemBox = styled.div`
   padding: 15px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,14 +94,14 @@ export const ItemBox = styled.div`
   }
   .type {
     padding: 0 0 12px 0;
-    font-weight: bold;
+    font-weight: 550;
   }
   .typeId {
-    font-weight: bold;
+    font-weight: 550;
   }
   .content {
     margin-left: 17px;
-    font-weight: bold;
+    font-weight: 550;
   }
   .none {
     margin-left: 17px;
@@ -110,7 +112,8 @@ export const ItemBox = styled.div`
 export const Line = styled.div`
   margin: 12px 0 12px 17px;
 
-  width: 339px;
+  // width: 339px;
+  width: 85vw;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;

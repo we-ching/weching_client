@@ -21,7 +21,7 @@ export const Ranking = styled.div`
 
 export const RankingTitle = styled.div`
   padding: 5px 0 10px 0;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
 `;
 
@@ -35,8 +35,8 @@ export const RankingDetailButton = styled.div`
   align-items: center;
 
   font-style: normal;
-  fontweight: 700;
-  font-size: 13px;
+  fontweight: 600;
+  font-size: 14px;
   color: #FFFFFF;
   background-color: #8C5C32;
   border-radius: 10px;
@@ -51,7 +51,7 @@ export const RankingUser = styled.div<{rank: number}>`
   padding: 15px;
   font-style: normal;
   font-size: 18px;
-  font-weight: 400; 
+  font-weight: 500; 
   display: flex;
   justify-content: ${props => props.rank === 1 ? 'center' :
    props.rank % 2 === 0 ? 'flex-start' : 'flex-end'};

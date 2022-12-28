@@ -4,7 +4,8 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 60px;
   display: flex;
   align-items: center;
@@ -33,7 +34,7 @@ export const ItemBox = styled.div`
 export const ModalStyle = styled.div`
   position: absolute;
   width: 350px;
-  height: 300px;
+  height: 260px;
 
   background-color: #FFFFFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -71,7 +72,7 @@ export const SignOutTitle = styled.h3`
   flex-direction: column;
 
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   line-height: 26px;
 `;

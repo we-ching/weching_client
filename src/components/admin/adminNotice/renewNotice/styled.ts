@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   top: 0;
   left: 0;
-  background-color: white;
   height: 100vh;
   width: 100vw;
 
@@ -13,10 +12,11 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 430px;
+  // width: 430px;
+  width: 100vw;
   height: 100vh;
-
-  background-color: #f0f0f0;
+  min-width: 200px;
+  max-width: 1024px;
 `;
 
 export const renewNotice = styled.div`
@@ -32,7 +32,8 @@ export const TitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -63,12 +64,13 @@ export const ItemBox = styled.div`
   padding: 15px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  background-color: #ffffff;
+  background-color: #FFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
@@ -110,12 +112,13 @@ export const ItemBox = styled.div`
 export const Line = styled.div`
   margin: 12px 0 12px 17px;
 
-  width: 339px;
+  // width: 339px;
+  width: 85vw;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;
 
-export const delBtn = styled.div`
+export const delBtn = styled.div<any>`
   width: 60px;
   height: 17px;
   display: flex;
@@ -124,7 +127,7 @@ export const delBtn = styled.div`
 
   font-style: normal;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   color: #FFF;
   background-color: #C90000;
   border-radius: 10px;
@@ -161,7 +164,7 @@ export const delContent = styled.h3`
   justify-content: center;
 
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
   line-height: 26px;
 `;

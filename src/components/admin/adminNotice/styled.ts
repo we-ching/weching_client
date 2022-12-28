@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   top: 0;
   left: 0;
-  background-color: white;
   height: 100vh;
   width: 100vw;
 
@@ -13,10 +12,9 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 430px;
-  height: 100vh;
-
-  background-color: #f0f0f0;
+  width: 100vw;
+  min-width: 200px;
+  max-width: 1024px;
 `;
 
 export const adminNoticePage = styled.div`
@@ -32,7 +30,8 @@ export const adminNoticeTitle = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -61,7 +60,8 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 60px;
   display: flex;
   align-items: center;

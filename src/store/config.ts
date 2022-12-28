@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { postSlice } from '../postSlice';
 import { myPostSlice } from '../myPostSlice';
 import { mainSlice } from '../mainSlice';
+import { noticeSlice } from '../noticeSlice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     [postSlice.name]: postSlice.reducer,
     [myPostSlice.name]: myPostSlice.reducer,
     [mainSlice.name]: mainSlice.reducer,
+    [noticeSlice.name]: noticeSlice.reducer,
   },
 });
 

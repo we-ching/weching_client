@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAppDispatch } from '../../../../store/config';
+import { delNotice } from '../../../../noticeSlice';
+import { useAppSelector } from '../../../../store/config';
 
 // Mui
 import Modal from '@mui/material/Modal';
@@ -25,17 +28,16 @@ interface noticeType {
 }
 
 export function RenewNotice() {
-  const token='';
-
   const [notice, setnotice] = useState<noticeType[]>([]);
-  const [delNotice, setDelNotice] = useState();
   const [open, setOpen] = useState<boolean>(false);
+  // const dispatch = useAppDispatch();
 
   const handleModal = () => {
     setOpen(!open);
+    // dispatch(delNotice(id));
   }
 
-  const Renew = async () => {
+  const renew = async () => {
     try { 
       const {notice}: {notice: noticeType[]} = await axios.get(`/api/notice?page=2`,
       ).then(res=> res.data)
@@ -48,9 +50,13 @@ export function RenewNotice() {
   const handleDelete = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.delete(`/api/notice/`, {
+      // const noticeId = useAppSelector(state => {
+      //   return state.notice.noticeID;
+      // });
+
+      const res = await axios.delete(`/api/notice/{{id}}`, {
       })
-      handleModal();
+      handleModal;
       alert(res.data.message);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
@@ -58,7 +64,7 @@ export function RenewNotice() {
   };
 
   useEffect(() => {
-    Renew();
+    renew();
   }, []);
     
   return (
@@ -72,10 +78,10 @@ export function RenewNotice() {
             {
               Array.isArray(notice) && notice.length > 0 ? 
               notice.map((item: noticeType)=>
-                <S.ItemBox>
+                <S.ItemBox id={item.id}>
                   <div className='boxs'>
                     <div className='titleBoxs'>
-                      <div className='type' id={item.id}>{<strong>제목:</strong>}&ensp;{item.title}</div>
+                      <div className='type'>{<strong>제목:</strong>}&ensp;{item.title}</div>
                     </div>
                     <S.delBtn onClick={handleModal}>삭제</S.delBtn>
                   </div>

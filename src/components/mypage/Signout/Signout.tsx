@@ -87,7 +87,7 @@ export function SignOut() {
           <S.Title id="signOut-title">회원 탈퇴</S.Title>
           <div id="signOut-description">
             <S.Form onSubmit={handleSubmit}>
-              <S.SignOutTitle className="signOutCheck">
+              <S.SignOutTitle>
                 <p>탈퇴시 닉네임을 입력해주세요.</p>
               </S.SignOutTitle>
 
@@ -102,18 +102,6 @@ export function SignOut() {
                     setCheckNickname(e.target.value);
                   }}
                 />
-                {(nickName !== checkNickname) && (
-                  <p
-                    className="NicknameChecked"
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'red',
-                      marginTop: '0.5rem',
-                    }}
-                  >
-                    닉네임이 일치하지 않습니다.
-                  </p>
-                )}
               </S.EditTitle>
 
               <S.SignOutTitle className="Nickname">
