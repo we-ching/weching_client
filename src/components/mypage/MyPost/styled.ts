@@ -93,7 +93,6 @@ export const Post = styled.div<reviewProp>`
   width: 80%;
   min-height: 100px;
   padding: 20px;
-  z-index: 3;
   text-overflow: ellipsis;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -110,18 +109,20 @@ export const Post = styled.div<reviewProp>`
     content: '';
     width: 30px;
     height: 30px;
-    z-index: 1;
+    z-index: 3;
     bottom: -15px;
     border: 2px solid gray;
-    background: none;
+    background: red;
     transform: rotate(-45deg);
   }
 `;
 
 export const PostContent = styled.p`
+  position: absolute;
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  z-index: 2;
   word-break: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 3;
