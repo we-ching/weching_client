@@ -40,10 +40,11 @@ export const Post: FC = () => {
         navigate('/home');
       })
       .catch((error) => {
-        if (error.response.status === 400) {
-          return alert('글을 작성할 수 있는 포인트가 부족합니다❗️');
-        }
         console.log(error);
+        if (error.response.status === 400) {
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
+        }
+        navigate('/home');
       });
   };
 

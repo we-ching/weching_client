@@ -37,7 +37,8 @@ export const Reply = () => {
       })
       .catch((error) => {
         if (error.response.status === 400) {
-          return alert('이미 칭찬한 게시글 입니다❗️'); // 홈에서 막는게 나을듯
+          console.log(error);
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`); // 홈에서 막는게 나을듯
         }
         navigate('/home');
       });
