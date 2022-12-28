@@ -4,7 +4,8 @@ export const Container = styled.div`
   margin: 10px 0;
 
   position: relative;
-  width: 372px;
+  // width: 372px;
+  width: 90vw;
   height: 100px;
   display: flex;
   flex-direction: column;
@@ -47,10 +48,10 @@ export const PointBox = styled.div`
   align-items: center;
 
   font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 14px;
   color: #FFFFFF;
-  background-color: #979797;
+  background-color: #BFA78A;
   border-radius: 10px;
 `;
 
@@ -65,10 +66,10 @@ export const RankPointBox = styled.div`
   align-items: center;
   
   font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 14px;
   color: #FFFFFF;
-  background-color: #C90000;
+  background-color: #8C5C32;
   border-radius: 10px;
 `;
 
@@ -76,7 +77,8 @@ export const Line = styled.div`
   margin: 12px 0 12px 17px;
 
   position: absolute;
-  width: 339px;
+  // width: 339px;
+  width: 85vw;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;

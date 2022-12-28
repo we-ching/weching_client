@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
@@ -12,14 +13,14 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 430px;
-  height: 932px;
-
-  background-color: #F0F0F0;
+  // width: 430px;
+  width: 100vw;
+  min-width: 200px;
+  max-width: 1024px;
 `;
 
 export const RankingContainer = styled.div`
-  margin: 70px;
+  margin: 70px 0;
 
   display: flex;
   flex-direction: row;
@@ -29,8 +30,9 @@ export const RankingContainer = styled.div`
 
 export const Ranking = styled.div`
   margin: 15px 0 0 0;
-  padding: 10px 15px;
-  width: 370px;
+  padding: 15px 15px;
+  // width: 370px;
+  width: 90vw;
   background-color: #FFFFFF;
   box-sizing: border-box;
   border-radius: 10px;
@@ -39,10 +41,9 @@ export const Ranking = styled.div`
 `;
 
 export const RankingTitle = styled.div`
-  padding: 5px 0 10px 0;
+  padding: 5px 0 15px 10px;
   font-size: 18px;
   font-weight: bold;
-  border-bottom: 1px solid rgba(68, 68, 68, 0.5);
 `;
 
 export const RankingSubtitle = styled.div`
@@ -52,24 +53,27 @@ export const RankingSubtitle = styled.div`
   align-items: center;
 
   padding: 20px 0;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   color: #FFF;
   background-color: rgb(54, 48, 74, 0.9);
 
   .rankNum {
+    padding-right: 10px;
     text-align: center;
-    width: 50px;
-    border-right: 1px solid #FFF;
+    width: 20vw;
+
   }
   .rankName {
     text-align: center;
-    width: 140px;
+    width: 50vw;
+    border-left: 1px solid #FFF;
     border-right: 1px solid #FFF;
   }
   .rankPoint {
+    padding-left: 5px;
     text-align: center;
-    width: 70px;
+    width: 30vw;
   }
 `;
 
@@ -96,13 +100,16 @@ export const RankingUser = styled.div<{rank: number}>`
     justify-content: space-evenly;
   }
   .rankNum {
+    padding-right: 10px;
     text-align: center;
-    width: 50px;
+    width: 20vw;
   }
   .rankName {
-    width: 140px;
+    text-align: center;
+    width: 50vw;
   }
   .rankPoint {
-    width: 70px;
+    text-align: center;
+    width: 30vw;
   }
 `;
