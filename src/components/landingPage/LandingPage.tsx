@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgOne from '../../assets/images/Rectanglethumb.png';
 import googleImg from '../../assets/images/googleLogo.png';
-import arrowRight from '../../assets/images/slide swipe main page.png';
-import arrowDown from '../../assets/images/slide scroll down btn.png';
+import img1 from '../../assets/images/img1.png';
+import Rectangle from '../../assets/images/Rectangle.png';
+import thing from '../../assets/images/thing.png';
+import presen from '../../assets/images/presen.png';
 import * as S from './styled';
 
 import axios from 'axios';
@@ -68,11 +70,40 @@ export const LandingPage = () => {
         <img src={googleImg} alt="google_logo" />
         Google 계정으로 함께하기
       </S.LoginBlock>
+      <S.SubContents>
+      <img src={img1} alt="말풍선 사진" />
+        <h6>신개념 칭찬 커뮤니티!</h6>
+        <p>새로운 글을 작성하면, <br/>무작위 대상에게 글이 전달됩니다!</p>
+        <br/>
+        <p>물론 당신도 똑같은 시스템에 의해 <br/>익명의 작성자가 쓴 글이 전달됩니다!</p>
+      </S.SubContents>
+      <S.SubContents>
+      <img src={Rectangle} alt="왕관 사진" />
+        <h6>칭찬왕에 도전해보세요!</h6>
+        <p>다른 유저들과 칭찬을 나누고, <br/>랭킹 1위에도 도전해보세요!</p>
+      </S.SubContents>
+      <S.SubContents>
+        <img src={thing} alt="명언을 표현한 그래픽 사진" />
+        <h6>데일리 한 줄 명언</h6>
+        <p>당신의 칭찬에 영감을 드려요!</p>
+      </S.SubContents>
+      <S.SubContents>
+      <img src={presen} alt="선물 구매 사진" />
+        <h6>포인트 상점 오픈 예정!</h6>
+        <p>활동을 통해 모은 포인트로 기프티콘을 구매해보세요!</p>
+      </S.SubContents>
+      <S.ImgOne/>
+      <S.TitleContents>우리 모두의 칭찬 타임!</S.TitleContents>
+      <S.SubContents>
+        <p>지금 함께 하세요!</p>
+      </S.SubContents>
+      <S.ImgOne/>
       <S.FoggyUnder></S.FoggyUnder>
       <S.ForeEffect>
-        <img src={arrowRight} alt="오른쪽으로 밀면 메인페이지" />
-        <img src={arrowDown} alt="아래로 밀어 더 많은 내용을 볼 수 있어요" />
-      </S.ForeEffect>
+        <div>
+        <p/>
+        </div>
+      </S.ForeEffect>  
     </S.LandingPageContainer>
   );
 };

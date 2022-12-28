@@ -12,12 +12,12 @@ export const Bookmark = () => {
         try {
             const result = await axios.get(`/api/review/bookmark`, {
                 headers: {
-                    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI2LCJlbWFpbCI6Inlvb25zMTAwNDU3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDM4NzcxLCJleHAiOjE2NzIxMjE1NzF9.ebVKU839fzrTHgcptdRjkrWZRmJjV1Kgh8NZi6jXOIc'
+                    authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo'
                 }
             });
             setDatas([...datas, ...result.data]);
         } catch (err) {
-            alert (`안댐 ${err}`);
+            alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
         }
     };
     useEffect(() => {

@@ -9,6 +9,12 @@ export const GoToTitle: any = styled.div`
 
   font-size: 18px;
   font-weight: 700;
+
+  @media (min-width: 1024px) {
+    grid-area: title2;
+    margin: 0;
+    padding-top: 15px;
+  }
 `;
 
 export const GoToTitleCount: any = styled.p`
@@ -28,14 +34,18 @@ export const GoToTextBox: any = styled.div`
   margin: 0 auto;
   padding: 15px;
   font-size: 14px;
-  width: 340px !important;
+  width: auto;
   height: 270px;
   border-radius: 10px;
   background-color: white;
-
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
-
   overflow: hidden;
+
+  @media (min-width: 1024px) {
+    grid-area: newReview;
+    width: auto;
+    margin: 0;
+  }
 `;
 
 export const GoToTextContent: any = styled.div`

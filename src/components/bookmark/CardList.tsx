@@ -20,8 +20,7 @@ export const CardList = (props: Props) => {
             {datas && 
                 datas.map((data) => (
                     <S.CardBox color={randomColor(data.post_id)} key={data.id}>
-                        <p>userId: {data.id}</p>
-                        <p>content: {data.content}</p>
+                        <p>{data.content}</p>
                     </S.CardBox>
                 ))
             }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Ranking = styled.div`
   margin: 15px auto;
   padding: 10px 15px;
-  width: 370px;
+  width: auto;
   background-color: white;
   box-sizing: border-box;
   border-radius: 10px;
@@ -16,6 +16,13 @@ export const Ranking = styled.div`
     justify-content: space-between;
 
     border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+  }
+
+  @media (min-width: 1024px) {
+    grid-area: ranking;
+    margin: 0;
+    
+    width: auto;
   }
 `;
 

@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import * as S from './styled';
 import { SummitContainer } from '../SummitContainer';
-import {useState} from 'react';
+import { useState} from 'react';
 
 import { IconHome, IconBookmark, IconPlus, IconUser, IconVertical, IconAlarm } from '../Mark';
 
@@ -9,8 +9,7 @@ const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 
-export const Nav = () => {
-    // const currentURL = useLocation();
+export const Nav: any = () => {
     const navigate = useNavigate();
 
     const [activeHome, setActiveHome] = useState(true);
@@ -19,7 +18,6 @@ export const Nav = () => {
     const [activeUser, setActiveUser] = useState(false);
     const [activeVerti, setActiveVerti] = useState(false);
     const [activeAlarm, setActiveAlarm] = useState(false);
-
     return (
         <SummitContainer>
             <S.HeaderContainer>
@@ -76,7 +74,7 @@ export const Nav = () => {
                     stroke={activeBook ? clickColor : nonClickColor}
                     />
                 </S.NavMenuBox>
-                <S.NavMenuBox
+                <S.NavPostBox
                     onClick={()=> {
                         navigate('/post');
                         setActiveHome(false);
@@ -93,10 +91,10 @@ export const Nav = () => {
                     stroke={activePlus ? clickColor : nonClickColor}
                  />
                  </S.PlusWrap>
-                </S.NavMenuBox>
+                </S.NavPostBox>
                 <S.NavMenuBox
                     onClick={()=> {
-                        navigate('/MyPage');
+                        navigate('/mypage');
                         setActiveHome(false);
                         setActiveBook(false);
                         setActivePlus(false);
@@ -112,7 +110,7 @@ export const Nav = () => {
                 </S.NavMenuBox>
                 <S.NavMenuBox
                     onClick={()=> {
-                        navigate('/page5');
+                        navigate('/viewmore');
                         setActiveHome(false);
                         setActiveBook(false);
                         setActivePlus(false);
