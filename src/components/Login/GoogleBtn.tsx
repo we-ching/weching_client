@@ -1,7 +1,7 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as S from '../landingPage/styled';
 import { useAppDispatch } from '../../store/config';
 import { getGoogleEmail } from '../../myPostSlice';
@@ -21,6 +21,7 @@ export const removeCookie = (name: string) => {
 export const GoogleBtn: any = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const login = useGoogleLogin({
     onSuccess: (credential) => {
       getEmail(credential.access_token);
@@ -60,9 +61,15 @@ export const GoogleBtn: any = () => {
 
   return (
     <>
-      <S.LoginBlock onClick={() => login()}>
-        <img src={googleImg} /> Google 계정으로 함께하기
-      </S.LoginBlock>
+      {location.pathname === '/login' ? (
+        <S.LoginBlock onClick={() => login()}>
+          <img src={googleImg} /> Google 계정으로 함께하기
+        </S.LoginBlock>
+      ) : (
+        <S.GoogleButton onClick={() => login()}>
+          <img src={googleImg} /> Google 계정으로 함께하기
+        </S.GoogleButton>
+      )}
     </>
   );
 };
