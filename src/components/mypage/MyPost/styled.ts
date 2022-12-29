@@ -29,6 +29,11 @@ export interface reviewProp {
 export interface reviewId {
   id?: any;
   isReported?: number;
+  isBookmarked?: boolean;
+  isDone?: number;
+  review?: any;
+  etarget?: any;
+  setReview?: any;
   idx?: number;
 }
 
@@ -104,14 +109,7 @@ export const Post = styled.div<reviewProp>`
   }
   border: 2px solid ${({ isReviews }) => (isReviews ? 'limegreen' : 'gray')};
 `;
-export const TriBox = styled.div`
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  bottom: -15px;
-  border: 2px solid gray;
-  background: red;
-`;
+
 export const DangerHTML = styled.div``;
 
 export const PostContent = styled.p`
@@ -138,20 +136,46 @@ export const Review = styled.div<reviewId>`
   width: 80%;
   min-height: 100px;
   padding: 20px;
+  border: 2.5px solid #bfa78a;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 
   ${({ isReported }) =>
     isReported === 1
       ? css`
+          
+          }
           &::after {
-            content: '';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            content: '신고 되었습니다';
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
+            color: gray;
             background-color: rgba(255, 255, 255, 0.8);
+          }
+        `
+      : null}
+  ${({ isDone }) =>
+    isDone === 1
+      ? css`
+          &::after {
+            position: absolute;
+            content: '';
+            top: -25px;
+            left: -25px;
+            background-image: url(${evaluate});
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
           }
         `
       : null}
@@ -186,7 +210,6 @@ export const ReviewButtonBox = styled.div`
   left: 0;
   width: 100%;
   height: 30%;
-  border: 2px solid limegreen;
 `;
 
 export const ReviewCountBtnBox = styled.div`
@@ -199,6 +222,8 @@ export const ReviewCountBtnBox = styled.div`
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 4px 0px 0px rgba(0, 0, 0, 0.1);
 `;
 
 export const shinyBtn = keyframes`
@@ -308,13 +333,7 @@ export const RP_Input = styled.input`
   }
 `;
 export const RP_SubmitBtn = styled(ReviewButtonStyle)`
-  background-image: url(${evaluate});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  vertical-align: middle;
-  border: none;
-  width: 30px;
+  width: 40px;
   height: 30px;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1),
     0px 0px 0px 0px rgba(0, 0, 0, 0.1);
