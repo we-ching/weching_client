@@ -3,6 +3,7 @@ import * as S from './styled';
 import { useAppSelector } from '../../../store/config';
 import { useEffect } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
+import { useLocation } from 'react-router-dom';
 
 export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
   const Cookies = getCookie('accessToken');
@@ -25,7 +26,10 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
             },
           }
         )
-        .then((res) => {});
+        .then((res) => {
+          alert(`칭찬 별점이 평가되었어요.`);
+          window.location.reload();
+        });
     } catch (err: any) {
       alert(err.response.data.message);
     }
@@ -47,7 +51,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
         <S.RP_Input type="radio" name="rating" value="1" id={id + `5`} />
         <S.RP_Label htmlFor={id + `5`}>⭐</S.RP_Label>
       </S.RP_FiledSet>
-      <S.RP_SubmitBtn></S.RP_SubmitBtn>
+      <S.RP_SubmitBtn>별점</S.RP_SubmitBtn>
     </S.RP_Form>
   );
 };
