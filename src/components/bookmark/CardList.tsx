@@ -1,6 +1,6 @@
 import * as S from './styled';
 import { BookmarkContentType } from './Card';
-
+import { BookmarkCancel } from './BookmarkCancel';
 
 interface Props {
     datas: BookmarkContentType[] | undefined;
@@ -13,6 +13,7 @@ export const CardList = (props: Props) => {
         return `${color_r}`;
     }
     const { datas } = props;
+    
     return (
         <>
         <S.CardWrapper>
@@ -20,7 +21,8 @@ export const CardList = (props: Props) => {
             {datas && 
                 datas.map((data) => (
                     <S.CardBox color={randomColor(data.post_id)} key={data.id}>
-                        <p>{data.content}</p>
+                        <div dangerouslySetInnerHTML={{__html: data.content}}/>
+                        <BookmarkCancel id={data.id}/>
                     </S.CardBox>
                 ))
             }
