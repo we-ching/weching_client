@@ -38,7 +38,7 @@ export const Recruit = () => {
         <S.MenuBox>
             🖥️ FE 김창민<br/>
             <br/>
-            이메일 : jinttack@gmail.com<br/>
+            이메일 : jinttack@naver.com<br/>
             깃허브 : <a href="https://github.com/wink68" target="_blank" rel="김창민 깃허브 링크">github.com/wink68</a><br/>
         </S.MenuBox>
         <S.MenuBox>
