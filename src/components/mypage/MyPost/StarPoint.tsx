@@ -3,7 +3,6 @@ import * as S from './styled';
 import { useAppSelector } from '../../../store/config';
 import { useEffect } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
-import { useLocation } from 'react-router-dom';
 
 export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
   const Cookies = getCookie('accessToken');

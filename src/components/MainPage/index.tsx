@@ -19,23 +19,25 @@ export const MainPage = () => {
 
   const mainRequest = async () => {
     try {
-      await axios
-        .get(`/api/main/user`, {
-          headers: {
-            authorization: `Bearer ${Cookies}`,
-          },
-        })
-        .then((res) => {
-          dispatch(insertUser(res.data));
+      Cookies &&
+        (await axios
+          .get(`/api/main/user`, {
+            headers: {
+              authorization: `Bearer ${Cookies}`,
+            },
+          })
+          .then((res) => {
+            console.log(res.data);
+            res.data && dispatch(insertUser(res.data));
 
-          const arr = res.data.posts;
-          const Array = arr.filter((item: mainApiUser) => {
-            return item.post.isChecked == 1;
-          });
-          Array.length != 0
-            ? dispatch(insertAlarm(Array.length))
-            : console.log('isChecked가 모두 0');
-        });
+            const arr = res.data.posts;
+            const Array = arr.filter((item: mainApiUser) => {
+              return item.post.isChecked == 1;
+            });
+            Array.length != 0
+              ? dispatch(insertAlarm(Array.length))
+              : console.log('isChecked가 모두 0');
+          }));
     } catch (err) {
       alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     } finally {

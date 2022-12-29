@@ -23,8 +23,10 @@ export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({
           }
         )
         .then((res) => {
-          setIsClick(true);
-          alert('북마크에 저장되었어요.');
+          isClick ? setIsClick(false) : setIsClick(true);
+          isClick
+            ? alert('북마크가 해제되었어요')
+            : alert('북마크에 추가했어요');
         });
     } catch (err: any) {
       alert(err.response.data.message);
@@ -34,8 +36,8 @@ export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({
   return (
     <S.BookmarkCon onClick={onClickHandler}>
       <IconBookmark
-        fill={isClick || isBookmarked ? 'limegreen' : 'gray'}
-        stroke={isClick || isBookmarked ? 'limegreen' : 'gray'}
+        fill={isClick ? 'limegreen' : 'gray'}
+        stroke={isClick ? 'limegreen' : 'gray'}
       />
     </S.BookmarkCon>
   );

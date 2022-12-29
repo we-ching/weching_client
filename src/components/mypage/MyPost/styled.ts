@@ -143,7 +143,6 @@ export const Review = styled.div<reviewId>`
   ${({ isReported }) =>
     isReported === 1
       ? css`
-          
           }
           &::after {
             display: flex;
@@ -333,7 +332,7 @@ export const RP_Input = styled.input`
   }
 `;
 export const RP_SubmitBtn = styled(ReviewButtonStyle)`
-  width: 40px;
+  width: 50px;
   height: 30px;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1),
     0px 0px 0px 0px rgba(0, 0, 0, 0.1);

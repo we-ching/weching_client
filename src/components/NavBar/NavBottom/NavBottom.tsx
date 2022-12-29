@@ -3,6 +3,7 @@ import * as S from './styled';
 import { SummitContainer } from '../SummitContainer';
 import { useState } from 'react';
 import { useAppSelector } from '../../../store/config';
+import { getCookie, setCookie } from '../../Login/GoogleBtn';
 
 import {
   IconHome,
@@ -17,12 +18,19 @@ const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 export const Nav = () => {
+  const Cookies = getCookie('accessToken');
   const alarmInfo: any = useAppSelector((state) => {
     return state.mainInfo.alarm;
   });
   const user: any = useAppSelector((state) => {
     return state.mainInfo.userInfo;
   });
+  console.log(user);
+  user.user
+    ? setCookie('navNick', user.user.nickName)
+    : setCookie('navNick', '방문자');
+
+  const userNick = getCookie('navNick');
 
   // const currentURL = useLocation();
   const navigate = useNavigate();
@@ -44,7 +52,8 @@ export const Nav = () => {
         </S.HeaderMenuBox>
         <S.HeaderMenuBox
           onClick={() => {
-            navigate('/alarm');
+            if (Cookies) navigate('/alarm');
+            else navigate('/login/guest');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(false);
@@ -53,9 +62,7 @@ export const Nav = () => {
             setActiveAlarm(true);
           }}
         >
-          <S.UserNick>
-            {user.user ? user.user.nickName : '방문자'}님 반가워요!
-          </S.UserNick>
+          <S.UserNick>{userNick}님 반가워요!</S.UserNick>
           <IconAlarm
             fill={activeAlarm ? clickColor : nonClickColor}
             stroke={activeAlarm ? clickColor : nonClickColor}
@@ -82,7 +89,8 @@ export const Nav = () => {
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
-            navigate('/bookmark');
+            if (Cookies) navigate('/bookmark');
+            else navigate('/login/guest');
             setActiveHome(false);
             setActiveBook(true);
             setActivePlus(false);
@@ -98,7 +106,8 @@ export const Nav = () => {
         </S.NavMenuBox>
         <S.NavPostBox
           onClick={() => {
-            navigate('/post');
+            if (Cookies) navigate('/post');
+            else navigate('/login/guest');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(true);
@@ -116,7 +125,8 @@ export const Nav = () => {
         </S.NavPostBox>
         <S.NavMenuBox
           onClick={() => {
-            navigate('/MyPage');
+            if (Cookies) navigate('/mypage');
+            else navigate('/login/guest');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(false);
@@ -132,7 +142,8 @@ export const Nav = () => {
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
-            navigate('/viewmore');
+            if (Cookies) navigate('/viewmore');
+            else navigate('/login/guest');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(false);

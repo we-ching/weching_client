@@ -69,9 +69,10 @@ export const ViewMore = () => {
         <S.MenuBox
           onClick={() => {
             removeCookie('accessToken');
+            removeCookie('navNick');
             sessionStorage.removeItem('myText');
             alert('다음에 다시 만나요!');
-            navigate('/home');
+            navigate('/');
           }}
         >
           로그아웃

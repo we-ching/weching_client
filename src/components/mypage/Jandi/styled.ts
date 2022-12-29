@@ -9,8 +9,8 @@ export const Container = styled.div`
   max-width: 750px;
   display: flex;
   flex-direction: column;
-    
-  background-color: #FFFFFF;
+
+  background-color: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
@@ -46,11 +46,12 @@ export const Line = styled.div`
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;
 
-export const JandiBox = styled.div<{grade: string}>`
+export const JandiBox = styled.div<{ grade: string }>`
   margin: 0 10px;
 
   width: 20px;
-  height: ${props => Number(props.grade) * 10 }px;
+  height: ${(props) => Number(props.grade) * 10}px;
+  max-height: 150px;
   background-color: rgb(167, 191, 79);
 `;
 

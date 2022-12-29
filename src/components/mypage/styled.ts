@@ -5,7 +5,7 @@ export const Background = styled.div`
   top: 0;
   left: 0;
 
-  height: 100vh;
+  height: auto;
   width: 100vw;
 
   display: flex;
@@ -37,7 +37,7 @@ export const ItemBox = styled.div`
   display: flex;
   align-items: center;
 
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 

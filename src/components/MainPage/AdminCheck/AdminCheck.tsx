@@ -11,21 +11,20 @@ export function AdminButton() {
   const navigate = useNavigate();
   const [Email, setEmail] = useState<any>();
   const [check, setCheck] = useState<number>();
+  const Cookies = getCookie('accessToken');
 
   const loginCheck = async () => {
     try {
-      const Cookies = getCookie('accessToken');
-      
       const emailRes = await axios.get(`/api/main/user`, {
         headers: {
           authorization: `bearer ${Cookies}`,
         },
-      })
-      setEmail(emailRes.data.user.email);
+      });
+      Cookies && setEmail(emailRes.data.user.email);
 
       const res = await axios.post(`/api/login`, {
-        "email": Email,
-      })
+        email: Email,
+      });
       setCheck(res.data.role);
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
@@ -33,13 +32,15 @@ export function AdminButton() {
   };
   useEffect(() => {
     loginCheck();
-  })
+  });
 
   return (
     <div>
-      {
-        (check === 2) ? <S.AdminButton onClick={() => navigate('/admin')}>관리자 페이지</S.AdminButton> : null
-      }
+      {check === 2 ? (
+        <S.AdminButton onClick={() => navigate('/admin')}>
+          관리자 페이지
+        </S.AdminButton>
+      ) : null}
     </div>
   );
 }
