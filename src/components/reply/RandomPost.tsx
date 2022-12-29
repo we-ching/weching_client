@@ -20,10 +20,10 @@ const RandomPost = () => {
 
   const getPost = async () => {
     const token = getCookie('accessToken');
-    if (!token) {
-      alert('로그인 후 이용해주세요❗️');
-      return navigate('/login');
-    }
+    // if (!token) {
+    //   alert('로그인 후 이용해주세요❗️');
+    //   return navigate('/login');
+    // }
     await axios
       .get(`/api/post/${id}`, {
         headers: {
