@@ -27,11 +27,9 @@ import { AdminNotice } from './components/admin/adminNotice/adminNotice';
 import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
 import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
-//https://weching-client-s767.vercel.app/
+
 const baseURL = 'http://kdt-sw3-team09.elicecoding.com';
 axios.defaults.baseURL = baseURL;
-// axios.defaults.withCredentials = true;
-// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (
@@ -63,10 +61,6 @@ const App: FC = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginForm />} />
         </Routes>
-        {/* {window.location.pathname === '/' ? null : window.location.pathname ===
-          '/login' ? null : (
-          <NavBar />
-        )} */}
       </div>
     </>
   );
