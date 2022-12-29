@@ -46,7 +46,7 @@ export const SubContents = styled.div`
   justify-content: center;
   text-align: center;
   color: #444444;
-  animation: fade-in 1.4s;
+  animation: fade-in 1.4s;    
   img:first-child {
     padding-top: 200px;
     width: 300px;

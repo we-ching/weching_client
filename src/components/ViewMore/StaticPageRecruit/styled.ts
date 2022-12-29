@@ -1,13 +1,4 @@
 import styled from "styled-components";
-
-export const BackGround = styled.div`
-    position: relative;
-    width: 100vw;
-    max-width: 1024px;
-    height: auto;
-    margin: 0 auto;
-    background: #F0F0F0;
-`;
     
 export const ContentContainer = styled.div`
     padding-top: 10px;
@@ -24,7 +15,8 @@ export const TitleBox = styled.h3`
 
 export const MenuBox = styled.div`
     position: relative;
-    width: 372px;
+    width: 90vw;
+    max-width: 500px;
     height: 60px;
     display: flex;
     overflow:hidden;

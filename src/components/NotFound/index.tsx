@@ -12,16 +12,12 @@ export const NotFound = () => {
 
   return (
     <S.Container>
-      <div>요청하신 페이지를 찾을 수 없습니다.
-        <a>
-        <Lottie animationData={blob}/>
-        </a>
-        <a>
+      <div>요청하신 페이지를 찾을 수 없습니다.</div>
+        <Lottie 
+          animationData={blob} 
+        />
         <Lottie animationData={err404}/>
-        </a>
-      </div>
-      
-      <S.Button onClick={navigateHome}>홈으로가기</S.Button>
+      <S.Button onClick={navigateHome}>메인으로 돌아가기</S.Button>
     </S.Container>
   );
 };
