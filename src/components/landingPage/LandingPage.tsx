@@ -22,12 +22,12 @@ export const LandingPage = () => {
       {bottomCheck >= 0 ? (
         <S.TitleContents>오늘도 당신의 가치는 빛났습니다!</S.TitleContents>
       ) : null}
-      {bottomCheck >= 20 ? (
+      {bottomCheck >= 0 ? (
         <S.ImgOne>
           <img src={imgOne} alt="당신을 위한 엄지척" />
         </S.ImgOne>
       ) : null}
-      {bottomCheck >= 30 ? (
+      {bottomCheck >= 0 ? (
         <S.SubContents>
           익명의 공간에서 소식을 나누고 기쁨을 나눕니다.
         </S.SubContents>
