@@ -61,7 +61,7 @@ export const GoogleBtn: any = () => {
 
   return (
     <>
-      {location.pathname === '/login' ? (
+      {location.pathname === '/login' || location.pathname === '/' ? (
         <S.LoginBlock onClick={() => login()}>
           <img src={googleImg} /> Google 계정으로 함께하기
         </S.LoginBlock>
