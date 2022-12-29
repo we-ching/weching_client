@@ -5,9 +5,10 @@ import { ReviewStartPoint } from './StarPoint';
 import { ReviewReportBtn } from './Report';
 import { ReviewBookmarkBtn } from './Bookmark';
 import axios from 'axios';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const MyPostDetail = () => {
-  const reviewIdx = ['첫', '두', '세'];
+  const Cookies = getCookie('accessToken');
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [post, setPost] = useState<any>({});
   const postId = useParams().postId;
@@ -20,7 +21,7 @@ export const MyPostDetail = () => {
   const detailPage = async () => {
     const res = await axios.get(`/api/post/${postId}`, {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
+        authorization: `bearer ${Cookies}`,
       },
     });
     console.log(res);
@@ -33,7 +34,7 @@ export const MyPostDetail = () => {
   return (
     <S.Container>
       <S.PostCon>
-        <S.Title>내가 쓴 글</S.Title>
+        <S.Title>내가 쓴 글</S.Title>ㅠ
         <S.Post>
           <S.TriBox></S.TriBox>
           <S.postDetailContent>
