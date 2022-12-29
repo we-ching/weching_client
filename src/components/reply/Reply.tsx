@@ -17,7 +17,7 @@ export const Reply = () => {
     const token = getCookie('accessToken');
     if (!token) {
       alert('로그인 후 이용해주세요❗️');
-      return navigate('/login');
+      return navigate('/login/guest');
     }
     setBody('');
     await axios
@@ -39,7 +39,6 @@ export const Reply = () => {
       })
       .catch((error) => {
         if (error.response.status === 400) {
-          console.log(error);
           alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
         }
         navigate('/home');

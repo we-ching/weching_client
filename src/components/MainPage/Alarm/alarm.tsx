@@ -21,7 +21,7 @@ export const Alarm = () => {
 
   return (
     <S.Container>
-      {Array ? (
+      {Array &&
         Array.map((item: mainApiUser) => {
           return (
             <Link to={`/mypage/mypost/${item.post.id}`}>
@@ -30,12 +30,7 @@ export const Alarm = () => {
               </S.Message>
             </Link>
           );
-        })
-      ) : (
-        <S.Message>
-          <S.MessageContent>새로운 알람이 없어요!</S.MessageContent>
-        </S.Message>
-      )}
+        })}
     </S.Container>
   );
 };

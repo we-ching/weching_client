@@ -3,6 +3,7 @@ import * as S from './styled';
 import { SummitContainer } from '../SummitContainer';
 import { useState } from 'react';
 import { useAppSelector } from '../../../store/config';
+import { getCookie } from '../../Login/GoogleBtn';
 
 import {
   IconHome,
@@ -17,6 +18,7 @@ const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 export const Nav = () => {
+  const Cookies = getCookie('accessToken');
   const alarmInfo: any = useAppSelector((state) => {
     return state.mainInfo.alarm;
   });
@@ -56,10 +58,12 @@ export const Nav = () => {
           <S.UserNick>
             {user.user ? user.user.nickName : '방문자'}님 반가워요!
           </S.UserNick>
-          <IconAlarm
-            fill={activeAlarm ? clickColor : nonClickColor}
-            stroke={activeAlarm ? clickColor : nonClickColor}
-          />
+          {Cookies && (
+            <IconAlarm
+              fill={activeAlarm ? clickColor : nonClickColor}
+              stroke={activeAlarm ? clickColor : nonClickColor}
+            />
+          )}
           {alarmInfo == 0 ? <S.NoDot /> : <S.RedDot />}
         </S.HeaderMenuBox>
       </S.HeaderContainer>

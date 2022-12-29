@@ -20,10 +20,10 @@ const RandomPost = () => {
 
   const getPost = async () => {
     const token = getCookie('accessToken');
-    // if (!token) {
-    //   alert('로그인 후 이용해주세요❗️');
-    //   return navigate('/login');
-    // }
+    if (!token) {
+      alert('로그인 후 이용해주세요❗️');
+      return navigate('/login/guest');
+    }
     await axios
       .get(`/api/post/${id}`, {
         headers: {
@@ -31,12 +31,11 @@ const RandomPost = () => {
         },
       })
       .then((res: any) => {
-        console.log(res);
         const { content } = res.data.post;
         setPost(content);
       })
       .catch((error) => {
-        console.log(error);
+        alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
       });
   };
   useEffect(() => {

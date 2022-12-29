@@ -15,10 +15,9 @@ export const Post: FC = () => {
 
   const submitHandler = async () => {
     const token = getCookie('accessToken');
-    console.log(token);
     if (!token) {
       alert('로그인 후 이용해주세요❗️');
-      return navigate('/login');
+      return navigate('/login/guest');
     }
     setBody('');
     await axios

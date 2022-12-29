@@ -11,7 +11,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
-import { isConstructorDeclaration } from 'typescript';
+import { getCookie } from '../../Login/GoogleBtn';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -54,6 +54,7 @@ function SamplePrevArrow(props: any) {
 }
 
 export const NewMatch = () => {
+  const Cookies = getCookie('accessToken');
   const settings = {
     arrows: true,
     infinite: false,
@@ -99,7 +100,8 @@ export const NewMatch = () => {
           칭찬을 기다리고 있어요
         </S.NewMatchTitle>
         <S.StyledSlider {...settings}>
-          {arr ? (
+          {Cookies ? (
+            arr &&
             arr.map((item: toDoReviewType) => {
               return (
                 <Link to={`/reply/${item.id}`}>
@@ -110,7 +112,9 @@ export const NewMatch = () => {
               );
             })
           ) : (
-            <p>로그인이 필요한 기능입니다</p>
+            <Link to={`/login/guest/`}>
+              <p>로그인이 필요한 기능입니다.</p>
+            </Link>
           )}
         </S.StyledSlider>
       </S.NewMatchTextBox>
