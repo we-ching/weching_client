@@ -6,6 +6,7 @@ import { useState } from 'react';
 import RandomPost from './RandomPost';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
+import { getCookie } from '../Login/GoogleBtn';
 
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
@@ -13,6 +14,7 @@ export const Reply = () => {
   const params = useParams();
   const id = params.id;
   const submitHandler = async () => {
+    const token = getCookie('accessToken');
     setBody('');
     await axios
       .patch(
@@ -23,7 +25,7 @@ export const Reply = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            Authorization: `Bearer ${token}`,
           },
         }
       )

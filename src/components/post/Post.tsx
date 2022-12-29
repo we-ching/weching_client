@@ -1,22 +1,20 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useCookies } from 'react-cookie';
 
 import axios from 'axios';
 import { useState, FC, useEffect } from 'react';
 import Tip from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
+import { getCookie } from '../Login/GoogleBtn';
 
 export const Post: FC = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const [savedBody, setSavedBody] = useState<string | null>('');
   const [body, setBody] = useState<string>('');
   const navigate = useNavigate();
 
   const submitHandler = async () => {
-    const token = cookies.token;
-    console.log(token);
+    const token = getCookie('accessToken');
     setBody('');
     await axios
       .post(
