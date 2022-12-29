@@ -39,29 +39,34 @@ const App: FC = () => {
       <GlobalStyle />
       <div className="App">
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<MainPage />} />
-          <Route path="/home/ranking" element={<RankingDetail />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/mypage/mypost" element={<MyPost />} />
-          <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/reply/:id" element={<Reply />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/alarm" element={<Alarm />} />
-          <Route path="/viewmore" element={<ViewMore />} />
-          <Route path="/viewmore/recruit" element={<Recruit />} />
-          <Route path="/viewmore/about" element={<About />} />
-          <Route path="/bookmark" element={<Bookmark />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/notice" element={<AdminNotice />} />
-          <Route path="/admin/notice/new" element={<NewNotice />} />
-          <Route path="/admin/notice/renew" element={<RenewNotice />} />
-          <Route path="/admin/report" element={<AdminReport />} />
+          <Route element={<NavBar />}>
+            <Route path="/home" element={<MainPage />} />
+            <Route path="/home/ranking" element={<RankingDetail />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/mypage/mypost" element={<MyPost />} />
+            <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/reply/:id" element={<Reply />} />
+            <Route path="/notice" element={<Notice />} />
+            <Route path="/alarm" element={<Alarm />} />
+            <Route path="/viewmore" element={<ViewMore />} />
+            <Route path="/viewmore/recruit" element={<Recruit />} />
+            <Route path="/viewmore/about" element={<About />} />
+            <Route path="/bookmark" element={<Bookmark />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/notice" element={<AdminNotice />} />
+            <Route path="/admin/notice/new" element={<NewNotice />} />
+            <Route path="/admin/notice/renew" element={<RenewNotice />} />
+            <Route path="/admin/report" element={<AdminReport />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
-        {window.location.pathname === '/' ? null : window.location.pathname === '/login' ? null : <NavBar />}
+        {/* {window.location.pathname === '/' ? null : window.location.pathname ===
+          '/login' ? null : (
+          <NavBar />
+        )} */}
       </div>
     </>
   );
