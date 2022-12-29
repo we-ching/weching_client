@@ -27,8 +27,7 @@ export function NewNotice() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)  => {
     e.preventDefault();
     try { 
-      await axios.post(`/api/notice`,
-      { 
+      await axios.post(`/api/notice`, { 
         "title": newTitle,
         "content": newContent,
       })

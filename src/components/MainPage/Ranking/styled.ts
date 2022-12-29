@@ -14,6 +14,7 @@ export const Ranking = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     border-bottom: 1px solid rgba(68, 68, 68, 0.5);
   }
@@ -33,8 +34,6 @@ export const RankingTitle = styled.div`
 `;
 
 export const RankingDetailButton = styled.div`
-  margin-top: 5px;
-
   width: 60px;
   height: 20px;
   display: flex;
