@@ -17,7 +17,6 @@ export const Bookmark = () => {
             });
             setDatas([...datas, ...result.data]);
         } catch (err) {
-            return 
             alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
         }
     };
