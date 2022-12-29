@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
+export const Guest: any = styled.div`
+  padding: 15px;
+  font-size: 14px;
+  width: 100%;
+  height: 100em;
+  max-height: 200px;
+  border: 5px solid rgba(191, 167, 138, 0.4);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: transform;
+
+  border-radius: 10px;
+`;
+
 export const GoToTitle: any = styled.div`
   margin-bottom: 15px;
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
