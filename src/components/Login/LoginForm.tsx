@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import axios from 'axios';
 import { useAppSelector } from '../../store/config';
-import { getCookie } from './GoogleBtn';
+import { setCookie, getCookie } from './GoogleBtn';
+
 export const LoginForm = () => {
   const gEmail = useAppSelector((state) => {
     return state.myPost.getGoogleEmail;
@@ -11,6 +12,24 @@ export const LoginForm = () => {
 
   const navigate = useNavigate();
   const nicknameRef = useRef<HTMLInputElement>(null);
+
+  const getAcessToken = async () => {
+    await axios
+      .post(
+        `/api/login`,
+        { email: gEmail },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((res) => {
+        const jwtToken = res.data.accessToken;
+        setCookie('accessToken', jwtToken);
+        navigate('/home');
+      });
+  };
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,9 +48,8 @@ export const LoginForm = () => {
             },
           }
         )
-        .then((res) => {
-          console.log(res);
-          navigate(`/home`);
+        .then(() => {
+          getAcessToken();
         });
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);

@@ -48,13 +48,9 @@ export const GoogleBtn: any = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
-        const jwtToken = res.data.accessToken;
-        setCookie('accessToken', jwtToken);
-        console.log(jwtToken);
-        const Coockies = getCookie('accessToken');
-        console.log(Coockies);
         if (res.data.accessToken || res.data.role === 2) {
+          const jwtToken = res.data.accessToken;
+          setCookie('accessToken', jwtToken);
           navigate('/home');
         } else {
           navigate('/login');
