@@ -1,5 +1,6 @@
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { useCookies } from 'react-cookie';
 
 import axios from 'axios';
 import { useState, FC, useEffect } from 'react';
@@ -7,20 +8,15 @@ import Tip from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 
-/*
-TODO: 글 이어서 작성하기 기능 구현
-  1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-  2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-*/
-
-// max값  내용 : 10개
-
 export const Post: FC = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const [savedBody, setSavedBody] = useState<string | null>('');
   const [body, setBody] = useState<string>('');
   const navigate = useNavigate();
 
   const submitHandler = async () => {
+    const token = cookies.token;
+    console.log(token);
     setBody('');
     await axios
       .post(
@@ -30,7 +26,7 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
