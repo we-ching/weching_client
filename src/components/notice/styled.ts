@@ -19,7 +19,7 @@ export const NoticeUl = styled.ul`
 export const Message: any = styled.li`
   display: flex;
   flex-direction: column;
-  margin: 2rem 2rem;
+  margin: 1rem 2rem;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
