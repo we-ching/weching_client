@@ -70,7 +70,7 @@ export function EditUser() {
         headers: {
           authorization: `bearer ${Cookies}`,
         },
-      })
+      }).then(() => {window.location.reload()});
 
       handleModal();
       alert('회원 정보가 수정되었습니다.');
