@@ -64,9 +64,7 @@ export const Post: FC = () => {
           editor={ClassicEditor}
           config={{
             placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
-            toolbar: {
-              items: ['undo', 'redo', 'link'],
-            },
+            toolbar: ['undo', 'redo', 'link'],
           }}
           data={savedBody}
           onReady={(editor: any) => {
