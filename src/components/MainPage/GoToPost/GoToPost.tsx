@@ -90,7 +90,6 @@ export const GoToPost = () => {
 
   const arr = post.posts;
 
-  // console.log(arr);
   return (
     <>
       <S.GoToTextBox>

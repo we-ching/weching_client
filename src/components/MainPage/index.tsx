@@ -11,19 +11,18 @@ import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
 import { AdminButton } from './AdminCheck/AdminCheck';
+import { getCookie } from '../Login/GoogleBtn';
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
+  const Cookies = getCookie('accessToken');
 
-  /*
-https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
-*/
   const mainRequest = async () => {
     try {
       await axios
         .get(`/api/main/user`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
+            authorization: `Bearer ${Cookies}`,
           },
         })
         .then((res) => {
@@ -40,7 +39,7 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
       await axios
         .get(`/api/main`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
+            authorization: `Bearer ${Cookies}`,
           },
         })
         .then((res) => {

@@ -18,7 +18,7 @@ export const Alarm = () => {
   const Array = arr.filter((item: mainApiUser) => {
     return item.post.isChecked == 1;
   });
-  // console.log(Array);
+
   return (
     <S.Container>
       {Array &&
