@@ -59,7 +59,7 @@ const NoticeList: React.FC<NoticeListProps> = ({
       <NoticeDetail key={notice.id} notice={notice} />
     );
   });
-  return <ul>{noticeBlock}</ul>;
+  return <S.NoticeUl>{noticeBlock}</S.NoticeUl>;
 };
 
 export const Notice = () => {
@@ -82,20 +82,18 @@ export const Notice = () => {
 
   return (
     <>
-      <S.Container>
-        <nav>
-          {noticeInfo.map((noticeInfo, idx) => {
-            return (
-              <NoticeList
-                key={idx}
-                notices={noticeInfo}
-                changePage={setPage}
-                isloading={isloading}
-              ></NoticeList>
-            );
-          })}
-        </nav>
-      </S.Container>
+      <S.NoticeNav>
+        {noticeInfo.map((noticeInfo, idx) => {
+          return (
+            <NoticeList
+              key={idx}
+              notices={noticeInfo}
+              changePage={setPage}
+              isloading={isloading}
+            ></NoticeList>
+          );
+        })}
+      </S.NoticeNav>
     </>
   );
 };

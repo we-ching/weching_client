@@ -7,10 +7,6 @@ import RandomPost from './RandomPost';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
 
-/*
-TODO: 랜덤으로 매칭된 게시물 및 버튼은 리랜더링 할필요없으므로 리랜더링 막아주기
-*/
-
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
   const navigate = useNavigate();
@@ -38,7 +34,7 @@ export const Reply = () => {
       .catch((error) => {
         if (error.response.status === 400) {
           console.log(error);
-          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`); // 홈에서 막는게 나을듯
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
         }
         navigate('/home');
       });

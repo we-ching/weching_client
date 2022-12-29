@@ -31,13 +31,11 @@ export const Post: FC = () => {
         {
           headers: {
             Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
-            // credentials: 'include',
-            // withCredentials: true,
           },
         }
       )
       .then(() => {
-        alert('글 작성 완료(포인트가 3점 소모되었습니다.)');
+        alert('글 작성 완료 (포인트가 3점 소모되었습니다.)');
         sessionStorage.removeItem('myText');
         navigate('/home');
       })
