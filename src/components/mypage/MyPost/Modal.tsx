@@ -3,8 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { isClicked } from '../../../myPostSlice';
 import { useAppDispatch, useAppSelector } from '../../../store/config';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const Modal: React.FC<S.reviewId> = () => {
+  const Cookies = getCookie('accessToken');
   const [isError, setIsError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const isClick = useAppSelector((state) => {
@@ -13,7 +15,6 @@ export const Modal: React.FC<S.reviewId> = () => {
   const clickedReview = useAppSelector((state) => {
     return state.myPost.clickedReview;
   });
-  console.log(clickedReview);
   const reportHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.currentTarget;
@@ -22,7 +23,6 @@ export const Modal: React.FC<S.reviewId> = () => {
     const reportBtn = target.querySelector('button');
 
     const type = reportType;
-    console.log(reportType);
     if (reviewContent.length === 0) {
       setIsError(true);
       return;
@@ -37,14 +37,13 @@ export const Modal: React.FC<S.reviewId> = () => {
           { type, content: reviewContent },
           {
             headers: {
-              authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDE5NjAzLCJleHAiOjE2NzIxMDI0MDN9.TP3Bm4cESdiUqOSwVrCU3ftHkbcNcQbsnz5WRygGX4E`,
+              authorization: `bearer ${Cookies}`,
             },
           }
         )
         .then((res) => {
           alert('해당 신고가 접수되었어요.');
           dispatch(isClicked(false));
-          console.log(res.data);
         });
     } catch (err: any) {
       alert(err.response.data.message);

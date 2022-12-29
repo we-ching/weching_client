@@ -1,11 +1,11 @@
 import axios from 'axios';
 import * as S from './styled';
-import { isClicked } from '../../../myPostSlice';
 import { useAppSelector } from '../../../store/config';
 import { useEffect } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
-  // const [loading, setLoading] = useState<any>({});
+  const Cookies = getCookie('accessToken');
   const isClicked = useAppSelector((state) => {
     return state.myPost.isClicked;
   });
@@ -21,7 +21,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
           { ...star },
           {
             headers: {
-              authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+              authorization: `Bearer ${Cookies}`,
             },
           }
         )

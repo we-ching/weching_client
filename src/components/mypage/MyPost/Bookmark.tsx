@@ -1,7 +1,9 @@
 import * as S from './styled';
 import axios from 'axios';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({ id }) => {
+  const Cookies = getCookie('accessToken');
   const onClickHandler = async () => {
     try {
       await axios
@@ -10,7 +12,7 @@ export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({ id }) => {
           { id },
           {
             headers: {
-              authorization: `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+              authorization: `bearer ${Cookies}`,
             },
           }
         )
