@@ -33,13 +33,3 @@ export const MessageContent: any = styled.article`
   line-height: 1.5em;
   font-size: 1rem;
 `;
-
-export const PageNumberNav = styled.nav`
-  margin: 0 auto;
-`;
-
-export const pageNumberBtn = styled.button`
-  background-color: white;
-  margin-right: 0.5rem;
-  font-size: 1.5rem;
-`;
