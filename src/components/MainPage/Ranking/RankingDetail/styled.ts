@@ -54,7 +54,7 @@ export const RankingSubtitle = styled.div`
   padding: 20px 0;
   font-size: 18px;
   font-weight: 600;
-  background-color: rgb(54, 48, 74, 0.9);
+  background-color: #7E532F;
 `;
 
 export const rankNum = styled.div`
@@ -92,7 +92,7 @@ export const RankContent = styled.div<{rank: number}>`
   padding: 20px 0;
   font-size: 16px;
   font-weight: 400;
-  background-color: ${props => props.rank % 2 === 0 ? 'rgb(20, 20, 31, 0.1)' : '#FFF'};
+  background-color: ${props => props.rank % 2 === 0 ? '#f2e1c2' : '#FFF'};
 
   :hover {
     transform: translateY(2px);
