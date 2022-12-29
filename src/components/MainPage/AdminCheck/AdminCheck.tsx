@@ -1,6 +1,7 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
 // styles
@@ -13,10 +14,11 @@ export function AdminButton() {
 
   const loginCheck = async () => {
     try {
-      const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMzAwMTAzLCJleHAiOjE2NzIzODI5MDN9.OZuo-9y65SgfHThlVFZsSxTiIvl-QZTMiFgbdb50T04';
+      const Cookies = getCookie('accessToken');
+      
       const emailRes = await axios.get(`/api/main/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
       setEmail(emailRes.data.user.email);

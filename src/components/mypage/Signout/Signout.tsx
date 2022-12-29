@@ -1,5 +1,7 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Mui
@@ -20,8 +22,8 @@ const theme = createTheme({
   });
 
 export function SignOut() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc1MDk3LCJleHAiOjE2NzIzNTc4OTd9.7x45UrUUPxq0bRknNUFdOGEKX4mdNrSonjqjUSIAjNI';
-
+  const navigate = useNavigate();
+  const Cookies = getCookie('accessToken');
   const [nickName, setNickName] = useState<string>('');
   const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
@@ -34,7 +36,7 @@ export function SignOut() {
     try {
       const res = await axios.get(`/api/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
       setNickName(res.data.nickname);
@@ -49,14 +51,14 @@ export function SignOut() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (nickName !== checkNickname) {
-        alert('닉네임이 일치하지 않습니다.')
-        return;
-      }
+      // if (nickName !== checkNickname) {
+      //   alert('닉네임이 일치하지 않습니다.')
+      //   return;
+      // }
 
       const res = await axios.delete(`/api/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
 
@@ -95,7 +97,7 @@ export function SignOut() {
                 <input
                   id="checkNickname"
                   type="text"
-                  placeholder={nickName}
+                  placeholder={'닉네임을 입력해주세요'}
                   name="checkNickname"
                   value={checkNickname || ''}
                   onChange={(e) => {

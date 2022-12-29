@@ -1,5 +1,6 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
 // styles
@@ -30,8 +31,7 @@ const initialState: rankInfoType[] = [
 ]
 
 export function Jandi() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc1MDk3LCJleHAiOjE2NzIzNTc4OTd9.7x45UrUUPxq0bRknNUFdOGEKX4mdNrSonjqjUSIAjNI';
-
+  const Cookies = getCookie('accessToken');
   const [JandiInfo, setJandiInfo] = useState<rankInfoType[]>(initialState);
 
   const rankingInfo = async () => {
@@ -39,7 +39,7 @@ export function Jandi() {
       const {rank}: {rank: rankInfoType[]} = await axios.get(`/api/user`,
       {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       }).then(res => res.data)
       setJandiInfo(rank);

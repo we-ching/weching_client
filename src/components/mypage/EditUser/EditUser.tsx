@@ -1,5 +1,6 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
 // Mui
@@ -20,7 +21,7 @@ const theme = createTheme({
 });
 
 export function EditUser() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc1MDk3LCJleHAiOjE2NzIzNTc4OTd9.7x45UrUUPxq0bRknNUFdOGEKX4mdNrSonjqjUSIAjNI';
+  const Cookies = getCookie('accessToken');
 
   const [nickName, setNewNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
@@ -38,7 +39,7 @@ export function EditUser() {
        { nickName },  
       {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
 
@@ -67,7 +68,7 @@ export function EditUser() {
       { nickName, nameState },
       {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
 
