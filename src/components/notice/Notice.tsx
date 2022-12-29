@@ -84,9 +84,10 @@ export const Notice = () => {
     <>
       <S.Container>
         <nav>
-          {noticeInfo.map((noticeInfo) => {
+          {noticeInfo.map((noticeInfo, idx) => {
             return (
               <NoticeList
+                key={idx}
                 notices={noticeInfo}
                 changePage={setPage}
                 isloading={isloading}
