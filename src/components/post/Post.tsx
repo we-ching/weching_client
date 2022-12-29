@@ -65,7 +65,7 @@ export const Post: FC = () => {
           config={{
             placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
             toolbar: {
-              items: ['bold', 'italic', 'link'],
+              items: ['undo', 'redo', 'link'],
             },
           }}
           data={savedBody}
@@ -74,7 +74,6 @@ export const Post: FC = () => {
           }}
           onChange={(event: any, editor: any) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
             setBody(data);
           }}
           onBlur={() => {

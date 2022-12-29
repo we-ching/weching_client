@@ -10,7 +10,6 @@ export const Main = styled.main`
 
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 500px;
-
     > p {
       font: initial;
     }
