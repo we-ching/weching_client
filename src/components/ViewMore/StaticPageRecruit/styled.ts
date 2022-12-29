@@ -37,4 +37,8 @@ export const MenuBox = styled.div`
     &:hover {
         height: auto;
     }
+
+    a {
+        display: contents;
+    }
 `;
