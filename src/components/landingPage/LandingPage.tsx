@@ -12,51 +12,13 @@ import axios from 'axios';
 import { insertUser, insertSub } from '../../mainSlice';
 import { useAppDispatch } from '../../store/config';
 import { useAppSelector } from '../../store/config';
+import { useGoogleLogin } from '@react-oauth/google';
+import jwt_decode from 'jwt-decode';
+import { GoogleBtn } from '../Login/GoogleBtn';
 
-export const LandingPage = () => {
+export const LandingPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  const btnClickHandler = (e: any) => {
-    e.preventDefault();
-    navigate(`/home`);
-    // navigate('./LandingPage');
-  };
-
-  // const mainRequest = async () => {
-  //   try {
-  //     await axios
-  //       .get(`/api/main/user`, {
-  //         headers: {
-  //           authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
-  //         },
-  //       })
-  //       .then((res) => {
-  //         dispatch(insertUser(res.data));
-  //       });
-  //     await axios
-  //       .get(`/api/main`, {
-  //         headers: {
-  //           authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMDIyNzUwLCJleHAiOjE2NzIxMDU1NTB9.sbTWCcXyYfy_A0E_9TVAukLXZnnJFM94CfGFD-C-6wo`,
-  //         },
-  //       })
-  //       .then((res) => {
-  //         console.log(res.data);
-  //         dispatch(insertSub(res.data));
-  //       });
-  //   } catch (err) {
-  //     alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   mainRequest();
-  // }, []);
-
-  // const advice: any = useAppSelector((state) => {
-  //   return state.mainInfo.subInfo;
-  // });
-  // console.log(advice.advice.author);
 
   return (
     <S.LandingPageContainer>
@@ -67,10 +29,13 @@ export const LandingPage = () => {
       <S.SubContents>
         익명의 공간에서 소식을 나누고 기쁨을 나눕니다.
       </S.SubContents>
-      <S.LoginBlock onClick={btnClickHandler}>
+      <GoogleBtn>
         <img src={googleImg} alt="google_logo" />
+        google 로그인으로 함께하기
+      </GoogleBtn>
+      {/* <S.LoginBlock onClick={btnClickHandler}>
         Google 계정으로 함께하기
-      </S.LoginBlock>
+      </S.LoginBlock> */}
       <S.SubContents>
         <img src={img1} alt="말풍선 사진" />
         <h6>신개념 칭찬 커뮤니티!</h6>
