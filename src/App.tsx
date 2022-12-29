@@ -61,7 +61,7 @@ const App: FC = () => {
           <Route path="/admin/report" element={<AdminReport />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        {<NavBar />}
+        {window.location.pathname === '/' ? null : window.location.pathname === '/login' ? null : <NavBar />}
       </div>
     </>
   );
