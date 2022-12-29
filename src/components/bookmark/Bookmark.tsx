@@ -12,7 +12,7 @@ export const Bookmark = () => {
         try {
             const result = await axios.get(`/api/review/bookmark`, {
                 headers: {
-                    authorization: 'Bearer ${Cookies}'
+                    authorization: `Bearer ${Cookies}`
                 }
             });
             setDatas([...datas, ...result.data]);
