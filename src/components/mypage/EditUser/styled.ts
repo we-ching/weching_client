@@ -84,7 +84,7 @@ export const EditTitle = styled.h3`
 `;
 
 export const Buttons = styled.div`
-  margin: 5px 10px;
+  margin: 5px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

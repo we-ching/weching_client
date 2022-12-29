@@ -14,6 +14,7 @@ export const Ranking = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     border-bottom: 1px solid rgba(68, 68, 68, 0.5);
   }
@@ -28,13 +29,11 @@ export const Ranking = styled.div`
 
 export const RankingTitle = styled.div`
   padding: 5px 0 10px 0;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
 `;
 
 export const RankingDetailButton = styled.div`
-  margin-top: 5px;
-
   width: 60px;
   height: 20px;
   display: flex;
@@ -42,9 +41,9 @@ export const RankingDetailButton = styled.div`
   align-items: center;
 
   font-style: normal;
-  fontweight: 600;
+  font-weight: 550;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #FFF;
   background-color: #8C5C32;
   border-radius: 10px;
 

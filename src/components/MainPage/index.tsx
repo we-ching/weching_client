@@ -10,6 +10,7 @@ import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
+import { AdminButton } from './AdminCheck/AdminCheck';
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
@@ -61,6 +62,7 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
         <GoToPost />
         <Advice />
         <Ranking />
+        <AdminButton />
       </S.GridLayout>
     </S.Container>
   );
