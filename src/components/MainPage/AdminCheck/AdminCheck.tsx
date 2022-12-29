@@ -8,13 +8,21 @@ import * as S from './styled';
 
 export function AdminButton() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState<any>();
+  const [Email, setEmail] = useState<any>();
   const [check, setCheck] = useState<number>();
 
   const loginCheck = async () => {
     try {
+      const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMzAwMTAzLCJleHAiOjE2NzIzODI5MDN9.OZuo-9y65SgfHThlVFZsSxTiIvl-QZTMiFgbdb50T04';
+      const emailRes = await axios.get(`/api/main/user`, {
+        headers: {
+          authorization: `bearer ${token}`,
+        },
+      })
+      setEmail(emailRes.data.user.email);
+
       const res = await axios.post(`/api/login`, {
-        "email": "cosihh55@gmail.com",
+        "email": Email,
       })
       setCheck(res.data.role);
     } catch (err) {
