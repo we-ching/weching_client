@@ -86,7 +86,6 @@ export const NewMatch = () => {
   const post: any = useAppSelector((state) => {
     return state.mainInfo.userInfo;
   });
-  console.log(post);
   useEffect(() => {
     post;
   }, []);
@@ -111,7 +110,7 @@ export const NewMatch = () => {
               );
             })
           ) : (
-            <p>로그인이 필요한 기능입니다.</p>
+            <p>로그인이 필요한 기능입니다</p>
           )}
         </S.StyledSlider>
       </S.NewMatchTextBox>
