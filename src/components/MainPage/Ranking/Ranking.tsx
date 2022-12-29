@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { AdminButton } from '../AdminCheck/AdminCheck';
-
 // styles
 import * as S from './styled';
 
@@ -64,7 +62,6 @@ export const Ranking = () => {
       <S.Ranking>
         <div className='container'>
           <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
-          <AdminButton />
           <S.RankingDetailButton onClick={() => navigate('/home/ranking')}>
             더보기
           </S.RankingDetailButton>

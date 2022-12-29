@@ -13,4 +13,9 @@ export const AdminButton = styled.button`
   color: #FFF;
   background-color: #8C5C32;
   border-radius: 10px;
+  border: none;
+
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
 `;
