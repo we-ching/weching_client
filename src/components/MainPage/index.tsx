@@ -13,28 +13,24 @@ import { GoToPost } from './GoToPost/GoToPost';
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
-  const isLogined = false;
 
   const mainRequest = async () => {
     try {
-      isLogined &&
-        (await axios
-          .get(`/api/main/user`, {
-            headers: {
-              authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
-            },
-          })
-          .then((res) => {
-            dispatch(insertUser(res.data));
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
+          },
+        })
+        .then((res) => {
+          dispatch(insertUser(res.data));
 
-            const arr = res.data.posts;
-            const Array = arr.filter((item: mainApiUser) => {
-              return item.post.isChecked == 1;
-            });
-            Array.length != 0
-              ? dispatch(insertAlarm(Array.length))
-              : console.log('isChecked가 모두 0');
-          }));
+          const arr = res.data.posts;
+          const Array = arr.filter((item: mainApiUser) => {
+            return item.post.isChecked == 1;
+          });
+          Array.length && dispatch(insertAlarm(Array.length));
+        });
       await axios
         .get(`/api/main`, {
           headers: {

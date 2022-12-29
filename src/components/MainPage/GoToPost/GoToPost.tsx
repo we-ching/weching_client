@@ -98,11 +98,9 @@ export const GoToPost = () => {
           <S.Image src={Letter} />
           칭찬을 확인해보세요
         </S.GoToTitle>
-          {arr ? (
-            <S.Guest>로그인이 필요한 서비스 입니다.</S.Guest>
-          ) : (
-            <S.StyledSlider {...settings}>
-            {arr && arr.map((item: mainApiUser) => {
+        <S.StyledSlider {...settings}>
+          {arr &&
+            arr.map((item: mainApiUser) => {
               return (
                 <Link to={`/mypage/mypost/`}>
                   {item.post && (
@@ -112,9 +110,7 @@ export const GoToPost = () => {
                   )}
                 </Link>
               );
-            })</S.StyledSlider>
-       
-          )}
+            })}
         </S.StyledSlider>
       </S.GoToTextBox>
     </>

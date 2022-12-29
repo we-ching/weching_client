@@ -1,6 +1,8 @@
 import * as S from './styled';
 import { mainApiUser } from '../styled';
 
+import { MainPage } from '..';
+
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
@@ -10,15 +12,15 @@ export const Alarm = () => {
     return state.mainInfo.userInfo;
   });
 
-  useEffect(() => {
-    postAlarm;
-  }, []);
-
   const arr = postAlarm.posts;
   const Array = arr.filter((item: mainApiUser) => {
     return item.post.isChecked == 1;
   });
-  // console.log(Array);
+
+  useEffect(() => {
+    postAlarm;
+  }, []);
+
   return (
     <S.Container>
       {Array &&
