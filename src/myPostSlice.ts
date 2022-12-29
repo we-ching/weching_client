@@ -4,6 +4,7 @@ const initialState = {
   myPosts: [],
   isClicked: false,
   clickedReview: 0,
+  getGoogleEmail: '',
 };
 
 export const myPostSlice = createSlice({
@@ -19,7 +20,11 @@ export const myPostSlice = createSlice({
     clickedReview: (state: any, action) => {
       state.clickedReview = action.payload;
     },
+    getGoogleEmail: (state: any, action) => {
+      state.getGoogleEmail = action.payload;
+    },
   },
 });
 
-export const { getPosts, isClicked, clickedReview } = myPostSlice.actions;
+export const { getPosts, isClicked, clickedReview, getGoogleEmail } =
+  myPostSlice.actions;
