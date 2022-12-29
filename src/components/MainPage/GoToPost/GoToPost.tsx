@@ -12,6 +12,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
+import { getCookie } from '../../Login/GoogleBtn';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -54,6 +55,7 @@ function SamplePrevArrow(this: any, props: any) {
 }
 
 export const GoToPost = () => {
+  const Cookies = getCookie('accessToken');
   const settings = {
     arrows: true,
     infinite: false,
@@ -100,7 +102,8 @@ export const GoToPost = () => {
           칭찬을 확인해보세요
         </S.GoToTitle>
         <S.StyledSlider {...settings}>
-          {arr ? (
+          {Cookies ? (
+            arr &&
             arr.map((item: mainApiUser) => {
               return (
                 <Link to={`/mypage/mypost/`} key={item.post.id}>
@@ -114,7 +117,9 @@ export const GoToPost = () => {
               );
             })
           ) : (
-            <p>로그인이 필요한 기능입니다.</p>
+            <Link to={`/login/guest/`}>
+              <p>로그인이 필요한 기능입니다.</p>
+            </Link>
           )}
         </S.StyledSlider>
       </S.GoToTextBox>
