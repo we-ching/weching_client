@@ -20,6 +20,7 @@ export const BookmarkCancel: React.FC<S.reviewId> = ({ id }) => {
         .then((res) => {
           alert('북마크가 취소되었어요.');
         });
+        window.location.reload();
     } catch (err: any) {
       alert(err.response.data.message);
     }
