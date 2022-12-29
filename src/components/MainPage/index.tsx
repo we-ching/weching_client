@@ -27,7 +27,7 @@ export const MainPage = () => {
         })
         .then((res) => {
           dispatch(insertUser(res.data));
-
+          if (res.data.length === 0) { return };
           const arr = res.data.posts;
           const Array = arr.filter((item: mainApiUser) => {
             return item.post.isChecked == 1;

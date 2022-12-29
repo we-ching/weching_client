@@ -8,18 +8,17 @@ export const ViewMore = () => {
   const navigate = useNavigate();
   const INVITELINK = location.host;
 
-  const clipCopy = (text: string) => {
-    if (navigator.clipboard) {
-      navigator.clipboard
-        .writeText(text)
-        .then(() => {
-          alert('클립보드에 복사되었습니다. \n친구에게 알려보세요.');
-        })
-        .catch(() => {
-          alert('다시 시도해주세요.');
-        });
+  const cliping = ():any => {
+    if (navigator.share) {
+      navigator.share({
+        title: '친구 초대',
+        text: "친구 초대",
+        url: 'http://kdt-sw3-team09.elicecoding.com/',
+      });
+    } else {
+      alert('모바일 웹에서만 사용가능한 기능입니다.');
     }
-  };
+  }
 
   return (
     <S.BackGround>
@@ -54,7 +53,7 @@ export const ViewMore = () => {
         </S.MenuBox>
         <S.MenuBox
           onClick={() => {
-            navigate('/viewmore/recruit');
+            cliping();
           }}
         >
           채용
