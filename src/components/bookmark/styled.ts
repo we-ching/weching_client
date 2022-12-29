@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-const customMediaQuery = (maxWidth: number) =>
-  `@media (max-width: ${maxWidth}px)`;
-const media = {
-  mobile: customMediaQuery(1024),
-};
-
 export const Container = styled.div`
 
   width: 100vw;
@@ -44,7 +38,7 @@ export const CardBox = styled.div`
   height: 200px;
   width: 340px;
   box-shadow: 5px 5px 1rem rgb(0 0 0 / 0.2);
-  
+  display: flex;
   padding: 15px;
   background: hsl(${props => props.color}, 30%, 90%);
   border: 3px;
@@ -69,3 +63,19 @@ export const CardBox = styled.div`
     margin-bottom: -5rem;
   }
 `;
+
+export const BookmarkCon = styled.div`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  img {
+    opacity: 30%;
+  }
+`;
+
+export interface reviewId {
+  id?: any;
+  isReported?: number;
+  idx?: number;
+}
