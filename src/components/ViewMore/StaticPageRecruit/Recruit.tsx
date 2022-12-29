@@ -38,10 +38,9 @@ export const Recruit = () => {
         <S.MenuBox>
             🖥️ FE 김윤수<br/>
             <br/>
-            연락처 : 010-7574-0412<br/>
             이메일 : yoons100457@gmail.com<br/>
-            스택 : 흐엉<br/>
-            깃허브<br/>
+            스킬 : React, TypeScript, JavaScript, HTML, CSS, figma<br/>
+            Github: github.com/snowriceDD<br/>
         </S.MenuBox>
         <S.MenuBox>
             🖥️ FE 김창민<br/>
