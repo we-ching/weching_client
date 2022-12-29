@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate, Router, Route } from 'react-router-dom';
 import { Recruit } from './StaticPageRecruit';
 import * as S from './styled';
+import { removeCookie } from '../Login/GoogleBtn';
 
 export const ViewMore = () => {
-
   const navigate = useNavigate();
   const INVITELINK = location.host;
 
-  const clipCopy = (text:string) => {
+  const clipCopy = (text: string) => {
     if (navigator.clipboard) {
       navigator.clipboard
         .writeText(text)
@@ -17,10 +17,9 @@ export const ViewMore = () => {
         })
         .catch(() => {
           alert('다시 시도해주세요.');
-        })
-      }
+        });
     }
-
+  };
 
   return (
     <S.BackGround>
@@ -66,6 +65,16 @@ export const ViewMore = () => {
           }}
         >
           서비스 정보
+        </S.MenuBox>
+        <S.MenuBox
+          onClick={() => {
+            removeCookie('accessToken');
+            sessionStorage.removeItem('myText');
+            alert('다음에 다시 만나요!');
+            navigate('/home');
+          }}
+        >
+          로그아웃
         </S.MenuBox>
       </S.MenuContainer>
     </S.BackGround>

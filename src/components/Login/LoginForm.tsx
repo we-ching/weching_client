@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import axios from 'axios';
 import { useAppSelector } from '../../store/config';
-import { setCookie, getCookie } from './GoogleBtn';
+import { setCookie } from './GoogleBtn';
 
 export const LoginForm = () => {
   const gEmail = useAppSelector((state) => {
@@ -48,7 +48,7 @@ export const LoginForm = () => {
             },
           }
         )
-        .then(() => {
+        .then((res) => {
           getAcessToken();
         });
     } catch (err) {
