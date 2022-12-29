@@ -20,7 +20,9 @@ export const Nav = () => {
   const alarmInfo: any = useAppSelector((state) => {
     return state.mainInfo.alarm;
   });
-  console.log(alarmInfo);
+  const user: any = useAppSelector((state) => {
+    return state.mainInfo.userInfo;
+  });
 
   // const currentURL = useLocation();
   const navigate = useNavigate();
@@ -51,6 +53,7 @@ export const Nav = () => {
             setActiveAlarm(true);
           }}
         >
+          <S.UserNick>{user.user && user.user.nickName}님 반가워요!</S.UserNick>
           <IconAlarm
             fill={activeAlarm ? clickColor : nonClickColor}
             stroke={activeAlarm ? clickColor : nonClickColor}

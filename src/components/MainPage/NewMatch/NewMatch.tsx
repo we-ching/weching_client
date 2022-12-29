@@ -1,8 +1,10 @@
 import * as S from './styled';
+import { toDoReviewType } from './styled';
 
-import Letter from '../../../assets/images/mail.png';
+import Edit from '../../../assets/images/edit.png';
+import Larrow from '../../../assets/images/left-arrow.png';
+import Rarrow from '../../../assets/images/right-arrow.png';
 
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -10,24 +12,22 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
 
-// interface newMatch {
-//   user: {};
-//   todoReview: {};
-//   posts: [];
-// }
-
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <img
       className={className}
       style={{
         ...style,
         display: 'block',
-        background: 'black',
-        right: '-10px',
+        background: 'transparent',
+        right: '-15px',
+        width: '30px',
+        height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
+      src={Rarrow}
     />
   );
 }
@@ -35,15 +35,19 @@ function SampleNextArrow(props: any) {
 function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
-    <div
+    <img
       className={className}
       style={{
         ...style,
         display: 'block',
-        background: 'black',
-        left: '-10px',
+        background: 'transparent',
+        left: '-15px',
+        width: '30px',
+        height: '30px',
+        opacity: '0.6',
       }}
       onClick={onClick}
+      src={Larrow}
     />
   );
 }
@@ -51,13 +55,23 @@ function SamplePrevArrow(props: any) {
 export const NewMatch = () => {
   const settings = {
     arrows: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    swipe: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const post: any = useAppSelector((state) => {
@@ -68,26 +82,26 @@ export const NewMatch = () => {
     post;
   }, []);
   const arr = post.todoReview;
+
   return (
     <>
-      <S.NewMatchTitle>
-        <S.Image src={Letter} />
-        <p>새롭게 매칭된 글</p>
-        <S.NewMatchTitleCount>+{arr && arr.length}</S.NewMatchTitleCount>
-      </S.NewMatchTitle>
       <S.NewMatchTextBox>
-        <Slider {...settings}>
+        <S.NewMatchTitle>
+          <S.Image src={Edit} />
+          칭찬을 기다리고 있어요
+        </S.NewMatchTitle>
+        <S.StyledSlider {...settings}>
           {arr &&
-            arr.map((item: any) => {
+            arr.map((item: toDoReviewType) => {
               return (
                 <Link to={`/reply/${item.id}`}>
-                  <S.NewMatchTextContent key={item.id}>
-                    {item.content}
-                  </S.NewMatchTextContent>
+                  <S.NewMatchTextContent
+                    dangerouslySetInnerHTML={{ __html: item.content }}
+                  ></S.NewMatchTextContent>
                 </Link>
               );
             })}
-        </Slider>
+        </S.StyledSlider>
       </S.NewMatchTextBox>
     </>
   );
