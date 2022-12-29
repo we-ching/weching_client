@@ -27,9 +27,13 @@ export const TitleContents = styled.h6`
     animation: fade-in 1.4s;
   }
   @keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   &:first-child {
     padding-top: 120px;
@@ -105,6 +109,37 @@ export const LoginBlock = styled.button`
   img {
     padding-right: 10px;
   }
+  cursor: pointer;
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const GoogleButton = styled.button`
+  position: absoulte;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  backdrop-filter: blur(2px);
+
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  img {
+    padding-right: 10px;
+  }
+  cursor: pointer;
 `;
 
 export const ToHome = styled.div`

@@ -47,6 +47,7 @@ export const BirthInput = styled.input`
 
 export const LoginTitle = styled.p`
   padding: 10px;
+  margin-top: 20px;
   font-size: 22px;
   font-weight: 400;
 `;
@@ -61,8 +62,12 @@ export const SubmitBtnCon = styled.div`
   background: #fff;
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
-  :hover {
-    background-color: lightgray;
+  cursor: pointer;
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -84,12 +89,3 @@ export const GoogleImage = styled.div`
   height: 25px;
   margin: 0 10px;
 `;
-
-export const GoogleButton = styled.button``;
-export const GoogleLogo = styled.img`
-  width: 25px;
-  height: 25px;
-`;
-
-export const GoogleWrapper = styled.span``;
-export const GoogleText = styled.p``;
