@@ -1,4 +1,5 @@
 import * as S from './styled';
+import { mainApiUser } from '../styled';
 
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -14,14 +15,14 @@ export const Alarm = () => {
   }, []);
 
   const arr = postAlarm.posts;
-  const Array = arr.filter((item: any) => {
+  const Array = arr.filter((item: mainApiUser) => {
     return item.post.isChecked == 1;
   });
   // console.log(Array);
   return (
     <S.Container>
       {Array &&
-        Array.map((item: any) => {
+        Array.map((item: mainApiUser) => {
           return (
             <Link to={`/mypage/mypost/${item.post.id}`}>
               <S.Message>

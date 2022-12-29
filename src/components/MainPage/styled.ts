@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 
+export interface mainApiUser {
+  post: postApi;
+  reviews: reviewApi;
+}
+
+export interface postApi {
+  content: string;
+  id: number;
+  isChecked: number;
+  status: number;
+  userId: number;
+}
+
+export interface reviewApi {
+  bookmark: boolean;
+  content: string;
+  id: number;
+  is_done: number;
+  month: number | null;
+  postId: number;
+  status: number;
+  userId: number;
+}
+
 export const Container: any = styled.div`
   width: 90vw;
   height: auto;

@@ -1,6 +1,8 @@
 import * as S from './styled';
+import { mainApiUser } from './styled';
+
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { insertUser, insertSub, insertAlarm } from '../../mainSlice';
 import { useAppDispatch } from '../../store/config';
 
@@ -9,7 +11,7 @@ import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
 
-export const MainPage: any = () => {
+export const MainPage = () => {
   const dispatch = useAppDispatch();
 
   /*
@@ -27,7 +29,7 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
           dispatch(insertUser(res.data));
 
           const arr = res.data.posts;
-          const Array = arr.filter((item: any) => {
+          const Array = arr.filter((item: mainApiUser) => {
             return item.post.isChecked == 1;
           });
           Array.length != 0

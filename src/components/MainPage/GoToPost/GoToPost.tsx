@@ -1,4 +1,5 @@
 import * as S from './styled';
+import { mainApiUser } from '../styled';
 
 import Letter from '../../../assets/images/mail.png';
 import Larrow from '../../../assets/images/left-arrow.png';
@@ -99,7 +100,7 @@ export const GoToPost = () => {
         </S.GoToTitle>
         <S.StyledSlider {...settings}>
           {arr &&
-            arr.map((item: any) => {
+            arr.map((item: mainApiUser) => {
               return (
                 <Link to={`/mypage/mypost/`}>
                   {item.post && (

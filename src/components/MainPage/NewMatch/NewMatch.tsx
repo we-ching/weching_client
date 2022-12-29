@@ -1,4 +1,5 @@
 import * as S from './styled';
+import { toDoReviewType } from './styled';
 
 import Edit from '../../../assets/images/edit.png';
 import Larrow from '../../../assets/images/left-arrow.png';
@@ -81,6 +82,7 @@ export const NewMatch = () => {
     post;
   }, []);
   const arr = post.todoReview;
+
   return (
     <>
       <S.NewMatchTextBox>
@@ -90,7 +92,7 @@ export const NewMatch = () => {
         </S.NewMatchTitle>
         <S.StyledSlider {...settings}>
           {arr &&
-            arr.map((item: any) => {
+            arr.map((item: toDoReviewType) => {
               return (
                 <Link to={`/reply/${item.id}`}>
                   <S.NewMatchTextContent

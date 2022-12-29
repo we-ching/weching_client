@@ -4,6 +4,13 @@ import { useAppSelector } from '../../../store/config';
 import Present from '../../../assets/images/Rectangle-1.png';
 import { useEffect } from 'react';
 
+// interface advice {
+//   author: string;
+//   authorprofile: string;
+//   id: string | number;
+//   message: string;
+// }
+
 export const Advice = () => {
   const advice: any = useAppSelector((state) => {
     return state.mainInfo.subInfo;

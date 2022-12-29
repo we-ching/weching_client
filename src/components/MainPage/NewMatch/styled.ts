@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
+export interface toDoReviewType {
+  content: string;
+  id: number;
+  isChecked: number;
+  status: number;
+  userId: number;
+}
+
 export const NewMatchTitle: any = styled.div`
   margin-bottom: 15px;
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
