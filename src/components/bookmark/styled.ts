@@ -40,7 +40,7 @@ flex-direction: column;
 `;
 export const CardBox = styled.div`
   word-wrap: break-word;
-
+  text-overflow: ellipsis;
   height: 200px;
   width: 340px;
   box-shadow: 5px 5px 1rem rgb(0 0 0 / 0.2);
@@ -57,7 +57,6 @@ export const CardBox = styled.div`
 
   &:hover {
     transform: translateY(-1rem);
-    // background-color: white;
     background: hsl(${props => props.color}, 55%, 90%);
     min-height: 50vh;
     height: auto;
@@ -66,8 +65,6 @@ export const CardBox = styled.div`
   &:hover ~ & {
     transform: translateY(5rem);
   }
-
-
   & {
     margin-bottom: -5rem;
   }
