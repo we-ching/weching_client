@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
 import reportBtn from '../../../assets/images/alert.png';
-import bookBtn from '../../../assets/images/book.png';
 import evaluate from '../../../assets/images/evaluate.png';
 
 export interface Post {
@@ -170,14 +169,24 @@ export const ReviewButtonStyle = styled.button<reprotBtn>`
   cursor: pointer;
 `;
 
-export const ReviewButtonBox = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: flex-end;
+export const ReviewButtonCon = styled.div`
+  position: 100%;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 30%;
+  border: 2px solid limegreen;
+`;
+
+export const ReviewButtonBox = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  border: 2px solid limegreen;
 `;
 
 export const ReviewCountBtnBox = styled.div`
@@ -244,25 +253,27 @@ export const ReviewReportBtnImage = styled(ReviewButtonStyle)`
       inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
   }
 `;
-
-export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
-  background-image: url(${bookBtn});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  width: 50px;
-  height: 30px;
+export const BookmarkCon = styled.div`
   margin-left: auto;
-  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
-    0px 4px 0px 0px rgba(0, 0, 0, 0.1);
-  &:active {
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
-      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
-      inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
-      inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
-  }
 `;
+// export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
+//   background-image: url();
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   border: none;
+//   width: 50px;
+//   height: 30px;
+//   margin-left: auto;
+//   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
+//     0px 4px 0px 0px rgba(0, 0, 0, 0.1);
+//   &:active {
+//     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+//       -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+//       inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
+//       inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
+//   }
+// `;
 /* Review Animation */
 
 /* Ranking Point */

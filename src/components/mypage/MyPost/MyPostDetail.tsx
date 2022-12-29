@@ -50,10 +50,9 @@ export const MyPostDetail = () => {
               console.log(post);
               return (
                 <S.Review key={e.id} isReported={e.status} id="review">
-                  {e.id}
                   {e.content ? (
                     <S.DangerHTML
-                      dangerouslySetInnerHTML={{ __html: post.post.content }}
+                      dangerouslySetInnerHTML={{ __html: e.content }}
                     ></S.DangerHTML>
                   ) : null}
                   <S.ReviewButtonBox>

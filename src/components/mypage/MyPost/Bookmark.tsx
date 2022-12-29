@@ -1,6 +1,7 @@
 import * as S from './styled';
 import axios from 'axios';
 import { getCookie } from '../../Login/GoogleBtn';
+import { IconBookmark } from '../../NavBar/Mark';
 
 export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({ id }) => {
   const Cookies = getCookie('accessToken');
@@ -24,5 +25,9 @@ export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({ id }) => {
     }
   };
 
-  return <S.ReviewBookmarkBtn onClick={onClickHandler}></S.ReviewBookmarkBtn>;
+  return (
+    <S.BookmarkCon onClick={onClickHandler}>
+      <IconBookmark />
+    </S.BookmarkCon>
+  );
 };
