@@ -37,7 +37,7 @@ export const Nav = () => {
       <S.HeaderContainer>
         <S.HeaderMenuBox>
           <Link to="/home">
-            <IconAlarm />
+            <img src='/logo.png' width={55} alt='위칭 메인 로고'/>
           </Link>
         </S.HeaderMenuBox>
         <S.HeaderMenuBox
@@ -91,7 +91,7 @@ export const Nav = () => {
             stroke={activeBook ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
-        <S.NavMenuBox
+        <S.NavPostBox
           onClick={() => {
             navigate('/post');
             setActiveHome(false);
@@ -108,7 +108,7 @@ export const Nav = () => {
               stroke={activePlus ? clickColor : nonClickColor}
             />
           </S.PlusWrap>
-        </S.NavMenuBox>
+        </S.NavPostBox>
         <S.NavMenuBox
           onClick={() => {
             navigate('/MyPage');
@@ -127,7 +127,7 @@ export const Nav = () => {
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
-            navigate('/page5');
+            navigate('/viewmore');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(false);

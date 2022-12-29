@@ -2,34 +2,41 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-    margin: 100px auto;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: 90vw;
     height: auto;
     justify-content: center;
     align-items: center;
-    position: relative;
 
-    a:first-child {
-        top: 10vh;
-        left: 15vw;
-        margin: 0 auto;
-        position: absolute;
-        width: 50vw;
+
+    div:nth-child(2) {
+        margin-top: 30px;
+        height: 50vh !important;
+        position: relative;
+        opacity: 50%;
+        filter: blur(3px);
     }
-    a:last-child {
-        top: 20vh;
-        left: 25vw;
-        margin: 0 auto;
-        width: 30vw;
+    div:nth-child(3) {
+        margin-top: 30px;
+        height: 50vh !important;
         position: absolute;
-
+        margin-bottom: 100px;
     }
-
     `;
     
 export const Button = styled.button`
-    width: 50vw;
-    height: 100px;
+    margin-top: 30px;
+    width: 70vw;
+    max-width: 250px;
+    height: 70px;
+    border: 1px solid #F2E1C2;
+    border-radius: 10px;
+    font-size: 22px;
+    font-family: 'SeoulHangangM';
+    color: white;
+    background: #8C5C32;
 `

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-export const LandingPageContainer = styled.body`
+export const LandingPageContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 4000px;
   background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
 `;
 
 export const TitleContents = styled.h6`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -19,13 +18,25 @@ export const TitleContents = styled.h6`
   display: flex;
   justify-content: center;
   text-align: center;
-
+  animation: fade-in 1.4s;
   color: #444444;
-  padding-top: 80px;
+  padding-top: 30px;
+  img {
+    position: absolute;
+    bottom: 450px;
+    animation: fade-in 1.4s;
+  }
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+  &:first-child {
+    padding-top: 120px;
+  }
 `;
 
 export const SubContents = styled.div`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -35,12 +46,15 @@ export const SubContents = styled.div`
   justify-content: center;
   text-align: center;
   color: #444444;
-
+  animation: fade-in 1.4s;    
   img:first-child {
     padding-top: 200px;
     width: 300px;
     height: auto;
   }
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 `;
 
 export const ImgOne = styled.div`
@@ -52,7 +66,20 @@ export const ImgOne = styled.div`
   img:first-child {
     width: 100%;
     height: 100%;
+    animation: fade-in 1.4s;
   }
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+`;
+export const ImgTwo = styled.div`
+width: 220px;
+margin: 0 auto;
+padding-top: 200px;
+animation: fade-in 1.4s;
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 `;
 
 export const LoginBlock = styled.button`
@@ -133,9 +160,8 @@ p {
   100% { transform: translateY(15px); opacity: 0;}
 }
 }
-
+transition: opacity .5s;
 &:active {
-  transition: .3s;
   opacity: 0;
 }
 `;

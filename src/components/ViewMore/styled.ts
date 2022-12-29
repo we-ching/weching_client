@@ -1,23 +1,13 @@
 import styled from "styled-components";
 
-const customMediaQuery = (maxWidth: number) => 
-    `@media (max-width: ${maxWidth}px)`;
-const media = {
-    mobile: customMediaQuery(1024),
-    };
-
 export const BackGround = styled.div`
     position: relative;
     max-width: 1024px;
     margin: 0 auto;
     background: #F0F0F0;
-    
-    ${media.mobile} {
-        
-    }
     `;
     
-    export const MenuContainer = styled.ul`
+export const MenuContainer = styled.ul`
     padding-top: 70px;
     display: flex;
     gap: 20px 0px;
@@ -28,7 +18,8 @@ export const BackGround = styled.div`
 
 export const MenuBox = styled.li`
     position: relative;
-    width: 372px;
+    width: 90vw;
+    max-width: 750px;
     height: 60px;
     display: flex;
     
