@@ -36,7 +36,7 @@ export function AdminButton() {
   return (
     <div>
       {
-        (check === 0) ? <S.AdminButton onClick={() => navigate('/admin')}>관리자 페이지</S.AdminButton> : null
+        (check === 2) ? <S.AdminButton onClick={() => navigate('/admin')}>관리자 페이지</S.AdminButton> : null
       }
     </div>
   );
