@@ -2,24 +2,23 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 
 export const GoToTitle: any = styled.div`
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 15px;
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
 
   display: flex;
+  gap: 3px;
   align-items: center;
 
   font-size: 24px;
+
   @media (min-width: 1024px) {
-    grid-area: title2;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
   }
 `;
 
 export const GoToTextBox: any = styled.div`
   margin: auto;
-  padding: 15px;
+  padding: 10px 15px 15px 15px;
   font-size: 14px;
   width: auto;
   height: auto;

@@ -101,7 +101,7 @@ export const GoToPost = () => {
           {arr &&
             arr.map((item: any) => {
               return (
-                <Link to={`/mypage/mypost/${item.post.id}`}>
+                <Link to={`/mypage/mypost/`}>
                   {item.post && (
                     <S.GoToTextContent
                       dangerouslySetInnerHTML={{ __html: item.post.content }}

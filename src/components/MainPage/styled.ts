@@ -13,13 +13,11 @@ export const GridLayout = styled.div`
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 30px 1fr 30px 1fr auto;
-    gap: 20px;
+    grid-template-rows: 1fr 1fr auto;
+    gap: 30px;
     grid-auto-flow: row;
     grid-template-areas:
-      'title title title title title'
       'newmatch newmatch newmatch newmatch newmatch'
-      'title2 title2 title2 title2 title2'
       'newReview newReview newReview newReview newReview'
       'advice advice ranking ranking ranking';
   }
