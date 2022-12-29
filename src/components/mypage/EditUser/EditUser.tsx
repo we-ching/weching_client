@@ -128,7 +128,7 @@ export function EditUser() {
                 <ThemeProvider theme={theme}>
                   <Button
                     type="submit"
-                    variant="contained"
+                    variant="outlined"
                     color="primary"
                     sx={{ mr: 1 }}
                   >
@@ -138,7 +138,7 @@ export function EditUser() {
                 <ThemeProvider theme={theme}>
                   <Button
                     type="button"
-                    variant="outlined"
+                    variant="contained"
                     color="primary"
                     onClick={nicknameOverlap}
                   >
