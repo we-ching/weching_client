@@ -34,7 +34,7 @@ export const MyPostDetail = () => {
   return (
     <S.Container>
       <S.PostCon>
-        <S.Title>내가 쓴 글</S.Title>ㅠ
+        <S.Title>내가 쓴 글</S.Title>
         <S.Post>
           <S.TriBox></S.TriBox>
           <S.postDetailContent>
