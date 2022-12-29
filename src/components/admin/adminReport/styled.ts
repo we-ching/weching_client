@@ -12,11 +12,9 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  // width: 430px;
   width: 100vw;
   height: 100vh;
   min-width: 200px;
-  max-width: 1024px;
 `;
 
 export const reportPageContainer = styled.div`
@@ -32,8 +30,8 @@ export const reportTitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -42,11 +40,6 @@ export const reportTitleContainer = styled.div`
   background-color: #BFA78A;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-
-  :hover {
-    transform: translateY(2px);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  }
 `;
 
 export const reportTitle = styled.div`
@@ -64,8 +57,8 @@ export const ItemBox = styled.div`
   padding: 15px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,10 +103,8 @@ export const ItemBox = styled.div`
 `;
 
 export const Line = styled.div`
-  margin: 12px 0 12px 17px;
+  margin: 12px 12px;
 
-  // width: 339px;
-  width: 85vw;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;
