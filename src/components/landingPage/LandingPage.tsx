@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgOne from '../../assets/images/Rectanglethumb.png';
-import googleImg from '../../assets/images/googleLogo.png';
 import img1 from '../../assets/images/img1.png';
 import Rectangle from '../../assets/images/Rectangle.png';
 import thing from '../../assets/images/thing.png';
 import presen from '../../assets/images/presen.png';
 import * as S from './styled';
-
-import axios from 'axios';
-import { insertUser, insertSub } from '../../mainSlice';
 import { useAppDispatch } from '../../store/config';
-import { useAppSelector } from '../../store/config';
 import { GoogleBtn } from '../Login/GoogleBtn';
 
 export const LandingPage = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const [bottomCheck, setBottomCheck] = useState(0);
-
   window.onscroll = function (ev) {
     if (window.scrollY >= 0) {
       setBottomCheck(window.scrollY);
