@@ -64,9 +64,7 @@ export const Post: FC = () => {
           editor={ClassicEditor}
           config={{
             placeholder: '수정이 불가하므로 신중한 작성바랍니다.',
-            toolbar: {
-              items: ['bold', 'italic', 'link'],
-            },
+            toolbar: ['undo', 'redo', 'link'],
           }}
           data={savedBody}
           onReady={(editor: any) => {
@@ -74,7 +72,6 @@ export const Post: FC = () => {
           }}
           onChange={(event: any, editor: any) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
             setBody(data);
           }}
           onBlur={() => {

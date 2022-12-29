@@ -56,7 +56,7 @@ export const Reply = () => {
           config={{
             placeholder:
               '욕설, 비방, 비꼬는 글을 작성하시면 관리자에 의해 이용을 제한될 수 있습니다.',
-            toolbar: ['bold', 'italic', 'link'],
+            toolbar: ['undo', 'redo', 'link'],
           }}
           data=""
           onReady={(editor: any) => {
@@ -64,7 +64,6 @@ export const Reply = () => {
           }}
           onChange={(event: any, editor: any) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
             setBody(data);
           }}
         />
