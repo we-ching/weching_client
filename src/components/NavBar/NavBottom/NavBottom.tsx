@@ -39,7 +39,7 @@ export const Nav = () => {
       <S.HeaderContainer>
         <S.HeaderMenuBox>
           <Link to="/home">
-            <img src='/logo.png' width={55} alt='위칭 메인 로고'/>
+            <img src="/logo.png" width={55} alt="위칭 메인 로고" />
           </Link>
         </S.HeaderMenuBox>
         <S.HeaderMenuBox
@@ -53,7 +53,9 @@ export const Nav = () => {
             setActiveAlarm(true);
           }}
         >
-          <S.UserNick>{user.user && user.user.nickName}님 반가워요!</S.UserNick>
+          <S.UserNick>
+            {user.user ? user.user.nickName : '방문자'}님 반가워요!
+          </S.UserNick>
           <IconAlarm
             fill={activeAlarm ? clickColor : nonClickColor}
             stroke={activeAlarm ? clickColor : nonClickColor}
