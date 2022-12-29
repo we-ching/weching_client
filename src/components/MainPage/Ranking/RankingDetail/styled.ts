@@ -13,7 +13,6 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  // width: 430px;
   width: 100vw;
   min-width: 200px;
   max-width: 1024px;
@@ -31,8 +30,8 @@ export const RankingContainer = styled.div`
 export const Ranking = styled.div`
   margin: 15px 0 0 0;
   padding: 15px 15px;
-  // width: 370px;
   width: 90vw;
+  max-width: 750px;
   background-color: #FFFFFF;
   box-sizing: border-box;
   border-radius: 10px;
@@ -54,7 +53,7 @@ export const RankingSubtitle = styled.div`
   padding: 20px 0;
   font-size: 18px;
   font-weight: 600;
-  background-color: rgb(54, 48, 74, 0.9);
+  background-color: #BFA78A;
 `;
 
 export const rankNum = styled.div`
@@ -85,7 +84,7 @@ export const RankingUser = styled.div`
 `;
 
 export const RankContent = styled.div<{rank: number}>`
-  display: flex;
+  display: flex; 
   flex-direction: row;
   justify-content: center;
 

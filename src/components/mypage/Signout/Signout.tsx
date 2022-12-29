@@ -51,19 +51,22 @@ export function SignOut() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // if (nickName !== checkNickname) {
-      //   alert('닉네임이 일치하지 않습니다.')
-      //   return;
-      // }
+      if (nickName !== checkNickname) {
+        alert('닉네임이 일치하지 않습니다.')
+        return;
+      }
 
-      const res = await axios.delete(`/api/user`, {
+      await axios.delete(`/api/user`, {
         headers: {
           authorization: `bearer ${Cookies}`,
         },
+      }).then((res) => {
+        navigate('/');
+        alert('회원탈되가 되셨습니다');
       })
 
       handleModal();
-      alert(res.data.message);
+      
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
@@ -112,7 +115,7 @@ export function SignOut() {
               
               <div className="editBtn">
                 <ThemeProvider theme={theme}>
-                  <Button
+                  <Button 
                     type="submit"
                     variant="contained"
                     color="primary"

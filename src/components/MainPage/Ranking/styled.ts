@@ -29,7 +29,7 @@ export const Ranking = styled.div`
 
 export const RankingTitle = styled.div`
   padding: 5px 0 10px 0;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
 `;
 
