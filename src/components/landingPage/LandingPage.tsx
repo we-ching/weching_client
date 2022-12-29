@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import imgOne from '../../assets/images/Rectanglethumb.png';
 import img1 from '../../assets/images/img1.png';
@@ -6,7 +6,6 @@ import Rectangle from '../../assets/images/Rectangle.png';
 import thing from '../../assets/images/thing.png';
 import presen from '../../assets/images/presen.png';
 import * as S from './styled';
-import { useAppDispatch } from '../../store/config';
 import { GoogleBtn } from '../Login/GoogleBtn';
 
 export const LandingPage = () => {
@@ -16,6 +15,7 @@ export const LandingPage = () => {
       setBottomCheck(window.scrollY);
     }
   };
+  const navigate = useNavigate();
 
   return (
     <S.LandingPageContainer>
@@ -33,6 +33,9 @@ export const LandingPage = () => {
         </S.SubContents>
       ) : null}
       <GoogleBtn />
+      <S.ToHome
+        onClick={()=> navigate('/home')}
+      >비회원으로 둘러보기</S.ToHome>
       {bottomCheck >= 400 ? (
         <S.SubContents>
           <img src={img1} alt="말풍선 사진" />

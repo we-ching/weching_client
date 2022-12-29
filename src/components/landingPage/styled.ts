@@ -107,6 +107,23 @@ export const LoginBlock = styled.button`
   }
 `;
 
+export const ToHome = styled.div`
+  position: fixed;
+  position: -webkit-sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  width: 320px;
+  height: 60px;
+  font-size: 13px;
+  color: gray;
+  top: 87vh;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+`;
+
 export const FoggyUnder = styled.div`
   position: fixed;
   left: 0px;
