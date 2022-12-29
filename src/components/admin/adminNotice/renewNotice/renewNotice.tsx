@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useAppDispatch } from '../../../../store/config';
-import { delNotice } from '../../../../noticeSlice';
-import { useAppSelector } from '../../../../store/config';
 
 // Mui
 import Modal from '@mui/material/Modal';
@@ -30,16 +27,19 @@ interface noticeType {
 export function RenewNotice() {
   const [notice, setnotice] = useState<noticeType[]>([]);
   const [open, setOpen] = useState<boolean>(false);
-  // const dispatch = useAppDispatch();
+  const [selectId, setSelectId] = useState<string>('');
 
-  const handleModal = () => {
+  const handleModal = (event: React.MouseEvent<HTMLButtonElement>, id?: string) => {
+    if(id){
+      setSelectId(id);
+    }
+    
     setOpen(!open);
-    // dispatch(delNotice(id));
   }
 
   const renew = async () => {
     try { 
-      const {notice}: {notice: noticeType[]} = await axios.get(`/api/notice?page=2`,
+      const {notice}: {notice: noticeType[]} = await axios.get(`/api/notice?page=1`,
       ).then(res=> res.data)
       setnotice(notice);
     } catch (err) {
@@ -50,11 +50,8 @@ export function RenewNotice() {
   const handleDelete = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      // const noticeId = useAppSelector(state => {
-      //   return state.notice.noticeID;
-      // });
 
-      const res = await axios.delete(`/api/notice/id`, {
+      const res = await axios.delete(`/api/notice/${selectId}`, {
       })
       handleModal;
       alert(res.data.message);
@@ -83,7 +80,7 @@ export function RenewNotice() {
                     <div className='titleBoxs'>
                       <div className='type'>{<strong>제목:</strong>}&ensp;{item.title}</div>
                     </div>
-                    <S.delBtn onClick={handleModal}>삭제</S.delBtn>
+                    <S.delBtn onClick={(e:React.MouseEvent<HTMLButtonElement>) => {handleModal(e, item.id)}}>삭제</S.delBtn>
                   </div>
                   <S.Line></S.Line>
                   <div className='contentBoxs'>

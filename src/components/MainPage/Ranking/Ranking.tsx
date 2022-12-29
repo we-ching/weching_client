@@ -73,7 +73,7 @@ export const Ranking = () => {
               <div className='rank'>
                 <S.Image className='rankImg' src={`/rank/ranking${item.rank}.png`} alt=''/>
                 <div className='rankContent'>
-                  <strong>{item.rank}등</strong> - {item.nickname} &ensp;<strong>RP</strong> - {item.grade}
+                  <strong>{item.rank}등</strong> - {item.nickname} &ensp;<strong>RP</strong> - {item.avg}
                 </div>
               </div>
             </S.RankingUser>

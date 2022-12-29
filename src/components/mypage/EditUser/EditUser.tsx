@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Mui
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -42,7 +43,7 @@ export function EditUser() {
       })
 
       if (res.status == 200) {
-        alert('중복 검사가 되셨습니다.');
+        alert('사용 가능한 닉네임입니다');
         setNameState(true);
       } else if (res.status == 400) {
         alert('중복 검사를 해주세요');

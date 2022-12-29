@@ -64,7 +64,6 @@ export const ItemBox = styled.div`
   padding: 15px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
   display: flex;
   flex-direction: column;

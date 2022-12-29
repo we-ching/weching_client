@@ -56,7 +56,7 @@ export function UserInfo() {
           <S.NicknameItemBox>{userInfo.nickName}</S.NicknameItemBox>
           <div className="pointBoxs">
             <S.PointBox>포인트 {userInfo.point}</S.PointBox>
-            <S.RankPointBox>랭킹 포인트 {userInfo.point}</S.RankPointBox>
+            <S.RankPointBox>별점 포인트 {userInfo.grade}</S.RankPointBox>
           </div>
         </div>
         <S.Line></S.Line>

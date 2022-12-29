@@ -51,7 +51,7 @@ export function RankingDetail() {
                       <S.Image src={`/rank/ranking${item.rank}.png`} alt='' />
                       &ensp;{item.nickname}
                     </S.subRankName>
-                    <S.subRankPoint>{item.grade}</S.subRankPoint>
+                    <S.subRankPoint>{item.avg}</S.subRankPoint>
                   </S.RankContent>
                 </S.RankingUser>
               ) : null 
