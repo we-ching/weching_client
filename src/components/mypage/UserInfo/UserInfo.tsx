@@ -29,7 +29,7 @@ const initialState = {
 
 export function UserInfo() {
   const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc1MDk3LCJleHAiOjE2NzIzNTc4OTd9.7x45UrUUPxq0bRknNUFdOGEKX4mdNrSonjqjUSIAjNI';
 
   const [userInfo, setUserInfo] = useState<UserInfoType>(initialState);
 
@@ -56,7 +56,7 @@ export function UserInfo() {
           <S.NicknameItemBox>{userInfo.nickName}</S.NicknameItemBox>
           <div className="pointBoxs">
             <S.PointBox>포인트 {userInfo.point}</S.PointBox>
-            <S.RankPointBox>랭킹 포인트 {userInfo.point}</S.RankPointBox>
+            <S.RankPointBox>별점 포인트 {userInfo.grade}</S.RankPointBox>
           </div>
         </div>
         <S.Line></S.Line>

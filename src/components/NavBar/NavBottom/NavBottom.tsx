@@ -20,7 +20,9 @@ export const Nav = () => {
   const alarmInfo: any = useAppSelector((state) => {
     return state.mainInfo.alarm;
   });
-  console.log(alarmInfo);
+  const user: any = useAppSelector((state) => {
+    return state.mainInfo.userInfo;
+  });
 
   // const currentURL = useLocation();
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ export const Nav = () => {
       <S.HeaderContainer>
         <S.HeaderMenuBox>
           <Link to="/home">
-            <IconAlarm />
+            <img src='/logo.png' width={55} alt='위칭 메인 로고'/>
           </Link>
         </S.HeaderMenuBox>
         <S.HeaderMenuBox
@@ -51,6 +53,7 @@ export const Nav = () => {
             setActiveAlarm(true);
           }}
         >
+          <S.UserNick>{user.user && user.user.nickName}님 반가워요!</S.UserNick>
           <IconAlarm
             fill={activeAlarm ? clickColor : nonClickColor}
             stroke={activeAlarm ? clickColor : nonClickColor}
@@ -91,7 +94,7 @@ export const Nav = () => {
             stroke={activeBook ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
-        <S.NavMenuBox
+        <S.NavPostBox
           onClick={() => {
             navigate('/post');
             setActiveHome(false);
@@ -108,7 +111,7 @@ export const Nav = () => {
               stroke={activePlus ? clickColor : nonClickColor}
             />
           </S.PlusWrap>
-        </S.NavMenuBox>
+        </S.NavPostBox>
         <S.NavMenuBox
           onClick={() => {
             navigate('/MyPage');
@@ -127,7 +130,7 @@ export const Nav = () => {
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
-            navigate('/page5');
+            navigate('/viewmore');
             setActiveHome(false);
             setActiveBook(false);
             setActivePlus(false);

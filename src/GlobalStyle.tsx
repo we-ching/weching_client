@@ -62,6 +62,12 @@ const GlobalStyle = createGlobalStyle`
       color: #444444;
       text-decoration: none;
     }
+    body {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      ::-webkit-scrollbar {
+        display: none;    
+    }
   }
 `;
 

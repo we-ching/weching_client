@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Mui
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -19,7 +20,7 @@ const theme = createTheme({
 });
 
 export function EditUser() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTg3ODM3LCJleHAiOjE2NzIyNzA2Mzd9.-r8PnIZOmg3O0BFLoTGM9aW6Ew-0qLqqAvi42oAOqIM';
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc1MDk3LCJleHAiOjE2NzIzNTc4OTd9.7x45UrUUPxq0bRknNUFdOGEKX4mdNrSonjqjUSIAjNI';
 
   const [nickName, setNewNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
@@ -42,7 +43,7 @@ export function EditUser() {
       })
 
       if (res.status == 200) {
-        alert('중복 검사가 되셨습니다.');
+        alert('사용 가능한 닉네임입니다');
         setNameState(true);
       } else if (res.status == 400) {
         alert('중복 검사를 해주세요');
@@ -127,7 +128,7 @@ export function EditUser() {
                 <ThemeProvider theme={theme}>
                   <Button
                     type="submit"
-                    variant="contained"
+                    variant="outlined"
                     color="primary"
                     sx={{ mr: 1 }}
                   >
@@ -137,7 +138,7 @@ export function EditUser() {
                 <ThemeProvider theme={theme}>
                   <Button
                     type="button"
-                    variant="outlined"
+                    variant="contained"
                     color="primary"
                     onClick={nicknameOverlap}
                   >

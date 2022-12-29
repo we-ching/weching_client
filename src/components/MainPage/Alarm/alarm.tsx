@@ -1,5 +1,7 @@
 import * as S from './styled';
+import { mainApiUser } from '../styled';
 
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
 
@@ -13,18 +15,20 @@ export const Alarm = () => {
   }, []);
 
   const arr = postAlarm.posts;
-  console.log(arr);
-  const Array = arr.filter((item: any) => {
+  const Array = arr.filter((item: mainApiUser) => {
     return item.post.isChecked == 1;
   });
+  // console.log(Array);
   return (
     <S.Container>
       {Array &&
-        Array.map(() => {
+        Array.map((item: mainApiUser) => {
           return (
-            <S.Message>
-              <S.MessageContent>새로운 칭찬이 있어요!</S.MessageContent>
-            </S.Message>
+            <Link to={`/mypage/mypost/${item.post.id}`}>
+              <S.Message>
+                <S.MessageContent>새로운 칭찬이 있어요!</S.MessageContent>
+              </S.Message>
+            </Link>
           );
         })}
     </S.Container>

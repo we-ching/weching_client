@@ -1,5 +1,22 @@
 import styled from 'styled-components';
 
+export const UserNick: any = styled.div`
+  width: auto;
+  font-size: 16px;
+  color: #929292;
+
+  @media (min-width: 1024px) {
+    margin: 20px auto 0;
+    position: fixed;
+    color: #929292;
+    top: 0px;
+    right: 5px;
+    z-index: 100;
+    font-size: 16px;
+    width: 230px;
+  }
+`;
+
 export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
@@ -18,10 +35,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderMenuBox = styled.div`
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: auto;
   margin: 0;
   cursor: pointer;
   box-sizing: border-box;

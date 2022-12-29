@@ -1,6 +1,8 @@
 import * as S from './styled';
+import { mainApiUser } from './styled';
+
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { insertUser, insertSub, insertAlarm } from '../../mainSlice';
 import { useAppDispatch } from '../../store/config';
 
@@ -8,10 +10,10 @@ import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';
 import { Ranking } from './Ranking/Ranking';
 import { GoToPost } from './GoToPost/GoToPost';
+import { AdminButton } from './AdminCheck/AdminCheck';
 
-export const MainPage: any = () => {
+export const MainPage = () => {
   const dispatch = useAppDispatch();
-  const [nickname, setNickName] = useState<string>('');
 
   /*
 https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
@@ -21,15 +23,14 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
       await axios
         .get(`/api/main/user`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
           },
         })
         .then((res) => {
           dispatch(insertUser(res.data));
-          setNickName(res.data.user.nickName);
 
           const arr = res.data.posts;
-          const Array = arr.filter((item: any) => {
+          const Array = arr.filter((item: mainApiUser) => {
             return item.post.isChecked == 1;
           });
           Array.length != 0
@@ -39,7 +40,7 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
       await axios
         .get(`/api/main`, {
           headers: {
-            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
           },
         })
         .then((res) => {
@@ -57,11 +58,11 @@ https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app/auth/google/login
   return (
     <S.Container>
       <S.GridLayout>
-        <S.UserNick>{nickname}님 반가워요!</S.UserNick>
         <NewMatch />
         <GoToPost />
         <Advice />
         <Ranking />
+        <AdminButton />
       </S.GridLayout>
     </S.Container>
   );

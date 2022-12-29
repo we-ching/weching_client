@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
 
   display: flex;
   justify-content: center;
@@ -12,7 +10,6 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  // width: 430px;
   width: 100vw;
   height: 100vh;
   min-width: 200px;
@@ -20,7 +17,7 @@ export const Wrapper = styled.div`
 `;
 
 export const renewNotice = styled.div`
-  margin: 18px;
+  margin: 18px 0;
 
   display: flex;
   flex-direction: column;
@@ -32,7 +29,6 @@ export const TitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
   height: 60px;
   display: flex;
@@ -42,11 +38,6 @@ export const TitleContainer = styled.div`
   background-color: #BFA78A;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-
-  :hover {
-    transform: translateY(2px);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  }
 `;
 
 export const Title = styled.div`
@@ -57,4 +48,47 @@ export const Title = styled.div`
   font-size: 18px;
   line-height: 26px;
   color: #FFF;
+`;
+
+export const ContentForm = styled.form`
+  margin: 10px 0;
+
+  position: relative;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: #FFF;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+`;
+
+export const SubTitle = styled.div`
+  margin: 17px 0 0 17px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+`;
+
+export const Inputs = styled.div`
+  margin: 17px 17px 0 17px;
+
+  #TitleInput {
+    width: 84vw;
+    height: 30px;
+  }
+  #ContentInput {
+    margin: 17px 0;
+    width: 84vw;
+    height: 370px;
+  }
+`;
+
+export const Buttons = styled.div`
+  margin-bottom: 17px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;

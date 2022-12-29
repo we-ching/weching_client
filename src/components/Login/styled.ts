@@ -2,12 +2,15 @@ import styled from 'styled-components';
 import google from '../../assets/images/google.png';
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(10px);
 `;
 
 export const FormCon = styled.div`
@@ -81,3 +84,12 @@ export const GoogleImage = styled.div`
   height: 25px;
   margin: 0 10px;
 `;
+
+export const GoogleButton = styled.button``;
+export const GoogleLogo = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
+export const GoogleWrapper = styled.span``;
+export const GoogleText = styled.p``;

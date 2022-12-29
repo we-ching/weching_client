@@ -27,11 +27,11 @@ import { AdminNotice } from './components/admin/adminNotice/adminNotice';
 import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
 import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
-
-const baseURL = 'http://34.64.156.157';
+//https://weching-client-s767.vercel.app/
+const baseURL = 'http://kdt-sw3-team09.elicecoding.com';
 axios.defaults.baseURL = baseURL;
 // axios.defaults.withCredentials = true;
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (

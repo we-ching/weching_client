@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import reportBtn from '../../../assets/images/alert.png';
 import bookBtn from '../../../assets/images/book.png';
+import evaluate from '../../../assets/images/evaluate.png';
 
 export interface Post {
   id: number;
@@ -93,7 +94,6 @@ export const Post = styled.div<reviewProp>`
   width: 80%;
   min-height: 100px;
   padding: 20px;
-  z-index: 3;
   text-overflow: ellipsis;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -104,19 +104,16 @@ export const Post = styled.div<reviewProp>`
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
   border: 2px solid ${({ isReviews }) => (isReviews ? 'limegreen' : 'gray')};
-
-  &::before {
-    position: absolute;
-    content: '';
-    width: 30px;
-    height: 30px;
-    z-index: 1;
-    bottom: -15px;
-    border: 2px solid gray;
-    background: none;
-    transform: rotate(-45deg);
-  }
 `;
+export const TriBox = styled.div`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: -15px;
+  border: 2px solid gray;
+  background: red;
+`;
+export const DangerHTML = styled.div``;
 
 export const PostContent = styled.p`
   width: 100%;
@@ -127,6 +124,11 @@ export const PostContent = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
+
+export const postDetailContent = styled.p`
+  width: 100%;
+`;
+
 /** Review
  * 별점, 북마크, 신고
  */
@@ -150,7 +152,6 @@ export const Review = styled.div<reviewId>`
             height: 100%;
             top: 0;
             left: 0;
-            z-inedx: 3;
             background-color: rgba(255, 255, 255, 0.8);
           }
         `
@@ -234,6 +235,14 @@ export const ReviewReportBtnImage = styled(ReviewButtonStyle)`
   border: none;
   width: 50px;
   height: 30px;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 4px 0px 0px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
+      inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
@@ -245,6 +254,14 @@ export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
   width: 50px;
   height: 30px;
   margin-left: auto;
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 4px 0px 0px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
+      inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 /* Review Animation */
 
@@ -270,6 +287,8 @@ export const RP_Label = styled.label`
   }
 `;
 export const RP_Input = styled.input`
+  display: inline-block;
+  line-height: 30px;
   &[type='radio'] {
     display: none;
   }
@@ -278,7 +297,22 @@ export const RP_Input = styled.input`
   }
 `;
 export const RP_SubmitBtn = styled(ReviewButtonStyle)`
-  border: 2px solid #bfa78a;
+  background-image: url(${evaluate});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  border: none;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 /** modal
  * 사용처 : 리뷰 신고버튼,
@@ -301,7 +335,7 @@ export const M_Background = styled.div`
 export const M_ModalBox = styled.div`
   ${flexCenter}
   width: 220px;
-  height: 200px;
+  height: 250px;
   padding: 2rem;
   text-align: center;
   z-index: 6;
@@ -323,11 +357,16 @@ export const M_Fieldset = styled.fieldset`
   height: 100%;
 `;
 export const M_Legend = styled.legend`
-  font-size: 1.5rem;
+  font-size: 24px;
+  margin-bottom: 1rem;
 `;
-export const M_Textarea = styled.textarea<isError>`
-  margin-top: auto;
 
+export const M_SelectBox = styled.select`
+  margin-right: auto;
+  margin-bottom: 1rem;
+`;
+
+export const M_Textarea = styled.textarea<isError>`
   border: 1.5px solid ${({ isError }) => (isError ? 'red' : 'unset')};
 `;
 export const M_TextLabel = styled.label`
@@ -340,7 +379,20 @@ export const M_TextLabel = styled.label`
 `;
 export const M_Button = styled.button`
   display: inline-block;
-  margin-top: auto;
+  padding: 8px 16px;
+  color: #fff;
+  margin-top: 2.5rem;
+  background-color: #8c5c32;
+  border: none;
+  border-radius: 4px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 /* media query */
