@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import axios from 'axios';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const MyPost = () => {
-  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
+  const Cookies = getCookie('accessToken');
   const [posts, setPosts] = useState<S.Posts[]>([]);
   const navigate = useNavigate();
   const myPostAllGet = async () => {
     const res = await axios.get(`/api/post/list`, {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJlbWFpbCI6IndvZ25zMjA1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMjc5ODkwLCJleHAiOjE2NzIzNjI2OTB9.IZtselpL0IqEpof2ILpXlWxmS0c7NTCZlY7HysVtfic`,
+        authorization: `Bearer ${Cookies}`,
       },
     });
     const postList = res.data;

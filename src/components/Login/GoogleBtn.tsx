@@ -33,7 +33,7 @@ export const GoogleBtn: any = () => {
       `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`
     );
     console.log(email);
-    dispatch(getGoogleEmail(email));
+    dispatch(getGoogleEmail(email.data.email));
     await getAcessToken(email.data.email);
   };
   const getAcessToken = async (res: any) => {
@@ -48,12 +48,17 @@ export const GoogleBtn: any = () => {
         }
       )
       .then((res) => {
+        console.log(res.data);
         const jwtToken = res.data.accessToken;
         setCookie('accessToken', jwtToken);
         console.log(jwtToken);
         const Coockies = getCookie('accessToken');
         console.log(Coockies);
-        res.data.accessToken ? navigate('/home') : navigate('/login');
+        if (res.data.accessToken || res.data.role === 2) {
+          navigate('/home');
+        } else {
+          navigate('/login');
+        }
       });
   };
 
