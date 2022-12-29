@@ -46,14 +46,14 @@ export const ViewMore = () => {
         </S.MenuBox>
         <S.MenuBox
           onClick={() => {
-            clipCopy(INVITELINK);
+            cliping();
           }}
         >
           친구 초대
         </S.MenuBox>
         <S.MenuBox
           onClick={() => {
-            cliping();
+            navigate('/viewmore/recruit');
           }}
         >
           채용
