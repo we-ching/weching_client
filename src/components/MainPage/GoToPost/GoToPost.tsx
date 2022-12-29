@@ -1,5 +1,6 @@
 import * as S from './styled';
 import { mainApiUser } from '../styled';
+import React from 'react';
 
 import Letter from '../../../assets/images/mail.png';
 import Larrow from '../../../assets/images/left-arrow.png';
@@ -32,7 +33,7 @@ function SampleNextArrow(props: any) {
   );
 }
 
-function SamplePrevArrow(props: any) {
+function SamplePrevArrow(this: any, props: any) {
   const { className, style, onClick } = props;
   return (
     <img
@@ -69,12 +70,14 @@ export const GoToPost = () => {
         breakpoint: 600,
         settings: {
           arrows: true,
-          infinite: false,
+          infinite: true,
           speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
           swipe: true,
-          Arrows: false,
+          draggable: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
     ],
@@ -89,7 +92,7 @@ export const GoToPost = () => {
   }, []);
 
   const arr = post.posts;
-
+  console.log(arr);
   return (
     <>
       <S.GoToTextBox>
@@ -98,18 +101,22 @@ export const GoToPost = () => {
           칭찬을 확인해보세요
         </S.GoToTitle>
         <S.StyledSlider {...settings}>
-          {arr &&
+          {arr ? (
             arr.map((item: mainApiUser) => {
               return (
-                <Link to={`/mypage/mypost/`}>
+                <Link to={`/mypage/mypost/`} key={item.post.id}>
                   {item.post && (
                     <S.GoToTextContent
+                      isChecked={item.post.isChecked}
                       dangerouslySetInnerHTML={{ __html: item.post.content }}
                     ></S.GoToTextContent>
                   )}
                 </Link>
               );
-            })}
+            })
+          ) : (
+            <p>로그인이 필요한 기능입니다.</p>
+          )}
         </S.StyledSlider>
       </S.GoToTextBox>
     </>

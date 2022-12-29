@@ -11,6 +11,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppSelector } from '../../../store/config';
+import { isConstructorDeclaration } from 'typescript';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -60,6 +61,7 @@ export const NewMatch = () => {
     slidesToShow: 3,
     slidesToScroll: 3,
     swipe: true,
+    draggable: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 
@@ -67,8 +69,15 @@ export const NewMatch = () => {
       {
         breakpoint: 600,
         settings: {
+          arrows: true,
+          infinite: true,
+          speed: 500,
           slidesToShow: 1,
           slidesToScroll: 1,
+          swipe: true,
+          draggable: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
     ],
@@ -77,7 +86,6 @@ export const NewMatch = () => {
   const post: any = useAppSelector((state) => {
     return state.mainInfo.userInfo;
   });
-
   useEffect(() => {
     post;
   }, []);
@@ -91,7 +99,7 @@ export const NewMatch = () => {
           칭찬을 기다리고 있어요
         </S.NewMatchTitle>
         <S.StyledSlider {...settings}>
-          {arr &&
+          {arr ? (
             arr.map((item: toDoReviewType) => {
               return (
                 <Link to={`/reply/${item.id}`}>
@@ -100,7 +108,10 @@ export const NewMatch = () => {
                   ></S.NewMatchTextContent>
                 </Link>
               );
-            })}
+            })
+          ) : (
+            <p>로그인이 필요한 기능입니다</p>
+          )}
         </S.StyledSlider>
       </S.NewMatchTextBox>
     </>
