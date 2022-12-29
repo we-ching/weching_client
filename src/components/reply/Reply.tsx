@@ -3,13 +3,10 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import axios from 'axios';
 import { useState } from 'react';
-import { RandomPost } from './RandomPost';
+import RandomPost from './RandomPost';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
-
-/*
-TODO: 랜덤으로 매칭된 게시물 및 버튼은 리랜더링 할필요없으므로 리랜더링 막아주기
-*/
+import { getCookie } from '../Login/GoogleBtn';
 
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
@@ -17,6 +14,8 @@ export const Reply = () => {
   const params = useParams();
   const id = params.id;
   const submitHandler = async () => {
+    const token = getCookie('accessToken');
+    setBody('');
     await axios
       .patch(
         `/api/review`,
@@ -26,7 +25,7 @@ export const Reply = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
@@ -36,7 +35,8 @@ export const Reply = () => {
       })
       .catch((error) => {
         if (error.response.status === 400) {
-          return alert('이미 칭찬한 게시글 입니다❗️'); // 홈에서 막는게 나을듯
+          console.log(error);
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
         }
         navigate('/home');
       });

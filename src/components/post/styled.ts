@@ -10,6 +10,10 @@ export const Main = styled.main`
 
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 500px;
+
+    > p {
+      font: initial;
+    }
   }
 
   .ck.ck-toolbar {
@@ -48,4 +52,8 @@ export const Title = styled.h1`
 export const Tip = styled.header`
   text-align: center;
   font-size: 18px;
+
+  > div {
+    margin-top: 1rem;
+  }
 `;

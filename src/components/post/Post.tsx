@@ -6,12 +6,7 @@ import { useState, FC, useEffect } from 'react';
 import Tip from './Tip';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
-
-/*
-TODO: 글 이어서 작성하기 기능 구현
-  1) 세션스토리지에 저장 => 새로고침하거나 창 및 탭 닫으면 삭제 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-  2) 로컬스토리지에 저장 => 지우지 않는 한 남아있음 => 로그아웃하거나 글 올리기 버튼 클릭 시 삭제
-*/
+import { getCookie } from '../Login/GoogleBtn';
 
 export const Post: FC = () => {
   const [savedBody, setSavedBody] = useState<string | null>('');
@@ -19,6 +14,8 @@ export const Post: FC = () => {
   const navigate = useNavigate();
 
   const submitHandler = async () => {
+    const token = getCookie('accessToken');
+    setBody('');
     await axios
       .post(
         `/api/post`,
@@ -27,22 +24,21 @@ export const Post: FC = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
-            // credentials: 'include',
-            // withCredentials: true,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
       .then(() => {
-        alert('글 작성 완료(포인트가 3점 소모되었습니다.)');
+        alert('글 작성 완료 (포인트가 3점 소모되었습니다.)');
         sessionStorage.removeItem('myText');
         navigate('/home');
       })
       .catch((error) => {
-        if (error.response.status === 400) {
-          return alert('글을 작성할 수 있는 포인트가 부족합니다❗️');
-        }
         console.log(error);
+        if (error.response.status === 400) {
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
+        }
+        navigate('/home');
       });
   };
 
@@ -66,7 +62,6 @@ export const Post: FC = () => {
             toolbar: {
               items: ['bold', 'italic', 'link'],
             },
-            width: '300px',
           }}
           data={savedBody}
           onReady={(editor: any) => {

@@ -48,14 +48,14 @@ export const main = {
 };
 export const UserInfo = {
   id: 21,
-  email: "yeek0620@gmail.com",
-  nickname: "엘리스",
-  point: "10,000",
+  email: 'yeek0620@gmail.com',
+  nickname: '엘리스',
+  point: '10,000',
   status: 0,
   grade: 0,
   avg: null,
-  post_count: "2",
-  review_count: "5"
+  post_count: '2',
+  review_count: '5',
 };
 
 export const testOverlap = {
@@ -167,7 +167,71 @@ export const getNoticeArr = [
 ];
 
 export const getNotice = {
-  id: 1,
-  title: 'id를 통해 가져온 공지 제목1',
-  content: 'id 를 통해 가져온 공지 내용',
+  findMaxId: '31',
+  findAllCursor: [
+    {
+      id: '31',
+      title: 'test',
+      content: 'test',
+    },
+    {
+      id: '4',
+      title: 'dfdsf',
+      content:
+        '111 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias, laboriosam unde odit amet itaque tempore cupiditate dicta quia rem est ut natus, mollitia cum voluptate id necessitatibus quam blanditiis!',
+    },
+    {
+      id: '2',
+      title: 'updateTest',
+      content: 'tedsafasfasta1',
+    },
+    {
+      id: '5',
+      title: 'test',
+      content: 'test',
+    },
+    {
+      id: '4',
+      title: 'dfdsf',
+      content:
+        '111 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias, laboriosam unde odit amet itaque tempore cupiditate dicta quia rem est ut natus, mollitia cum voluptate id necessitatibus quam blanditiis!',
+    },
+    {
+      id: '2',
+      title: 'updateTest',
+      content: 'tedsafasfasta1',
+    },
+    {
+      id: '5',
+      title: 'test',
+      content: 'test',
+    },
+    {
+      id: '4',
+      title: 'dfdsf',
+      content:
+        '111 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias, laboriosam unde odit amet itaque tempore cupiditate dicta quia rem est ut natus, mollitia cum voluptate id necessitatibus quam blanditiis!',
+    },
+    {
+      id: '2',
+      title: 'updateTest',
+      content: 'tedsafasfasta1',
+    },
+    {
+      id: '5',
+      title: 'test',
+      content: 'test',
+    },
+    {
+      id: '4',
+      title: 'dfdsf',
+      content:
+        '111 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias, laboriosam unde odit amet itaque tempore cupiditate dicta quia rem est ut natus, mollitia cum voluptate id necessitatibus quam blanditiis!',
+    },
+    {
+      id: '2',
+      title: 'updateTest',
+      content: 'tedsafasfasta1',
+    },
+  ],
 };
