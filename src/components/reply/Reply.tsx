@@ -15,6 +15,10 @@ export const Reply = () => {
   const id = params.id;
   const submitHandler = async () => {
     const token = getCookie('accessToken');
+    if (!token) {
+      alert('로그인 후 이용해주세요❗️');
+      return navigate('/login');
+    }
     setBody('');
     await axios
       .patch(

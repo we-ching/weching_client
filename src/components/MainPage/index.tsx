@@ -36,15 +36,9 @@ export const MainPage = () => {
             ? dispatch(insertAlarm(Array.length))
             : console.log('isChecked가 모두 0');
         });
-      await axios
-        .get(`/api/main`, {
-          headers: {
-            authorization: `Bearer ${Cookies}`,
-          },
-        })
-        .then((res) => {
-          dispatch(insertSub(res.data));
-        });
+      await axios.get(`/api/main`).then((res) => {
+        dispatch(insertSub(res.data));
+      });
     } catch (err) {
       alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
