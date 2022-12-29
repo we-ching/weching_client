@@ -13,7 +13,6 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  // width: 430px;
   width: 100vw;
   height: 100vh;
   min-width: 200px;
@@ -24,8 +23,8 @@ export const AdminTitleContainer = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 100px;
   display: flex;
   flex-direction: column;
@@ -35,10 +34,6 @@ export const AdminTitleContainer = styled.div`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
-  :hover {
-    transform: translateY(2px);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  }
   .adminTitle {
     display: flex;
     flex-direction: row;
@@ -66,10 +61,8 @@ export const AdminNum = styled.div`
 `;
 
 export const Line = styled.div`
-  margin: 6px 0 6px 17px;
+  margin: 6px 17px;
 
-  // width: 339px;
-  width: 85vw;
   height: 0px;
   border: 1px solid #FFF;
 `;
@@ -97,13 +90,13 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   align-items: center;
 
-  background-color: #ffffff;
+  background-color: #FFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 

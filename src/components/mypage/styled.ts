@@ -16,7 +16,6 @@ export const Background = styled.div`
 export const Wrapper = styled.div`
   width: 100vw;
   min-width: 200px;
-  max-width: 1024px;
 `;
 
 export const MyPageContainer = styled.div`
@@ -33,11 +32,12 @@ export const ItemBox = styled.div`
 
   position: relative;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   align-items: center;
 
-  background-color: #ffffff;
+  background-color: #FFF;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 

@@ -14,7 +14,6 @@ export const Background = styled.div`
 export const Wrapper = styled.div`
   width: 100vw;
   min-width: 200px;
-  max-width: 1024px;
 `;
 
 export const adminNoticePage = styled.div`
@@ -30,8 +29,8 @@ export const adminNoticeTitle = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -41,10 +40,6 @@ export const adminNoticeTitle = styled.div`
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 
-  :hover {
-    transform: translateY(2px);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  }
   .noticeTitle {
     margin: 0 0 0 17px;
 
@@ -60,8 +55,8 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   align-items: center;

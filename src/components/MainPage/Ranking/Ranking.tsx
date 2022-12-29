@@ -14,34 +14,11 @@ interface RankingInfoType {
   avg: number,
 }
 
-const initialState: RankingInfoType[] = [
-  {
-    "rank": 1,
-    "user_id": 20,
-    "nickname": "테스트1",
-    "grade": 99,
-    "avg": 4.95
-  },
-  {
-    "rank": 2,
-    "user_id": 30,
-    "nickname": "테스트2",
-    "grade": 90,
-    "avg": 4.80
-  },
-  {
-    "rank": 3,
-    "user_id": 40,
-    "nickname": "테스트3",
-    "grade": 85,
-    "avg": 4.11
-  },
-]
 
 export const Ranking = () => {
   const navigate = useNavigate();
 
-  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>(initialState);
+  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>();
 
   const rankingInfo = async () => {
     try { 

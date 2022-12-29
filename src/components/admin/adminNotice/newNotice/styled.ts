@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   min-width: 200px;
-  max-width: 1024px;
 `;
 
 export const renewNotice = styled.div`
@@ -30,6 +29,7 @@ export const TitleContainer = styled.div`
 
   position: relative;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   flex-direction: column;
@@ -55,6 +55,7 @@ export const ContentForm = styled.form`
 
   position: relative;
   width: 90vw;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -73,15 +74,17 @@ export const SubTitle = styled.div`
 `;
 
 export const Inputs = styled.div`
-  margin: 17px 17px 0 17px;
+  margin: 17px 17px 0 10px;
 
   #TitleInput {
-    width: 84vw;
+    width: 100%;
+    max-width: 750px;
     height: 30px;
   }
   #ContentInput {
     margin: 17px 0;
-    width: 84vw;
+    width: 100%;
+    max-width: 750px;
     height: 370px;
   }
 `;

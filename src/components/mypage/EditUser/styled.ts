@@ -15,8 +15,8 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   align-items: center;

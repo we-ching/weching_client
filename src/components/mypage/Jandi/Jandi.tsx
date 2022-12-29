@@ -12,27 +12,9 @@ interface rankInfoType {
   month: string,
 }
 
-const initialState: rankInfoType[] = [
-  {
-    "user_id": 25,
-    "grade": "10",
-    "month": "2022-12-01T00:00:00.000Z"
-  },
-  {
-    "user_id": 25,
-    "grade": "5",
-    "month": "2022-11-01T00:00:00.000Z"
-  },
-  {
-    "user_id": 25,
-    "grade": "3",
-    "month": "2022-10-01T00:00:00.000Z"
-  }
-]
-
 export function Jandi() {
   const Cookies = getCookie('accessToken');
-  const [JandiInfo, setJandiInfo] = useState<rankInfoType[]>(initialState);
+  const [JandiInfo, setJandiInfo] = useState<rankInfoType[]>();
 
   const rankingInfo = async () => {
     try { 
@@ -43,9 +25,6 @@ export function Jandi() {
         },
       }).then(res => res.data)
       setJandiInfo(rank);
-
-      // 전처리
-      // rank = rank.map((element:) => {})
 
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);

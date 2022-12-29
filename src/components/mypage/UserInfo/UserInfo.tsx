@@ -7,10 +7,10 @@ import axios from 'axios';
 import * as S from './styled';
 
 interface UserInfoType {
-  id: number;
-  nickName: string;
-  point: null | number;
-  status: number;
+  id: number | null;
+  nickName: string | null;
+  point: number | null;
+  status: number | null;
   grade: null | number;
   avg: null | number;
   postCount: null | number;
@@ -18,14 +18,14 @@ interface UserInfoType {
 }
 
 const initialState = {
-  id: 21,
-  nickName: '엘리스',
-  point: 10000,
-  status: 0,
-  grade: 0,
-  avg: 0.2,
-  postCount: 2,
-  reviewCount: 5,
+  id: null,
+  nickName: null,
+  point: null,
+  status: null,
+  grade: null,
+  avg: null,
+  postCount: null,
+  reviewCount: null,
 };
 
 export function UserInfo() {
