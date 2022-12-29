@@ -12,7 +12,7 @@ import { MyPost } from './components/mypage/MyPost';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { Post } from './components/post/Post';
 import { Alarm } from './components/MainPage/Alarm/alarm';
-import { LoginForm } from './components/Login/LoginForm';
+import { LoginForm, GuestLoginForm } from './components/Login/';
 import { NotFound } from './components/NotFound';
 import { NavBar } from './components/NavBar';
 import { ViewMore } from './components/ViewMore';
@@ -60,6 +60,7 @@ const App: FC = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/login/guest" element={<GuestLoginForm />} />
         </Routes>
       </div>
     </>
