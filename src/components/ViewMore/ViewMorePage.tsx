@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate, Router, Route } from 'react-router-dom';
-import { Recruit } from './StaticPageRecruit';
+import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 import { removeCookie } from '../Login/GoogleBtn';
 
 export const ViewMore = () => {
   const navigate = useNavigate();
-  const INVITELINK = location.host;
 
   const cliping = ():any => {
     if (navigator.share) {

@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
   width: 100vw;
   height: 100%;
   margin: auto;
   background-color: #f0f0f0;
   color: #444444;
-
   ::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
-
   button {
     position: absolute;
     top: 100px;
