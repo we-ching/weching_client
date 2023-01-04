@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import * as S from './styled';
 import { SummitContainer } from '../SummitContainer';
 import { useState } from 'react';
@@ -25,14 +25,11 @@ export const Nav = () => {
   const user: any = useAppSelector((state) => {
     return state.mainInfo.userInfo;
   });
-  console.log(user);
   user.user
     ? setCookie('navNick', user.user.nickName)
     : setCookie('navNick', '방문자');
 
   const userNick = getCookie('navNick');
-
-  // const currentURL = useLocation();
   const navigate = useNavigate();
 
   const [activeHome, setActiveHome] = useState(true);

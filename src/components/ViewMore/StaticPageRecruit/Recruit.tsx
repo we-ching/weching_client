@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import * as S from './styled';
 
 
 export const Recruit = () => {
-    const navigate = useNavigate();
 
     return (
     <S.ContentContainer>
