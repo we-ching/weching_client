@@ -4,10 +4,7 @@ import { getCookie } from '../../Login/GoogleBtn';
 import { IconBookmark } from '../../NavBar/Mark';
 import { useState } from 'react';
 
-export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({
-  id,
-  isBookmarked,
-}) => {
+export const ReviewBookmarkBtn: React.FC<S.reviewId> = ({ id }) => {
   const [isClick, setIsClick] = useState<boolean>(false);
   const Cookies = getCookie('accessToken');
   const onClickHandler = async () => {

@@ -25,7 +25,6 @@ export const GoogleBtn: any = () => {
   const login = useGoogleLogin({
     onSuccess: (credential) => {
       getEmail(credential.access_token);
-      console.log(credential);
     },
     flow: 'implicit',
   });
@@ -33,7 +32,6 @@ export const GoogleBtn: any = () => {
     const email = await axios.get(
       `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`
     );
-    console.log(email);
     dispatch(getGoogleEmail(email.data.email));
     await getAcessToken(email.data.email);
   };

@@ -48,7 +48,7 @@ export const LoginForm = () => {
             },
           }
         )
-        .then((res) => {
+        .then(() => {
           getAcessToken();
         });
     } catch (err) {

@@ -1,14 +1,10 @@
 import axios from 'axios';
 import * as S from './styled';
-import { useAppSelector } from '../../../store/config';
 import { useEffect } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
 
 export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
   const Cookies = getCookie('accessToken');
-  const isClicked = useAppSelector((state) => {
-    return state.myPost.isClicked;
-  });
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     try {

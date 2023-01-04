@@ -280,25 +280,6 @@ export const ReviewReportBtnImage = styled(ReviewButtonStyle)`
 export const BookmarkCon = styled.div`
   margin-left: auto;
 `;
-// export const ReviewBookmarkBtn = styled(ReviewButtonStyle)`
-//   background-image: url();
-//   background-size: contain;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   border: none;
-//   width: 50px;
-//   height: 30px;
-//   margin-left: auto;
-//   box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1),
-//     0px 4px 0px 0px rgba(0, 0, 0, 0.1);
-//   &:active {
-//     box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
-//       -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
-//       inset -2px -2px 4px 0 rgba(255, 255, 255, 0.2),
-//       inset 2px 2px 3px 0 rgba(0, 0, 0, 0.2);
-//   }
-// `;
-/* Review Animation */
 
 /* Ranking Point */
 export const RP_Form = styled.form`
@@ -423,10 +404,3 @@ export const M_Button = styled.button`
       inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
   }
 `;
-
-/* media query */
-// @media (min-width: 1024px) {
-// 	width: 60vw;
-//   margin: 0 auto;
-
-// }

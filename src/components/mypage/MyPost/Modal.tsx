@@ -1,16 +1,14 @@
 import * as S from './styled';
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
 import { isClicked } from '../../../myPostSlice';
 import { useAppDispatch, useAppSelector } from '../../../store/config';
 import { getCookie } from '../../Login/GoogleBtn';
 
-export const Modal: React.FC<S.reviewId> = ({ review }) => {
+export const Modal: React.FC<S.reviewId> = () => {
   const Cookies = getCookie('accessToken');
   const [isError, setIsError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const location = useLocation();
   const isClick = useAppSelector((state) => {
     return state.myPost.isClicked;
   });
@@ -23,7 +21,6 @@ export const Modal: React.FC<S.reviewId> = ({ review }) => {
     const reviewContent = target.content.value;
     const reportType = target.reportType.value;
     const reportBtn = target.querySelector('button');
-    console.log(target);
     const type = reportType;
     if (reviewContent.length === 0) {
       setIsError(true);

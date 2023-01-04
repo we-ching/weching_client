@@ -20,9 +20,6 @@ export const MyPost = () => {
   useEffect(() => {
     myPostAllGet();
   }, []);
-  {
-    console.log(posts);
-  }
   return (
     <S.Container>
       <S.PostCon>
