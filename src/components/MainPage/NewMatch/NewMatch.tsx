@@ -9,9 +9,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useAppSelector } from '../../../store/config';
+import { useEffect, useState } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
+import axios from 'axios';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -54,7 +54,6 @@ function SamplePrevArrow(props: any) {
 }
 
 export const NewMatch = () => {
-  const Cookies = getCookie('accessToken');
   const settings = {
     arrows: true,
     infinite: false,
@@ -84,13 +83,27 @@ export const NewMatch = () => {
     ],
   };
 
-  const post: any = useAppSelector((state) => {
-    return state.mainInfo.userInfo;
-  });
+  const Cookies = getCookie('accessToken');
+  const [todoReview, setToDoReview] = useState<any>();
+  const todoReviewReq = async () => {
+    try {
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer ${Cookies}`,
+          },
+        })
+        .then((res) => {
+          setToDoReview(res.data.todoReview);
+        });
+    } catch (err) {
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
+
   useEffect(() => {
-    post;
+    todoReviewReq();
   }, []);
-  const arr = post.todoReview;
 
   return (
     <>
@@ -101,8 +114,8 @@ export const NewMatch = () => {
         </S.NewMatchTitle>
         <S.StyledSlider {...settings}>
           {Cookies ? (
-            arr &&
-            arr.map((item: toDoReviewType) => {
+            todoReview &&
+            todoReview.map((item: toDoReviewType) => {
               return (
                 <Link to={`/reply/${item.id}`}>
                   <S.NewMatchTextContent
