@@ -42,7 +42,6 @@ const App: FC = () => {
             <Route path="/home/ranking" element={<RankingDetail />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/mypage/mypost" element={<MyPost />} />
-            <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
             <Route path="/post" element={<Post />} />
             <Route path="/reply/:id" element={<Reply />} />
             <Route path="/notice" element={<Notice />} />
@@ -57,6 +56,7 @@ const App: FC = () => {
             <Route path="/admin/notice/renew" element={<RenewNotice />} />
             <Route path="/admin/report" element={<AdminReport />} />
           </Route>
+          <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginForm />} />

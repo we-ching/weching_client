@@ -6,6 +6,7 @@ import { ReviewReportBtn } from './Report';
 import { ReviewBookmarkBtn } from './Bookmark';
 import axios from 'axios';
 import { getCookie } from '../../Login/GoogleBtn';
+import { NavBar } from '../../NavBar';
 
 export const MyPostDetail = () => {
   const Cookies = getCookie('accessToken');
@@ -22,8 +23,12 @@ export const MyPostDetail = () => {
   useEffect(() => {
     detailPage();
   }, []);
+
+  post.post && (post.post.isChecked = 0);
+
   return (
     <S.Container>
+      <NavBar />
       <S.PostCon>
         <S.Title>내가 쓴 글</S.Title>
         <S.Post>

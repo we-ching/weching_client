@@ -2,26 +2,40 @@ import * as S from './styled';
 import { mainApiUser } from '../styled';
 
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useAppSelector } from '../../../store/config';
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
+import axios from 'axios';
 
 export const Alarm = () => {
-  const postAlarm: any = useAppSelector((state) => {
-    return state.mainInfo.userInfo;
-  });
+  const Cookies = getCookie('accessToken');
+  const [post, setPost] = useState<any>([]);
+  const postReq = async () => {
+    try {
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer ${Cookies}`,
+          },
+        })
+        .then((res) => {
+          setPost([...post, ...res.data.posts]);
+        });
+    } catch (err) {
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
 
   useEffect(() => {
-    postAlarm;
+    postReq();
   }, []);
 
-  const arr = postAlarm.posts;
-  const Array = arr.filter((item: mainApiUser) => {
+  const Array = post.filter((item: mainApiUser) => {
     return item.post.isChecked == 1;
   });
 
   return (
     <S.Container>
-      {Array &&
+      {Array.length > 0 ? (
         Array.map((item: mainApiUser) => {
           return (
             <Link to={`/mypage/mypost/${item.post.id}`}>
@@ -30,7 +44,12 @@ export const Alarm = () => {
               </S.Message>
             </Link>
           );
-        })}
+        })
+      ) : (
+        <S.Message>
+          <S.MessageContent>아직 새로운 칭찬이 없어요.</S.MessageContent>
+        </S.Message>
+      )}
     </S.Container>
   );
 };

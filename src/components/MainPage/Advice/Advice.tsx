@@ -1,16 +1,37 @@
 import * as S from './styled';
-import { useAppSelector } from '../../../store/config';
 
 import Present from '../../../assets/images/Rectangle-1.png';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+interface adviceType {
+  author: string;
+  authorprofile: string;
+  message: string;
+  id: number;
+}
+
+const initalAdvice = {
+  author: '',
+  authorprofile: '',
+  message: '',
+  id: 0,
+};
 
 export const Advice = () => {
-  const advice: any = useAppSelector((state) => {
-    return state.mainInfo.subInfo;
-  });
+  const [advice, setAdvice] = useState<adviceType>(initalAdvice);
+  const adviceReq = async () => {
+    try {
+      await axios.get(`/api/main`).then((res) => {
+        setAdvice({ ...advice, ...res.data.advice });
+      });
+    } catch (err) {
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
 
   useEffect(() => {
-    advice;
+    adviceReq();
   }, []);
 
   return (
@@ -19,15 +40,11 @@ export const Advice = () => {
         <S.Advice>
           <S.AdviceTitle>한 줄 명언 </S.AdviceTitle>
           <S.Image src={Present} />
-          <S.AdviceContent>
-            {advice.advice && advice.advice.message}
-          </S.AdviceContent>
+          <S.AdviceContent>{advice && advice.message}</S.AdviceContent>
           <S.AdviceAuthor>
             {advice &&
               `
-          ${advice.advice && advice.advice.author} (${
-                advice.advice && advice.advice.authorprofile
-              })`}
+          ${advice && advice.author} (${advice && advice.authorprofile})`}
           </S.AdviceAuthor>
         </S.Advice>
       </S.Grid>

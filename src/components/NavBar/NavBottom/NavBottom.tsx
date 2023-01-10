@@ -1,8 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom';
 import * as S from './styled';
 import { SummitContainer } from '../SummitContainer';
-import { useState } from 'react';
-import { useAppSelector } from '../../../store/config';
+import { useEffect, useState } from 'react';
 import { getCookie, setCookie } from '../../Login/GoogleBtn';
 
 import {
@@ -13,23 +12,44 @@ import {
   IconVertical,
   IconAlarm,
 } from '../Mark';
+import axios from 'axios';
+import { mainApiUser } from '../../MainPage/styled';
 
 const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
 
 export const Nav = () => {
   const Cookies = getCookie('accessToken');
-  const alarmInfo: any = useAppSelector((state) => {
-    return state.mainInfo.alarm;
-  });
-  const user: any = useAppSelector((state) => {
-    return state.mainInfo.userInfo;
-  });
-  user.user
-    ? setCookie('navNick', user.user.nickName)
-    : setCookie('navNick', '방문자');
+  const [userNick, setUserNick] = useState<string>('방문자');
+  const [Array, setArray] = useState<number>(0);
+  const postReq = async () => {
+    try {
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer ${Cookies}`,
+          },
+        })
+        .then((res) => {
+          setUserNick(res.data.user.nickName);
+          setArray(
+            res.data.posts.filter((item: mainApiUser) => {
+              return item.post.isChecked == 1;
+            })
+          );
+        });
+    } catch (err) {
+      alert(`3. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
 
-  const userNick = getCookie('navNick');
+  useEffect(() => {
+    postReq();
+  }, []);
+
+  userNick && setCookie('navNick', userNick);
+
+  const nickName = getCookie('navNick');
   const navigate = useNavigate();
 
   const [activeHome, setActiveHome] = useState(true);
@@ -59,12 +79,12 @@ export const Nav = () => {
             setActiveAlarm(true);
           }}
         >
-          <S.UserNick>{userNick}님 반가워요!</S.UserNick>
+          <S.UserNick>{Cookies ? nickName : '방문자'}님 반가워요!</S.UserNick>
           <IconAlarm
             fill={activeAlarm ? clickColor : nonClickColor}
             stroke={activeAlarm ? clickColor : nonClickColor}
           />
-          {alarmInfo == 0 ? <S.NoDot /> : <S.RedDot />}
+          {Array == 0 ? <S.NoDot /> : <S.RedDot />}
         </S.HeaderMenuBox>
       </S.HeaderContainer>
       <S.NavBottomContainer>

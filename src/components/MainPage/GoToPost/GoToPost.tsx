@@ -1,6 +1,6 @@
 import * as S from './styled';
 import { mainApiUser } from '../styled';
-import React from 'react';
+import React, { useState } from 'react';
 
 import Letter from '../../../assets/images/mail.png';
 import Larrow from '../../../assets/images/left-arrow.png';
@@ -11,8 +11,8 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useAppSelector } from '../../../store/config';
 import { getCookie } from '../../Login/GoogleBtn';
+import axios from 'axios';
 
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
@@ -55,7 +55,6 @@ function SamplePrevArrow(this: any, props: any) {
 }
 
 export const GoToPost = () => {
-  const Cookies = getCookie('accessToken');
   const settings = {
     arrows: true,
     infinite: false,
@@ -84,16 +83,28 @@ export const GoToPost = () => {
       },
     ],
   };
-
-  const post: any = useAppSelector((state) => {
-    return state.mainInfo.userInfo;
-  });
+  const Cookies = getCookie('accessToken');
+  const [post, setPost] = useState<any>([]);
+  const postReq = async () => {
+    try {
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer ${Cookies}`,
+          },
+        })
+        .then((res) => {
+          setPost([...post, ...res.data.posts]);
+        });
+    } catch (err) {
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
 
   useEffect(() => {
-    post;
+    postReq();
   }, []);
 
-  const arr = post.posts;
   return (
     <>
       <S.GoToTextBox>
@@ -103,8 +114,8 @@ export const GoToPost = () => {
         </S.GoToTitle>
         <S.StyledSlider {...settings}>
           {Cookies ? (
-            arr &&
-            arr.map((item: mainApiUser) => {
+            post &&
+            post.map((item: mainApiUser) => {
               return (
                 <Link to={`/mypage/mypost/`} key={item.post.id}>
                   {item.post && (
