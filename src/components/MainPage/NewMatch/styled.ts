@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
 
+export interface arrowPropsType {
+  className: string;
+  style: React.CSSProperties | undefined;
+  onClick: React.MouseEventHandler<HTMLImageElement> | undefined;
+}
+
 export interface toDoReviewType {
   content: string;
   id: number;

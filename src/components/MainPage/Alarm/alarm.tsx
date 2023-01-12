@@ -1,5 +1,5 @@
 import * as S from './styled';
-import { mainApiUser } from '../styled';
+import { mainApiUserType } from '../styled';
 
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export const Alarm = () => {
   const Cookies = getCookie('accessToken');
-  const [post, setPost] = useState<any>([]);
+  const [post, setPost] = useState<mainApiUserType[]>([]);
   const postReq = async () => {
     try {
       await axios
@@ -29,14 +29,14 @@ export const Alarm = () => {
     postReq();
   }, []);
 
-  const Array = post.filter((item: mainApiUser) => {
+  const Array = post.filter((item: mainApiUserType) => {
     return item.post.isChecked == 1;
   });
 
   return (
     <S.Container>
       {Array.length > 0 ? (
-        Array.map((item: mainApiUser) => {
+        Array.map((item: mainApiUserType) => {
           return (
             <Link to={`/mypage/mypost/${item.post.id}`}>
               <S.Message>

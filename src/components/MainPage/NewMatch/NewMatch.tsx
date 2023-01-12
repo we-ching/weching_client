@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
-function SampleNextArrow(props: any) {
+function SampleNextArrow(props: S.arrowPropsType) {
   const { className, style, onClick } = props;
   return (
     <img
@@ -33,7 +33,7 @@ function SampleNextArrow(props: any) {
   );
 }
 
-function SamplePrevArrow(props: any) {
+function SamplePrevArrow(props: S.arrowPropsType) {
   const { className, style, onClick } = props;
   return (
     <img
@@ -62,8 +62,12 @@ export const NewMatch = () => {
     slidesToScroll: 3,
     swipe: true,
     draggable: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: (
+      <SampleNextArrow className={''} style={undefined} onClick={undefined} />
+    ),
+    prevArrow: (
+      <SamplePrevArrow className={''} style={undefined} onClick={undefined} />
+    ),
 
     responsive: [
       {
@@ -76,15 +80,27 @@ export const NewMatch = () => {
           slidesToScroll: 1,
           swipe: true,
           draggable: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
+          nextArrow: (
+            <SampleNextArrow
+              className={''}
+              style={undefined}
+              onClick={undefined}
+            />
+          ),
+          prevArrow: (
+            <SamplePrevArrow
+              className={''}
+              style={undefined}
+              onClick={undefined}
+            />
+          ),
         },
       },
     ],
   };
 
   const Cookies = getCookie('accessToken');
-  const [todoReview, setToDoReview] = useState<any>();
+  const [todoReview, setToDoReview] = useState<toDoReviewType[]>([]);
   const todoReviewReq = async () => {
     try {
       Cookies &&
@@ -116,7 +132,7 @@ export const NewMatch = () => {
         <S.StyledSlider {...settings}>
           {Cookies ? (
             todoReview &&
-            todoReview.map((item: toDoReviewType) => {
+            todoReview.map((item) => {
               return (
                 <Link to={`/reply/${item.id}`}>
                   <S.NewMatchTextContent
