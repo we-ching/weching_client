@@ -87,15 +87,16 @@ export const GoToPost = () => {
   const [post, setPost] = useState<any>([]);
   const postReq = async () => {
     try {
-      await axios
-        .get(`/api/main/user`, {
-          headers: {
-            authorization: `Bearer ${Cookies}`,
-          },
-        })
-        .then((res) => {
-          setPost([...post, ...res.data.posts]);
-        });
+      Cookies &&
+        (await axios
+          .get(`/api/main/user`, {
+            headers: {
+              authorization: `Bearer ${Cookies}`,
+            },
+          })
+          .then((res) => {
+            setPost([...post, ...res.data.posts]);
+          }));
     } catch (err) {
       alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }

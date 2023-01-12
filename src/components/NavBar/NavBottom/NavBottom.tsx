@@ -24,20 +24,21 @@ export const Nav = () => {
   const [Array, setArray] = useState<number>(0);
   const postReq = async () => {
     try {
-      await axios
-        .get(`/api/main/user`, {
-          headers: {
-            authorization: `Bearer ${Cookies}`,
-          },
-        })
-        .then((res) => {
-          setUserNick(res.data.user.nickName);
-          setArray(
-            res.data.posts.filter((item: mainApiUser) => {
-              return item.post.isChecked == 1;
-            })
-          );
-        });
+      Cookies &&
+        (await axios
+          .get(`/api/main/user`, {
+            headers: {
+              authorization: `Bearer ${Cookies}`,
+            },
+          })
+          .then((res) => {
+            setUserNick(res.data.user.nickName);
+            setArray(
+              res.data.posts.filter((item: mainApiUser) => {
+                return item.post.isChecked == 1;
+              })
+            );
+          }));
     } catch (err) {
       alert(`3. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }

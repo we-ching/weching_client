@@ -87,15 +87,16 @@ export const NewMatch = () => {
   const [todoReview, setToDoReview] = useState<any>();
   const todoReviewReq = async () => {
     try {
-      await axios
-        .get(`/api/main/user`, {
-          headers: {
-            authorization: `Bearer ${Cookies}`,
-          },
-        })
-        .then((res) => {
-          setToDoReview(res.data.todoReview);
-        });
+      Cookies &&
+        (await axios
+          .get(`/api/main/user`, {
+            headers: {
+              authorization: `Bearer ${Cookies}`,
+            },
+          })
+          .then((res) => {
+            setToDoReview(res.data.todoReview);
+          }));
     } catch (err) {
       alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
