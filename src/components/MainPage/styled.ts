@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export interface mainApiUser {
+export interface mainApiUserType {
   post: postApi;
   reviews: reviewApi;
 }

@@ -1,5 +1,4 @@
 import * as S from './styled';
-import { useEffect } from 'react';
 
 import { NewMatch } from './NewMatch/NewMatch';
 import { Advice } from './Advice/Advice';

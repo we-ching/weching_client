@@ -4,22 +4,8 @@ import Present from '../../../assets/images/Rectangle-1.png';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-interface adviceType {
-  author: string;
-  authorprofile: string;
-  message: string;
-  id: number;
-}
-
-const initalAdvice = {
-  author: '',
-  authorprofile: '',
-  message: '',
-  id: 0,
-};
-
 export const Advice = () => {
-  const [advice, setAdvice] = useState<adviceType>(initalAdvice);
+  const [advice, setAdvice] = useState<S.adviceType>(S.initalAdvice);
   const adviceReq = async () => {
     try {
       await axios.get(`/api/main`).then((res) => {

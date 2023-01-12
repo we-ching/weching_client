@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export interface adviceType {
+  author: string;
+  authorprofile: string;
+  message: string;
+  id: number;
+}
+
+export const initalAdvice = {
+  author: '',
+  authorprofile: '',
+  message: '',
+  id: 0,
+};
+
 export const Grid: any = styled.div`
   @media (min-width: 1024px) {
     grid-area: advice;

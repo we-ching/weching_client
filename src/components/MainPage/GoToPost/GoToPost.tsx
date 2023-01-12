@@ -1,6 +1,6 @@
 import * as S from './styled';
-import { mainApiUser } from '../styled';
-import React, { useState } from 'react';
+import { mainApiUserType } from '../styled';
+import React, { useState, useEffect } from 'react';
 
 import Letter from '../../../assets/images/mail.png';
 import Larrow from '../../../assets/images/left-arrow.png';
@@ -10,11 +10,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
-function SampleNextArrow(props: any) {
+interface arrowPropsType {
+  className: string;
+  style: React.CSSProperties | undefined;
+  onClick: React.MouseEventHandler<HTMLImageElement> | undefined;
+}
+
+function SampleNextArrow(props: arrowPropsType) {
   const { className, style, onClick } = props;
   return (
     <img
@@ -34,7 +39,7 @@ function SampleNextArrow(props: any) {
   );
 }
 
-function SamplePrevArrow(this: any, props: any) {
+function SamplePrevArrow(props: arrowPropsType) {
   const { className, style, onClick } = props;
   return (
     <img
@@ -63,8 +68,12 @@ export const GoToPost = () => {
     slidesToScroll: 3,
     swipeToScroll: true,
     draggable: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: (
+      <SampleNextArrow className={''} style={undefined} onClick={undefined} />
+    ),
+    prevArrow: (
+      <SamplePrevArrow className={''} style={undefined} onClick={undefined} />
+    ),
 
     responsive: [
       {
@@ -77,14 +86,26 @@ export const GoToPost = () => {
           slidesToScroll: 1,
           swipe: true,
           draggable: true,
-          nextArrow: <SampleNextArrow />,
-          prevArrow: <SamplePrevArrow />,
+          nextArrow: (
+            <SampleNextArrow
+              className={''}
+              style={undefined}
+              onClick={undefined}
+            />
+          ),
+          prevArrow: (
+            <SamplePrevArrow
+              className={''}
+              style={undefined}
+              onClick={undefined}
+            />
+          ),
         },
       },
     ],
   };
   const Cookies = getCookie('accessToken');
-  const [post, setPost] = useState<any>([]);
+  const [post, setPost] = useState<mainApiUserType[]>([]);
   const postReq = async () => {
     try {
       Cookies &&
@@ -116,7 +137,7 @@ export const GoToPost = () => {
         <S.StyledSlider {...settings}>
           {Cookies ? (
             post &&
-            post.map((item: mainApiUser) => {
+            post.map((item) => {
               return (
                 <Link to={`/mypage/mypost/`} key={item.post.id}>
                   {item.post && (

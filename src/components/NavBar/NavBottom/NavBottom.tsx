@@ -13,7 +13,7 @@ import {
   IconAlarm,
 } from '../Mark';
 import axios from 'axios';
-import { mainApiUser } from '../../MainPage/styled';
+import { mainApiUserType } from '../../MainPage/styled';
 
 const clickColor = '#8C5C32';
 const nonClickColor = '#BFA78A';
@@ -34,7 +34,7 @@ export const Nav = () => {
           .then((res) => {
             setUserNick(res.data.user.nickName);
             setArray(
-              res.data.posts.filter((item: mainApiUser) => {
+              res.data.posts.filter((item: mainApiUserType) => {
                 return item.post.isChecked == 1;
               })
             );
