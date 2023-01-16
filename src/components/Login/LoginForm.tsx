@@ -61,7 +61,6 @@ export const LoginForm = () => {
           getAcessToken();
         });
     } catch (err: any) {
-      console.log(err);
       alert(`${err.response.data.message}`);
     }
   };
