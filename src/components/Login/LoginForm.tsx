@@ -34,7 +34,16 @@ export const LoginForm = () => {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const userData = { nickName: nicknameRef.current?.value };
+      const userData = { nickName: nicknameRef.current?.value.trim() };
+      await axios.post(
+        `/api/main/checkName`,
+        { ...userData },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       await axios
         .post(
           `/api/guest`,
@@ -51,14 +60,18 @@ export const LoginForm = () => {
         .then(() => {
           getAcessToken();
         });
-    } catch (err) {
-      alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    } catch (err: any) {
+      console.log(err);
+      alert(`${err.response.data.message}`);
     }
   };
 
   return (
     <S.Container>
       <S.FormCon>
+        <div style={{ height: '50' }}>
+          <img src="/logo.png" width={55} alt="위칭 메인 로고" />
+        </div>
         <S.LoginTitle>환영합니다!</S.LoginTitle>
         <S.Form onSubmit={submitHandler}>
           <S.InputBox>
