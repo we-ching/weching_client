@@ -15,13 +15,16 @@ export const LandingPage = () => {
       setBottomCheck(window.scrollY);
     }
   };
+  let observer = new IntersectionObserver((e)=>{
+    e
+  });
   const navigate = useNavigate();
 
   return (
     <S.LandingPageContainer>
-      {bottomCheck >= 0 ? (
+      {
         <S.TitleContents>오늘도 당신의 가치는 빛났습니다!</S.TitleContents>
-      ) : null}
+      }
       {bottomCheck >= 0 ? (
         <S.ImgOne>
           <img src={imgOne} alt="당신을 위한 엄지척" />
