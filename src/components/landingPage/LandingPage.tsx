@@ -18,6 +18,8 @@ export const LandingPage = () => {
   let observer = new IntersectionObserver((e)=>{
     e
   });
+
+  let observeObj = document.querySelector('div')
   const navigate = useNavigate();
 
   return (
