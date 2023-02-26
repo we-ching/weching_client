@@ -28,7 +28,7 @@ import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
 import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
 
-const baseURL = 'http://13.125.218.237';
+const baseURL = 'http://3.35.65.74';
 axios.defaults.baseURL = baseURL;
 
 const App: FC = () => {
