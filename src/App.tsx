@@ -28,7 +28,7 @@ import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
 import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
 
-const baseURL = 'http://kdt-sw3-team09.elicecoding.com';
+const baseURL = 'http://13.125.218.237';
 axios.defaults.baseURL = baseURL;
 
 const App: FC = () => {
