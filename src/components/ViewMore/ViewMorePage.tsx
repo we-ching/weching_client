@@ -5,17 +5,17 @@ import { removeCookie } from '../Login/GoogleBtn';
 export const ViewMore = () => {
   const navigate = useNavigate();
 
-  const cliping = ():any => {
+  const cliping = (): any => {
     if (navigator.share) {
       navigator.share({
         title: '친구 초대',
-        text: "친구 초대",
-        url: 'http://kdt-sw3-team09.elicecoding.com/',
+        text: '친구 초대',
+        url: 'http://ec2-3-35-65-74.ap-northeast-2.compute.amazonaws.com',
       });
     } else {
       alert('모바일 웹에서만 사용가능한 기능입니다.');
     }
-  }
+  };
 
   return (
     <S.BackGround>

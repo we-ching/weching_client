@@ -28,7 +28,7 @@ import { NewNotice } from './components/admin/adminNotice/newNotice/newNotice';
 import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNotice';
 import { AdminReport } from './components/admin/adminReport/adminReport';
 
-const baseURL = 'http://3.35.65.74';
+const baseURL = 'http://ec2-3-35-65-74.ap-northeast-2.compute.amazonaws.com';
 axios.defaults.baseURL = baseURL;
 
 const App: FC = () => {
