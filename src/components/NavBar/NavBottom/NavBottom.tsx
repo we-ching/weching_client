@@ -31,7 +31,7 @@ export const Nav = () => {
               authorization: `Bearer ${Cookies}`,
             },
           })
-          .then((res) => {
+          .then((res:any) => {
             setUserNick(res.data.user.nickName);
             setArray(
               res.data.posts.filter((item: mainApiUserType) => {
@@ -53,12 +53,14 @@ export const Nav = () => {
   const nickName = getCookie('navNick');
   const navigate = useNavigate();
 
-  const [activeHome, setActiveHome] = useState(true);
-  const [activeBook, setActiveBook] = useState(false);
-  const [activePlus, setActivePlus] = useState(false);
-  const [activeUser, setActiveUser] = useState(false);
-  const [activeVerti, setActiveVerti] = useState(false);
-  const [activeAlarm, setActiveAlarm] = useState(false);
+  const [navActive, setNavActive] = useState({
+    activeHome: false,
+    activeBook: false,
+    activePlus: false,
+    activeUser: false,
+    activeVerti: false,
+    activeAlarm: false,
+  })
 
   return (
     <SummitContainer>
@@ -72,18 +74,13 @@ export const Nav = () => {
           onClick={() => {
             if (Cookies) navigate('/alarm');
             else navigate('/login/guest');
-            setActiveHome(false);
-            setActiveBook(false);
-            setActivePlus(false);
-            setActiveUser(false);
-            setActiveVerti(false);
-            setActiveAlarm(true);
+            setNavActive({...navActive, activeAlarm: true})
           }}
         >
           <S.UserNick>{Cookies ? nickName : '방문자'}님 반가워요!</S.UserNick>
           <IconAlarm
-            fill={activeAlarm ? clickColor : nonClickColor}
-            stroke={activeAlarm ? clickColor : nonClickColor}
+            fill={navActive.activeAlarm ? clickColor : nonClickColor}
+            stroke={navActive.activeAlarm ? clickColor : nonClickColor}
           />
           {Array == 0 ? <S.NoDot /> : <S.RedDot />}
         </S.HeaderMenuBox>
@@ -92,52 +89,37 @@ export const Nav = () => {
         <S.NavMenuBox
           onClick={() => {
             navigate('/home');
-            setActiveHome(true);
-            setActiveBook(false);
-            setActivePlus(false);
-            setActiveUser(false);
-            setActiveVerti(false);
-            setActiveAlarm(false);
+            setNavActive({...navActive, activeHome: true})
           }}
         >
           <IconHome
-            fill={activeHome ? clickColor : nonClickColor}
-            stroke={activeHome ? clickColor : nonClickColor}
+            fill={navActive.activeHome ? clickColor : nonClickColor}
+            stroke={navActive.activeHome ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
             if (Cookies) navigate('/bookmark');
             else navigate('/login/guest');
-            setActiveHome(false);
-            setActiveBook(true);
-            setActivePlus(false);
-            setActiveUser(false);
-            setActiveVerti(false);
-            setActiveAlarm(false);
+            setNavActive({...navActive, activeBook: true})
           }}
         >
           <IconBookmark
-            fill={activeBook ? clickColor : nonClickColor}
-            stroke={activeBook ? clickColor : nonClickColor}
+            fill={navActive.activeBook ? clickColor : nonClickColor}
+            stroke={navActive.activeBook ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
         <S.NavPostBox
           onClick={() => {
             if (Cookies) navigate('/post');
             else navigate('/login/guest');
-            setActiveHome(false);
-            setActiveBook(false);
-            setActivePlus(true);
-            setActiveUser(false);
-            setActiveVerti(false);
-            setActiveAlarm(false);
+            setNavActive({...navActive, activePlus: true})
           }}
         >
           <S.PlusWrap>
             <IconPlus
-              fill={activePlus ? clickColor : nonClickColor}
-              stroke={activePlus ? clickColor : nonClickColor}
+              fill={navActive.activePlus ? clickColor : nonClickColor}
+              stroke={navActive.activePlus ? clickColor : nonClickColor}
             />
           </S.PlusWrap>
         </S.NavPostBox>
@@ -145,34 +127,24 @@ export const Nav = () => {
           onClick={() => {
             if (Cookies) navigate('/mypage');
             else navigate('/login/guest');
-            setActiveHome(false);
-            setActiveBook(false);
-            setActivePlus(false);
-            setActiveUser(true);
-            setActiveVerti(false);
-            setActiveAlarm(false);
+            setNavActive({...navActive, activeUser: true})
           }}
         >
           <IconUser
-            fill={activeUser ? clickColor : nonClickColor}
-            stroke={activeUser ? clickColor : nonClickColor}
+            fill={navActive.activeUser ? clickColor : nonClickColor}
+            stroke={navActive.activeUser ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
         <S.NavMenuBox
           onClick={() => {
             if (Cookies) navigate('/viewmore');
             else navigate('/login/guest');
-            setActiveHome(false);
-            setActiveBook(false);
-            setActivePlus(false);
-            setActiveUser(false);
-            setActiveVerti(true);
-            setActiveAlarm(false);
+            setNavActive({...navActive, activeVerti: true})
           }}
         >
           <IconVertical
-            fill={activeVerti ? clickColor : nonClickColor}
-            stroke={activeVerti ? clickColor : nonClickColor}
+            fill={navActive.activeVerti ? clickColor : nonClickColor}
+            stroke={navActive.activeVerti ? clickColor : nonClickColor}
           />
         </S.NavMenuBox>
       </S.NavBottomContainer>
