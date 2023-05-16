@@ -1,32 +1,55 @@
 import * as S from './styled';
+import { mainApiUserType } from '../styled';
 
-import { useEffect } from 'react';
-import { useAppSelector } from '../../../store/config';
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
+import axios from 'axios';
 
 export const Alarm = () => {
-  const postAlarm: any = useAppSelector((state) => {
-    return state.mainInfo.userInfo;
-  });
+  const Cookies = getCookie('accessToken');
+  const [post, setPost] = useState<mainApiUserType[]>([]);
+  const postReq = async () => {
+    try {
+      await axios
+        .get(`/api/main/user`, {
+          headers: {
+            authorization: `Bearer ${Cookies}`,
+          },
+        })
+        .then((res) => {
+          setPost([...post, ...res.data.posts]);
+        });
+    } catch (err) {
+      alert(`1. 예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
+    }
+  };
 
   useEffect(() => {
-    postAlarm;
+    postReq();
   }, []);
 
-  const arr = postAlarm.posts;
-  console.log(arr);
-  const Array = arr.filter((item: any) => {
+  const Array = post.filter((item: mainApiUserType) => {
     return item.post.isChecked == 1;
   });
+
   return (
     <S.Container>
-      {Array &&
-        Array.map(() => {
+      {Array.length > 0 ? (
+        Array.map((item: mainApiUserType) => {
           return (
-            <S.Message>
-              <S.MessageContent>새로운 칭찬이 있어요!</S.MessageContent>
-            </S.Message>
+            <Link to={`/mypage/mypost/${item.post.id}`}>
+              <S.Message>
+                <S.MessageContent>새로운 칭찬이 있어요!</S.MessageContent>
+              </S.Message>
+            </Link>
           );
-        })}
+        })
+      ) : (
+        <S.Message>
+          <S.MessageContent>아직 새로운 칭찬이 없어요.</S.MessageContent>
+        </S.Message>
+      )}
     </S.Container>
   );
 };

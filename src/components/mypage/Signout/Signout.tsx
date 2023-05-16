@@ -1,5 +1,7 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Mui
@@ -20,8 +22,8 @@ const theme = createTheme({
   });
 
 export function SignOut() {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJlbWFpbCI6ImNvc2loaDU1QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTg3ODM3LCJleHAiOjE2NzIyNzA2Mzd9.-r8PnIZOmg3O0BFLoTGM9aW6Ew-0qLqqAvi42oAOqIM';
-
+  const navigate = useNavigate();
+  const Cookies = getCookie('accessToken');
   const [nickName, setNickName] = useState<string>('');
   const [checkNickname, setCheckNickname] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
@@ -34,7 +36,7 @@ export function SignOut() {
     try {
       const res = await axios.get(`/api/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       })
       setNickName(res.data.nickname);
@@ -54,14 +56,17 @@ export function SignOut() {
         return;
       }
 
-      const res = await axios.delete(`/api/user`, {
+      await axios.delete(`/api/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
+      }).then((res) => {
+        navigate('/');
+        alert('회원탈되가 되셨습니다');
       })
 
       handleModal();
-      alert(res.data.message);
+      
     } catch (err) {
       alert(`예기지 못한 에러가 발생했습니다.\nERROR: ${err}`);
     }
@@ -95,7 +100,7 @@ export function SignOut() {
                 <input
                   id="checkNickname"
                   type="text"
-                  placeholder={nickName}
+                  placeholder={'닉네임을 입력해주세요'}
                   name="checkNickname"
                   value={checkNickname || ''}
                   onChange={(e) => {
@@ -110,7 +115,7 @@ export function SignOut() {
               
               <div className="editBtn">
                 <ThemeProvider theme={theme}>
-                  <Button
+                  <Button 
                     type="submit"
                     variant="contained"
                     color="primary"

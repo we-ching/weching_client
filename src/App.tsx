@@ -12,7 +12,7 @@ import { MyPost } from './components/mypage/MyPost';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { Post } from './components/post/Post';
 import { Alarm } from './components/MainPage/Alarm/alarm';
-import { LoginForm } from './components/Login/LoginForm';
+import { LoginForm, GuestLoginForm } from './components/Login/';
 import { NotFound } from './components/NotFound';
 import { NavBar } from './components/NavBar';
 import { ViewMore } from './components/ViewMore';
@@ -31,8 +31,6 @@ import { AdminReport } from './components/admin/adminReport/adminReport';
 //https://weching-client-s767.vercel.app/
 const baseURL = 'http://ec2-3-36-141-69.ap-northeast-2.compute.amazonaws.com';
 axios.defaults.baseURL = baseURL;
-// axios.defaults.withCredentials = true;
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 const App: FC = () => {
   return (
@@ -40,30 +38,31 @@ const App: FC = () => {
       <GlobalStyle />
       <div className="App">
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<MainPage />} />
-          <Route path="/home/ranking" element={<RankingDetail />} />
-          <Route path="/mypage" element={<MyPage />} />
-          <Route path="/mypage/mypost" element={<MyPost />} />
+          <Route element={<NavBar />}>
+            <Route path="/home" element={<MainPage />} />
+            <Route path="/home/ranking" element={<RankingDetail />} />
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/mypage/mypost" element={<MyPost />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/reply/:id" element={<Reply />} />
+            <Route path="/notice" element={<Notice />} />
+            <Route path="/alarm" element={<Alarm />} />
+            <Route path="/viewmore" element={<ViewMore />} />
+            <Route path="/viewmore/recruit" element={<Recruit />} />
+            <Route path="/viewmore/about" element={<About />} />
+            <Route path="/bookmark" element={<Bookmark />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/notice" element={<AdminNotice />} />
+            <Route path="/admin/notice/new" element={<NewNotice />} />
+            <Route path="/admin/notice/renew" element={<RenewNotice />} />
+            <Route path="/admin/report" element={<AdminReport />} />
+          </Route>
           <Route path="/mypage/mypost/:postId" element={<MyPostDetail />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/post" element={<Post />} />
-          <Route path="/reply" element={<Reply />} />
-          <Route path="/reply/:id" element={<Reply />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/alarm" element={<Alarm />} />
-          <Route path="/viewmore" element={<ViewMore />} />
-          <Route path="/viewmore/recruit" element={<Recruit />} />
-          <Route path="/viewmore/about" element={<About />} />
-          <Route path="/bookmark" element={<Bookmark />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/notice" element={<AdminNotice />} />
-          <Route path="/admin/notice/new" element={<NewNotice />} />
-          <Route path="/admin/notice/renew" element={<RenewNotice />} />
-          <Route path="/admin/report" element={<AdminReport />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/login/guest" element={<GuestLoginForm />} />
         </Routes>
-        {<NavBar />}
       </div>
     </>
   );

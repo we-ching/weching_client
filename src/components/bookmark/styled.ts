@@ -1,23 +1,14 @@
 import styled from 'styled-components';
 
-const customMediaQuery = (maxWidth: number) =>
-  `@media (max-width: ${maxWidth}px)`;
-const media = {
-  mobile: customMediaQuery(1024),
-};
-
 export const Container = styled.div`
-
   width: 100vw;
   height: 100%;
   margin: auto;
   background-color: #f0f0f0;
   color: #444444;
-
   ::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
-
   button {
     position: absolute;
     top: 100px;
@@ -40,11 +31,11 @@ flex-direction: column;
 `;
 export const CardBox = styled.div`
   word-wrap: break-word;
-
+  text-overflow: ellipsis;
   height: 200px;
   width: 340px;
   box-shadow: 5px 5px 1rem rgb(0 0 0 / 0.2);
-  
+  display: flex;
   padding: 15px;
   background: hsl(${props => props.color}, 30%, 90%);
   border: 3px;
@@ -57,7 +48,6 @@ export const CardBox = styled.div`
 
   &:hover {
     transform: translateY(-1rem);
-    // background-color: white;
     background: hsl(${props => props.color}, 55%, 90%);
     min-height: 50vh;
     height: auto;
@@ -66,9 +56,23 @@ export const CardBox = styled.div`
   &:hover ~ & {
     transform: translateY(5rem);
   }
-
-
   & {
     margin-bottom: -5rem;
   }
 `;
+
+export const BookmarkCon = styled.div`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  img {
+    opacity: 30%;
+  }
+`;
+
+export interface reviewId {
+  id?: any;
+  isReported?: number;
+  idx?: number;
+}

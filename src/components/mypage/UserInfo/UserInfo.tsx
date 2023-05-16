@@ -1,15 +1,16 @@
 // dependencies
 import React, { useEffect, useState } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
 import axios from 'axios';
 
 // styles
 import * as S from './styled';
 
 interface UserInfoType {
-  id: number;
-  nickName: string;
-  point: null | number;
-  status: number;
+  id: number | null;
+  nickName: string | null;
+  point: number | null;
+  status: number | null;
   grade: null | number;
   avg: null | number;
   postCount: null | number;
@@ -17,19 +18,18 @@ interface UserInfoType {
 }
 
 const initialState = {
-  id: 21,
-  nickName: '엘리스',
-  point: 10000,
-  status: 0,
-  grade: 0,
-  avg: 0.2,
-  postCount: 2,
-  reviewCount: 5,
+  id: null,
+  nickName: null,
+  point: null,
+  status: null,
+  grade: null,
+  avg: null,
+  postCount: null,
+  reviewCount: null,
 };
 
 export function UserInfo() {
-  const token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo';
+  const Cookies = getCookie('accessToken');
 
   const [userInfo, setUserInfo] = useState<UserInfoType>(initialState);
 
@@ -37,7 +37,7 @@ export function UserInfo() {
     try {
       const res = await axios.get(`/api/user`, {
         headers: {
-          authorization: `bearer ${token}`,
+          authorization: `bearer ${Cookies}`,
         },
       });
       setUserInfo(res.data.user);
@@ -56,7 +56,7 @@ export function UserInfo() {
           <S.NicknameItemBox>{userInfo.nickName}</S.NicknameItemBox>
           <div className="pointBoxs">
             <S.PointBox>포인트 {userInfo.point}</S.PointBox>
-            <S.RankPointBox>랭킹 포인트 {userInfo.point}</S.RankPointBox>
+            <S.RankPointBox>별점 포인트 {userInfo.grade}</S.RankPointBox>
           </div>
         </div>
         <S.Line></S.Line>

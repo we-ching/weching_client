@@ -9,17 +9,18 @@ export const Container: any = styled.div`
 
   overflow-y: scroll;
   overflow-x: hidden;
-
   ::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-  }
+    display: none;
 `;
 
 export const Message: any = styled.div`
   width: 370px;
   height: 100px;
+  line-height: 100px;
   margin: 0 auto 24px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
 
   background-color: white;
   box-shadow: 0 4px 4px 0 rgb(0 0 0 / 0.1);
@@ -29,21 +30,12 @@ export const Message: any = styled.div`
   }
 `;
 
-export const MessageTitle: any = styled.div`
-  width: 343px;
-  height: 26px;
-  margin: auto;
-  padding: 7px;
-
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26px;
-`;
-
-export const MessageContent: any = styled.div`
+export const MessageContent: any = styled.p`
   width: 343px;
   height: 52px;
+  line-height: 52px;
   margin: auto;
+  text-align: center;
 
   font-size: 14px;
 `;

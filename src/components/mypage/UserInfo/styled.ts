@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 10px 0;
+  padding: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
-  height: 100px;
+  max-width: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,10 +20,6 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
-  :hover {
-    transform: translateY(2px);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -74,11 +70,10 @@ export const RankPointBox = styled.div`
 `;
 
 export const Line = styled.div`
-  margin: 12px 0 12px 17px;
+  margin: 0 17px;
+  margin-bottom: 6px;
 
-  position: absolute;
-  // width: 339px;
-  width: 85vw;
+  position: relative;
   height: 0px;
   border: 1px solid rgba(68, 68, 68, 0.5);
 `;

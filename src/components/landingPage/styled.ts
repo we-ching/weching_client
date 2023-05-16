@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-export const LandingPageContainer = styled.body`
+export const LandingPageContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 4000px;
   background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
 `;
 
 export const TitleContents = styled.h6`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -19,13 +18,29 @@ export const TitleContents = styled.h6`
   display: flex;
   justify-content: center;
   text-align: center;
-
+  animation: fade-in 1.4s;
   color: #444444;
-  padding-top: 80px;
+  padding-top: 30px;
+  img {
+    position: absolute;
+    bottom: 450px;
+    animation: fade-in 1.4s;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &:first-child {
+    padding-top: 120px;
+  }
 `;
 
 export const SubContents = styled.div`
-  // font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -35,12 +50,15 @@ export const SubContents = styled.div`
   justify-content: center;
   text-align: center;
   color: #444444;
-
+  animation: fade-in 1.4s;    
   img:first-child {
     padding-top: 200px;
     width: 300px;
     height: auto;
   }
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 `;
 
 export const ImgOne = styled.div`
@@ -52,7 +70,20 @@ export const ImgOne = styled.div`
   img:first-child {
     width: 100%;
     height: 100%;
+    animation: fade-in 1.4s;
   }
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+`;
+export const ImgTwo = styled.div`
+width: 220px;
+margin: 0 auto;
+padding-top: 200px;
+animation: fade-in 1.4s;
+  @keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
 `;
 
 export const LoginBlock = styled.button`
@@ -78,6 +109,54 @@ export const LoginBlock = styled.button`
   img {
     padding-right: 10px;
   }
+  cursor: pointer;
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const GoogleButton = styled.button`
+  position: absoulte;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  backdrop-filter: blur(2px);
+
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+
+  img {
+    padding-right: 10px;
+  }
+  cursor: pointer;
+`;
+
+export const ToHome = styled.div`
+  position: fixed;
+  position: -webkit-sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  width: 320px;
+  height: 60px;
+  font-size: 13px;
+  color: gray;
+  top: 87vh;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 `;
 
 export const FoggyUnder = styled.div`
@@ -133,9 +212,8 @@ p {
   100% { transform: translateY(15px); opacity: 0;}
 }
 }
-
+transition: opacity .5s;
 &:active {
-  transition: .3s;
   opacity: 0;
 }
 `;

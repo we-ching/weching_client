@@ -15,8 +15,8 @@ export const ItemBox = styled.div`
   margin: 10px 0;
 
   position: relative;
-  // width: 372px;
   width: 90vw;
+  max-width: 750px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@ export const EditTitle = styled.h3`
 `;
 
 export const Buttons = styled.div`
-  margin: 5px 10px;
+  margin: 5px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

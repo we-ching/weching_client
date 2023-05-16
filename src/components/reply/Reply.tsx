@@ -3,13 +3,10 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import axios from 'axios';
 import { useState } from 'react';
-import { RandomPost } from './RandomPost';
+import RandomPost from './RandomPost';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './styled';
-
-/*
-TODO: 랜덤으로 매칭된 게시물 및 버튼은 리랜더링 할필요없으므로 리랜더링 막아주기
-*/
+import { getCookie } from '../Login/GoogleBtn';
 
 export const Reply = () => {
   const [body, setBody] = useState<string>('');
@@ -17,6 +14,12 @@ export const Reply = () => {
   const params = useParams();
   const id = params.id;
   const submitHandler = async () => {
+    const token = getCookie('accessToken');
+    if (!token) {
+      alert('로그인 후 이용해주세요❗️');
+      return navigate('/login/guest');
+    }
+    setBody('');
     await axios
       .patch(
         `/api/review`,
@@ -26,7 +29,7 @@ export const Reply = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+            Authorization: `Bearer ${token}`,
           },
         }
       )
@@ -36,7 +39,7 @@ export const Reply = () => {
       })
       .catch((error) => {
         if (error.response.status === 400) {
-          return alert('이미 칭찬한 게시글 입니다❗️'); // 홈에서 막는게 나을듯
+          alert(`${error.response.data.message.replace(/\{.*/, '')}❗️`);
         }
         navigate('/home');
       });
@@ -52,7 +55,7 @@ export const Reply = () => {
           config={{
             placeholder:
               '욕설, 비방, 비꼬는 글을 작성하시면 관리자에 의해 이용을 제한될 수 있습니다.',
-            toolbar: ['bold', 'italic', 'link'],
+            toolbar: ['undo', 'redo', 'link'],
           }}
           data=""
           onReady={(editor: any) => {
@@ -60,7 +63,6 @@ export const Reply = () => {
           }}
           onChange={(event: any, editor: any) => {
             const data = editor.getData();
-            console.log({ event, editor, data });
             setBody(data);
           }}
         />

@@ -9,7 +9,10 @@ export const Main = styled.main`
   .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
     min-height: 500px;
     background-color: #f4fff1;
-    width: 80vw;
+
+    > p {
+      font: initial;
+    }
   }
 
   .ck.ck-toolbar {
@@ -31,7 +34,6 @@ export const PostBtn = styled.button`
 
 export const Post = styled.article`
   background: white;
-  width: inherit;
   min-height: 2rem;
   padding: 2rem;
 `;
@@ -40,8 +42,10 @@ export const Wrraper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: inherit;
   height: 80%;
   gap: 1rem;
+  width: 80vw;
 `;
 
 export const Title = styled.h1`

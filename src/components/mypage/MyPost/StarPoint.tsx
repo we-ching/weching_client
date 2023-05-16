@@ -1,14 +1,10 @@
 import axios from 'axios';
 import * as S from './styled';
-import { isClicked } from '../../../myPostSlice';
-import { useAppSelector } from '../../../store/config';
 import { useEffect } from 'react';
+import { getCookie } from '../../Login/GoogleBtn';
 
 export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
-  // const [loading, setLoading] = useState<any>({});
-  const isClicked = useAppSelector((state) => {
-    return state.myPost.isClicked;
-  });
+  const Cookies = getCookie('accessToken');
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -21,11 +17,14 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
           { ...star },
           {
             headers: {
-              authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo`,
+              authorization: `Bearer ${Cookies}`,
             },
           }
         )
-        .then((res) => {});
+        .then((res) => {
+          alert(`칭찬 별점이 평가되었어요.`);
+          window.location.reload();
+        });
     } catch (err: any) {
       alert(err.response.data.message);
     }
@@ -47,7 +46,7 @@ export const ReviewStartPoint: React.FC<S.reviewId> = ({ id }) => {
         <S.RP_Input type="radio" name="rating" value="1" id={id + `5`} />
         <S.RP_Label htmlFor={id + `5`}>⭐</S.RP_Label>
       </S.RP_FiledSet>
-      <S.RP_SubmitBtn></S.RP_SubmitBtn>
+      <S.RP_SubmitBtn>별점</S.RP_SubmitBtn>
     </S.RP_Form>
   );
 };

@@ -2,12 +2,15 @@ import styled from 'styled-components';
 import google from '../../assets/images/google.png';
 
 export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e9bcbc 0%, #9ebf40 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(10px);
 `;
 
 export const FormCon = styled.div`
@@ -44,6 +47,7 @@ export const BirthInput = styled.input`
 
 export const LoginTitle = styled.p`
   padding: 10px;
+  margin-top: 20px;
   font-size: 22px;
   font-weight: 400;
 `;
@@ -58,8 +62,12 @@ export const SubmitBtnCon = styled.div`
   background: #fff;
   border-radius: 10px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
-  :hover {
-    background-color: lightgray;
+  cursor: pointer;
+  &:active {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+      -1px -1px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
   }
 `;
 

@@ -37,19 +37,22 @@ export function RankingDetail() {
           <S.Ranking>
             <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
             <S.RankingSubtitle>
-              <div className='rankNum'>순위</div>
-              <div className='rankName'>닉네임</div>
-              <div className='rankPoint'>RP</div>
+              <S.rankNum>순위</S.rankNum>
+              <S.rankName>닉네임</S.rankName>
+              <S.rankPoint>RP</S.rankPoint>
             </S.RankingSubtitle>
             {
               Array.isArray(rankInfo) && rankInfo.length > 0 ? 
               rankInfo.map((item: RankingInfoType)=>
-                <S.RankingUser rank={item.rank}>
-                  <div className='rankContent'>
-                    <div className='rankNum'>{item.rank}</div>
-                    <div className='rankName'>{item.nickname}</div>
-                    <div className='rankPoint'>{item.grade}</div>
-                  </div>
+                <S.RankingUser>
+                  <S.RankContent rank={item.rank}>
+                    <S.subRankNum>{item.rank}</S.subRankNum>
+                    <S.subRankName>
+                      <S.Image src={`/rank/ranking${item.rank}.png`} alt='' />
+                      &ensp;{item.nickname}
+                    </S.subRankName>
+                    <S.subRankPoint>{item.avg}</S.subRankPoint>
+                  </S.RankContent>
                 </S.RankingUser>
               ) : null 
             }

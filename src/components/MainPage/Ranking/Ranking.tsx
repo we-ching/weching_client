@@ -14,39 +14,16 @@ interface RankingInfoType {
   avg: number,
 }
 
-const initialState: RankingInfoType[] = [
-  {
-    "rank": 1,
-    "user_id": 20,
-    "nickname": "테스트1",
-    "grade": 99,
-    "avg": 4.95
-  },
-  {
-    "rank": 2,
-    "user_id": 30,
-    "nickname": "테스트2",
-    "grade": 90,
-    "avg": 4.80
-  },
-  {
-    "rank": 3,
-    "user_id": 40,
-    "nickname": "테스트3",
-    "grade": 85,
-    "avg": 4.11
-  },
-]
 
 export const Ranking = () => {
   const navigate = useNavigate();
 
-  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>(initialState);
+  const [rankInfo, setRankInfo] = useState<RankingInfoType[]>();
 
   const rankingInfo = async () => {
     try { 
       const {ranking}: {ranking: RankingInfoType[]} = await axios.get(`/api/main`,
-      ).then(res=> res.data)
+      ).then(res => res.data)
       setRankInfo(ranking);
 
     } catch (err) {
@@ -63,7 +40,7 @@ export const Ranking = () => {
         <div className='container'>
           <S.RankingTitle>이 달의 칭찬왕</S.RankingTitle>
           <S.RankingDetailButton onClick={() => navigate('/home/ranking')}>
-            <p>더보기</p>
+            더보기
           </S.RankingDetailButton>
         </div>
         {
@@ -73,7 +50,7 @@ export const Ranking = () => {
               <div className='rank'>
                 <S.Image className='rankImg' src={`/rank/ranking${item.rank}.png`} alt=''/>
                 <div className='rankContent'>
-                  {item.rank}등 - {item.nickname} RP-{item.grade}
+                  <strong>{item.rank}등</strong> - {item.nickname} &ensp;<strong>RP</strong> - {item.avg}
                 </div>
               </div>
             </S.RankingUser>

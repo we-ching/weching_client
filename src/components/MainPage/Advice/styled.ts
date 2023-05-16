@@ -1,5 +1,19 @@
 import styled from 'styled-components';
 
+export interface adviceType {
+  author: string;
+  authorprofile: string;
+  message: string;
+  id: number;
+}
+
+export const initalAdvice = {
+  author: '',
+  authorprofile: '',
+  message: '',
+  id: 0,
+};
+
 export const Grid: any = styled.div`
   @media (min-width: 1024px) {
     grid-area: advice;
@@ -7,7 +21,7 @@ export const Grid: any = styled.div`
     height: auto;
     margin: 0;
   }
-`
+`;
 
 export const Advice: any = styled.div`
   margin: 15px auto;
@@ -29,24 +43,25 @@ export const Advice: any = styled.div`
 
 export const AdviceTitle: any = styled.div`
   border-bottom: 1px solid rgba(68, 68, 68, 0.5);
-  padding: 10px 0;
+  padding: 5px 0 10px 0;
 
-  font-size: 18px;
+  font-size: 24px;
 `;
 
 export const AdviceAuthor: any = styled.div`
   margin: 0 auto;
+  padding-bottom: 15px;
 
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   line-height: 20px;
 `;
 
 export const AdviceContent: any = styled.div`
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 20px 0;
 
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
   line-height: 20px;
 `;
@@ -63,15 +78,3 @@ export const Image: any = styled.img`
     margin: 0 5px 0 0;
   }
 `;
-
-interface Advice {
-  author: string;
-  authorrofile: string;
-  message: string;
-}
-
-const initialState = {
-  author: '',
-  authorrofile: '',
-  message: '',
-};

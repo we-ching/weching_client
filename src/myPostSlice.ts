@@ -4,6 +4,9 @@ const initialState = {
   myPosts: [],
   isClicked: false,
   clickedReview: 0,
+  getGoogleEmail: '',
+  myReviews: [],
+  mySetReviews: null,
 };
 
 export const myPostSlice = createSlice({
@@ -19,7 +22,23 @@ export const myPostSlice = createSlice({
     clickedReview: (state: any, action) => {
       state.clickedReview = action.payload;
     },
+    getGoogleEmail: (state: any, action) => {
+      state.getGoogleEmail = action.payload;
+    },
+    updateReviews: (state: any, action) => {
+      state.myReviews = [...state.myReviews, ...action.payload];
+    },
+    setReviews: (state: any, action) => {
+      state.mySetReviews = action.payload;
+    },
   },
 });
 
-export const { getPosts, isClicked, clickedReview } = myPostSlice.actions;
+export const {
+  getPosts,
+  isClicked,
+  clickedReview,
+  getGoogleEmail,
+  updateReviews,
+  setReviews,
+} = myPostSlice.actions;

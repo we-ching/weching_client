@@ -1,11 +1,11 @@
 import { Nav } from './NavBottom/NavBottom';
+import { Outlet } from 'react-router-dom';
 
 export const NavBar = () => {
-
-    if (window.location.pathname === '/') return null;
-    return (
-        <div>
-            <Nav/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Nav />
+      <Outlet />
+    </div>
+  );
+};
