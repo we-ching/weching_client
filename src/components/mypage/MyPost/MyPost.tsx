@@ -4,7 +4,7 @@ import * as S from './styled';
 import axios from 'axios';
 
 export const MyPost = () => {
-  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
+  const url = `http://ec2-3-36-141-69.ap-northeast-2.compute.amazonaws.com`;
   const [posts, setPosts] = useState<S.Posts[]>([]);
   const navigate = useNavigate();
   const myPostAllGet = async () => {
@@ -13,7 +13,7 @@ export const MyPost = () => {
         authorization:
           'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI3LCJlbWFpbCI6ImxrZzcwMDA3QGdtYWlsLmNvbSIsInN0YXR1cyI6MCwiaWF0IjoxNjcyMTk1Nzk1LCJleHAiOjE2NzIyNzg1OTV9.jPVHM-PXjsFWqwT81Kjh0KRcLAJFJuce_vujYDwICWo',
       },
-    });
+    });addEventListener
     const postList = res.data;
     setPosts(() => [...posts, ...postList]);
   };

@@ -6,7 +6,7 @@ import * as S from './styled';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
-  const url = `https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app`;
+  const url = `http://ec2-3-36-141-69.ap-northeast-2.compute.amazonaws.com`;
   const nicknameRef = useRef<HTMLInputElement>(null);
   const [isRegisteredUser, setIsRegisteredUser] = useState<Boolean>(true);
   const [token, setToken] = useState<string>('');

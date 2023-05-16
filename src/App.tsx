@@ -29,7 +29,7 @@ import { RenewNotice } from './components/admin/adminNotice/renewNotice/renewNot
 import { AdminReport } from './components/admin/adminReport/adminReport';
 
 //https://weching-client-s767.vercel.app/
-const baseURL = 'https://port-0-weching-53px25lbvs1fg6.gksl2.cloudtype.app';
+const baseURL = 'http://ec2-3-36-141-69.ap-northeast-2.compute.amazonaws.com';
 axios.defaults.baseURL = baseURL;
 // axios.defaults.withCredentials = true;
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
