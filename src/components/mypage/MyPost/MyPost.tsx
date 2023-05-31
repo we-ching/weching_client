@@ -5,7 +5,7 @@ import { getCookie } from '../../Login/GoogleBtn';
 import * as S from './styled';
 
 export const MyPost = () => {
-  const url = `http://ec2-3-36-141-69.ap-northeast-2.compute.amazonaws.com`;
+  const url = `http://weching.shop`;
   const Cookies = getCookie('accessToken');
   const [posts, setPosts] = useState<S.Posts[]>([]);
   const navigate = useNavigate();
